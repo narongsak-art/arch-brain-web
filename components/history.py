@@ -99,6 +99,16 @@ def render_history_panel():
 def _format_report(entry: dict) -> str:
     import json
     ts = datetime.fromisoformat(entry["timestamp"]).strftime("%Y-%m-%d %H:%M")
+
+    # Prefer structured → markdown over raw JSON text
+    analysis_md = entry.get("analysis", "")
+    if entry.get("structured"):
+        try:
+            from components import structured_analysis
+            analysis_md = structured_analysis.structured_to_markdown(entry["structured"])
+        except Exception:
+            pass
+
     return f"""# ผลวิเคราะห์ — {entry['name']}
 
 **วันที่:** {ts}
@@ -112,7 +122,7 @@ def _format_report(entry: dict) -> str:
 
 ## ผลวิเคราะห์
 
-{entry['analysis']}
+{analysis_md}
 
 ---
 

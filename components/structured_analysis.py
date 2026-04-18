@@ -448,3 +448,138 @@ def render_fallback(raw_text: str, error: str | None = None):
     if error:
         st.warning(f"⚠ ไม่สามารถแปลง JSON ได้ ({error}) · แสดงผลแบบ markdown")
     st.markdown(raw_text)
+
+
+# ============================================================================
+# Convert structured → markdown (for downloads: .md, .pdf, .html)
+# ============================================================================
+
+def structured_to_markdown(data: dict) -> str:
+    """Convert parsed structured analysis into human-readable markdown"""
+    parts = []
+
+    # Summary
+    s = data.get("summary", {})
+    feas = s.get("feasibility", "-")
+    emoji = STATUS_META.get(feas, ("", "", ""))[0]
+    parts.append(f"## 📊 สรุปผลวิเคราะห์\n")
+    parts.append(f"- **ความเป็นไปได้:** {emoji} {feas}")
+    parts.append(f"- **คะแนนรวม:** {s.get('overall_score', '-')}/100")
+    if s.get("feasibility_note"):
+        parts.append(f"- **หมายเหตุ:** {s['feasibility_note']}")
+    if s.get("key_concern"):
+        parts.append(f"- **⚠ ประเด็นหลัก:** {s['key_concern']}")
+    if s.get("key_strength"):
+        parts.append(f"- **⭐ จุดเด่น:** {s['key_strength']}")
+    parts.append("")
+
+    # Metrics
+    m = data.get("metrics", {})
+    if m:
+        parts.append("## 📐 ตัวเลขโครงการ\n")
+        parts.append("| รายการ | ค่า |")
+        parts.append("|--------|-----|")
+        labels = [
+            ("land_area_sqm", "พื้นที่ดิน", "ตร.ม."),
+            ("buildable_area_sqm", "พื้นที่สร้างได้", "ตร.ม."),
+            ("far_allowed", "FAR allowed", ""),
+            ("far_estimated", "FAR ใช้จริง", ""),
+            ("osr_required_pct", "OSR required", "%"),
+            ("setback_front_m", "ระยะร่นหน้า", "ม."),
+            ("setback_side_m", "ระยะร่นข้าง", "ม."),
+            ("setback_back_m", "ระยะร่นหลัง", "ม."),
+            ("max_height_m", "ความสูงสูงสุด", "ม."),
+            ("estimated_floor_area_sqm", "พื้นที่ใช้สอยประมาณ", "ตร.ม."),
+            ("estimated_cost_mbaht", "ค่าก่อสร้างประมาณ", "ลบ."),
+        ]
+        for key, label, unit in labels:
+            v = m.get(key)
+            if v is not None:
+                parts.append(f"| {label} | {v} {unit} |")
+        parts.append("")
+
+    # Layers
+    layers = data.get("layers", {})
+    if layers:
+        parts.append("## 🧩 5-Layer Analysis\n")
+        for key, meta in LAYER_META.items():
+            emoji, name, _ = meta
+            layer = layers.get(key, {})
+            if not layer:
+                continue
+            status = layer.get("status", "-")
+            score = layer.get("score", 0)
+            parts.append(f"### {emoji} {name} · {status} · {score}/100\n")
+            for f in layer.get("findings", []):
+                sev = f.get("severity", "info")
+                sev_emoji = STATUS_META.get(sev, ("ℹ",))[0]
+                parts.append(f"- **{sev_emoji} {f.get('title', '-')}** — {f.get('detail', '')}")
+                if f.get("citation"):
+                    parts.append(f"  _📚 {f['citation']}_")
+            parts.append("")
+
+    # Rooms
+    rooms = data.get("rooms", [])
+    if rooms:
+        parts.append(f"## 🚪 วิเคราะห์ห้อง ({len(rooms)})\n")
+        for r in rooms:
+            parts.append(f"### 🚪 {r.get('name', '-')} · _{r.get('type', '-')}_")
+            size_min = r.get("recommended_size_min_sqm")
+            size_max = r.get("recommended_size_max_sqm")
+            if size_min and size_max:
+                parts.append(f"- **ขนาดแนะนำ:** {size_min}-{size_max} ตร.ม.")
+            if r.get("orientation_best"):
+                parts.append(f"- **🧭 ทิศ:** {r['orientation_best']}")
+            if r.get("thai_culture_note"):
+                parts.append(f"- **🪷 วัฒนธรรมไทย:** {r['thai_culture_note']}")
+            if r.get("fengshui_note"):
+                parts.append(f"- **☯ ฮวงจุ้ย:** {r['fengshui_note']}")
+            for pt in r.get("key_points", []):
+                parts.append(f"- {pt}")
+            for iss in r.get("issues", []):
+                parts.append(f"- **⚠ ปัญหา:** {iss}")
+            parts.append("")
+
+    # Issues
+    issues = data.get("issues", [])
+    if issues:
+        parts.append(f"## 🚨 Top {len(issues)} Issues\n")
+        for iss in issues:
+            sev = iss.get("severity", "medium")
+            parts.append(f"**{iss.get('rank','-')} · {iss.get('title','-')}** _(ระดับ {sev})_")
+            parts.append(f"- {iss.get('detail', '')}")
+            if iss.get("action"):
+                parts.append(f"- 💡 **ควรทำ:** {iss['action']}")
+            parts.append("")
+
+    # Strengths
+    strengths = data.get("strengths", [])
+    if strengths:
+        parts.append(f"## ⭐ Top {len(strengths)} Strengths\n")
+        for s in strengths:
+            parts.append(f"**{s.get('rank','-')} · {s.get('title','-')}**")
+            parts.append(f"- {s.get('detail', '')}")
+            parts.append("")
+
+    # Next actions
+    actions = data.get("next_actions", [])
+    if actions:
+        parts.append("## 🎯 Next Actions\n")
+        parts.append("| # | Action | โดย | เมื่อ |")
+        parts.append("|---|--------|-----|-------|")
+        for a in actions:
+            parts.append(
+                f"| {a.get('step','-')} | {a.get('action','-')} | "
+                f"{a.get('who','-')} | {a.get('when','-')} |"
+            )
+        parts.append("")
+
+    # Caveats
+    caveats = data.get("caveats", [])
+    if caveats:
+        parts.append(f"## ⚠ ข้อจำกัด · Confidence: {data.get('confidence', 'medium')}\n")
+        for c in caveats:
+            parts.append(f"- {c}")
+        parts.append("")
+
+    return "\n".join(parts)

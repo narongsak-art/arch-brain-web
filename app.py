@@ -506,9 +506,10 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
                 st.warning("⚠ AI ไม่ตอบในรูปแบบ JSON · แสดงเป็น markdown")
             st.markdown(analysis)
 
-        # Download
+        # Download — use structured markdown if available
         st.markdown("---")
         timestamp = datetime.now().strftime("%Y-%m-%d-%H%M")
+        analysis_md = structured_analysis.structured_to_markdown(parsed_data) if parsed_data else analysis
         report = f"""# ผลวิเคราะห์ — {project_data['name']}
 
 **วันที่:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
@@ -523,7 +524,7 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
 
 ## ผลวิเคราะห์
 
-{analysis}
+{analysis_md}
 
 ---
 
@@ -542,7 +543,7 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
                 help="Markdown (ใช้ใน Obsidian/Notion)",
             )
         with col_html:
-            html_doc = export_pdf.build_print_html(project_data, analysis, provider)
+            html_doc = export_pdf.build_print_html(project_data, analysis_md, provider)
             st.download_button(
                 "🖨 .html (พิมพ์ → PDF)",
                 data=html_doc,
@@ -552,7 +553,7 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
                 help="เปิดใน browser แล้ว Ctrl+P เพื่อบันทึกเป็น PDF (รองรับฟอนต์ไทย)",
             )
         with col_pdf:
-            pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(project_data, analysis, provider)
+            pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(project_data, analysis_md, provider)
             if pdf_bytes:
                 st.download_button(
                     "📄 .pdf",
