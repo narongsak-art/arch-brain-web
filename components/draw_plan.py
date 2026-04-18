@@ -123,6 +123,15 @@ def render_draw_plan_widget(plot_w_m: float = 15.0, plot_d_m: float = 20.0):
     return None
 
 
+def _on_preset_change():
+    """Callback fires before widgets re-instantiate → safe to mutate state"""
+    preset_key = st.session_state.get("dp_preset", "custom")
+    if preset_key != "custom" and preset_key in PLOT_PRESETS:
+        _, pw, pd = PLOT_PRESETS[preset_key]
+        st.session_state["dp_plot_w"] = float(pw)
+        st.session_state["dp_plot_d"] = float(pd)
+
+
 def render_draw_tab(project_data: dict):
     """Render the full draw-plan tab (preset picker + canvas + use button)"""
     st.markdown("### 🖊 วาดแปลนด้วยตัวเอง")
@@ -131,38 +140,36 @@ def render_draw_tab(project_data: dict):
         "เหมาะสำหรับ brainstorming · ส่งภาพที่วาดให้ AI วิเคราะห์พร้อมข้อมูลโครงการ"
     )
 
-    # Plot size from project_data, with override
+    # Initialize session defaults BEFORE instantiating widgets (so preset
+    # callback can mutate them without StreamlitAPIException).
     default_w = float(project_data.get("land_w", 15))
     default_d = float(project_data.get("land_d", 20))
+    st.session_state.setdefault("dp_plot_w", default_w)
+    st.session_state.setdefault("dp_plot_d", default_d)
 
     col1, col2, col3 = st.columns([1, 1, 2])
     with col1:
         plot_w = st.number_input(
             "กว้างที่ดิน (ม.)",
             min_value=3.0, max_value=50.0,
-            value=default_w, step=0.5,
+            step=0.5,
             key="dp_plot_w",
         )
     with col2:
         plot_d = st.number_input(
             "ลึกที่ดิน (ม.)",
             min_value=3.0, max_value=80.0,
-            value=default_d, step=0.5,
+            step=0.5,
             key="dp_plot_d",
         )
     with col3:
-        preset = st.selectbox(
+        st.selectbox(
             "หรือเลือก preset",
             options=["custom"] + list(PLOT_PRESETS.keys()),
             format_func=lambda k: "-- ไม่เปลี่ยน --" if k == "custom" else PLOT_PRESETS[k][0],
             key="dp_preset",
+            on_change=_on_preset_change,
         )
-        if preset != "custom":
-            _, pw, pd = PLOT_PRESETS[preset]
-            if pw != plot_w or pd != plot_d:
-                st.session_state["dp_plot_w"] = float(pw)
-                st.session_state["dp_plot_d"] = float(pd)
-                st.rerun()
 
     st.markdown("---")
 

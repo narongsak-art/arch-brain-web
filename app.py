@@ -216,129 +216,220 @@ def analyze_project(provider, api_key, project_data, plan_image_bytes=None, prog
 # UI
 # =============================================================================
 
-def render_sidebar_tier_section():
-    """Add tier badge + nav links to sidebar"""
-    tiers.sidebar_tier_badge()
-    st.sidebar.markdown("---")
+def _inject_sidebar_tree_css():
+    """Tree-like styling for sidebar expanders"""
+    st.markdown("""
+<style>
+  /* sidebar expander → tree node */
+  section[data-testid="stSidebar"] [data-testid="stExpander"] {
+    border: none;
+    background: transparent;
+    margin: 2px 0;
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] > details {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] summary {
+    padding: 6px 10px !important;
+    font-weight: 600;
+    font-size: 0.92em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] summary:hover {
+    background: var(--surface-hover);
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] details[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] .streamlit-expanderContent {
+    padding: 8px 10px 10px 18px !important;
+    border-left: 2px solid var(--border);
+    margin-left: 10px;
+  }
+  /* Tight spacing inside sidebar expanders */
+  section[data-testid="stSidebar"] [data-testid="stExpander"] .stButton>button {
+    padding: 4px 10px;
+    font-size: 0.88em;
+    margin: 2px 0;
+  }
+  section[data-testid="stSidebar"] [data-testid="stExpander"] .stMarkdown p {
+    margin: 2px 0;
+    font-size: 0.86em;
+  }
+  /* tree node dot */
+  .ab-tree-node {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    padding: 2px 0 2px 0;
+  }
+  .ab-tree-node::before {
+    content: "└─ ";
+    color: var(--text-subtle);
+  }
+</style>
+    """, unsafe_allow_html=True)
 
-    # Quick nav
-    st.sidebar.markdown("### 🧭 Quick Nav")
-    col1, col2 = st.sidebar.columns(2)
-    if col1.button("💼 Pricing", use_container_width=True, key="nav_pricing"):
-        st.switch_page("pages/1_💼_Pricing.py")
-    if col2.button("📅 จองนัด", use_container_width=True, key="nav_book"):
-        st.switch_page("pages/2_📅_Book_Consultation.py")
 
-    col3, col4 = st.sidebar.columns(2)
-    if col3.button("📊 ประวัติ", use_container_width=True, key="nav_history"):
-        st.switch_page("pages/3_📊_History.py")
-    if col4.button("🗺 KG", use_container_width=True, key="nav_kg"):
-        st.switch_page("pages/4_🗺_KG_Explorer.py")
+def _sidebar_nav_section():
+    """Navigation tree branch — external pages"""
+    with st.sidebar.expander("🧭 **เมนู**", expanded=True):
+        st.caption("หน้าหลัก")
+        if st.button("💼 Pricing", use_container_width=True, key="nav_pricing"):
+            st.switch_page("pages/1_💼_Pricing.py")
+        if st.button("📅 จองปรึกษา", use_container_width=True, key="nav_book"):
+            st.switch_page("pages/2_📅_Book_Consultation.py")
+        if st.button("📊 ประวัติ", use_container_width=True, key="nav_history"):
+            st.switch_page("pages/3_📊_History.py")
+        if st.button("🗺 KG Explorer", use_container_width=True, key="nav_kg"):
+            st.switch_page("pages/4_🗺_KG_Explorer.py")
+        if st.button("🔗 Share view", use_container_width=True, key="nav_view"):
+            st.switch_page("pages/6_🔗_View.py")
+        if st.button("ℹ About", use_container_width=True, key="nav_about"):
+            st.switch_page("pages/5_ℹ️_About.py")
 
-    st.sidebar.markdown("---")
+
+def _sidebar_tier_section():
+    """Tier + usage tree branch"""
+    cfg = tiers.tier_config()
+    remaining = tiers.get_remaining_analyses()
+
+    label_suffix = ""
+    if remaining is not None:
+        label_suffix = f" · เหลือ {remaining} ครั้ง"
+
+    with st.sidebar.expander(f"{cfg['emoji']} **Tier: {cfg['name']}**{label_suffix}", expanded=False):
+        if remaining is None:
+            st.caption("✨ การวิเคราะห์ไม่จำกัด")
+        else:
+            used = st.session_state.get("analysis_count", 0)
+            total = used + remaining
+            st.caption(f"ใช้ไป {used}/{total} ครั้งวันนี้")
+            st.progress(min(1.0, used / max(1, total)))
+
+        if tiers.get_tier() == "free":
+            if st.button("👉 ดูแพ็กเกจ Pro", use_container_width=True, key="tier_up_btn"):
+                st.switch_page("pages/1_💼_Pricing.py")
+
+
+def _sidebar_ai_section():
+    """AI provider + API key tree branch. Returns (provider, api_key)"""
+    with st.sidebar.expander("⚙ **การตั้งค่า AI**", expanded=True):
+        provider = st.radio(
+            "AI Provider",
+            options=["gemini", "claude"],
+            format_func=lambda x: {"gemini": "🆓 Gemini (ฟรี)", "claude": "💎 Claude (เสียเงิน)"}[x],
+            index=0,
+            horizontal=False,
+            key="sb_provider",
+            help="Gemini ฟรี 1,500 ครั้ง/วัน · Claude คุณภาพสูงกว่า",
+        )
+        st.session_state["provider"] = provider
+
+        if provider == "gemini":
+            api_key = st.text_input(
+                "Gemini API Key",
+                type="password",
+                help="ฟรี · ไม่ต้องใส่ credit card",
+                value=st.session_state.get("gemini_key", ""),
+                placeholder="AIza...",
+                key="sb_gemini_key",
+            )
+            st.session_state["gemini_key"] = api_key
+            st.caption("📎 [รับ Gemini ฟรี](https://aistudio.google.com/apikey)")
+            gemini_model = st.selectbox(
+                "Model",
+                options=list(GEMINI_MODELS.keys()),
+                format_func=lambda x: GEMINI_MODELS[x],
+                index=0,
+                key="sb_gemini_model",
+                help="ถ้าเจอ rate limit · เปลี่ยน model",
+            )
+            st.session_state["gemini_model"] = gemini_model
+        else:
+            api_key = st.text_input(
+                "Claude API Key",
+                type="password",
+                value=st.session_state.get("claude_key", ""),
+                placeholder="sk-ant-...",
+                key="sb_claude_key",
+            )
+            st.session_state["claude_key"] = api_key
+            st.caption("📎 [สมัคร Claude](https://console.anthropic.com)")
+    return provider, api_key
+
+
+def _sidebar_preferences_section():
+    """Display preferences (theme + output mode)"""
+    with st.sidebar.expander("🎨 **หน้าตา + รูปแบบ**", expanded=False):
+        theme.theme_toggle(container=st)
+        structured_mode = st.toggle(
+            "✨ Structured output",
+            value=st.session_state.get("structured_mode", True),
+            help="เปิด: ตาราง/charts · ปิด: markdown ธรรมดา",
+            key="sb_structured_toggle",
+        )
+        st.session_state["structured_mode"] = structured_mode
+
+
+def _sidebar_kg_section():
+    """KG stats tree branch"""
+    with st.sidebar.expander("📊 **Knowledge Graph**", expanded=False):
+        try:
+            kg_data = json.loads(load_knowledge_graph())
+            meta = kg_data.get("meta", {})
+            col1, col2 = st.columns(2)
+            col1.metric("Nodes", meta.get("node_count", 0))
+            col2.metric("Edges", meta.get("edge_count", 0))
+        except Exception:
+            st.warning("KG not loaded")
+        hist_count = len(history.get_history())
+        st.caption(f"📚 ประวัติ: **{hist_count}** รายการ")
+
+
+def _sidebar_layers_section():
+    """5 layers reference"""
+    with st.sidebar.expander("📖 **5 ชั้นความรู้**", expanded=False):
+        st.markdown("""
+- 🏛 **กฎหมาย** · พรบ 2522, กฎกระทรวง 55
+- 🔧 **วิศวกรรม** · MEP, โครงสร้าง
+- 🎨 **ออกแบบ** · passive, ergonomics
+- 🪷 **วัฒนธรรมไทย** · พระ, ศาลภูมิ
+- ☯ **ฮวงจุ้ย** · ทิศ, ประตู, เตียง
+""")
 
 
 def render_sidebar():
+    """Render tree-style sidebar. Returns (provider, api_key)"""
+    _inject_sidebar_tree_css()
+
+    # Brand header
     st.sidebar.markdown(
-        '<div style="padding:8px 0 16px 0;">'
-        '<div style="font-size:1.2em;font-weight:800;letter-spacing:-0.01em;">🏠 สมองจำลอง</div>'
-        '<div style="font-size:0.82em;color:var(--text-muted);margin-top:2px;">Architect\'s Brain · v2.0</div>'
+        '<div style="padding:8px 0 14px 0;">'
+        '<div style="font-size:1.15em;font-weight:800;letter-spacing:-0.01em;">🏠 สมองจำลอง</div>'
+        '<div style="font-size:0.78em;color:var(--text-muted);margin-top:2px;">Architect\'s Brain · v2.0</div>'
         '</div>',
         unsafe_allow_html=True,
     )
+
+    # Tree branches (in priority order)
+    _sidebar_nav_section()
+    _sidebar_tier_section()
+    provider, api_key = _sidebar_ai_section()
+    _sidebar_preferences_section()
+    _sidebar_kg_section()
+    _sidebar_layers_section()
+
+    # Footer disclaimer
     st.sidebar.markdown("---")
-
-    # Tier + Navigation
-    render_sidebar_tier_section()
-
-    st.sidebar.markdown("##### 🎨 ธีม")
-    theme.theme_toggle(container=st.sidebar)
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("##### ⚙ การตั้งค่า AI")
-
-    # Provider selector
-    provider = st.sidebar.radio(
-        "เลือก AI Provider",
-        options=["gemini", "claude"],
-        format_func=lambda x: {"gemini": "🆓 Google Gemini (ฟรี)", "claude": "💎 Claude (เสียเงิน)"}[x],
-        index=0,
-        help="Gemini ฟรี 1,500 ครั้ง/วัน · Claude คุณภาพสูงกว่า แต่เสียเงิน",
+    st.sidebar.caption(
+        "⚠ ผลวิเคราะห์เบื้องต้น · ไม่แทนสถาปนิก/วิศวกรใบอนุญาต\n\n"
+        "Built with ❤ for Thai architects"
     )
-    st.session_state["provider"] = provider
-
-    if provider == "gemini":
-        api_key = st.sidebar.text_input(
-            "Gemini API Key",
-            type="password",
-            help="ฟรี · ไม่ต้องใส่ credit card · รับได้ที่ aistudio.google.com/apikey",
-            value=st.session_state.get("gemini_key", ""),
-            placeholder="AIza...",
-        )
-        st.session_state["gemini_key"] = api_key
-        st.sidebar.caption("📎 [รับ Gemini API Key ฟรี](https://aistudio.google.com/apikey)")
-
-        gemini_model = st.sidebar.selectbox(
-            "Gemini Model",
-            options=list(GEMINI_MODELS.keys()),
-            format_func=lambda x: GEMINI_MODELS[x],
-            index=0,
-            help="ถ้าตัวใดเจอ rate limit · ลองเปลี่ยน",
-        )
-        st.session_state["gemini_model"] = gemini_model
-    else:
-        api_key = st.sidebar.text_input(
-            "Claude API Key",
-            type="password",
-            help="ต้องเติม credit · $0.02-0.05/ครั้ง",
-            value=st.session_state.get("claude_key", ""),
-            placeholder="sk-ant-...",
-        )
-        st.session_state["claude_key"] = api_key
-        st.sidebar.caption("📎 [สมัคร Claude API](https://console.anthropic.com)")
-
-    st.sidebar.markdown("---")
-
-    # Output format toggle
-    st.sidebar.markdown("##### 📋 รูปแบบผลวิเคราะห์")
-    structured_mode = st.sidebar.toggle(
-        "✨ Structured output (ตาราง · charts)",
-        value=st.session_state.get("structured_mode", True),
-        help="เปิด: AI ตอบเป็น JSON → แสดงเป็นตาราง/charts/metrics · ปิด: markdown ธรรมดา",
-        key="structured_mode_toggle",
-    )
-    st.session_state["structured_mode"] = structured_mode
-
-    st.sidebar.markdown("---")
-
-    # KG stats
-    st.sidebar.markdown("### 📊 Knowledge Graph")
-    try:
-        kg_data = json.loads(load_knowledge_graph())
-        meta = kg_data.get("meta", {})
-        col1, col2 = st.sidebar.columns(2)
-        col1.metric("Nodes", meta.get("node_count", 0))
-        col2.metric("Edges", meta.get("edge_count", 0))
-    except Exception:
-        st.sidebar.warning("KG not loaded")
-
-    # History count
-    hist_count = len(history.get_history())
-    st.sidebar.caption(f"📚 ประวัติ: {hist_count} รายการ")
-
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("""
-### 📖 5 ชั้นความรู้
-- 🏛 **กฎหมาย** (พรบ 2522, กฎกระทรวง 55)
-- 🔧 **วิศวกรรม** (MEP, โครงสร้าง)
-- 🎨 **ออกแบบ** (passive, ergonomics)
-- 🪷 **วัฒนธรรมไทย** (พระ, ศาลภูมิ)
-- ☯ **ฮวงจุ้ย** (ทิศ, ประตู, เตียง)
-
-⚠ ผลเป็นการวิเคราะห์เบื้องต้น · ไม่แทนสถาปนิก/วิศวกรใบอนุญาต
-
----
-Built with ❤ for Thai architects
-    """)
     return provider, api_key
 
 
