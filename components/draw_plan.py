@@ -6,6 +6,7 @@ then the sketch (as PNG) is sent to AI alongside the project data.
 Uses streamlit-drawable-canvas.
 """
 
+from components import _compat  # MUST come before streamlit_drawable_canvas
 import io
 import streamlit as st
 from PIL import Image, ImageDraw

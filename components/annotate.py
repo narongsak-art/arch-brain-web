@@ -1,5 +1,6 @@
 """Image annotations · draw/mark on uploaded plan using streamlit-drawable-canvas"""
 
+from components import _compat  # MUST come before streamlit_drawable_canvas
 import io
 import streamlit as st
 from PIL import Image
