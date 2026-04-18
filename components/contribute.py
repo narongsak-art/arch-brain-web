@@ -386,7 +386,6 @@ def _render_new_form():
             options=list(TYPES.keys()),
             format_func=lambda k: f"{TYPES[k][0]} {TYPES[k][1]}",
             key="contrib_type",
-            help=lambda k: TYPES[k][2] if False else None,
         )
         st.caption(f"_{TYPES[c_type][2]}_")
     with c2:
