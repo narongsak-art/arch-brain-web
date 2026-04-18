@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets
+from components import theme, llm, analysis, presets, history
 
 
 # =============================================================================
@@ -242,22 +242,12 @@ def run_analysis(provider: str, api_key: str, model: str,
             state="complete", expanded=False,
         )
 
-        # Save to session
+        # Save to session + history
         st.session_state["result"] = parsed
         st.session_state["raw_text"] = raw
         st.session_state["project_data"] = project_data
         st.session_state["last_provider"] = provider
-        # Prepend to history
-        st.session_state["history"].insert(0, {
-            "ts": datetime.now().isoformat(),
-            "name": project_data["name"],
-            "provider": provider,
-            "project_data": project_data,
-            "result": parsed,
-            "raw_text": raw,
-        })
-        # Keep only 20 entries
-        st.session_state["history"] = st.session_state["history"][:20]
+        history.add(project_data, raw, parsed, provider)
         st.rerun()
 
     except Exception as e:
@@ -334,22 +324,12 @@ def render_result():
 
 
 def render_history():
-    """Past analyses in current session"""
-    hist = st.session_state["history"]
+    """Past analyses in current session — delegates to history module"""
+    hist = history.get_all()
     if not hist:
         return
     st.divider()
-    with st.expander(f"📚 ประวัติ session นี้ ({len(hist)})", expanded=False):
-        for i, h in enumerate(hist):
-            ts = datetime.fromisoformat(h["ts"]).strftime("%H:%M")
-            cols = st.columns([4, 1])
-            cols[0].markdown(f"**{h['name']}** · _{h['provider']}_ · {ts}")
-            if cols[1].button("🔄 โหลด", key=f"hist_load_{i}", use_container_width=True):
-                st.session_state["result"] = h["result"]
-                st.session_state["raw_text"] = h["raw_text"]
-                st.session_state["project_data"] = h["project_data"]
-                st.session_state["last_provider"] = h["provider"]
-                st.rerun()
+    history.render_panel()
 
 
 # =============================================================================
