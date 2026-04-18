@@ -31,7 +31,7 @@ st.set_page_config(
 )
 
 # Providers
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.0-flash"  # 15 RPM · 1,500 RPD · best balance for free tier
 CLAUDE_MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4000
 
