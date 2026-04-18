@@ -169,7 +169,7 @@ def analyze_project(provider, api_key, project_data, plan_image_bytes=None, prog
 
 ---
 
-## Knowledge Graph Map (ภาพรวม 63 หน้า)
+## Knowledge Graph Map (ภาพรวม 104 หน้า)
 
 {kg}
 
@@ -605,7 +605,7 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
 
 **วันที่:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
 **Provider:** {provider.title()}
-**Knowledge Graph:** 63 nodes, 248 edges
+**Knowledge Graph:** 104 nodes, 425 edges
 
 ## ข้อมูลโครงการ
 

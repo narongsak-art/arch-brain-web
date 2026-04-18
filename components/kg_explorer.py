@@ -1,4 +1,4 @@
-"""KG Explorer · visual graph of 63 nodes / 248 edges"""
+"""KG Explorer · visual graph of 104 nodes / 425 edges"""
 
 import json
 import streamlit as st

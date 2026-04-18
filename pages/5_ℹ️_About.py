@@ -41,10 +41,10 @@ st.markdown("---")
 # Stats
 st.header("📊 ฐานความรู้")
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Wiki Pages", "88+")
-col2.metric("Categories", "8")
+col1.metric("Wiki Pages", "104+")
+col2.metric("Categories", "12")
 col3.metric("Sources", "25+")
-col4.metric("Knowledge Nodes", "63")
+col4.metric("Knowledge Nodes", "104")
 
 st.markdown("---")
 
@@ -94,7 +94,7 @@ with col1:
     - **Python** + **Streamlit**
     - **Gemini 2.5 Flash** (free tier)
     - **Claude Sonnet 4.6** (optional)
-    - **Knowledge Graph** (JSON · 63 nodes · 248 edges)
+    - **Knowledge Graph** (JSON · 104 nodes · 425 edges)
     - **Open-source sources**
     """)
 

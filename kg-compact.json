@@ -1,1 +1,3150 @@
-{"meta":{"version":"1.0-compact","domain":"thai_residential_architecture","layers":["law","eng","design","thai","fengshui"],"node_count":63,"edge_count":248,"usage":"Upload to Claude Project as knowledge · query with 5-layer analysis template"},"nodes":[{"id":"concepts/FAR-OSR-ข้อกำหนดผังเมือง","title":"FAR / OSR — อัตราส่วนพื้นที่อาคารและพื้นที่ว่าง","type":"concept","layers":["law","design"],"jurisdiction":"TH-BKK","source_status":"verified","summary":"2 อัตราส่วนหลักจาก**ผังเมืองรวม** ที่จำกัดความหนาแน่นและพื้นที่ว่างของอาคาร — ใช้ร่วมกับ","sources":["raw/papers/pang-muang-bma-2556.pdf","raw/papers/pang-muang-bma-landuse-2556.xls"]},{"id":"concepts/phase-การออกแบบ","title":"Phase การออกแบบ (SD · DD · CD · CA)","type":"concept","layers":["design"],"jurisdiction":"universal","source_status":"synthesis","summary":"Phase มาตรฐาน AIA ที่ใช้ในไทย — 5 phase ตั้งแต่ Pre-design ถึง CA"},{"id":"concepts/การวางทิศบ้าน","title":"การวางทิศและผังบ้าน (Orientation & Site Planning)","type":"concept","layers":["design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"การวางแนวบ้านตามทิศเหนือ-ใต้-ออก-ตก สำคัญมากในประเทศไทย — ส่งผลต่อความเย็น/ร้อน/ฮวงจุ้ย/วัฒนธรรม","sources":["raw/papers/integrative-passive-design-bkk.pdf","raw/papers/eppo-architectural-guidebook.pdf"]},{"id":"concepts/ขนาดห้องตามกฎหมาย","title":"ขนาดห้อง ความสูงฝ้า และทางเดินขั้นต่ำ","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"ขนาดห้อง / ความสูงฝ้า (ระยะดิ่ง) / ความกว้างทางเดิน ขั้นต่ำตามกฎกระทรวงฉบับที่ 55","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","title":"ขนาดเฟอร์นิเจอร์มาตรฐาน (Standard Furniture Sizes)","type":"concept","layers":["design"],"jurisdiction":"universal","source_status":"verified","summary":"ขนาดเฟอร์นิเจอร์มาตรฐานที่ใช้ในบ้านไทย — สำหรับวางแปลนและประเมินห้อง","sources":["raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md","raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"concepts/ขั้นตอนขออนุญาต","title":"ขั้นตอนขออนุญาตก่อสร้าง (Permitting Process)","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"ขั้นตอนการขออนุญาตก่อสร้าง/ดัดแปลง/รื้อถอน — ตั้งแต่การเลือก path ถึงได้ใบอนุญาต/ใบรับแจ้ง","sources":["raw/ฝ่ายควบคุมอาคารและผังเมือง งานขออนุญาต.md","raw/papers/phor-por-bor-2522-updated-2560.pdf"]},{"id":"concepts/ที่จอดรถ","title":"ที่จอดรถ (Parking)","type":"concept","layers":["law","eng","design"],"jurisdiction":"TH","source_status":"verified","summary":"การจัดที่จอดรถตามกฎกระทรวง ฉ.7 พ.ศ. 2517 (รวมแก้ไขถึง ฉ.64 พ.ศ. 2555) + หลัก ergonomics","sources":["raw/papers/kot-krasuang-7-parking.pdf"]},{"id":"concepts/บันไดและทางหนีไฟ","title":"บันไดและบันไดหนีไฟ","type":"concept","layers":["law","eng","design"],"jurisdiction":"TH","source_status":"verified","summary":"บันไดปกติและบันไดหนีไฟตามกฎกระทรวงฉบับที่ 55 หมวด 2 ส่วนที่ 3–4 (ข้อ 23–32)","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/บ้านไทยโบราณ","title":"บ้านไทยโบราณ (Thai Vernacular Architecture)","type":"concept","layers":["thai","design"],"jurisdiction":"universal","source_status":"verified","summary":"สถาปัตยกรรมพื้นถิ่นไทย = passive design ที่วิวัฒน์มาหลายร้อยปีกับภูมิอากาศไทย + วัฒนธรรมครอบครัว","sources":["raw/papers/tat-thai-traditional-architecture.pdf","raw/papers/integrative-passive-design-bkk.pdf"]},{"id":"concepts/พื้นที่ว่างรอบบ้าน","title":"ที่ว่างภายนอกอาคาร (Open Space)","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"\"ที่ว่าง\" = พื้นที่ในแปลงที่ดินที่ไม่มีสิ่งก่อสร้างปกคลุม — เงื่อนไข**สัดส่วนขั้นต่ำ** ตาม","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ระบบงานอาคาร","title":"ระบบงานอาคาร (MEP + Structure Overview — Hub page)","type":"concept","layers":["eng","design"],"jurisdiction":"TH","source_status":"synthesis","summary":"**Hub page** รวบรวมระบบวิศวกรรมหลักของบ้าน · สรุปสั้น + ลิงก์ไปยังหน้ารายละเอียดแต่ละระบบ"},{"id":"concepts/ระบบประปาและสุขาภิบาล","title":"ระบบประปาและสุขาภิบาล (Plumbing & Sanitation)","type":"concept","layers":["eng","design"],"jurisdiction":"TH","source_status":"synthesis","summary":"ระบบน้ำในบ้านไทย — จากแหล่งน้ำเข้าถึงระบายออก · สถาปนิกต้องรู้ sizing + ตำแหน่งเพื่อ coordinate"},{"id":"concepts/ระบบปรับอากาศและระบายอากาศ","title":"ระบบปรับอากาศและระบายอากาศ (HVAC)","type":"concept","layers":["eng","design"],"jurisdiction":"TH","source_status":"verified","summary":"ระบบปรับอากาศและระบายอากาศ — operating cost **50–70% ของบ้านไทย** มาจาก AC","sources":["raw/papers/eppo-architectural-guidebook.pdf","raw/papers/dede-building-design-guide.pdf","raw/papers/integrative-passive-design-bkk.pdf"]},{"id":"concepts/ระบบไฟฟ้าบ้าน","title":"ระบบไฟฟ้าบ้าน (Electrical System)","type":"concept","layers":["eng","design"],"jurisdiction":"TH","source_status":"synthesis","summary":"ระบบไฟฟ้าในบ้านพักอาศัยไทย — ตั้งแต่ meter ถึงปลั๊ก · สิ่งที่สถาปนิกต้องรู้เพื่อวางแผนเผื่อวิศวกรไฟฟ้า"},{"id":"concepts/ระยะร่น","title":"ระยะร่น (Setback)","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"**ระยะห่างขั้นต่ำ** จากผนังอาคารถึงขอบเขตที่ดิน/กึ่งกลางถนน/แหล่งน้ำสาธารณะ ตามกฎกระทรวงฉบับที่ 55","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน","title":"ระยะห่างระหว่างอาคารในที่ดินเดียวกัน","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"ระยะห่างระหว่าง**อาคารคนละหลังในที่ดินเดียวกัน** — ตามกฎกระทรวงฉบับที่ 55 ข้อ 48","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/วัสดุก่อสร้าง","title":"วัสดุก่อสร้าง (Building Materials)","type":"concept","layers":["eng","design","thai"],"jurisdiction":"TH","source_status":"synthesis","summary":"วัสดุก่อสร้างที่ใช้ในบ้านไทย — ราคา · คุณสมบัติ · การเลือกใช้"},{"id":"concepts/ศาลพระภูมิ","title":"ศาลพระภูมิและหิ้งพระ (Spirit House & Buddha Shelf)","type":"concept","layers":["thai","fengshui","design"],"jurisdiction":"TH","source_status":"synthesis","summary":"การวางศาลพระภูมิและหิ้งพระตามธรรมเนียมไทย — หัวข้อที่ถ้าพลาดทำให้เจ้าของบ้านไม่สบายใจ"},{"id":"concepts/สิ่งอำนวยความสะดวกผู้พิการ","title":"สิ่งอำนวยความสะดวกผู้พิการและผู้สูงอายุ (Accessibility / Universal Design)","type":"concept","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"หลักการ Universal Design ในบ้านไทย — ครอบคลุมกฎหมายเมื่อเข้าข่าย + best practice สำหรับบ้านที่มีผู้สูงอายุ","sources":["raw/papers/kot-krasuang-48-accessibility.pdf"]},{"id":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","title":"ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์ (Passive Design ในภูมิอากาศร้อนชื้น)","type":"concept","layers":["design","thai"],"jurisdiction":"universal","source_status":"verified","summary":"แนวทางออกแบบที่ลดภาระ AC ด้วยสถาปัตยกรรมเอง — เหมาะกับไทยซึ่งร้อน ชื้น และมีฝน","sources":["raw/papers/eppo-architectural-guidebook.pdf","raw/papers/dede-building-design-guide.pdf","raw/papers/integrative-passive-design-bkk.pdf"]},{"id":"concepts/ออกแบบห้องครัว","title":"ออกแบบห้องครัว (Kitchen Design)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"หน้า concept รวมทุกชั้นความรู้ที่เกี่ยวกับห้องครัวในบ้านไทย — กฎหมาย · ergonomics · วัฒนธรรม · ฮวงจุ้ย","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf","raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"concepts/ออกแบบห้องทำงาน","title":"ออกแบบห้องทำงาน (Home Office / Study Room)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"ห้องทำงาน/ห้องอ่านหนังสือ — ความต้องการเพิ่มขึ้นมากหลัง WFH (work-from-home) แพร่หลาย","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ออกแบบห้องนอน","title":"ออกแบบห้องนอน (Bedroom Design)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"หน้า concept รวมทุกชั้นสำหรับห้องนอน — กฎหมาย · ergonomics · thai culture · ฮวงจุ้ย","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf","raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"concepts/ออกแบบห้องนั่งเล่น","title":"ออกแบบห้องนั่งเล่น (Living Room Design)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"หน้า concept รวมทุกชั้นสำหรับห้องนั่งเล่น — ห้องศูนย์กลางของบ้านที่ใช้ทั้งวัน · ทั้งรับแขกและใช้","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"concepts/ออกแบบห้องน้ำ","title":"ออกแบบห้องน้ำ (Bathroom Design)","type":"concept","layers":["law","eng","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"หน้า concept รวมทุกชั้นสำหรับห้องน้ำในบ้านไทย","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf","raw/papers/kot-krasuang-48-accessibility.pdf","raw/HUMAN SCALE สัดส่วนมนุษย์กับการออกแบบห้องน้ำ.md","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"concepts/ออกแบบห้องพระ","title":"ออกแบบห้องพระ (Buddha / Prayer Room)","type":"concept","layers":["thai","fengshui","design"],"jurisdiction":"TH","source_status":"synthesis","summary":"ห้องพระสำหรับบ้านพุทธไทย — พื้นที่ศักดิ์สิทธิ์ที่ต้องคำนึงถึงตำแหน่ง ทิศ และสัดส่วนเฉพาะ"},{"id":"concepts/ออกแบบห้องรับประทานอาหาร","title":"ออกแบบห้องรับประทานอาหาร (Dining Room Design)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"verified","summary":"ห้องรับประทานอาหาร — มักต่อเนื่องกับห้องครัวและห้องนั่งเล่น สำคัญทั้งด้านการใช้งานประจำ","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf","raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md","raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md"]},{"id":"concepts/ออกแบบห้องเด็ก","title":"ออกแบบห้องเด็ก (Kid's Room)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"synthesis","summary":"ห้องเด็ก — ออกแบบโดยคำนึงถึง**การเติบโต** (0–5, 6–12, 13–18 ปี) · ความปลอดภัย · แสงธรรมชาติ ·","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ออกแบบห้องแม่บ้านและซักล้าง","title":"ห้องแม่บ้าน · ห้องซักล้าง · ห้องเก็บของ (Utility / Laundry / Storage)","type":"concept","layers":["law","eng","design","thai"],"jurisdiction":"TH","source_status":"synthesis","summary":"**3 ห้อง service** ที่บ้านไทยต้องมี (หรือรวมเป็น 1) — service areas ที่ sometimes overlooked","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"concepts/ออกแบบห้องโถง","title":"ออกแบบห้องโถง / โถงทางเข้า (Foyer / Entry Hall)","type":"concept","layers":["law","design","thai","fengshui"],"jurisdiction":"TH","source_status":"synthesis","summary":"โถงทางเข้าบ้าน — พื้นที่**หน่วง**ระหว่างประตูหน้ากับห้องใช้งานจริง · มีหน้าที่ทาง function"},{"id":"concepts/ฮวงจุ้ยเบื้องต้น","title":"ฮวงจุ้ยพื้นฐานสำหรับบ้านพักอาศัย","type":"concept","layers":["fengshui","design"],"jurisdiction":"universal","source_status":"synthesis","summary":"สรุปหลักฮวงจุ้ยระดับพื้นฐานที่ใช้กับบ้านพักอาศัยไทยบ่อยที่สุด — เน้นสิ่งที่ **ตรวจจากแปลนได้"},{"id":"concepts/เทคโนโลยีในบ้าน","title":"เทคโนโลยีในบ้าน (Smart Home + Innovations)","type":"concept","layers":["eng","design"],"jurisdiction":"universal","source_status":"verified","summary":"เทคโนโลยีที่ควรรู้สำหรับบ้านสมัยใหม่ — แบ่งเป็น (1) envelope, (2) ความปลอดภัย, (3) ระบบบ้านอัจฉริยะ","sources":["raw/ผสมผสาน เทคโนโลยี ให้กลมกลืนกับชีวิต.md"]},{"id":"concepts/โครงสร้างและฐานราก","title":"โครงสร้างและฐานราก (Structure & Foundation)","type":"concept","layers":["eng","design","law"],"jurisdiction":"TH","source_status":"synthesis","summary":"โครงสร้างบ้านไทย — สิ่งที่สถาปนิกต้องเข้าใจเพื่อ coordinate กับวิศวกรโยธา · กำหนด grid ที่ใช้งาน","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง","title":"กฎกระทรวง ฉบับที่ 33 (พ.ศ. 2535) อาคารสูง / อาคารขนาดใหญ่พิเศษ","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงสำหรับอาคาร**สูง ≥ 23 ม.** หรือ**อาคารขนาดใหญ่พิเศษ ≥ 10,000 ตร.ม.** — ใช้เพิ่มเติม","sources":["raw/papers/kot-krasuang-33-high-building.pdf"]},{"id":"entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ","title":"กฎกระทรวง ฉบับที่ 39 (พ.ศ. 2537) อาคารประเภทพิเศษ","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงสำหรับ**อาคารประเภทพิเศษ** — กำหนดมาตรฐานระบบป้องกันอัคคีภัย · ห้องน้ำ · ระบบแสงสว่าง","sources":["raw/papers/kot-krasuang-39-special-building.pdf"]},{"id":"entities/กฎกระทรวง-ฉบับที่-55","title":"กฎกระทรวง ฉบับที่ 55 (พ.ศ. 2543)","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงใต้ พรบ.ควบคุมอาคาร — กำหนด**ลักษณะ / ส่วนต่างๆ / ที่ว่าง / แนวอาคารและระยะ**","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","title":"กฎกระทรวง ฉบับที่ 7 (พ.ศ. 2517) ที่จอดรถ","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงว่าด้วย**ที่จอดรถยนต์ ที่กลับรถยนต์ และทางเข้าออกรถยนต์** — ใช้เฉพาะอาคารที่เข้าเงื่อนไข","sources":["raw/papers/kot-krasuang-7-parking.pdf"]},{"id":"entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548","title":"กฎกระทรวงกำหนดสิ่งอำนวยความสะดวกในอาคาร สำหรับผู้พิการ/ทุพพลภาพ/คนชรา (พ.ศ. 2548)","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงใต้ พรบ.ควบคุมอาคาร 2522 — กำหนดให้อาคารบางประเภทต้องมีสิ่งอำนวยความสะดวก","sources":["raw/papers/kot-krasuang-48-accessibility.pdf"]},{"id":"entities/ข้อบัญญัติ-กทม-2544","title":"ข้อบัญญัติกรุงเทพมหานคร เรื่อง ควบคุมอาคาร พ.ศ. 2544","type":"entity","layers":["law"],"jurisdiction":"TH-BKK","source_status":"verified","summary":"**ข้อบัญญัติท้องถิ่นของกรุงเทพมหานคร** สำหรับควบคุมอาคาร — ใช้**เพิ่มเติม**จากกฎกระทรวงระดับชาติ","sources":["raw/papers/kor-tor-mor-bma-2544-building-control.pdf"]},{"id":"entities/พรบ-ควบคุมอาคาร-2522","title":"พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522","type":"entity","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"**กฎหมายแม่บท**ด้านควบคุมอาคารของประเทศไทย — ให้อำนาจรัฐมนตรีมหาดไทยออกกฎกระทรวงทุกฉบับ","sources":["raw/papers/phor-por-bor-2522-updated-2560.pdf"]},{"id":"entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535","title":"พระราชบัญญัติส่งเสริมการอนุรักษ์พลังงาน พ.ศ. 2535 (รวมแก้ไขถึง 2560)","type":"entity","layers":["law","eng","design"],"jurisdiction":"TH","source_status":"verified","summary":"**พรบ.แม่บทด้านพลังงาน** — ให้อำนาจรัฐออกกฎกระทรวง **Building Energy Code (BEC)** + บังคับ","sources":["raw/papers/phor-por-bor-energy-conservation-2535.pdf"]},{"id":"summaries/สรุป-DEDE-Building-Design-Guide","title":"สรุป — คู่มือแนวทางการออกแบบอาคารเพื่อการอนุรักษ์พลังงาน (DEDE)","type":"summary","layers":["design","eng"],"jurisdiction":"TH","source_status":"verified","summary":"คู่มือ **Building Energy Code** จาก**กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน (พพ.)** กระทรวงพลังงาน","sources":["raw/papers/dede-building-design-guide.pdf"]},{"id":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน","title":"สรุป — ชุด HUMAN SCALE บ้านและสวน (ครัว · ห้องนอน · ห้องน้ำ)","type":"summary","layers":["design"],"jurisdiction":"universal","source_status":"verified","summary":"ชุดบทความ HUMAN SCALE จาก baanlaesuan.com (2016) — อ้างอิงจากหนังสือ **\"การออกแบบภายในขั้นพื้นฐาน","sources":["raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md","raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md","raw/HUMAN SCALE สัดส่วนมนุษย์กับการออกแบบห้องน้ำ.md"]},{"id":"summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง","title":"สรุป — กฎกระทรวง ฉบับที่ 33 (พ.ศ. 2535) อาคารสูง/อาคารขนาดใหญ่พิเศษ","type":"summary","layers":["law","eng"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงสำหรับ**อาคารสูง** (≥ 23 ม.) และ**อาคารขนาดใหญ่พิเศษ** (≥ 10,000 ตร.ม.) — ใช้เพิ่มเติม","sources":["raw/papers/kot-krasuang-33-high-building.pdf"]},{"id":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","title":"สรุป — กฎกระทรวงฉบับที่ 55 (พ.ศ. 2543) และฉบับแก้ไข","type":"summary","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"สรุปเนื้อหาสำคัญของกฎกระทรวงฉบับที่ 55 (พ.ศ. 2543) ฉบับรวมแก้ไขโดยฉบับที่ 58, 61, 66, 68","sources":["raw/papers/kot-krasuang-55-updated-2568.pdf"]},{"id":"summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","title":"สรุป — กฎกระทรวง ฉบับที่ 7 (พ.ศ. 2517) ที่จอดรถ","type":"summary","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวงว่าด้วย**ที่จอดรถยนต์ ที่กลับรถยนต์ และทางเข้าออกรถยนต์** สำหรับอาคารประเภทต่างๆ","sources":["raw/papers/kot-krasuang-7-parking.pdf"]},{"id":"summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ","title":"สรุป — กฎกระทรวงสิ่งอำนวยความสะดวกสำหรับผู้พิการ ทุพพลภาพ และคนชรา","type":"summary","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"กฎกระทรวง**กำหนดสิ่งอำนวยความสะดวกในอาคารสำหรับผู้พิการหรือทุพพลภาพ และคนชรา** พ.ศ. 2548","sources":["raw/papers/kot-krasuang-48-accessibility.pdf"]},{"id":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook","title":"สรุป — คู่มือแนวทางเบื้องต้นในการออกแบบอาคารอนุรักษ์พลังงาน (EPPO + TGP-EEDP)","type":"summary","layers":["design","eng"],"jurisdiction":"TH","source_status":"verified","summary":"คู่มือฉบับทางการ \"แนวทางเบื้องต้นในการออกแบบอาคารอนุรักษ์พลังงานประสิทธิภาพสูงเชิงสถาปัตยกรรม\"","sources":["raw/papers/eppo-architectural-guidebook.pdf"]},{"id":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","title":"สรุป — คู่มือวางแปลนห้อง + แบบแปลนห้อง SML (บ้านและสวน)","type":"summary","layers":["design"],"jurisdiction":"universal","source_status":"verified","summary":"2 บทความคู่ของ baanlaesuan.com (2019 + 2022) เรื่องการวางแปลนห้องแบบเข้าใจง่าย","sources":["raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md","raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"]},{"id":"summaries/สรุป-งานวิจัย-Integrative-Passive-Design","title":"สรุป — Integrative Passive Design for Climate Change (งานวิจัย BUILT Journal)","type":"summary","layers":["design","eng"],"jurisdiction":"TH","source_status":"verified","summary":"งานวิจัยตีพิมพ์ในวารสาร BUILT — *International Journal of Building, Urban, Interior and Landscape Technology*","sources":["raw/papers/integrative-passive-design-bkk.pdf"]},{"id":"summaries/สรุป-ผังเมือง-กทม-2556","title":"สรุป — กฎกระทรวงให้ใช้บังคับผังเมืองรวมกรุงเทพมหานคร พ.ศ. 2556","type":"summary","layers":["law"],"jurisdiction":"TH-BKK","source_status":"verified","summary":"ผังเมืองรวมกรุงเทพมหานคร พ.ศ. 2556 — กำหนดโซน (color code) ข้อกำหนดการใช้ที่ดิน","sources":["raw/papers/pang-muang-bma-2556.pdf","raw/papers/pang-muang-bma-landuse-2556.xls"]},{"id":"summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต","title":"สรุป — รายการเอกสารคำขออนุญาตก่อสร้าง (ฝ่ายควบคุมอาคารและผังเมือง)","type":"summary","layers":["law","design"],"jurisdiction":"TH","source_status":"verified","summary":"รวมรายการเอกสารแบบฟอร์มที่ใช้ในงานขออนุญาตก่อสร้าง/ดัดแปลง/รื้อถอน/เคลื่อนย้ายอาคาร","sources":["raw/ฝ่ายควบคุมอาคารและผังเมือง งานขออนุญาต.md"]},{"id":"summaries/สรุป-พรบ-ควบคุมอาคาร-2522","title":"สรุป — พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522 (ฉบับรวมแก้ไขถึง 2560)","type":"summary","layers":["law"],"jurisdiction":"TH","source_status":"verified","summary":"สรุปภาพรวม **กฎหมายแม่บท**ที่ใช้ควบคุมทุกอาคารในประเทศไทย — กำหนดใคร/อะไร/เมื่อไร/อย่างไร","sources":["raw/papers/phor-por-bor-2522-updated-2560.pdf"]},{"id":"summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture","title":"สรุป — วิทยานิพนธ์ THE STUDY OF THAI TRADITIONAL ARCHITECTURE (Silpakorn)","type":"summary","layers":["thai","design"],"jurisdiction":"TH","source_status":"verified","summary":"วิทยานิพนธ์ปริญญาเอก (PhD) หัวข้อ **\"The Study of Thai Traditional Architecture as a Resource","sources":["raw/papers/tat-thai-traditional-architecture.pdf"]},{"id":"summaries/สรุป-เทคโนโลยีในบ้าน","title":"สรุป — ผสมผสานเทคโนโลยีให้กลมกลืนกับชีวิต (บ้านและสวน)","type":"summary","layers":["design","eng"],"jurisdiction":"universal","source_status":"verified","summary":"บทความภาพรวมเทคโนโลยีที่ใช้ได้จริงในบ้านยุคใหม่ — จาก baanlaesuan.com (2016, 3 pages)","sources":["raw/ผสมผสาน เทคโนโลยี ให้กลมกลืนกับชีวิต.md"]},{"id":"syntheses/ส่งออกเป็นไฟล์-JSON","title":"JSON Knowledge Graph Export — สเปกไฟล์ JSON ส่งให้ AI ทุกตัว","type":"synthesis","layers":["law","eng","design","thai","fengshui"],"jurisdiction":"","source_status":"","summary":"สเปกไฟล์ JSON ตัวเดียวที่สรุปทั้ง wiki เป็น **Node + Edge graph** — AI ตัวไหนก็อ่านได้"},{"id":"syntheses/เทมเพลต-client-brief","title":"เทมเพลต Client Brief — คำถามสัมภาษณ์เจ้าของบ้าน","type":"synthesis","layers":["design"],"jurisdiction":"","source_status":"","summary":"**เทมเพลต Client Brief** สำหรับ kickoff meeting — ใช้สัมภาษณ์ลูกค้าก่อนเริ่มออกแบบ"},{"id":"syntheses/เทมเพลต-cost-estimation","title":"เทมเพลต Cost Estimation — ประเมินค่าก่อสร้างบ้าน","type":"synthesis","layers":["design","eng"],"jurisdiction":"","source_status":"","summary":"**เทมเพลต Cost Estimation** — ประเมินค่าก่อสร้างบ้านตั้งแต่ SD ถึง CD"},{"id":"syntheses/เทมเพลต-site-analysis","title":"เทมเพลต Site Analysis — ตรวจแปลงที่ดินก่อนออกแบบ","type":"synthesis","layers":["law","design","thai","fengshui"],"jurisdiction":"","source_status":"","summary":"**เทมเพลต Site Analysis** — รายการที่ต้องตรวจที่แปลงที่ดินก่อนเริ่มออกแบบ"},{"id":"syntheses/เทมเพลต-TOR-สัญญา","title":"เทมเพลต TOR + สัญญาออกแบบ (Terms of Reference)","type":"synthesis","layers":["design"],"jurisdiction":"","source_status":"","summary":"**เทมเพลต TOR + สัญญาออกแบบ** ระหว่างสถาปนิก (หรือบริษัท) กับลูกค้า · ใช้เป็น baseline"},{"id":"syntheses/แนวทางการออกแบบบ้าน","title":"แนวทางการออกแบบบ้าน — ลำดับงาน + จุดตรวจสอบ","type":"synthesis","layers":["law","eng","design","thai","fengshui"],"jurisdiction":"","source_status":"","summary":"**ลำดับการออกแบบบ้าน** จากว่างเปล่าจนส่งแบบขออนุญาต — เป็น complement ของ [[wiki/syntheses/แบบตรวจแปลน-5-ชั้นความรู้|แบบตรวจแปลน 5 ชั้น]]"},{"id":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","title":"5-Layer Analysis Template — เทมเพลตวิเคราะห์แปลน 5 ชั้นความรู้","type":"synthesis","layers":["law","eng","design","thai","fengshui"],"jurisdiction":"","source_status":"","summary":"เทมเพลตกลางสำหรับรันแปลนบ้านผ่านความรู้ครบทั้ง 5 ชั้น — ผลลัพธ์เป็นรายงานเดียวที่แยกผลตามชั้น","sources":["# template itself — draws from all layer pages at query time"]},{"id":"syntheses/แผนพัฒนา-wiki-ระยะยาว","title":"แผนพัฒนา wiki ระยะยาว — จาก 42 หน้าไปสู่ wiki ที่ใช้งานจริงทุกวัน","type":"synthesis","layers":[],"jurisdiction":"","source_status":"","summary":"เอกสารวางแผนการเติบโตของ wiki ในอีก 6–12 เดือนข้างหน้า — ครอบคลุมสิ่งที่ยังขาด ลำดับความสำคัญ"}],"edges":[{"from":"concepts/FAR-OSR-ข้อกำหนดผังเมือง","to":"summaries/สรุป-ผังเมือง-กทม-2556"},{"from":"concepts/FAR-OSR-ข้อกำหนดผังเมือง","to":"concepts/ระยะร่น"},{"from":"concepts/FAR-OSR-ข้อกำหนดผังเมือง","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"concepts/FAR-OSR-ข้อกำหนดผังเมือง","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/phase-การออกแบบ","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"concepts/phase-การออกแบบ","to":"syntheses/เทมเพลต-TOR-สัญญา"},{"from":"concepts/phase-การออกแบบ","to":"concepts/ขั้นตอนขออนุญาต"},{"from":"concepts/phase-การออกแบบ","to":"syntheses/เทมเพลต-client-brief"},{"from":"concepts/phase-การออกแบบ","to":"syntheses/เทมเพลต-site-analysis"},{"from":"concepts/การวางทิศบ้าน","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/การวางทิศบ้าน","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/การวางทิศบ้าน","to":"concepts/ระยะร่น"},{"from":"concepts/การวางทิศบ้าน","to":"concepts/ศาลพระภูมิ"},{"from":"concepts/ขนาดห้องตามกฎหมาย","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/ขนาดห้องตามกฎหมาย","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/ขนาดห้องตามกฎหมาย","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/ขนาดห้องตามกฎหมาย","to":"concepts/บันไดและทางหนีไฟ"},{"from":"concepts/ขนาดห้องตามกฎหมาย","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"concepts/ออกแบบห้องนอน"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"concepts/ออกแบบห้องครัว"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"concepts/ออกแบบห้องน้ำ"},{"from":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน","to":"concepts/ที่จอดรถ"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"concepts/ระยะร่น"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"concepts/ขั้นตอนขออนุญาต","to":"concepts/ที่จอดรถ"},{"from":"concepts/ที่จอดรถ","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"},{"from":"concepts/ที่จอดรถ","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"concepts/ที่จอดรถ","to":"concepts/ระยะร่น"},{"from":"concepts/บันไดและทางหนีไฟ","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"concepts/บันไดและทางหนีไฟ","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/บ้านไทยโบราณ","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/บ้านไทยโบราณ","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"concepts/บ้านไทยโบราณ","to":"summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture"},{"from":"concepts/บ้านไทยโบราณ","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/พื้นที่ว่างรอบบ้าน","to":"concepts/ระยะร่น"},{"from":"concepts/พื้นที่ว่างรอบบ้าน","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"concepts/พื้นที่ว่างรอบบ้าน","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/ระบบไฟฟ้าบ้าน"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/ระบบประปาและสุขาภิบาล"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/ระบบปรับอากาศและระบายอากาศ"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/โครงสร้างและฐานราก"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/วัสดุก่อสร้าง"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/บันไดและทางหนีไฟ"},{"from":"concepts/ระบบงานอาคาร","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง"},{"from":"concepts/ระบบงานอาคาร","to":"concepts/เทคโนโลยีในบ้าน"},{"from":"concepts/ระบบประปาและสุขาภิบาล","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/ระบบประปาและสุขาภิบาล","to":"concepts/ออกแบบห้องน้ำ"},{"from":"concepts/ระบบประปาและสุขาภิบาล","to":"concepts/ออกแบบห้องครัว"},{"from":"concepts/ระบบปรับอากาศและระบายอากาศ","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/ระบบปรับอากาศและระบายอากาศ","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/ระบบปรับอากาศและระบายอากาศ","to":"concepts/การวางทิศบ้าน"},{"from":"concepts/ระบบไฟฟ้าบ้าน","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/ระบบไฟฟ้าบ้าน","to":"concepts/เทคโนโลยีในบ้าน"},{"from":"concepts/ระบบไฟฟ้าบ้าน","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"concepts/ระยะร่น","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/ระยะร่น","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/ระยะร่น","to":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"},{"from":"concepts/ระยะร่น","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"concepts/ระยะร่น","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน","to":"concepts/ระยะร่น"},{"from":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"concepts/วัสดุก่อสร้าง","to":"concepts/โครงสร้างและฐานราก"},{"from":"concepts/วัสดุก่อสร้าง","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/วัสดุก่อสร้าง","to":"concepts/เทคโนโลยีในบ้าน"},{"from":"concepts/ศาลพระภูมิ","to":"concepts/การวางทิศบ้าน"},{"from":"concepts/ศาลพระภูมิ","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/สิ่งอำนวยความสะดวกผู้พิการ","to":"summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ"},{"from":"concepts/สิ่งอำนวยความสะดวกผู้พิการ","to":"concepts/ออกแบบห้องน้ำ"},{"from":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","to":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"},{"from":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","to":"summaries/สรุป-DEDE-Building-Design-Guide"},{"from":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์","to":"summaries/สรุป-งานวิจัย-Integrative-Passive-Design"},{"from":"concepts/ออกแบบห้องครัว","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"concepts/ออกแบบห้องครัว","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องครัว","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/ออกแบบห้องครัว","to":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน"},{"from":"concepts/ออกแบบห้องครัว","to":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"},{"from":"concepts/ออกแบบห้องทำงาน","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"concepts/ออกแบบห้องทำงาน","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/ออกแบบห้องทำงาน","to":"concepts/เทคโนโลยีในบ้าน"},{"from":"concepts/ออกแบบห้องทำงาน","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องนอน","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"concepts/ออกแบบห้องนอน","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องนอน","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"concepts/ออกแบบห้องนอน","to":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน"},{"from":"concepts/ออกแบบห้องนอน","to":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"},{"from":"concepts/ออกแบบห้องนอน","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"concepts/ออกแบบห้องนั่งเล่น","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"concepts/ออกแบบห้องนั่งเล่น","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"concepts/ออกแบบห้องนั่งเล่น","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องนั่งเล่น","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/ออกแบบห้องนั่งเล่น","to":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"},{"from":"concepts/ออกแบบห้องน้ำ","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"concepts/ออกแบบห้องน้ำ","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"concepts/ออกแบบห้องน้ำ","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องน้ำ","to":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน"},{"from":"concepts/ออกแบบห้องน้ำ","to":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"},{"from":"concepts/ออกแบบห้องพระ","to":"concepts/ศาลพระภูมิ"},{"from":"concepts/ออกแบบห้องพระ","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ออกแบบห้องพระ","to":"concepts/บ้านไทยโบราณ"},{"from":"concepts/ออกแบบห้องพระ","to":"concepts/การวางทิศบ้าน"},{"from":"concepts/ออกแบบห้องรับประทานอาหาร","to":"concepts/ออกแบบห้องครัว"},{"from":"concepts/ออกแบบห้องรับประทานอาหาร","to":"concepts/ออกแบบห้องนั่งเล่น"},{"from":"concepts/ออกแบบห้องรับประทานอาหาร","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"concepts/ออกแบบห้องเด็ก","to":"concepts/ออกแบบห้องนอน"},{"from":"concepts/ออกแบบห้องเด็ก","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"concepts/ออกแบบห้องเด็ก","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"concepts/ออกแบบห้องแม่บ้านและซักล้าง","to":"concepts/ออกแบบห้องครัว"},{"from":"concepts/ออกแบบห้องแม่บ้านและซักล้าง","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/ออกแบบห้องโถง","to":"concepts/ออกแบบห้องนั่งเล่น"},{"from":"concepts/ออกแบบห้องโถง","to":"concepts/การวางทิศบ้าน"},{"from":"concepts/ออกแบบห้องโถง","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"concepts/ฮวงจุ้ยเบื้องต้น","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"concepts/เทคโนโลยีในบ้าน","to":"summaries/สรุป-เทคโนโลยีในบ้าน"},{"from":"concepts/เทคโนโลยีในบ้าน","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/โครงสร้างและฐานราก","to":"concepts/วัสดุก่อสร้าง"},{"from":"concepts/โครงสร้างและฐานราก","to":"concepts/ระบบงานอาคาร"},{"from":"concepts/โครงสร้างและฐานราก","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง"},{"from":"entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ","to":"entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง"},{"from":"entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ","to":"concepts/บันไดและทางหนีไฟ"},{"from":"entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"concepts/ระยะร่น"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"entities/กฎกระทรวง-ฉบับที่-55","to":"concepts/บันไดและทางหนีไฟ"},{"from":"entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","to":"summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"},{"from":"entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","to":"concepts/ที่จอดรถ"},{"from":"entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548","to":"summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ"},{"from":"entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"entities/ข้อบัญญัติ-กทม-2544","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"entities/ข้อบัญญัติ-กทม-2544","to":"summaries/สรุป-ผังเมือง-กทม-2556"},{"from":"entities/พรบ-ควบคุมอาคาร-2522","to":"summaries/สรุป-พรบ-ควบคุมอาคาร-2522"},{"from":"entities/พรบ-ควบคุมอาคาร-2522","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535","to":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"},{"from":"entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535","to":"summaries/สรุป-DEDE-Building-Design-Guide"},{"from":"entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"summaries/สรุป-DEDE-Building-Design-Guide","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"summaries/สรุป-DEDE-Building-Design-Guide","to":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"},{"from":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน","to":"concepts/ออกแบบห้องครัว"},{"from":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน","to":"concepts/ออกแบบห้องนอน"},{"from":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน","to":"concepts/ออกแบบห้องน้ำ"},{"from":"summaries/สรุป-HUMAN-SCALE-บ้านและสวน","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/ระยะร่น"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/บันไดและทางหนีไฟ"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-55","to":"concepts/บ้านไทยโบราณ"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","to":"entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"},{"from":"summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ","to":"concepts/ที่จอดรถ"},{"from":"summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook","to":"summaries/สรุป-DEDE-Building-Design-Guide"},{"from":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","to":"concepts/ออกแบบห้องครัว"},{"from":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","to":"concepts/ออกแบบห้องนอน"},{"from":"summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน","to":"concepts/ออกแบบห้องน้ำ"},{"from":"summaries/สรุป-งานวิจัย-Integrative-Passive-Design","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"summaries/สรุป-งานวิจัย-Integrative-Passive-Design","to":"concepts/บ้านไทยโบราณ"},{"from":"summaries/สรุป-ผังเมือง-กทม-2556","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"summaries/สรุป-ผังเมือง-กทม-2556","to":"concepts/ระยะร่น"},{"from":"summaries/สรุป-ผังเมือง-กทม-2556","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"summaries/สรุป-ผังเมือง-กทม-2556","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต","to":"concepts/ขั้นตอนขออนุญาต"},{"from":"summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"summaries/สรุป-พรบ-ควบคุมอาคาร-2522","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"summaries/สรุป-พรบ-ควบคุมอาคาร-2522","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture","to":"concepts/บ้านไทยโบราณ"},{"from":"summaries/สรุป-เทคโนโลยีในบ้าน","to":"concepts/เทคโนโลยีในบ้าน"},{"from":"syntheses/ส่งออกเป็นไฟล์-JSON","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"syntheses/ส่งออกเป็นไฟล์-JSON","to":"wikilink"},{"from":"syntheses/ส่งออกเป็นไฟล์-JSON","to":"wikilinks"},{"from":"syntheses/เทมเพลต-client-brief","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"syntheses/เทมเพลต-client-brief","to":"syntheses/เทมเพลต-site-analysis"},{"from":"syntheses/เทมเพลต-cost-estimation","to":"syntheses/เทมเพลต-client-brief"},{"from":"syntheses/เทมเพลต-cost-estimation","to":"concepts/วัสดุก่อสร้าง"},{"from":"syntheses/เทมเพลต-site-analysis","to":"syntheses/เทมเพลต-client-brief"},{"from":"syntheses/เทมเพลต-site-analysis","to":"concepts/การวางทิศบ้าน"},{"from":"syntheses/เทมเพลต-site-analysis","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"syntheses/เทมเพลต-site-analysis","to":"concepts/ระยะร่น"},{"from":"syntheses/เทมเพลต-site-analysis","to":"concepts/ศาลพระภูมิ"},{"from":"syntheses/เทมเพลต-TOR-สัญญา","to":"syntheses/เทมเพลต-client-brief"},{"from":"syntheses/เทมเพลต-TOR-สัญญา","to":"concepts/phase-การออกแบบ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"syntheses/ส่งออกเป็นไฟล์-JSON"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/การวางทิศบ้าน"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ที่จอดรถ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ระยะร่น"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/พื้นที่ว่างรอบบ้าน"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ศาลพระภูมิ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ออกแบบห้องครัว"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ออกแบบห้องนอน"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ออกแบบห้องน้ำ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ระบบงานอาคาร"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"entities/พรบ-ควบคุมอาคาร-2522"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ขนาดห้องตามกฎหมาย"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/บ้านไทยโบราณ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/บันไดและทางหนีไฟ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"concepts/สิ่งอำนวยความสะดวกผู้พิการ"},{"from":"syntheses/แนวทางการออกแบบบ้าน","to":"entities/กฎกระทรวง-ฉบับที่-55"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"syntheses/ส่งออกเป็นไฟล์-JSON"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"concepts/ระยะร่น"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"concepts/FAR-OSR-ข้อกำหนดผังเมือง"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"concepts/บ้านไทยโบราณ"},{"from":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้","to":"concepts/ฮวงจุ้ยเบื้องต้น"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/แนวทางการออกแบบบ้าน"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/แบบตรวจแปลน-5-ชั้นความรู้"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/ส่งออกเป็นไฟล์-JSON"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ออกแบบห้องนั่งเล่น\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ออกแบบห้องรับประทานอาหาร\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ออกแบบห้องทำงาน\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ออกแบบห้องพระ\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ออกแบบห้องเด็ก\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ระบบไฟฟ้าบ้าน\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ระบบประปาบ้าน\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/ระบบปรับอากาศ\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/โครงสร้าง\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/วัสดุก่อสร้าง\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/เทมเพลต-client-brief\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/เทมเพลต-site-analysis\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/เทมเพลต-cost-estimation\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"syntheses/เทมเพลต-TOR\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/phase-การออกแบบ\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"concepts/Sustainability-rating\\"},{"from":"syntheses/แผนพัฒนา-wiki-ระยะยาว","to":"wikilinks"}]}
+{
+  "meta": {
+    "version": "2.0",
+    "domain": "Thai Residential Architecture",
+    "layers": [
+      "law",
+      "eng",
+      "design",
+      "thai",
+      "fengshui"
+    ],
+    "node_count": 104,
+    "edge_count": 425,
+    "usage": "Pass alongside project data / plan image to any AI for 5-layer analysis."
+  },
+  "nodes": [
+    {
+      "id": "concepts/Acoustics-Soundproofing",
+      "title": "Acoustics + Soundproofing · ระบบเสียงในบ้าน",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "Acoustics = สิ่งที่**ลูกค้าลืมบอกแต่ต้องการ** · เสียงรบกวนคืนหนึ่งพังทุกอย่าง"
+    },
+    {
+      "id": "concepts/Aging-in-Place-Deep",
+      "title": "Aging-in-Place · ออกแบบบ้านให้แก่ได้สบาย",
+      "type": "concept",
+      "layers": [
+        "design",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "**60+ population** ขยายตัวใหญ่สุดในไทย · aging-in-place = คนอยู่บ้านตัวเองถึงสุด · **ไม่ใช่ส่งบ้านพักคนชรา** Design ดี = lifespan บ้าน 50+ ปี · 3 generations"
+    },
+    {
+      "id": "concepts/BIM-พื้นฐาน",
+      "title": "BIM พื้นฐาน · Building Information Modeling Fundamentals",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "BIM = **model เดียว · ข้อมูลเดียว · ใช้ข้ามทีม** · ไม่ใช่แค่ 3D model · คือ**ฐานข้อมูล** ของอาคาร · ใช้ประโยชน์ได้ตลอด lifecycle"
+    },
+    {
+      "id": "concepts/Biophilic-Design",
+      "title": "Biophilic Design · การออกแบบเชื่อมกับธรรมชาติ",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "Biophilic = \"love of life\" · **ธรรมชาติในบ้าน** improves mental + physical health · productivity · happiness"
+    },
+    {
+      "id": "concepts/Client-Management",
+      "title": "Client Management · การจัดการลูกค้า",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "**80% ของปัญหาโปรเจค = communication failure** · การจัดการลูกค้าดี = โปรเจคสำเร็จ + referrals"
+    },
+    {
+      "id": "concepts/Color-Theory-สำหรับบ้าน",
+      "title": "Color Theory สำหรับบ้าน · ทฤษฎีสีและการเลือก palette",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "Color = **อารมณ์บ้าน** · ส่งผลกระทบจิตใจ · พลังงาน · perception ขนาดห้อง"
+    },
+    {
+      "id": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "title": "Cross-Ventilation · การระบายอากาศในบ้านเขตร้อน",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ลมผ่านตัว = **รู้สึกเย็นลง 3-5°C** โดยไม่ต้อง AC · \"bioclimatic air conditioning\" · เคล็ดลับ: **ช่อง inlet + outlet + path ที่ไม่ขวาง**"
+    },
+    {
+      "id": "concepts/FAR-OSR-ข้อกำหนดผังเมือง",
+      "title": "FAR / OSR — อัตราส่วนพื้นที่อาคารและพื้นที่ว่าง",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH-BKK",
+      "source_status": "verified",
+      "summary": "2 อัตราส่วนหลักจาก**ผังเมืองรวม** ที่จำกัดความหนาแน่นและพื้นที่ว่างของอาคาร — ใช้ร่วมกับ **ระยะร่น** และ **ที่ว่าง 30% ของชั้น** (กฎกระทรวง 55) เป็นตัวกำหนดขนาดสูงสุดที่สร้างได้",
+      "sources": [
+        "raw/papers/pang-muang-bma-2556.pdf",
+        "raw/papers/pang-muang-bma-landuse-2556.xls"
+      ]
+    },
+    {
+      "id": "concepts/Green-Building-Certification",
+      "title": "Green Building Certification (TREES · LEED · EDGE)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "3 มาตรฐานอาคารยั่งยืนหลักที่ใช้ในไทย · **เพิ่มมูลค่าบ้าน 5-15%** · ลดค่าไฟ 30-60%"
+    },
+    {
+      "id": "concepts/Hardscape-พื้นรั้ว-pergola",
+      "title": "Hardscape · พื้น · รั้ว · Pergola",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Hardscape = ส่วน**ไม่มีชีวิต**ในสวน · พื้น · รั้ว · ซุ้ม · step · retaining wall · สำคัญต่อการใช้งานสวน"
+    },
+    {
+      "id": "concepts/Home-Automation-Systems",
+      "title": "Home Automation Systems · ระบบอัตโนมัติในบ้าน",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "Automation ที่ดี = **scene-based** ไม่ใช่ device-based · ลูกค้าพูด \"ดูหนัง\" แล้วบ้านปรับทุกอย่างเอง · ไม่ใช่กดแอป 8 ครั้ง"
+    },
+    {
+      "id": "concepts/Home-Office-Retail-Mixed-Use",
+      "title": "Home Office + Retail (Mixed-Use)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "**Home + business** · ไทยมีประวัติการอยู่+ทำการค้าในอาคารเดียว (ตึกแถว) · ปัจจุบันรูปแบบใหม่ผสาน live-work"
+    },
+    {
+      "id": "concepts/Hot-Humid-Climate-Response",
+      "title": "Hot-Humid Climate Response · การตอบสนองสภาพอากาศร้อนชื้น",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ไทยอยู่ใน **tropical hot-humid zone (Köppen Aw/Am)** · strategy ตามภูมิอากาศ = **ออกแบบต่างจากยุโรป/อเมริกา** · Principle 4 ตัว: **Shade · Ventilate · Insulate · Protect from rain**"
+    },
+    {
+      "id": "concepts/Kid-Safe-Design",
+      "title": "Kid-Safe Design · บ้านปลอดภัยสำหรับเด็ก",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "เด็ก 0-6 ขวบ · สถานการณ์อันตรายเกิด**ที่บ้านเกินครึ่ง** · ออกแบบดี = ลดอุบัติเหตุ 80%+"
+    },
+    {
+      "id": "concepts/Lighting-Design",
+      "title": "Lighting Design · การออกแบบแสงสว่างในบ้าน",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Lighting = **3rd dimension of architecture** · ออกแบบดี → บ้านสวย · อยู่สบาย · ประหยัด"
+    },
+    {
+      "id": "concepts/Marketing-Portfolio-สถาปนิก",
+      "title": "Marketing + Portfolio สำหรับสถาปนิก",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Marketing สถาปนิก · แตกต่างจาก mass marketing · **คุณภาพงาน > จำนวน**"
+    },
+    {
+      "id": "concepts/Material-Finishes",
+      "title": "Material Finishes · วัสดุตกแต่งภายใน",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Finishes = **สิ่งที่ลูกค้าสัมผัสทุกวัน** · เลือกดี = ความประทับใจระยะยาว + resale"
+    },
+    {
+      "id": "concepts/Multi-Generational-Home",
+      "title": "Multi-Generational Home · บ้าน 3 รุ่น",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ไทยมีประเพณี **3 generations ใต้หลังคาเดียว** · ปัจจุบันกลับมา (อาจเพราะ elderly care + housing cost) ออกแบบบ้านให้**ทุกคนมีพื้นที่** + **ใกล้ชิดกัน**"
+    },
+    {
+      "id": "concepts/phase-การออกแบบ",
+      "title": "Phase การออกแบบ (SD · DD · CD · CA)",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "Phase มาตรฐาน AIA ที่ใช้ในไทย — 5 phase ตั้งแต่ Pre-design ถึง CA"
+    },
+    {
+      "id": "concepts/Rainwater-Harvesting",
+      "title": "Rainwater Harvesting · ระบบเก็บน้ำฝน",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "บ้านไทยฝนตกเฉลี่ย **1,500-2,500 mm/ปี** · หลังคา 100 ตร.ม. = **150-250 ลบ.ม./ปี** = **ประหยัดน้ำประปา 50-80%** · คุ้มค่าติดตั้ง"
+    },
+    {
+      "id": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "title": "Revit Workflow บ้านพักอาศัย · Revit for Residential",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**Revit workflow สำหรับบ้านไทย** · template + family + sheet + rendering · focus ที่ **practical reuse** สำหรับ solo-SME practice"
+    },
+    {
+      "id": "concepts/SketchUp-สำหรับสถาปนิก",
+      "title": "SketchUp สำหรับสถาปนิก · SketchUp for Architects",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "SketchUp = **เพื่อนตัวจริง** ของสถาปนิก Thai SME · เรียนรู้ใน 1 สัปดาห์ · ใช้ได้ตั้งแต่ sketch ถึง presentation · **ไม่ใช่ BIM** แต่เป็น **สื่อสารไอเดียที่เร็วที่สุด**"
+    },
+    {
+      "id": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์",
+      "title": "Solar PV · ระบบผลิตไฟฟ้าจากแสงอาทิตย์",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Solar PV ในไทย · **ROI 6-10 ปี** · ลดค่าไฟ 40-80% · **จำเป็น**สำหรับบ้านสมัยใหม่ที่ใส่ใจอนาคต"
+    },
+    {
+      "id": "concepts/Value-Engineering-ลดต้นทุน",
+      "title": "Value Engineering · ลดต้นทุนไม่ลดคุณภาพ",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Value Engineering = **\"ของถูกไม่ใช่ของดี · ของแพงไม่ใช่ของจำเป็น\"** · ลดเงินที่ไม่สร้าง value · เก็บเงินสำหรับสิ่งที่ลูกค้าจริงสำคัญ"
+    },
+    {
+      "id": "concepts/WELL-Standard",
+      "title": "WELL Standard · มาตรฐานบ้านเพื่อสุขภาพ",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**WELL Building Standard** · focus on **human health & wellness** (ต่างจาก LEED ที่ focus environment) ตั้งขึ้นโดย International WELL Building Institute (IWBI)"
+    },
+    {
+      "id": "concepts/การวางทิศบ้าน",
+      "title": "การวางทิศและผังบ้าน (Orientation & Site Planning)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "การวางแนวบ้านตามทิศเหนือ-ใต้-ออก-ตก สำคัญมากในประเทศไทย — ส่งผลต่อความเย็น/ร้อน/ฮวงจุ้ย/วัฒนธรรม",
+      "sources": [
+        "raw/papers/integrative-passive-design-bkk.pdf",
+        "raw/papers/eppo-architectural-guidebook.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ขนาดห้องตามกฎหมาย",
+      "title": "ขนาดห้อง ความสูงฝ้า และทางเดินขั้นต่ำ",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ขนาดห้อง / ความสูงฝ้า (ระยะดิ่ง) / ความกว้างทางเดิน ขั้นต่ำตามกฎกระทรวงฉบับที่ 55 หมวด 2 ส่วนที่ 2 (ข้อ 19–22)",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "title": "ขนาดเฟอร์นิเจอร์มาตรฐาน (Standard Furniture Sizes)",
+      "type": "concept",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "> ✅ **Verified** จาก Chula Press (via HUMAN SCALE) + คู่มือ บ้านและสวน",
+      "sources": [
+        "raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "concepts/ขั้นตอนขออนุญาต",
+      "title": "ขั้นตอนขออนุญาตก่อสร้าง (Permitting Process)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ขั้นตอนการขออนุญาตก่อสร้าง/ดัดแปลง/รื้อถอน — ตั้งแต่การเลือก path ถึงได้ใบอนุญาต/ใบรับแจ้ง",
+      "sources": [
+        "raw/ฝ่ายควบคุมอาคารและผังเมือง งานขออนุญาต.md",
+        "raw/papers/phor-por-bor-2522-updated-2560.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "title": "ค่าก่อสร้างต่อตารางเมตร · Unit Cost by Grade (Thailand 2025-2026)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Unit cost (บาท/ตร.ม.) · เครื่องมือ **feasibility** ของสถาปนิก · ใช้ตอน SD เท่านั้น · DD ขึ้นไปต้อง breakdown จริง (BOQ)"
+    },
+    {
+      "id": "concepts/ชายคาและร่มเงา",
+      "title": "ชายคาและร่มเงา · Overhangs and Shading Devices",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ชายคา + shading = **first line of defense** · **ถูกและ effective** กว่า low-e glass หรือ insulation · ออกแบบจาก sun path ของจุดที่ตั้ง"
+    },
+    {
+      "id": "concepts/ตรวจสอบโครงสร้างเดิม",
+      "title": "ตรวจสอบโครงสร้างเดิม (Structural Inspection for Renovation)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ก่อนรีโนเวท ต้องตรวจสอบ**โครงสร้างเดิม** · **บังคับ**ถ้าต่อเติม/เพิ่มชั้น · ป้องกันปัญหาแตก · ล้ม · เอียง"
+    },
+    {
+      "id": "concepts/ต้นไม้สำหรับบ้านไทย",
+      "title": "ต้นไม้สำหรับบ้านไทย (Plants Guide for Thai Homes)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "คู่มือเลือกต้นไม้ · **บ้านไทยร้อนชื้น** · ดูแลง่าย · สวย · มงคล"
+    },
+    {
+      "id": "concepts/ที่จอดรถ",
+      "title": "ที่จอดรถ (Parking)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "การจัดที่จอดรถตามกฎกระทรวง ฉ.7 พ.ศ. 2517 (รวมแก้ไขถึง ฉ.64 พ.ศ. 2555) + หลัก ergonomics",
+      "sources": [
+        "raw/papers/kot-krasuang-7-parking.pdf"
+      ]
+    },
+    {
+      "id": "concepts/บันไดและทางหนีไฟ",
+      "title": "บันไดและบันไดหนีไฟ",
+      "type": "concept",
+      "layers": [
+        "law",
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "บันไดปกติและบันไดหนีไฟตามกฎกระทรวงฉบับที่ 55 หมวด 2 ส่วนที่ 3–4 (ข้อ 23–32)",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/บ้านไทยโบราณ",
+      "title": "บ้านไทยโบราณ (Thai Vernacular Architecture)",
+      "type": "concept",
+      "layers": [
+        "thai",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "> ✅ **ยืนยันบางส่วน** — รายละเอียดเชิง iconography (หน้าบัน, คันทวย) ยืนยันจากวิทยานิพนธ์ PhD > Silpakorn 2009 · เรื่อง**สถาปัตยกรรมพื้นถิ่นประชาชน** (เรือนไทย 4 ภาค) ยังขาดแหล่งเฉพาะ > — แนะนำให้ ing…",
+      "sources": [
+        "raw/papers/tat-thai-traditional-architecture.pdf",
+        "raw/papers/integrative-passive-design-bkk.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "title": "ป้องกันฝน และป้องกันน้ำท่วม · Rain Protection + Flood Mitigation",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ไทย monsoon + urban flood = **design for wet, not dry** · ทุก detail ต้องถาม \"ถ้าฝน 200mm/hr ในชั่วโมงเดียว · น้ำไปไหน?\""
+    },
+    {
+      "id": "concepts/พื้นที่ว่างรอบบ้าน",
+      "title": "ที่ว่างภายนอกอาคาร (Open Space)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "\"ที่ว่าง\" = พื้นที่ในแปลงที่ดินที่ไม่มีสิ่งก่อสร้างปกคลุม — เงื่อนไข**สัดส่วนขั้นต่ำ** ตาม กฎกระทรวงฉบับที่ 55 หมวด 3 (ข้อ 33–39)",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ระบบงานอาคาร",
+      "title": "ระบบงานอาคาร (MEP + Structure Overview — Hub page)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "**Hub page** รวบรวมระบบวิศวกรรมหลักของบ้าน · สรุปสั้น + ลิงก์ไปยังหน้ารายละเอียดแต่ละระบบ สถาปนิกต้องรู้พอให้ออกแบบผังที่วิศวกรแต่ละสาขาทำงานต่อได้"
+    },
+    {
+      "id": "concepts/ระบบประปาและสุขาภิบาล",
+      "title": "ระบบประปาและสุขาภิบาล (Plumbing & Sanitation)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ระบบน้ำในบ้านไทย — จากแหล่งน้ำเข้าถึงระบายออก · สถาปนิกต้องรู้ sizing + ตำแหน่งเพื่อ coordinate กับวิศวกรสุขาภิบาล"
+    },
+    {
+      "id": "concepts/ระบบปรับอากาศและระบายอากาศ",
+      "title": "ระบบปรับอากาศและระบายอากาศ (HVAC)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ระบบปรับอากาศและระบายอากาศ — operating cost **50–70% ของบ้านไทย** มาจาก AC ออกแบบให้ถูกจะ**ลดภาระ AC** + เพิ่มคุณภาพอากาศภายใน",
+      "sources": [
+        "raw/papers/eppo-architectural-guidebook.pdf",
+        "raw/papers/dede-building-design-guide.pdf",
+        "raw/papers/integrative-passive-design-bkk.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "title": "ระบบรักษาความปลอดภัยบ้าน · Home Security Systems",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Security ที่ดี = **\"defense in depth\"** · 3 วงป้องกัน (รั้ว → envelope → interior) · ไม่ใช่กล้อง 1 ตัวจบ"
+    },
+    {
+      "id": "concepts/ระบบไฟฟ้าบ้าน",
+      "title": "ระบบไฟฟ้าบ้าน (Electrical System)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ระบบไฟฟ้าในบ้านพักอาศัยไทย — ตั้งแต่ meter ถึงปลั๊ก · สิ่งที่สถาปนิกต้องรู้เพื่อวางแผนเผื่อวิศวกรไฟฟ้า"
+    },
+    {
+      "id": "concepts/ระยะร่น",
+      "title": "ระยะร่น (Setback)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "**ระยะห่างขั้นต่ำ** จากผนังอาคารถึงขอบเขตที่ดิน/กึ่งกลางถนน/แหล่งน้ำสาธารณะ ตามกฎกระทรวงฉบับที่ 55 หมวด 4 (ข้อ 40–53) — เป็นเงื่อนไขด่านแรกที่ต้องผ่านก่อนเริ่มออกแบบจริง",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน",
+      "title": "ระยะห่างระหว่างอาคารในที่ดินเดียวกัน",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ระยะห่างระหว่าง**อาคารคนละหลังในที่ดินเดียวกัน** — ตามกฎกระทรวงฉบับที่ 55 ข้อ 48 สำคัญสำหรับโครงการที่มีหลายอาคาร (บ้าน + เรือนครัว + gym, หรือ townhouse complex, etc.)",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/รีโนเวทบ้านเก่า",
+      "title": "รีโนเวทบ้านเก่า · Workflow และข้อควรระวัง",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "รีโนเวทเป็น **70% ของงานสถาปนิกจริง** · ต่างจากสร้างใหม่มาก · มี**ข้อจำกัดมาก**แต่ **margin สูง**"
+    },
+    {
+      "id": "concepts/วัสดุก่อสร้าง",
+      "title": "วัสดุก่อสร้าง (Building Materials)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "วัสดุก่อสร้างที่ใช้ในบ้านไทย — ราคา · คุณสมบัติ · การเลือกใช้"
+    },
+    {
+      "id": "concepts/ศาลพระภูมิ",
+      "title": "ศาลพระภูมิและหิ้งพระ (Spirit House & Buddha Shelf)",
+      "type": "concept",
+      "layers": [
+        "thai",
+        "fengshui",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "การวางศาลพระภูมิและหิ้งพระตามธรรมเนียมไทย — หัวข้อที่ถ้าพลาดทำให้เจ้าของบ้านไม่สบายใจ"
+    },
+    {
+      "id": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "title": "สมาร์ทโฮม พื้นฐาน · Smart Home Fundamentals",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "สมาร์ทโฮมที่ดี = เทคโนโลยี**ที่ลูกค้าไม่รู้สึกว่าต้องเรียนรู้** · ออกแบบจาก protocol + hub ให้ถูกตั้งแต่แรก · ไม่ใช่ซื้ออุปกรณ์แล้วค่อย integrate"
+    },
+    {
+      "id": "concepts/สิ่งอำนวยความสะดวกผู้พิการ",
+      "title": "สิ่งอำนวยความสะดวกผู้พิการและผู้สูงอายุ (Accessibility / Universal Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "หลักการ Universal Design ในบ้านไทย — ครอบคลุมกฎหมายเมื่อเข้าข่าย + best practice สำหรับบ้านที่มีผู้สูงอายุ",
+      "sources": [
+        "raw/papers/kot-krasuang-48-accessibility.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบคอนโดยูนิต",
+      "title": "ออกแบบคอนโดยูนิต (Condominium Unit Design)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "คอนโด = **residential growth area** กทม. · ยูนิตเล็ก 25-30 ตร.ม. ถึง penthouse 200+ · สถาปนิกต้อง optimize space"
+    },
+    {
+      "id": "concepts/ออกแบบทาวน์เฮาส์",
+      "title": "ออกแบบทาวน์เฮาส์ (Townhouse Design)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "law",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ทาวน์เฮาส์ = **80% ของที่อยู่อาศัยใหม่**ในกรุงเทพ · ข้อจำกัดมากแต่**เป็น canvas ให้นวัตกรรม**"
+    },
+    {
+      "id": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "title": "ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์ (Passive Design ในภูมิอากาศร้อนชื้น)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "> ✅ **ยืนยันจากต้นฉบับ** — เนื้อหาของหน้านี้ได้รับการยืนยันจาก 3 แหล่งทางการ/วิจัย: > 1. EPPO + TGP-EEDP Architectural Guidebook 2559 (OTTV/RTTV framework) > 2. DEDE Building Energy Code Guide (metric…",
+      "sources": [
+        "raw/papers/eppo-architectural-guidebook.pdf",
+        "raw/papers/dede-building-design-guide.pdf",
+        "raw/papers/integrative-passive-design-bkk.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบรีสอร์ตวิลลา",
+      "title": "ออกแบบรีสอร์ตวิลลา (Resort Villa Design)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Resort villa · **Luxury tropical architecture** · integrate กับธรรมชาติ · indoor-outdoor flow · พื้นที่พิเศษ"
+    },
+    {
+      "id": "concepts/ออกแบบสระว่ายน้ำ",
+      "title": "ออกแบบสระว่ายน้ำ (Pool Design)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "สระว่ายน้ำ · เป็นส่วนที่**ซับซ้อนที่สุด**ในงาน landscape — โครงสร้าง · วิศวกรรมน้ำ · ระบบบำบัด · กฎหมาย"
+    },
+    {
+      "id": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "title": "ออกแบบสวนและภูมิสถาปัตย์ (Landscape Design)",
+      "type": "concept",
+      "layers": [
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "สวนไม่ใช่แค่ \"ที่ว่างหลังหักบ้าน\" — ต้องออกแบบให้**ใช้งานได้ · เย็นบ้าน · สวย · ดูแลง่าย**"
+    },
+    {
+      "id": "concepts/ออกแบบห้องครัว",
+      "title": "ออกแบบห้องครัว (Kitchen Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "> ✅ **Ergonomics ยืนยันจาก 3 แหล่ง:** Chula Press \"การออกแบบภายในขั้นพื้นฐาน\" (ผ่าน HUMAN SCALE บ้านและสวน 2016) > + คู่มือวางแปลนห้อง บ้านและสวน 2019 + แบบแปลนห้อง SML 2022 > ตัวเลขสำคัญที่ยืนยัน: คว…",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf",
+        "raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องทำงาน",
+      "title": "ออกแบบห้องทำงาน (Home Office / Study Room)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ห้องทำงาน/ห้องอ่านหนังสือ — ความต้องการเพิ่มขึ้นมากหลัง WFH (work-from-home) แพร่หลาย ต้องคำนึงทั้งสมาธิ · ergonomics · การประชุมออนไลน์ · แสงธรรมชาติ",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องนอน",
+      "title": "ออกแบบห้องนอน (Bedroom Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "> ✅ **Ergonomics ยืนยันจาก 3 แหล่ง:** Chula Press (ผ่าน HUMAN SCALE) + บ้านและสวน layout guides > ตัวเลขที่ยืนยัน: พื้นที่ห้องนอนสบาย **18–24 ตร.ม.** · ทางเดินข้างเตียง **≥ 60 ซม.** · ผนังหัวเตียงทึบ…",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf",
+        "raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องนั่งเล่น",
+      "title": "ออกแบบห้องนั่งเล่น (Living Room Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "หน้า concept รวมทุกชั้นสำหรับห้องนั่งเล่น — ห้องศูนย์กลางของบ้านที่ใช้ทั้งวัน · ทั้งรับแขกและใช้ งานครอบครัว",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องน้ำ",
+      "title": "ออกแบบห้องน้ำ (Bathroom Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "eng",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "> ✅ **Verified จาก 5 แหล่ง** — กฎกระทรวง 55 + กฎกระทรวงสิ่งอำนวยฯ + Chula Press (HUMAN SCALE) + 2 คู่มือ layout > ยืนยัน: ประตูทั่วไปเปิดเข้า · **ประตูผู้สูงอายุเปิดออก/บานเลื่อน** · แยก dry/wet · พื้…",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf",
+        "raw/papers/kot-krasuang-48-accessibility.pdf",
+        "raw/HUMAN SCALE สัดส่วนมนุษย์กับการออกแบบห้องน้ำ.md",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องพระ",
+      "title": "ออกแบบห้องพระ (Buddha / Prayer Room)",
+      "type": "concept",
+      "layers": [
+        "thai",
+        "fengshui",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ห้องพระสำหรับบ้านพุทธไทย — พื้นที่ศักดิ์สิทธิ์ที่ต้องคำนึงถึงตำแหน่ง ทิศ และสัดส่วนเฉพาะ ต่อยอดจาก ศาลพระภูมิและหิ้งพระ ซึ่งพูดถึงพื้นฐาน"
+    },
+    {
+      "id": "concepts/ออกแบบห้องรับประทานอาหาร",
+      "title": "ออกแบบห้องรับประทานอาหาร (Dining Room Design)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "ห้องรับประทานอาหาร — มักต่อเนื่องกับห้องครัวและห้องนั่งเล่น สำคัญทั้งด้านการใช้งานประจำ และการรับแขกในโอกาสต่างๆ",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf",
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md",
+        "raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องเด็ก",
+      "title": "ออกแบบห้องเด็ก (Kid's Room)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "ห้องเด็ก — ออกแบบโดยคำนึงถึง**การเติบโต** (0–5, 6–12, 13–18 ปี) · ความปลอดภัย · แสงธรรมชาติ · สมาธิ/การเรียน",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องแม่บ้านและซักล้าง",
+      "title": "ห้องแม่บ้าน · ห้องซักล้าง · ห้องเก็บของ (Utility / Laundry / Storage)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "eng",
+        "design",
+        "thai"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "**3 ห้อง service** ที่บ้านไทยต้องมี (หรือรวมเป็น 1) — service areas ที่ sometimes overlooked แต่ส่งผลต่อคุณภาพชีวิตประจำวัน",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "concepts/ออกแบบห้องโถง",
+      "title": "ออกแบบห้องโถง / โถงทางเข้า (Foyer / Entry Hall)",
+      "type": "concept",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "โถงทางเข้าบ้าน — พื้นที่**หน่วง**ระหว่างประตูหน้ากับห้องใช้งานจริง · มีหน้าที่ทาง function (ถอดรองเท้า, เก็บของ) + วัฒนธรรม (ต้อนรับ) + ฮวงจุ้ย (ไม่ให้ชี่พุ่ง)"
+    },
+    {
+      "id": "concepts/ฮวงจุ้ยเบื้องต้น",
+      "title": "ฮวงจุ้ยพื้นฐานสำหรับบ้านพักอาศัย",
+      "type": "concept",
+      "layers": [
+        "fengshui",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "สรุปหลักฮวงจุ้ยระดับพื้นฐานที่ใช้กับบ้านพักอาศัยไทยบ่อยที่สุด — เน้นสิ่งที่ **ตรวจจากแปลนได้ โดยไม่ต้องรู้ดวงเจ้าของบ้าน** (ดวง/ปีเกิดเป็นเรื่องเฉพาะบุคคล ต้องถามเพิ่ม)"
+    },
+    {
+      "id": "concepts/เทคโนโลยีในบ้าน",
+      "title": "เทคโนโลยีในบ้าน (Smart Home + Innovations)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "เทคโนโลยีที่ควรรู้สำหรับบ้านสมัยใหม่ — แบ่งเป็น (1) envelope, (2) ความปลอดภัย, (3) ระบบบ้านอัจฉริยะ",
+      "sources": [
+        "raw/ผสมผสาน เทคโนโลยี ให้กลมกลืนกับชีวิต.md"
+      ]
+    },
+    {
+      "id": "concepts/โครงสร้างราคาก่อสร้าง",
+      "title": "โครงสร้างราคาก่อสร้าง · Cost Breakdown Structure",
+      "type": "concept",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "Cost breakdown · รู้ว่า% ของงบไปตรงไหน · ช่วย **spot anomalies** (รายการสูง/ต่ำผิดปกติ) + ตัดสินใจ Value Engineering ได้ถูกจุด"
+    },
+    {
+      "id": "concepts/โครงสร้างและฐานราก",
+      "title": "โครงสร้างและฐานราก (Structure & Foundation)",
+      "type": "concept",
+      "layers": [
+        "eng",
+        "design",
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "synthesis",
+      "summary": "โครงสร้างบ้านไทย — สิ่งที่สถาปนิกต้องเข้าใจเพื่อ coordinate กับวิศวกรโยธา · กำหนด grid ที่ใช้งาน ได้จริง · หลีกเลี่ยงปัญหา span/clearance",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "syntheses/ส่งออกเป็นไฟล์-JSON",
+      "title": "JSON Knowledge Graph Export — สเปกไฟล์ JSON ส่งให้ AI ทุกตัว",
+      "type": "synthesis",
+      "layers": [
+        "law",
+        "eng",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "สเปกไฟล์ JSON ตัวเดียวที่สรุปทั้ง wiki เป็น **Node + Edge graph** — AI ตัวไหนก็อ่านได้ ไม่ต้อง train ไม่ต้องมี plugin แค่แนบ JSON + แปลน แล้วสั่งว่า \"วิเคราะห์ตาม Knowledge Graph นี้\""
+    },
+    {
+      "id": "syntheses/เทมเพลต-BIM-execution-plan",
+      "title": "เทมเพลต BIM Execution Plan · Small Practice BEP",
+      "type": "synthesis",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**BIM Execution Plan (BEP) สำหรับ small practice** · 1-10 คน · ไม่ต้อง 50-page corporate BEP · นี่คือ practical version ที่ actually ใช้ได้"
+    },
+    {
+      "id": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "title": "เทมเพลต BOQ · Bill of Quantities ประมาณการ",
+      "type": "synthesis",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต BOQ** · รายการ + ปริมาณ + ราคาต่อหน่วย · ใช้ quote ผู้รับเหมา + ตรวจ change order · **language ของสัญญาก่อสร้าง**"
+    },
+    {
+      "id": "syntheses/เทมเพลต-client-brief",
+      "title": "เทมเพลต Client Brief — คำถามสัมภาษณ์เจ้าของบ้าน",
+      "type": "synthesis",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต Client Brief** สำหรับ kickoff meeting — ใช้สัมภาษณ์ลูกค้าก่อนเริ่มออกแบบ เพื่อเก็บข้อมูลที่ครบและสื่อสารผิดน้อยที่สุด"
+    },
+    {
+      "id": "syntheses/เทมเพลต-cost-estimation",
+      "title": "เทมเพลต Cost Estimation — ประเมินค่าก่อสร้างบ้าน",
+      "type": "synthesis",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต Cost Estimation** — ประเมินค่าก่อสร้างบ้านตั้งแต่ SD ถึง CD ช่วยลูกค้าเข้าใจและเผื่องบ · ช่วยสถาปนิกเลือกวัสดุให้เหมาะกับ budget"
+    },
+    {
+      "id": "syntheses/เทมเพลต-site-analysis",
+      "title": "เทมเพลต Site Analysis — ตรวจแปลงที่ดินก่อนออกแบบ",
+      "type": "synthesis",
+      "layers": [
+        "law",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต Site Analysis** — รายการที่ต้องตรวจที่แปลงที่ดินก่อนเริ่มออกแบบ"
+    },
+    {
+      "id": "syntheses/เทมเพลต-smart-home-spec",
+      "title": "เทมเพลต Smart Home Spec · Spec Checklist สำหรับ New Build",
+      "type": "synthesis",
+      "layers": [
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต spec smart home สำหรับบ้านใหม่** · สถาปนิกถามลูกค้าช่วง DD · ส่งผู้รับเหมาและ integrator ช่วง CD · ใช้ตรวจ commissioning ตอน handover"
+    },
+    {
+      "id": "syntheses/เทมเพลต-TOR-สัญญา",
+      "title": "เทมเพลต TOR + สัญญาออกแบบ (Terms of Reference)",
+      "type": "synthesis",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**เทมเพลต TOR + สัญญาออกแบบ** ระหว่างสถาปนิก (หรือบริษัท) กับลูกค้า · ใช้เป็น baseline ก่อนทำสัญญาจริง (ต้องให้ทนายตรวจก่อนเซ็น)"
+    },
+    {
+      "id": "syntheses/เทมเพลต-TOR",
+      "title": "เทมเพลต-TOR",
+      "type": "synthesis",
+      "layers": [],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": ""
+    },
+    {
+      "id": "syntheses/แนวทางการออกแบบบ้าน",
+      "title": "แนวทางการออกแบบบ้าน — ลำดับงาน + จุดตรวจสอบ",
+      "type": "synthesis",
+      "layers": [
+        "law",
+        "eng",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "**ลำดับการออกแบบบ้าน** จากว่างเปล่าจนส่งแบบขออนุญาต — เป็น complement ของ แบบตรวจแปลน 5 ชั้น (เทมเพลตวิเคราะห์) แต่หน้านี้เน้น**ขั้นตอนการคิด** ตั้งแต่แรก"
+    },
+    {
+      "id": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "title": "5-Layer Analysis Template — เทมเพลตวิเคราะห์แปลน 5 ชั้นความรู้",
+      "type": "synthesis",
+      "layers": [
+        "law",
+        "eng",
+        "design",
+        "thai",
+        "fengshui"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "เทมเพลตกลางสำหรับรันแปลนบ้านผ่านความรู้ครบทั้ง 5 ชั้น — ผลลัพธ์เป็นรายงานเดียวที่แยกผลตามชั้น พร้อมจุดที่ชั้นต่างๆ เห็นตรงกันหรือขัดแย้งกัน",
+      "sources": [
+        "[]   # template itself — draws from all layer pages at query time"
+      ]
+    },
+    {
+      "id": "syntheses/แผนพัฒนา-wiki-ระยะยาว",
+      "title": "แผนพัฒนา wiki ระยะยาว — จาก 42 หน้าไปสู่ wiki ที่ใช้งานจริงทุกวัน",
+      "type": "synthesis",
+      "layers": [],
+      "jurisdiction": "universal",
+      "source_status": "synthesis",
+      "summary": "เอกสารวางแผนการเติบโตของ wiki ในอีก 6–12 เดือนข้างหน้า — ครอบคลุมสิ่งที่ยังขาด ลำดับความสำคัญ และวิธีรักษา wiki ให้ใหม่เสมอโดยไม่ภาระหนัก"
+    },
+    {
+      "id": "summaries/สรุป-DEDE-Building-Design-Guide",
+      "title": "สรุป — คู่มือแนวทางการออกแบบอาคารเพื่อการอนุรักษ์พลังงาน (DEDE)",
+      "type": "summary",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "คู่มือ **Building Energy Code** จาก**กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน (พพ.)** กระทรวงพลังงาน เวอร์ชัน 2E Building Centre — สำหรับสถาปนิกและวิศวกรที่ออกแบบอาคารให้ผ่านเกณฑ์ BEC",
+      "sources": [
+        "raw/papers/dede-building-design-guide.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน",
+      "title": "สรุป — ชุด HUMAN SCALE บ้านและสวน (ครัว · ห้องนอน · ห้องน้ำ)",
+      "type": "summary",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "ชุดบทความ HUMAN SCALE จาก baanlaesuan.com (2016) — อ้างอิงจากหนังสือ **\"การออกแบบภายในขั้นพื้นฐาน หลักการพิจารณาเบื้องต้น\"** สำนักพิมพ์จุฬาลงกรณ์มหาวิทยาลัย โดย ภาสกร เจยาคม · ณัฐ ถนอมวีระวงศ์",
+      "sources": [
+        "raw/HUMAN SCALE ห้องครัว สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/HUMAN SCALE ห้องนอน สัดส่วนมนุษย์กับการออกแบบ.md",
+        "raw/HUMAN SCALE สัดส่วนมนุษย์กับการออกแบบห้องน้ำ.md"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง",
+      "title": "สรุป — กฎกระทรวง ฉบับที่ 33 (พ.ศ. 2535) อาคารสูง/อาคารขนาดใหญ่พิเศษ",
+      "type": "summary",
+      "layers": [
+        "law",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงสำหรับ**อาคารสูง** (≥ 23 ม.) และ**อาคารขนาดใหญ่พิเศษ** (≥ 10,000 ตร.ม.) — ใช้เพิ่มเติม จากกฎกระทรวง ฉ.55 ในเรื่องโครงสร้าง ความปลอดภัย ระบบอัคคีภัย ระบบไฟฟ้าฉุกเฉิน",
+      "sources": [
+        "raw/papers/kot-krasuang-33-high-building.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "title": "สรุป — กฎกระทรวงฉบับที่ 55 (พ.ศ. 2543) และฉบับแก้ไข",
+      "type": "summary",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "สรุปเนื้อหาสำคัญของกฎกระทรวงฉบับที่ 55 (พ.ศ. 2543) ฉบับรวมแก้ไขโดยฉบับที่ 58, 61, 66, 68 ครอบคลุม: ลักษณะอาคาร · ส่วนต่างๆ · ที่ว่าง · แนวอาคารและระยะต่างๆ",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "title": "สรุป — กฎกระทรวง ฉบับที่ 7 (พ.ศ. 2517) ที่จอดรถ",
+      "type": "summary",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงว่าด้วย**ที่จอดรถยนต์ ที่กลับรถยนต์ และทางเข้าออกรถยนต์** สำหรับอาคารประเภทต่างๆ ออกตาม พรบ.ควบคุมการก่อสร้างอาคาร 2479 (แก้ไขภายหลังรวมเข้ากับ พรบ.ควบคุมอาคาร 2522)",
+      "sources": [
+        "raw/papers/kot-krasuang-7-parking.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ",
+      "title": "สรุป — กฎกระทรวงสิ่งอำนวยความสะดวกสำหรับผู้พิการ ทุพพลภาพ และคนชรา",
+      "type": "summary",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวง**กำหนดสิ่งอำนวยความสะดวกในอาคารสำหรับผู้พิการหรือทุพพลภาพ และคนชรา** พ.ศ. 2548 (แก้ไขเพิ่มเติมโดย ฉบับที่ 2 พ.ศ. 2564) — universal design ในอาคารไทย",
+      "sources": [
+        "raw/papers/kot-krasuang-48-accessibility.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook",
+      "title": "สรุป — คู่มือแนวทางเบื้องต้นในการออกแบบอาคารอนุรักษ์พลังงาน (EPPO + TGP-EEDP)",
+      "type": "summary",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "คู่มือฉบับทางการ \"แนวทางเบื้องต้นในการออกแบบอาคารอนุรักษ์พลังงานประสิทธิภาพสูงเชิงสถาปัตยกรรม\" ออกโดยสำนักงานนโยบายและแผนพลังงาน (EPPO) + โครงการความร่วมมือ TGP-EEDP (Thai-German Programme on Energy E…",
+      "sources": [
+        "raw/papers/eppo-architectural-guidebook.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "title": "สรุป — คู่มือวางแปลนห้อง + แบบแปลนห้อง SML (บ้านและสวน)",
+      "type": "summary",
+      "layers": [
+        "design"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "2 บทความคู่ของ baanlaesuan.com (2019 + 2022) เรื่องการวางแปลนห้องแบบเข้าใจง่าย สำหรับทั้งเจ้าของบ้านและสถาปนิก — ครอบคลุม zoning, ขนาดเฟอร์นิเจอร์, 5 ห้องหลัก",
+      "sources": [
+        "raw/คู่มือวาง แปลนห้อง ฉบับย่อ อ่านหนึ่งรอบจัดบ้านเองได้เลย.md",
+        "raw/แบบแปลนห้อง และการวางเฟอร์นิเจอร์ ทำเองได้.md"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-งานวิจัย-Integrative-Passive-Design",
+      "title": "สรุป — Integrative Passive Design for Climate Change (งานวิจัย BUILT Journal)",
+      "type": "summary",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "งานวิจัยตีพิมพ์ในวารสาร BUILT — *International Journal of Building, Urban, Interior and Landscape Technology* (Thammasat University, open-access) — ศึกษาการออกแบบบ้านพักอาศัย low-cost ในเขตร้อนชื้นของ…",
+      "sources": [
+        "raw/papers/integrative-passive-design-bkk.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-ผังเมือง-กทม-2556",
+      "title": "สรุป — กฎกระทรวงให้ใช้บังคับผังเมืองรวมกรุงเทพมหานคร พ.ศ. 2556",
+      "type": "summary",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH-BKK",
+      "source_status": "verified",
+      "summary": "ผังเมืองรวมกรุงเทพมหานคร พ.ศ. 2556 — กำหนดโซน (color code) ข้อกำหนดการใช้ที่ดิน FAR, OSR, ระยะร่น, ความสูง สำหรับแต่ละเขต",
+      "sources": [
+        "raw/papers/pang-muang-bma-2556.pdf",
+        "raw/papers/pang-muang-bma-landuse-2556.xls"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต",
+      "title": "สรุป — รายการเอกสารคำขออนุญาตก่อสร้าง (ฝ่ายควบคุมอาคารและผังเมือง)",
+      "type": "summary",
+      "layers": [
+        "law",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "รวมรายการเอกสารแบบฟอร์มที่ใช้ในงานขออนุญาตก่อสร้าง/ดัดแปลง/รื้อถอน/เคลื่อนย้ายอาคาร ตาม พรบ.ควบคุมอาคาร 2522 — โดยอ้างอิงจากเว็บฝ่ายควบคุมอาคารเชียงใหม่",
+      "sources": [
+        "raw/ฝ่ายควบคุมอาคารและผังเมือง งานขออนุญาต.md"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-พรบ-ควบคุมอาคาร-2522",
+      "title": "สรุป — พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522 (ฉบับรวมแก้ไขถึง 2560)",
+      "type": "summary",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "สรุปภาพรวม **กฎหมายแม่บท**ที่ใช้ควบคุมทุกอาคารในประเทศไทย — กำหนดใคร/อะไร/เมื่อไร/อย่างไร ที่ต้องขออนุญาต ใคร/เมื่อไรโดนลงโทษ และกฎกระทรวงย่อยทั้งหมดออกตามอำนาจของ พรบ นี้",
+      "sources": [
+        "raw/papers/phor-por-bor-2522-updated-2560.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture",
+      "title": "สรุป — วิทยานิพนธ์ THE STUDY OF THAI TRADITIONAL ARCHITECTURE (Silpakorn)",
+      "type": "summary",
+      "layers": [
+        "thai",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "วิทยานิพนธ์ปริญญาเอก (PhD) หัวข้อ **\"The Study of Thai Traditional Architecture as a Resource for Contemporary Building Design in Thailand\"** โดย Wattana Boonjub — Program of Architectural Heritage Ma…",
+      "sources": [
+        "raw/papers/tat-thai-traditional-architecture.pdf"
+      ]
+    },
+    {
+      "id": "summaries/สรุป-เทคโนโลยีในบ้าน",
+      "title": "สรุป — ผสมผสานเทคโนโลยีให้กลมกลืนกับชีวิต (บ้านและสวน)",
+      "type": "summary",
+      "layers": [
+        "design",
+        "eng"
+      ],
+      "jurisdiction": "universal",
+      "source_status": "verified",
+      "summary": "บทความภาพรวมเทคโนโลยีที่ใช้ได้จริงในบ้านยุคใหม่ — จาก baanlaesuan.com (2016, 3 pages) เน้นการผสานเทคโนโลยีให้**กลมกลืน**ไม่รุกล้ำความเป็นธรรมชาติในบ้าน",
+      "sources": [
+        "raw/ผสมผสาน เทคโนโลยี ให้กลมกลืนกับชีวิต.md"
+      ]
+    },
+    {
+      "id": "entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง",
+      "title": "กฎกระทรวง ฉบับที่ 33 (พ.ศ. 2535) อาคารสูง / อาคารขนาดใหญ่พิเศษ",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงสำหรับอาคาร**สูง ≥ 23 ม.** หรือ**อาคารขนาดใหญ่พิเศษ ≥ 10,000 ตร.ม.** — ใช้เพิ่มเติม จากกฎกระทรวง ฉ.55 ในเรื่องความปลอดภัย ระบบอัคคีภัย ลิฟต์ดับเพลิง",
+      "sources": [
+        "raw/papers/kot-krasuang-33-high-building.pdf"
+      ]
+    },
+    {
+      "id": "entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ",
+      "title": "กฎกระทรวง ฉบับที่ 39 (พ.ศ. 2537) อาคารประเภทพิเศษ",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงสำหรับ**อาคารประเภทพิเศษ** — กำหนดมาตรฐานระบบป้องกันอัคคีภัย · ห้องน้ำ · ระบบแสงสว่าง และระบายอากาศ · ระบบไฟฟ้าฉุกเฉิน",
+      "sources": [
+        "raw/papers/kot-krasuang-39-special-building.pdf"
+      ]
+    },
+    {
+      "id": "entities/กฎกระทรวง-ฉบับที่-55",
+      "title": "กฎกระทรวง ฉบับที่ 55 (พ.ศ. 2543)",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงใต้ พรบ.ควบคุมอาคาร — กำหนด**ลักษณะ / ส่วนต่างๆ / ที่ว่าง / แนวอาคารและระยะ** สำหรับสถาปนิกที่ออกแบบบ้านพักอาศัย **นี่คือตัวบทกฎหมายที่ใช้ทุกวัน**",
+      "sources": [
+        "raw/papers/kot-krasuang-55-updated-2568.pdf"
+      ]
+    },
+    {
+      "id": "entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "title": "กฎกระทรวง ฉบับที่ 7 (พ.ศ. 2517) ที่จอดรถ",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงว่าด้วย**ที่จอดรถยนต์ ที่กลับรถยนต์ และทางเข้าออกรถยนต์** — ใช้เฉพาะอาคารที่เข้าเงื่อนไข - ประกาศ: ราชกิจจานุเบกษา เล่ม 91 ตอนที่ 86 วันที่ 21 พฤษภาคม 2517 - แก้ไขเพิ่มเติมโดย: **ฉ.64 พ.ศ. 25…",
+      "sources": [
+        "raw/papers/kot-krasuang-7-parking.pdf"
+      ]
+    },
+    {
+      "id": "entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548",
+      "title": "กฎกระทรวงกำหนดสิ่งอำนวยความสะดวกในอาคาร สำหรับผู้พิการ/ทุพพลภาพ/คนชรา (พ.ศ. 2548)",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "กฎกระทรวงใต้ พรบ.ควบคุมอาคาร 2522 — กำหนดให้อาคารบางประเภทต้องมีสิ่งอำนวยความสะดวก (ทางลาด, ห้องน้ำคนพิการ, ลิฟต์, พื้นผิวต่างสัมผัส ฯลฯ)",
+      "sources": [
+        "raw/papers/kot-krasuang-48-accessibility.pdf"
+      ]
+    },
+    {
+      "id": "entities/ข้อบัญญัติ-กทม-2544",
+      "title": "ข้อบัญญัติกรุงเทพมหานคร เรื่อง ควบคุมอาคาร พ.ศ. 2544",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH-BKK",
+      "source_status": "verified",
+      "summary": "**ข้อบัญญัติท้องถิ่นของกรุงเทพมหานคร** สำหรับควบคุมอาคาร — ใช้**เพิ่มเติม**จากกฎกระทรวงระดับชาติ มีผลบังคับเฉพาะในเขต กทม.",
+      "sources": [
+        "raw/papers/kor-tor-mor-bma-2544-building-control.pdf"
+      ]
+    },
+    {
+      "id": "entities/พรบ-ควบคุมอาคาร-2522",
+      "title": "พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522",
+      "type": "entity",
+      "layers": [
+        "law"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "**กฎหมายแม่บท**ด้านควบคุมอาคารของประเทศไทย — ให้อำนาจรัฐมนตรีมหาดไทยออกกฎกระทรวงทุกฉบับ ที่เกี่ยวกับการควบคุมอาคาร ถ้า พรบ นี้ไม่ได้บังคับ กฎกระทรวงย่อยก็ใช้ไม่ได้",
+      "sources": [
+        "raw/papers/phor-por-bor-2522-updated-2560.pdf"
+      ]
+    },
+    {
+      "id": "entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535",
+      "title": "พระราชบัญญัติส่งเสริมการอนุรักษ์พลังงาน พ.ศ. 2535 (รวมแก้ไขถึง 2560)",
+      "type": "entity",
+      "layers": [
+        "law",
+        "eng",
+        "design"
+      ],
+      "jurisdiction": "TH",
+      "source_status": "verified",
+      "summary": "**พรบ.แม่บทด้านพลังงาน** — ให้อำนาจรัฐออกกฎกระทรวง **Building Energy Code (BEC)** + บังคับ อาคารขนาดใหญ่ต้องผ่านเกณฑ์ประหยัดพลังงาน",
+      "sources": [
+        "raw/papers/phor-por-bor-energy-conservation-2535.pdf"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "concepts/Acoustics-Soundproofing",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/Acoustics-Soundproofing",
+      "to": "concepts/ออกแบบห้องทำงาน"
+    },
+    {
+      "from": "concepts/Acoustics-Soundproofing",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "concepts/Aging-in-Place-Deep",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "concepts/Aging-in-Place-Deep",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "concepts/Aging-in-Place-Deep",
+      "to": "summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ"
+    },
+    {
+      "from": "concepts/BIM-พื้นฐาน",
+      "to": "concepts/Revit-Workflow-บ้านพักอาศัย"
+    },
+    {
+      "from": "concepts/BIM-พื้นฐาน",
+      "to": "concepts/SketchUp-สำหรับสถาปนิก"
+    },
+    {
+      "from": "concepts/BIM-พื้นฐาน",
+      "to": "concepts/phase-การออกแบบ"
+    },
+    {
+      "from": "concepts/BIM-พื้นฐาน",
+      "to": "syntheses/เทมเพลต-BIM-execution-plan"
+    },
+    {
+      "from": "concepts/Biophilic-Design",
+      "to": "concepts/WELL-Standard"
+    },
+    {
+      "from": "concepts/Biophilic-Design",
+      "to": "concepts/ต้นไม้สำหรับบ้านไทย"
+    },
+    {
+      "from": "concepts/Biophilic-Design",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/Biophilic-Design",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/Biophilic-Design",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/Client-Management",
+      "to": "concepts/Marketing-Portfolio-สถาปนิก"
+    },
+    {
+      "from": "concepts/Client-Management",
+      "to": "syntheses/เทมเพลต-TOR-สัญญา"
+    },
+    {
+      "from": "concepts/Client-Management",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "concepts/Color-Theory-สำหรับบ้าน",
+      "to": "concepts/Lighting-Design"
+    },
+    {
+      "from": "concepts/Color-Theory-สำหรับบ้าน",
+      "to": "concepts/Material-Finishes"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/Hot-Humid-Climate-Response"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/ชายคาและร่มเงา"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/ระบบปรับอากาศและระบายอากาศ"
+    },
+    {
+      "from": "concepts/Cross-Ventilation-การระบายอากาศ",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/FAR-OSR-ข้อกำหนดผังเมือง",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "concepts/FAR-OSR-ข้อกำหนดผังเมือง",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/FAR-OSR-ข้อกำหนดผังเมือง",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/FAR-OSR-ข้อกำหนดผังเมือง",
+      "to": "summaries/สรุป-ผังเมือง-กทม-2556"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "concepts/Rainwater-Harvesting"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "summaries/สรุป-DEDE-Building-Design-Guide"
+    },
+    {
+      "from": "concepts/Green-Building-Certification",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "concepts/Hardscape-พื้นรั้ว-pergola",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/Hardscape-พื้นรั้ว-pergola",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/Hardscape-พื้นรั้ว-pergola",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/Lighting-Design"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/ระบบปรับอากาศและระบายอากาศ"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/ระบบรักษาความปลอดภัยบ้าน"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "concepts/สมาร์ทโฮม-พื้นฐาน"
+    },
+    {
+      "from": "concepts/Home-Automation-Systems",
+      "to": "syntheses/เทมเพลต-smart-home-spec"
+    },
+    {
+      "from": "concepts/Home-Office-Retail-Mixed-Use",
+      "to": "concepts/Green-Building-Certification"
+    },
+    {
+      "from": "concepts/Home-Office-Retail-Mixed-Use",
+      "to": "concepts/ขั้นตอนขออนุญาต"
+    },
+    {
+      "from": "concepts/Home-Office-Retail-Mixed-Use",
+      "to": "concepts/ออกแบบทาวน์เฮาส์"
+    },
+    {
+      "from": "concepts/Home-Office-Retail-Mixed-Use",
+      "to": "concepts/ออกแบบห้องทำงาน"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/Biophilic-Design"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/Cross-Ventilation-การระบายอากาศ"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/ชายคาและร่มเงา"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/ต้นไม้สำหรับบ้านไทย"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/ระบบปรับอากาศและระบายอากาศ"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "summaries/สรุป-DEDE-Building-Design-Guide"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "concepts/Hot-Humid-Climate-Response",
+      "to": "summaries/สรุป-งานวิจัย-Integrative-Passive-Design"
+    },
+    {
+      "from": "concepts/Kid-Safe-Design",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/Kid-Safe-Design",
+      "to": "concepts/ออกแบบห้องเด็ก"
+    },
+    {
+      "from": "concepts/Lighting-Design",
+      "to": "concepts/Color-Theory-สำหรับบ้าน"
+    },
+    {
+      "from": "concepts/Lighting-Design",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/Marketing-Portfolio-สถาปนิก",
+      "to": "concepts/Client-Management"
+    },
+    {
+      "from": "concepts/Marketing-Portfolio-สถาปนิก",
+      "to": "syntheses/เทมเพลต-TOR-สัญญา"
+    },
+    {
+      "from": "concepts/Material-Finishes",
+      "to": "concepts/Acoustics-Soundproofing"
+    },
+    {
+      "from": "concepts/Material-Finishes",
+      "to": "concepts/Color-Theory-สำหรับบ้าน"
+    },
+    {
+      "from": "concepts/Material-Finishes",
+      "to": "concepts/Lighting-Design"
+    },
+    {
+      "from": "concepts/Material-Finishes",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/Multi-Generational-Home",
+      "to": "concepts/Acoustics-Soundproofing"
+    },
+    {
+      "from": "concepts/Multi-Generational-Home",
+      "to": "concepts/Aging-in-Place-Deep"
+    },
+    {
+      "from": "concepts/Multi-Generational-Home",
+      "to": "concepts/Kid-Safe-Design"
+    },
+    {
+      "from": "concepts/Multi-Generational-Home",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/Rainwater-Harvesting",
+      "to": "concepts/Green-Building-Certification"
+    },
+    {
+      "from": "concepts/Rainwater-Harvesting",
+      "to": "concepts/ระบบประปาและสุขาภิบาล"
+    },
+    {
+      "from": "concepts/Rainwater-Harvesting",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "concepts/BIM-พื้นฐาน"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "concepts/SketchUp-สำหรับสถาปนิก"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "concepts/phase-การออกแบบ"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "syntheses/เทมเพลต-BIM-execution-plan"
+    },
+    {
+      "from": "concepts/Revit-Workflow-บ้านพักอาศัย",
+      "to": "syntheses/เทมเพลต-BOQ-ประมาณการ"
+    },
+    {
+      "from": "concepts/SketchUp-สำหรับสถาปนิก",
+      "to": "concepts/BIM-พื้นฐาน"
+    },
+    {
+      "from": "concepts/SketchUp-สำหรับสถาปนิก",
+      "to": "concepts/Revit-Workflow-บ้านพักอาศัย"
+    },
+    {
+      "from": "concepts/SketchUp-สำหรับสถาปนิก",
+      "to": "concepts/phase-การออกแบบ"
+    },
+    {
+      "from": "concepts/SketchUp-สำหรับสถาปนิก",
+      "to": "concepts/ชายคาและร่มเงา"
+    },
+    {
+      "from": "concepts/SketchUp-สำหรับสถาปนิก",
+      "to": "syntheses/เทมเพลต-BIM-execution-plan"
+    },
+    {
+      "from": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์",
+      "to": "concepts/Green-Building-Certification"
+    },
+    {
+      "from": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/Cross-Ventilation-การระบายอากาศ"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/Hot-Humid-Climate-Response"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/ค่าก่อสร้างต่อตารางเมตร"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/ชายคาและร่มเงา"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "concepts/โครงสร้างราคาก่อสร้าง"
+    },
+    {
+      "from": "concepts/Value-Engineering-ลดต้นทุน",
+      "to": "syntheses/เทมเพลต-BOQ-ประมาณการ"
+    },
+    {
+      "from": "concepts/WELL-Standard",
+      "to": "concepts/Acoustics-Soundproofing"
+    },
+    {
+      "from": "concepts/WELL-Standard",
+      "to": "concepts/Biophilic-Design"
+    },
+    {
+      "from": "concepts/WELL-Standard",
+      "to": "concepts/Green-Building-Certification"
+    },
+    {
+      "from": "concepts/WELL-Standard",
+      "to": "concepts/Lighting-Design"
+    },
+    {
+      "from": "concepts/WELL-Standard",
+      "to": "concepts/ระบบปรับอากาศและระบายอากาศ"
+    },
+    {
+      "from": "concepts/phase-การออกแบบ",
+      "to": "concepts/ขั้นตอนขออนุญาต"
+    },
+    {
+      "from": "concepts/phase-การออกแบบ",
+      "to": "syntheses/เทมเพลต-TOR-สัญญา"
+    },
+    {
+      "from": "concepts/phase-การออกแบบ",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "concepts/phase-การออกแบบ",
+      "to": "syntheses/เทมเพลต-site-analysis"
+    },
+    {
+      "from": "concepts/phase-การออกแบบ",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "concepts/การวางทิศบ้าน",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/การวางทิศบ้าน",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "concepts/การวางทิศบ้าน",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/การวางทิศบ้าน",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ขนาดห้องตามกฎหมาย",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "concepts/ขนาดห้องตามกฎหมาย",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ขนาดห้องตามกฎหมาย",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ขนาดห้องตามกฎหมาย",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ขนาดห้องตามกฎหมาย",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "concepts/ที่จอดรถ"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน",
+      "to": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "concepts/ที่จอดรถ"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต"
+    },
+    {
+      "from": "concepts/ขั้นตอนขออนุญาต",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "concepts/Client-Management"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "concepts/Value-Engineering-ลดต้นทุน"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "concepts/โครงสร้างราคาก่อสร้าง"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "syntheses/เทมเพลต-BOQ-ประมาณการ"
+    },
+    {
+      "from": "concepts/ค่าก่อสร้างต่อตารางเมตร",
+      "to": "syntheses/เทมเพลต-cost-estimation"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/Cross-Ventilation-การระบายอากาศ"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/Hot-Humid-Climate-Response"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/ต้นไม้สำหรับบ้านไทย"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ชายคาและร่มเงา",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "concepts/ตรวจสอบโครงสร้างเดิม",
+      "to": "concepts/รีโนเวทบ้านเก่า"
+    },
+    {
+      "from": "concepts/ตรวจสอบโครงสร้างเดิม",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/ต้นไม้สำหรับบ้านไทย",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ต้นไม้สำหรับบ้านไทย",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/ต้นไม้สำหรับบ้านไทย",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ที่จอดรถ",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/ที่จอดรถ",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "concepts/ที่จอดรถ",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"
+    },
+    {
+      "from": "concepts/บันไดและทางหนีไฟ",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/บันไดและทางหนีไฟ",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/บ้านไทยโบราณ",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/บ้านไทยโบราณ",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/บ้านไทยโบราณ",
+      "to": "summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture"
+    },
+    {
+      "from": "concepts/บ้านไทยโบราณ",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/Cross-Ventilation-การระบายอากาศ"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/Hot-Humid-Climate-Response"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/Rainwater-Harvesting"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/ชายคาและร่มเงา"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/ระบบประปาและสุขาภิบาล"
+    },
+    {
+      "from": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/พื้นที่ว่างรอบบ้าน",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "concepts/พื้นที่ว่างรอบบ้าน",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/พื้นที่ว่างรอบบ้าน",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/ระบบประปาและสุขาภิบาล"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/ระบบปรับอากาศและระบายอากาศ"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/ระบบงานอาคาร",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง"
+    },
+    {
+      "from": "concepts/ระบบประปาและสุขาภิบาล",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/ระบบประปาและสุขาภิบาล",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "concepts/ระบบประปาและสุขาภิบาล",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "concepts/ระบบปรับอากาศและระบายอากาศ",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ระบบปรับอากาศและระบายอากาศ",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/ระบบปรับอากาศและระบายอากาศ",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/Home-Automation-Systems"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/ป้องกันฝน-ป้องกันน้ำท่วม"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/สมาร์ทโฮม-พื้นฐาน"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/ระบบรักษาความปลอดภัยบ้าน",
+      "to": "syntheses/เทมเพลต-smart-home-spec"
+    },
+    {
+      "from": "concepts/ระบบไฟฟ้าบ้าน",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/ระบบไฟฟ้าบ้าน",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/ระบบไฟฟ้าบ้าน",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "concepts/ระยะร่น",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "concepts/ระยะร่น",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "concepts/ระยะร่น",
+      "to": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"
+    },
+    {
+      "from": "concepts/ระยะร่น",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ระยะร่น",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/รีโนเวทบ้านเก่า",
+      "to": "concepts/ขั้นตอนขออนุญาต"
+    },
+    {
+      "from": "concepts/รีโนเวทบ้านเก่า",
+      "to": "concepts/ตรวจสอบโครงสร้างเดิม"
+    },
+    {
+      "from": "concepts/รีโนเวทบ้านเก่า",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "concepts/วัสดุก่อสร้าง",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/วัสดุก่อสร้าง",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/วัสดุก่อสร้าง",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/ศาลพระภูมิ",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ศาลพระภูมิ",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "concepts/Home-Automation-Systems"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "concepts/ระบบรักษาความปลอดภัยบ้าน"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/สมาร์ทโฮม-พื้นฐาน",
+      "to": "syntheses/เทมเพลต-smart-home-spec"
+    },
+    {
+      "from": "concepts/สิ่งอำนวยความสะดวกผู้พิการ",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "concepts/สิ่งอำนวยความสะดวกผู้พิการ",
+      "to": "summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ"
+    },
+    {
+      "from": "concepts/ออกแบบคอนโดยูนิต",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ออกแบบคอนโดยูนิต",
+      "to": "entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง"
+    },
+    {
+      "from": "concepts/ออกแบบคอนโดยูนิต",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/Acoustics-Soundproofing"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/Biophilic-Design"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/Lighting-Design"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ออกแบบทาวน์เฮาส์",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "to": "summaries/สรุป-DEDE-Building-Design-Guide"
+    },
+    {
+      "from": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "to": "summaries/สรุป-งานวิจัย-Integrative-Passive-Design"
+    },
+    {
+      "from": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    },
+    {
+      "from": "concepts/ออกแบบรีสอร์ตวิลลา",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ออกแบบรีสอร์ตวิลลา",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ออกแบบรีสอร์ตวิลลา",
+      "to": "concepts/ออกแบบสระว่ายน้ำ"
+    },
+    {
+      "from": "concepts/ออกแบบรีสอร์ตวิลลา",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/ออกแบบสระว่ายน้ำ",
+      "to": "concepts/ระบบประปาและสุขาภิบาล"
+    },
+    {
+      "from": "concepts/ออกแบบสระว่ายน้ำ",
+      "to": "concepts/ออกแบบสวนและภูมิสถาปัตย์"
+    },
+    {
+      "from": "concepts/ออกแบบสระว่ายน้ำ",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "to": "concepts/Hardscape-พื้นรั้ว-pergola"
+    },
+    {
+      "from": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "to": "concepts/ต้นไม้สำหรับบ้านไทย"
+    },
+    {
+      "from": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "concepts/ออกแบบสวนและภูมิสถาปัตย์",
+      "to": "concepts/ออกแบบสระว่ายน้ำ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องครัว",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/ออกแบบห้องครัว",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องครัว",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องครัว",
+      "to": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องครัว",
+      "to": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องทำงาน",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องทำงาน",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ออกแบบห้องทำงาน",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องทำงาน",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนอน",
+      "to": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนั่งเล่น",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนั่งเล่น",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนั่งเล่น",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนั่งเล่น",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องนั่งเล่น",
+      "to": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องน้ำ",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "concepts/ออกแบบห้องน้ำ",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องน้ำ",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องน้ำ",
+      "to": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องน้ำ",
+      "to": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องพระ",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องพระ",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องพระ",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องพระ",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องรับประทานอาหาร",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องรับประทานอาหาร",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "concepts/ออกแบบห้องรับประทานอาหาร",
+      "to": "concepts/ออกแบบห้องนั่งเล่น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องเด็ก",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องเด็ก",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "concepts/ออกแบบห้องเด็ก",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องแม่บ้านและซักล้าง",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/ออกแบบห้องแม่บ้านและซักล้าง",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "concepts/ออกแบบห้องโถง",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "concepts/ออกแบบห้องโถง",
+      "to": "concepts/ออกแบบห้องนั่งเล่น"
+    },
+    {
+      "from": "concepts/ออกแบบห้องโถง",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "concepts/ฮวงจุ้ยเบื้องต้น",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    },
+    {
+      "from": "concepts/เทคโนโลยีในบ้าน",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/เทคโนโลยีในบ้าน",
+      "to": "summaries/สรุป-เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "concepts/Value-Engineering-ลดต้นทุน"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "concepts/ค่าก่อสร้างต่อตารางเมตร"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "concepts/โครงสร้างและฐานราก"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "syntheses/เทมเพลต-BOQ-ประมาณการ"
+    },
+    {
+      "from": "concepts/โครงสร้างราคาก่อสร้าง",
+      "to": "syntheses/เทมเพลต-cost-estimation"
+    },
+    {
+      "from": "concepts/โครงสร้างและฐานราก",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "concepts/โครงสร้างและฐานราก",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "concepts/โครงสร้างและฐานราก",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ",
+      "to": "entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-39-อาคารประเภทพิเศษ",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-55",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "to": "concepts/ที่จอดรถ"
+    },
+    {
+      "from": "entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "to": "summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"
+    },
+    {
+      "from": "entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "entities/กฎกระทรวง-สิ่งอำนวยความสะดวก-2548",
+      "to": "summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ"
+    },
+    {
+      "from": "entities/ข้อบัญญัติ-กทม-2544",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "entities/ข้อบัญญัติ-กทม-2544",
+      "to": "summaries/สรุป-ผังเมือง-กทม-2556"
+    },
+    {
+      "from": "entities/พรบ-ควบคุมอาคาร-2522",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "entities/พรบ-ควบคุมอาคาร-2522",
+      "to": "summaries/สรุป-พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535",
+      "to": "summaries/สรุป-DEDE-Building-Design-Guide"
+    },
+    {
+      "from": "entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "summaries/สรุป-DEDE-Building-Design-Guide",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "summaries/สรุป-DEDE-Building-Design-Guide",
+      "to": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook"
+    },
+    {
+      "from": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "summaries/สรุป-HUMAN-SCALE-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-33-อาคารสูง",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-55",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "to": "concepts/ที่จอดรถ"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-ฉบับที่-7-ที่จอดรถ",
+      "to": "entities/กฎกระทรวง-ฉบับที่-7-ที่จอดรถ"
+    },
+    {
+      "from": "summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook",
+      "to": "summaries/สรุป-DEDE-Building-Design-Guide"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "summaries/สรุป-คู่มือวางแปลนห้อง-บ้านและสวน",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "summaries/สรุป-งานวิจัย-Integrative-Passive-Design",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "summaries/สรุป-งานวิจัย-Integrative-Passive-Design",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "summaries/สรุป-ผังเมือง-กทม-2556",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "summaries/สรุป-ผังเมือง-กทม-2556",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "summaries/สรุป-ผังเมือง-กทม-2556",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "summaries/สรุป-ผังเมือง-กทม-2556",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต",
+      "to": "concepts/ขั้นตอนขออนุญาต"
+    },
+    {
+      "from": "summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "summaries/สรุป-ฝ่ายควบคุมอาคาร-งานขออนุญาต",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "summaries/สรุป-พรบ-ควบคุมอาคาร-2522",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "summaries/สรุป-พรบ-ควบคุมอาคาร-2522",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "summaries/สรุป-วิทยานิพนธ์-Thai-Traditional-Architecture",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "summaries/สรุป-เทคโนโลยีในบ้าน",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "syntheses/ส่งออกเป็นไฟล์-JSON",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "concepts/BIM-พื้นฐาน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "concepts/Revit-Workflow-บ้านพักอาศัย"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "concepts/SketchUp-สำหรับสถาปนิก"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "concepts/phase-การออกแบบ"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BIM-execution-plan",
+      "to": "syntheses/เทมเพลต-TOR-สัญญา"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "concepts/Value-Engineering-ลดต้นทุน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "concepts/ค่าก่อสร้างต่อตารางเมตร"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "concepts/โครงสร้างราคาก่อสร้าง"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "syntheses/เทมเพลต-TOR-สัญญา"
+    },
+    {
+      "from": "syntheses/เทมเพลต-BOQ-ประมาณการ",
+      "to": "syntheses/เทมเพลต-cost-estimation"
+    },
+    {
+      "from": "syntheses/เทมเพลต-TOR-สัญญา",
+      "to": "concepts/phase-การออกแบบ"
+    },
+    {
+      "from": "syntheses/เทมเพลต-TOR-สัญญา",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "syntheses/เทมเพลต-client-brief",
+      "to": "syntheses/เทมเพลต-site-analysis"
+    },
+    {
+      "from": "syntheses/เทมเพลต-client-brief",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-cost-estimation",
+      "to": "concepts/วัสดุก่อสร้าง"
+    },
+    {
+      "from": "syntheses/เทมเพลต-cost-estimation",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "syntheses/เทมเพลต-site-analysis",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "syntheses/เทมเพลต-site-analysis",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-site-analysis",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "syntheses/เทมเพลต-site-analysis",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "syntheses/เทมเพลต-site-analysis",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/Home-Automation-Systems"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/ระบบรักษาความปลอดภัยบ้าน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/ระบบไฟฟ้าบ้าน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/สมาร์ทโฮม-พื้นฐาน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "concepts/เทคโนโลยีในบ้าน"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "syntheses/เทมเพลต-client-brief"
+    },
+    {
+      "from": "syntheses/เทมเพลต-smart-home-spec",
+      "to": "syntheses/เทมเพลต-cost-estimation"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/การวางทิศบ้าน"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ขนาดห้องตามกฎหมาย"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ขนาดเฟอร์นิเจอร์มาตรฐาน"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ที่จอดรถ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/บันไดและทางหนีไฟ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/พื้นที่ว่างรอบบ้าน"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ระบบงานอาคาร"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ระยะห่างระหว่างตึกในที่ดินเดียวกัน"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ศาลพระภูมิ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/สิ่งอำนวยความสะดวกผู้พิการ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ออกแบบห้องครัว"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ออกแบบห้องนอน"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ออกแบบห้องน้ำ"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "entities/กฎกระทรวง-ฉบับที่-55"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "entities/พรบ-ควบคุมอาคาร-2522"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "syntheses/ส่งออกเป็นไฟล์-JSON"
+    },
+    {
+      "from": "syntheses/แนวทางการออกแบบบ้าน",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "concepts/FAR-OSR-ข้อกำหนดผังเมือง"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "concepts/บ้านไทยโบราณ"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "concepts/ระยะร่น"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "concepts/ฮวงจุ้ยเบื้องต้น"
+    },
+    {
+      "from": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้",
+      "to": "syntheses/ส่งออกเป็นไฟล์-JSON"
+    },
+    {
+      "from": "syntheses/แผนพัฒนา-wiki-ระยะยาว",
+      "to": "syntheses/ส่งออกเป็นไฟล์-JSON"
+    },
+    {
+      "from": "syntheses/แผนพัฒนา-wiki-ระยะยาว",
+      "to": "syntheses/แนวทางการออกแบบบ้าน"
+    },
+    {
+      "from": "syntheses/แผนพัฒนา-wiki-ระยะยาว",
+      "to": "syntheses/แบบตรวจแปลน-5-ชั้นความรู้"
+    }
+  ]
+}

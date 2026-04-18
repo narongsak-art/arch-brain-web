@@ -172,7 +172,7 @@ def build_print_html(project_data: dict, analysis: str, provider: str) -> str:
     <div class="meta">
       <div>วันที่: {ts}</div>
       <div>Provider: {provider.title()}</div>
-      <div>Knowledge Graph: 63 nodes, 248 edges</div>
+      <div>Knowledge Graph: 104 nodes, 425 edges</div>
     </div>
   </div>
 

@@ -11,7 +11,7 @@
 
 Project นี้มีไฟล์:
 1. **`kg-compact.json`** — Knowledge Graph ครอบคลุมกฎหมายไทย, ergonomics, passive design,
-   วัฒนธรรม, ฮวงจุ้ย (63 nodes · 248 edges)
+   วัฒนธรรม, ฮวงจุ้ย, smart home, cost estimation, BIM, tropical design (104 nodes · 425 edges)
 2. **`5-layer-analysis-template.md`** — เทมเพลตวิเคราะห์แปลน 5 ชั้น
 3. **`แนวทางการออกแบบบ้าน.md`** — workflow 6 phases
 4. **`ระยะร่น.md`**, **`FAR-OSR.md`**, **`ขนาดห้อง.md`** — กฎหมายสำคัญที่ใช้บ่อย
