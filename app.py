@@ -9,12 +9,30 @@ Run locally:  streamlit run app.py
 Deploy:       streamlit.io (free tier)
 """
 
-import streamlit as st
-import json
 import base64
-import requests
-from pathlib import Path
+import json
+import time
 from datetime import datetime
+from pathlib import Path
+
+import requests
+import streamlit as st
+
+from components import (
+    theme,
+    wizard,
+    history,
+    kg_explorer,
+    compare,
+    chat,
+    presets,
+    annotate,
+    project_io,
+    export_pdf,
+    tiers,
+    booking,
+)
+from components.progress import AnalysisProgress
 
 # =============================================================================
 # Configuration
@@ -26,11 +44,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        'About': "สมองจำลองของสถาปนิก · AI + 5-Layer Knowledge Graph · Thai Residential Architecture"
-    }
+        "About": "สมองจำลองของสถาปนิก · AI + 5-Layer Knowledge Graph · Thai Residential Architecture"
+    },
 )
 
-# Providers — ให้ user เลือก model ได้ · fallback ถ้า rate limit
 GEMINI_MODELS = {
     "gemini-2.5-flash": "🚀 Gemini 2.5 Flash (ล่าสุด · เร็ว)",
     "gemini-2.0-flash": "⚡ Gemini 2.0 Flash (stable · 1,500/วัน)",
@@ -40,14 +57,13 @@ DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4000
 
-# Paths
 KG_FILE = Path(__file__).parent / "kg-compact.json"
 SYSTEM_PROMPT_FILE = Path(__file__).parent / "system-prompt.md"
 FULL_KNOWLEDGE_FILE = Path(__file__).parent / "full-knowledge.md"
 
 
 # =============================================================================
-# Load knowledge base
+# Knowledge base loaders
 # =============================================================================
 
 @st.cache_data
@@ -66,7 +82,6 @@ def load_system_prompt():
 
 @st.cache_data
 def load_full_knowledge():
-    """Full content of key wiki pages (for accurate citations)"""
     if FULL_KNOWLEDGE_FILE.exists():
         return FULL_KNOWLEDGE_FILE.read_text(encoding="utf-8")
     return ""
@@ -77,76 +92,63 @@ def load_full_knowledge():
 # =============================================================================
 
 def call_gemini(api_key, system, user_prompt, image_bytes=None, model=None):
-    """Call Google Gemini API (free tier) · supports model selection + fallback"""
     if model is None:
         model = st.session_state.get("gemini_model", DEFAULT_GEMINI_MODEL)
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
 
     combined = f"{system}\n\n---\n\n{user_prompt}"
-
     parts = [{"text": combined}]
     if image_bytes:
         image_b64 = base64.b64encode(image_bytes).decode("utf-8")
         parts.insert(0, {
-            "inline_data": {
-                "mime_type": "image/jpeg",
-                "data": image_b64
-            }
+            "inline_data": {"mime_type": "image/jpeg", "data": image_b64}
         })
 
     payload = {
         "contents": [{"parts": parts}],
-        "generationConfig": {
-            "maxOutputTokens": MAX_TOKENS,
-            "temperature": 0.3
-        }
+        "generationConfig": {"maxOutputTokens": MAX_TOKENS, "temperature": 0.3},
     }
-
     response = requests.post(url, json=payload, timeout=120)
     response.raise_for_status()
     data = response.json()
-
     if "candidates" not in data or not data["candidates"]:
         raise Exception(f"No response from Gemini: {data}")
-
     return data["candidates"][0]["content"]["parts"][0]["text"]
 
 
 def call_claude(api_key, system, user_prompt, image_bytes=None):
-    """Call Anthropic Claude API (paid)"""
     try:
         import anthropic
     except ImportError:
         raise Exception("Anthropic library not installed. Install: pip install anthropic")
 
     client = anthropic.Anthropic(api_key=api_key)
-
     content = [{"type": "text", "text": user_prompt}]
     if image_bytes:
         image_b64 = base64.b64encode(image_bytes).decode("utf-8")
         content.insert(0, {
             "type": "image",
-            "source": {
-                "type": "base64",
-                "media_type": "image/jpeg",
-                "data": image_b64
-            }
+            "source": {"type": "base64", "media_type": "image/jpeg", "data": image_b64},
         })
-
     response = client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=MAX_TOKENS,
         system=system,
-        messages=[{"role": "user", "content": content}]
+        messages=[{"role": "user", "content": content}],
     )
     return response.content[0].text
 
 
-def analyze_project(provider, api_key, project_data, plan_image_bytes=None):
-    """Orchestrate analysis with chosen provider"""
+def analyze_project(provider, api_key, project_data, plan_image_bytes=None, progress=None):
+    """Orchestrate analysis with chosen provider + report stage progress"""
+    if progress:
+        progress.advance("load_kb")
     kg = load_knowledge_graph()
     full_knowledge = load_full_knowledge()
     base_prompt = load_system_prompt()
+
+    if progress:
+        progress.advance("build_prompt", f"{len(kg):,} chars KG · {len(full_knowledge):,} chars knowledge")
 
     system = f"""{base_prompt}
 
@@ -183,20 +185,65 @@ def analyze_project(provider, api_key, project_data, plan_image_bytes=None):
 5. **Next Actions** steps ที่แนะนำ
 """
 
+    if progress:
+        progress.advance("call_llm", f"{provider.title()} · ~30-60 วิ")
+
     if provider == "gemini":
-        return call_gemini(api_key, system, user_text, plan_image_bytes)
+        result = call_gemini(api_key, system, user_text, plan_image_bytes)
     elif provider == "claude":
-        return call_claude(api_key, system, user_text, plan_image_bytes)
+        result = call_claude(api_key, system, user_text, plan_image_bytes)
     else:
         raise ValueError(f"Unknown provider: {provider}")
 
+    if progress:
+        progress.advance("parse", f"{len(result):,} chars response")
+
+    return result
+
 
 # =============================================================================
-# UI Components
+# UI
 # =============================================================================
+
+def render_sidebar_tier_section():
+    """Add tier badge + nav links to sidebar"""
+    tiers.sidebar_tier_badge()
+    st.sidebar.markdown("---")
+
+    # Quick nav
+    st.sidebar.markdown("### 🧭 Quick Nav")
+    col1, col2 = st.sidebar.columns(2)
+    if col1.button("💼 Pricing", use_container_width=True, key="nav_pricing"):
+        st.switch_page("pages/1_💼_Pricing.py")
+    if col2.button("📅 จองนัด", use_container_width=True, key="nav_book"):
+        st.switch_page("pages/2_📅_Book_Consultation.py")
+
+    col3, col4 = st.sidebar.columns(2)
+    if col3.button("📊 ประวัติ", use_container_width=True, key="nav_history"):
+        st.switch_page("pages/3_📊_History.py")
+    if col4.button("🗺 KG", use_container_width=True, key="nav_kg"):
+        st.switch_page("pages/4_🗺_KG_Explorer.py")
+
+    st.sidebar.markdown("---")
+
 
 def render_sidebar():
-    st.sidebar.markdown("## ⚙ การตั้งค่า")
+    st.sidebar.markdown(
+        '<div style="padding:8px 0 16px 0;">'
+        '<div style="font-size:1.2em;font-weight:800;letter-spacing:-0.01em;">🏠 สมองจำลอง</div>'
+        '<div style="font-size:0.82em;color:var(--text-muted);margin-top:2px;">Architect\'s Brain · v2.0</div>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+    st.sidebar.markdown("---")
+
+    # Tier + Navigation
+    render_sidebar_tier_section()
+
+    st.sidebar.markdown("##### 🎨 ธีม")
+    theme.theme_toggle(container=st.sidebar)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("##### ⚙ การตั้งค่า AI")
 
     # Provider selector
     provider = st.sidebar.radio(
@@ -204,23 +251,21 @@ def render_sidebar():
         options=["gemini", "claude"],
         format_func=lambda x: {"gemini": "🆓 Google Gemini (ฟรี)", "claude": "💎 Claude (เสียเงิน)"}[x],
         index=0,
-        help="Gemini ฟรี 1,500 ครั้ง/วัน · Claude คุณภาพสูงกว่า แต่เสียเงิน"
+        help="Gemini ฟรี 1,500 ครั้ง/วัน · Claude คุณภาพสูงกว่า แต่เสียเงิน",
     )
     st.session_state["provider"] = provider
 
-    # API key input
     if provider == "gemini":
         api_key = st.sidebar.text_input(
             "Gemini API Key",
             type="password",
             help="ฟรี · ไม่ต้องใส่ credit card · รับได้ที่ aistudio.google.com/apikey",
             value=st.session_state.get("gemini_key", ""),
-            placeholder="AIza..."
+            placeholder="AIza...",
         )
         st.session_state["gemini_key"] = api_key
         st.sidebar.caption("📎 [รับ Gemini API Key ฟรี](https://aistudio.google.com/apikey)")
 
-        # Model selector for Gemini
         gemini_model = st.sidebar.selectbox(
             "Gemini Model",
             options=list(GEMINI_MODELS.keys()),
@@ -235,7 +280,7 @@ def render_sidebar():
             type="password",
             help="ต้องเติม credit · $0.02-0.05/ครั้ง",
             value=st.session_state.get("claude_key", ""),
-            placeholder="sk-ant-..."
+            placeholder="sk-ant-...",
         )
         st.session_state["claude_key"] = api_key
         st.sidebar.caption("📎 [สมัคร Claude API](https://console.anthropic.com)")
@@ -253,7 +298,10 @@ def render_sidebar():
     except Exception:
         st.sidebar.warning("KG not loaded")
 
-    # Info
+    # History count
+    hist_count = len(history.get_history())
+    st.sidebar.caption(f"📚 ประวัติ: {hist_count} รายการ")
+
     st.sidebar.markdown("---")
     st.sidebar.markdown("""
 ### 📖 5 ชั้นความรู้
@@ -268,199 +316,150 @@ def render_sidebar():
 ---
 Built with ❤ for Thai architects
     """)
-
     return provider, api_key
 
 
 def render_hero():
-    """Landing hero section"""
-    st.markdown("""
-    <div style="text-align: center; padding: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white; margin-bottom: 20px;">
-        <h1 style="color: white; font-size: 2.5em; margin-bottom: 10px;">🏠 สมองจำลองของสถาปนิก</h1>
-        <p style="font-size: 1.2em; margin: 0;">วิเคราะห์แปลนบ้านด้วย AI + Knowledge Graph 5 ชั้น</p>
-        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">
-            กฎหมาย · วิศวกรรม · ออกแบบ · วัฒนธรรมไทย · ฮวงจุ้ย
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class="ab-hero">
+            <div class="ab-hero-badge">✨ AI + Knowledge Graph</div>
+            <h1>สมองจำลองของสถาปนิก</h1>
+            <p class="tagline">วิเคราะห์แปลนบ้านไทยด้วย AI · รู้ลึก 5 มิติ · ใน 60 วินาที</p>
+            <div class="subtagline">
+                <span>🏛 กฎหมาย</span>
+                <span>🔧 วิศวกรรม</span>
+                <span>🎨 ออกแบบ</span>
+                <span>🪷 วัฒนธรรมไทย</span>
+                <span>☯ ฮวงจุ้ย</span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_features():
-    """Feature cards"""
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown("""
-        ### 🎯 ครอบคลุม
-        **5 ชั้นความรู้** · 32 concepts · 14 summaries · กฎหมายจริงทั้งพรบ + กฎกระทรวง
-        """)
-
-    with col2:
-        st.markdown("""
-        ### ⚡ รวดเร็ว
-        **วิเคราะห์ใน 30-60 วิ** · ได้ Top 3 issues + strengths พร้อม next actions
-        """)
-
-    with col3:
-        st.markdown("""
-        ### 🔬 น่าเชื่อถือ
-        **Cite source ทุกข้อ** · ไม่สร้างตัวเลขเอง · verified จากต้นฉบับ 21 ไฟล์
-        """)
-
-
-def render_input_form():
-    """Project input form"""
-    st.header("📝 ข้อมูลโครงการ")
-
-    with st.container():
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.subheader("🏞 ที่ดิน")
-            name = st.text_input("ชื่อโปรเจค (alias)", value="บ้าน-A")
-            land_w = st.number_input("กว้าง (ม.)", min_value=1.0, value=15.0, step=0.5)
-            land_d = st.number_input("ลึก (ม.)", min_value=1.0, value=20.0, step=0.5)
-            province = st.selectbox(
-                "จังหวัด",
-                ["กรุงเทพมหานคร", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ",
-                 "สมุทรสาคร", "นครปฐม", "เชียงใหม่", "ภูเก็ต", "อื่นๆ"],
-            )
-            zone = st.selectbox(
-                "สีผังเมือง (ย. = ที่อยู่อาศัย · พ. = พาณิชย์)",
-                ["ย.1", "ย.2", "ย.3", "ย.4", "ย.5", "ย.6", "ย.7",
-                 "ย.8", "ย.9", "ย.10",
-                 "พ.1", "พ.2", "พ.3", "พ.4", "พ.5",
-                 "อ.1", "อ.2", "อ.3", "ก.1", "ก.2", "ก.3", "ก.4", "ก.5",
-                 "ไม่ทราบ"],
-                index=2,
-            )
-            street_w = st.number_input("ถนนติดกว้าง (ม.)", min_value=1.0, value=6.0, step=0.5)
-
-        with col2:
-            st.subheader("👨‍👩‍👧 ครอบครัว + ความต้องการ")
-            family_size = st.slider("จำนวนสมาชิก", 1, 15, 4)
-            has_elderly = st.radio("มีผู้สูงอายุ", ["ใช่", "ไม่"], horizontal=True)
-            floors = st.selectbox("ชั้น", ["1", "2", "3", "4+"], index=1)
-            bedrooms = st.selectbox("ห้องนอน", ["1", "2", "3", "4", "5+"], index=2)
-            budget = st.number_input("งบ (ล้านบาท)", min_value=0.5, value=8.0, step=0.5)
-            fengshui = st.selectbox(
-                "สนใจฮวงจุ้ย",
-                ["มาก", "ปานกลาง", "น้อย", "ไม่สน"],
-                index=1,
-            )
-
-    special = st.text_area(
-        "ความต้องการพิเศษ",
-        placeholder="ตัวอย่าง: ห้องพระ · walk-in · home office 2 คน · สระว่ายน้ำ · ผู้สูงอายุใช้ wheelchair · ลูก 2 คนต้องการห้องแยก",
-        height=100,
-    )
-
-    return {
-        "name": name,
-        "land_w": land_w,
-        "land_d": land_d,
-        "land_area": land_w * land_d,
-        "zone": zone,
-        "province": province,
-        "street_w": street_w,
-        "family_size": family_size,
-        "has_elderly": has_elderly,
-        "floors": floors,
-        "bedrooms": bedrooms,
-        "budget": budget,
-        "fengshui": fengshui,
-        "special": special,
-    }
-
-
-def render_footer():
-    st.markdown("---")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("**🔒 Privacy**")
-        st.caption("ไม่เก็บข้อมูล · ไม่เทรน AI · session-based")
+        st.markdown(
+            '<div class="ab-card">'
+            '<div class="ab-card-icon">🎯</div>'
+            "<h4>ครอบคลุม · 5 ชั้นความรู้</h4>"
+            "<p>32 concepts · 14 summaries · กฎหมายจริงทั้ง พรบ 2522 + กฎกระทรวง 55</p>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
     with col2:
-        st.markdown("**⚖ Disclaimer**")
-        st.caption("วิเคราะห์เบื้องต้น · ต้องสถาปนิก/วิศวกรใบอนุญาตรับรอง")
+        st.markdown(
+            '<div class="ab-card">'
+            '<div class="ab-card-icon">⚡</div>'
+            "<h4>เร็ว · ได้ผลใน 60 วิ</h4>"
+            "<p>Top 3 issues + strengths + next actions · ไม่ต้องรอสถาปนิกตอบ</p>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
     with col3:
-        st.markdown("**🛠 Built with**")
-        st.caption("Streamlit · Gemini · 64-page Wiki KG")
+        st.markdown(
+            '<div class="ab-card">'
+            '<div class="ab-card-icon">🔬</div>'
+            "<h4>น่าเชื่อถือ · cite ทุกข้อ</h4>"
+            "<p>ไม่สร้างตัวเลขเอง · verified จากต้นฉบับ 21 ไฟล์ · ตรวจที่มาย้อนกลับได้</p>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
 
 
-# =============================================================================
-# Main
-# =============================================================================
+def render_api_key_gate(provider):
+    provider_name = "Gemini" if provider == "gemini" else "Claude"
+    st.info(f"👈 กรุณาใส่ **{provider_name} API Key** ที่ sidebar ก่อนเริ่ม")
+    if provider == "gemini":
+        st.markdown("""
+        ### 🆓 วิธีรับ Gemini API Key (ฟรี · 3 นาที)
 
-def main():
-    render_hero()
-    provider, api_key = render_sidebar()
+        1. เปิด **[aistudio.google.com/apikey](https://aistudio.google.com/apikey)**
+        2. Login ด้วย Google account
+        3. คลิก **"Create API key"**
+        4. Copy key · paste ที่ sidebar ซ้าย
+        5. **ไม่ต้องใส่ credit card!**
 
-    # Features section
-    render_features()
+        **Free tier:** 1,500 ครั้ง/วัน · พอสำหรับงานสถาปนิก 1 เดือน
+        """)
+    else:
+        st.markdown("""
+        ### 💎 วิธีรับ Claude API Key
 
-    st.markdown("---")
+        1. เปิด **[console.anthropic.com](https://console.anthropic.com)**
+        2. สร้าง account · ต้องเติม credit ($5+)
+        3. สร้าง API key · copy
+        4. Paste ที่ sidebar
 
-    # Gate: check API key
+        **Cost:** ~$0.02-0.05/ครั้ง
+        """)
+
+
+def render_analyze_tab(provider, api_key):
+    """Tab 1: wizard form + analysis"""
     if not api_key:
-        provider_name = "Gemini" if provider == "gemini" else "Claude"
-        st.info(f"👈 กรุณาใส่ **{provider_name} API Key** ที่ sidebar ก่อนเริ่ม")
-
-        if provider == "gemini":
-            st.markdown("""
-            ### 🆓 วิธีรับ Gemini API Key (ฟรี · 3 นาที)
-
-            1. เปิด **[aistudio.google.com/apikey](https://aistudio.google.com/apikey)**
-            2. Login ด้วย Google account
-            3. คลิก **"Create API key"**
-            4. Copy key · paste ที่ sidebar ซ้าย
-            5. **ไม่ต้องใส่ credit card!**
-
-            **Free tier:** 1,500 ครั้ง/วัน · พอสำหรับงานสถาปนิก 1 เดือน
-            """)
-        else:
-            st.markdown("""
-            ### 💎 วิธีรับ Claude API Key
-
-            1. เปิด **[console.anthropic.com](https://console.anthropic.com)**
-            2. สร้าง account · ต้องเติม credit ($5+)
-            3. สร้าง API key · copy
-            4. Paste ที่ sidebar
-
-            **Cost:** ~$0.02-0.05/ครั้ง
-            """)
+        render_api_key_gate(provider)
         return
 
-    # Input form
-    project_data = render_input_form()
+    # Presets on first step only
+    if st.session_state.get("wizard_step", 0) == 0:
+        presets.render_preset_chips(on_apply=wizard.apply_preset)
+        st.markdown("---")
 
-    st.subheader("📎 อัปโหลดแปลน (ไม่บังคับ)")
+    st.markdown("### 📝 ข้อมูลโครงการ")
+    project_data, is_ready = wizard.render_wizard()
+
+    # Plan upload + annotation (always visible)
+    st.markdown("---")
+    st.markdown("### 📎 อัปโหลดแปลน (ไม่บังคับ)")
     uploaded_file = st.file_uploader(
-        "ภาพแปลน · PDF · screenshot",
+        "ภาพแปลน · screenshot",
         type=["jpg", "jpeg", "png"],
-        help="ถ้า upload แปลน · AI จะวิเคราะห์จาก layout จริง",
+        help="ถ้า upload แปลน · AI จะวิเคราะห์จาก layout จริง · สามารถวาดมาร์คได้",
     )
-
     image_bytes = None
     if uploaded_file:
-        st.image(uploaded_file, caption="แปลนที่อัปโหลด", use_container_width=True)
-        image_bytes = uploaded_file.getvalue()
+        image_bytes = annotate.render_annotate_widget(uploaded_file)
 
-    # Analyze button
+    # Analyze button (only enabled on last step)
     st.markdown("---")
-    if st.button("🔍 วิเคราะห์โครงการ", type="primary", use_container_width=True):
-        with st.spinner(f"🧠 กำลังวิเคราะห์ด้วย {provider.title()}... (30-60 วินาที)"):
-            try:
-                analysis = analyze_project(provider, api_key, project_data, image_bytes)
+    if is_ready:
+        # Check tier quota
+        can_analyze, error_msg = tiers.check_analysis_quota()
+        if not can_analyze:
+            st.error(error_msg)
+            col1, col2 = st.columns(2)
+            if col1.button("💎 ดูแพ็กเกจ Pro", use_container_width=True):
+                st.switch_page("pages/1_💼_Pricing.py")
+            if col2.button("📅 จองปรึกษา", use_container_width=True):
+                st.switch_page("pages/2_📅_Book_Consultation.py")
+        else:
+            if st.button("🔍 วิเคราะห์โครงการ", type="primary", use_container_width=True):
+                tiers.increment_analysis()
+                _run_analysis(provider, api_key, project_data, image_bytes)
+    else:
+        st.caption("💡 กรอกข้อมูลให้ครบทุกขั้นตอนเพื่อเริ่มวิเคราะห์")
 
-                st.success(f"✅ วิเคราะห์เสร็จ (โดย {provider.title()})")
-                st.markdown("---")
-                st.header("📊 ผลวิเคราะห์")
-                st.markdown(analysis)
 
-                # Download
-                st.markdown("---")
-                timestamp = datetime.now().strftime("%Y-%m-%d-%H%M")
-                report = f"""# ผลวิเคราะห์ — {project_data['name']}
+def _run_analysis(provider, api_key, project_data, image_bytes):
+    try:
+        with AnalysisProgress(provider) as prog:
+            analysis = analyze_project(provider, api_key, project_data, image_bytes, progress=prog)
+            prog.done(success=True)
+
+        st.success(f"✅ วิเคราะห์เสร็จ (โดย {provider.title()})")
+        history.add_to_history(project_data, analysis, provider)
+        st.markdown("---")
+        st.header("📊 ผลวิเคราะห์")
+        st.markdown(analysis)
+
+        # Download
+        st.markdown("---")
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H%M")
+        report = f"""# ผลวิเคราะห์ — {project_data['name']}
 
 **วันที่:** {datetime.now().strftime('%Y-%m-%d %H:%M')}
 **Provider:** {provider.title()}
@@ -482,23 +481,138 @@ def main():
 *⚠ ผลเป็นการวิเคราะห์เบื้องต้น · ไม่แทนสถาปนิก/วิศวกรใบอนุญาต*
 *การขออนุญาตก่อสร้างต้องมีลายเซ็นผู้ประกอบวิชาชีพ (พรบ.ควบคุมอาคาร 2522 มาตรา 49 ทวิ)*
 """
+        col_md, col_html, col_pdf = st.columns(3)
+        with col_md:
+            st.download_button(
+                "📥 .md",
+                data=report,
+                file_name=f"analysis-{project_data['name']}-{timestamp}.md",
+                mime="text/markdown",
+                use_container_width=True,
+                help="Markdown (ใช้ใน Obsidian/Notion)",
+            )
+        with col_html:
+            html_doc = export_pdf.build_print_html(project_data, analysis, provider)
+            st.download_button(
+                "🖨 .html (พิมพ์ → PDF)",
+                data=html_doc,
+                file_name=f"analysis-{project_data['name']}-{timestamp}.html",
+                mime="text/html",
+                use_container_width=True,
+                help="เปิดใน browser แล้ว Ctrl+P เพื่อบันทึกเป็น PDF (รองรับฟอนต์ไทย)",
+            )
+        with col_pdf:
+            pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(project_data, analysis, provider)
+            if pdf_bytes:
                 st.download_button(
-                    "📥 ดาวน์โหลดรายงาน (.md)",
-                    data=report,
-                    file_name=f"analysis-{project_data['name']}-{timestamp}.md",
-                    mime="text/markdown",
+                    "📄 .pdf",
+                    data=pdf_bytes,
+                    file_name=f"analysis-{project_data['name']}-{timestamp}.pdf",
+                    mime="application/pdf",
                     use_container_width=True,
+                    help="PDF โดยตรง (ใช้ฟอนต์ Sarabun)",
+                )
+            else:
+                st.button(
+                    "📄 .pdf (ไม่พร้อม)",
+                    disabled=True,
+                    use_container_width=True,
+                    help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ .html แทน",
                 )
 
-            except requests.HTTPError as e:
-                st.error(f"❌ API Error: {e}")
-                if "401" in str(e) or "403" in str(e):
-                    st.warning("API Key ผิด หรือยังไม่ activate")
-                elif "429" in str(e):
-                    st.warning("Rate limit · รอ 1 นาทีแล้วลองใหม่ (Gemini free tier: 15 calls/min)")
+        st.info("💾 ผลวิเคราะห์ถูกบันทึกไว้ที่แท็บ **📚 ประวัติ** แล้ว · ถามเพิ่มได้ที่แท็บ **💬 Chat**")
 
-            except Exception as e:
-                st.error(f"❌ Error: {e}")
+    except requests.HTTPError as e:
+        st.error(f"❌ API Error: {e}")
+        if "401" in str(e) or "403" in str(e):
+            st.warning("API Key ผิด หรือยังไม่ activate")
+        elif "429" in str(e):
+            st.warning("Rate limit · รอ 1 นาทีแล้วลองใหม่ (Gemini free tier: 15 calls/min)")
+    except Exception as e:
+        st.error(f"❌ Error: {e}")
+
+
+def render_footer():
+    st.markdown("---")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown(
+            '<div class="ab-footer-card">'
+            "<strong>🔒 Privacy</strong>"
+            '<span style="color:var(--text-muted);font-size:0.88em;">ไม่เก็บข้อมูล · ไม่เทรน AI · session-based</span>'
+            "</div>",
+            unsafe_allow_html=True,
+        )
+    with col2:
+        st.markdown(
+            '<div class="ab-footer-card">'
+            "<strong>⚖ Disclaimer</strong>"
+            '<span style="color:var(--text-muted);font-size:0.88em;">วิเคราะห์เบื้องต้น · ต้องสถาปนิก/วิศวกรใบอนุญาตรับรอง</span>'
+            "</div>",
+            unsafe_allow_html=True,
+        )
+    with col3:
+        st.markdown(
+            '<div class="ab-footer-card">'
+            "<strong>🛠 Built with</strong>"
+            '<span style="color:var(--text-muted);font-size:0.88em;">Streamlit · Gemini · Claude · 64-page Wiki KG</span>'
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+def main():
+    theme.inject_css()
+    render_hero()
+
+    provider, api_key = render_sidebar()
+
+    render_features()
+    st.markdown("---")
+
+    tab_analyze, tab_history, tab_chat, tab_compare, tab_io, tab_kg = st.tabs([
+        "🔍 วิเคราะห์ใหม่",
+        "📚 ประวัติ",
+        "💬 Chat",
+        "🔀 เปรียบเทียบ",
+        "💾 Save/Load",
+        "🕸 KG Explorer",
+    ])
+
+    with tab_analyze:
+        render_analyze_tab(provider, api_key)
+
+    with tab_history:
+        history.render_history_panel()
+
+    with tab_chat:
+        # Provide a simple LLM dispatcher to chat module
+        def _chat_llm(prov, key, system, user_text):
+            if prov == "gemini":
+                return call_gemini(key, system, user_text)
+            return call_claude(key, system, user_text)
+
+        chat.render_chat_panel(
+            call_llm_fn=_chat_llm,
+            provider=provider,
+            api_key=api_key,
+            base_prompt=load_system_prompt(),
+            full_knowledge=load_full_knowledge(),
+            kg=load_knowledge_graph(),
+        )
+
+    with tab_compare:
+        compare.render_compare_panel()
+
+    with tab_io:
+        project_io.render_io_panel()
+
+    with tab_kg:
+        kg_explorer.render_kg_explorer()
 
     render_footer()
 
