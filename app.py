@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history
+from components import theme, llm, analysis, presets, history, contribute
 
 
 # =============================================================================
@@ -319,13 +319,22 @@ def render_result():
     )
 
 
-def render_history():
-    """Past analyses in current session — delegates to history module"""
-    hist = history.get_all()
-    if not hist:
-        return
+def render_tabs_section():
+    """Secondary content below main flow · tabs for history + contribute"""
     st.divider()
-    history.render_panel()
+    hist_count = len(history.get_all())
+    contrib_count = len(contribute.get_all())
+    tab_hist, tab_contrib = st.tabs([
+        f"📚 ประวัติ ({hist_count})",
+        f"💡 ช่วยเติม ({contrib_count})",
+    ])
+    with tab_hist:
+        if hist_count == 0:
+            st.info("🕐 ยังไม่มีประวัติ · วิเคราะห์โปรเจคแรกเพื่อเริ่มบันทึก")
+        else:
+            history.render_panel()
+    with tab_contrib:
+        contribute.render_panel()
 
 
 # =============================================================================
@@ -362,8 +371,8 @@ def main():
     if st.session_state.get("result") or st.session_state.get("raw_text"):
         render_result()
 
-    # History
-    render_history()
+    # Secondary tools (history + contribute)
+    render_tabs_section()
 
 
 if __name__ == "__main__":
