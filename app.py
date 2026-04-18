@@ -30,8 +30,13 @@ st.set_page_config(
     }
 )
 
-# Providers
-GEMINI_MODEL = "gemini-2.0-flash"  # 15 RPM · 1,500 RPD · best balance for free tier
+# Providers — ให้ user เลือก model ได้ · fallback ถ้า rate limit
+GEMINI_MODELS = {
+    "gemini-2.5-flash": "🚀 Gemini 2.5 Flash (ล่าสุด · เร็ว)",
+    "gemini-2.0-flash": "⚡ Gemini 2.0 Flash (stable · 1,500/วัน)",
+    "gemini-1.5-flash": "📦 Gemini 1.5 Flash (legacy · backup)",
+}
+DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4000
 
@@ -62,9 +67,11 @@ def load_system_prompt():
 # LLM Calls
 # =============================================================================
 
-def call_gemini(api_key, system, user_prompt, image_bytes=None):
-    """Call Google Gemini API (free tier)"""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={api_key}"
+def call_gemini(api_key, system, user_prompt, image_bytes=None, model=None):
+    """Call Google Gemini API (free tier) · supports model selection + fallback"""
+    if model is None:
+        model = st.session_state.get("gemini_model", DEFAULT_GEMINI_MODEL)
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
 
     combined = f"{system}\n\n---\n\n{user_prompt}"
 
@@ -192,6 +199,16 @@ def render_sidebar():
         )
         st.session_state["gemini_key"] = api_key
         st.sidebar.caption("📎 [รับ Gemini API Key ฟรี](https://aistudio.google.com/apikey)")
+
+        # Model selector for Gemini
+        gemini_model = st.sidebar.selectbox(
+            "Gemini Model",
+            options=list(GEMINI_MODELS.keys()),
+            format_func=lambda x: GEMINI_MODELS[x],
+            index=0,
+            help="ถ้าตัวใดเจอ rate limit · ลองเปลี่ยน",
+        )
+        st.session_state["gemini_model"] = gemini_model
     else:
         api_key = st.sidebar.text_input(
             "Claude API Key",
