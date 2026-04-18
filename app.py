@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis
+from components import theme, llm, analysis, presets
 
 
 # =============================================================================
@@ -144,6 +144,8 @@ def render_hero():
 def render_form() -> dict:
     """Project brief form. Returns project_data dict."""
     st.subheader("📝 ข้อมูลโครงการ")
+
+    presets.render_chips()
 
     c1, c2 = st.columns(2)
     with c1:
