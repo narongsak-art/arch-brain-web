@@ -1,18 +1,22 @@
 """Contribute · ให้คนอื่นช่วยเติมเนื้อหาลงใน wiki
 
 Phase 0: เก็บ contributions ใน session · download เป็น .json
-(Phase later: push to GitHub → admin review → merge to wiki/)
+Phase 1: Auto-save analysis → case contribution with heuristic category
+Phase 2: AI-assisted organizing · suggest layers / related pages / keywords
 
 Schema per contribution:
 {
   id, timestamp, type, category, title, body, author,
-  related_pages: [], status: pending
+  related_pages: [], status: pending,
+  ai_suggestions: { layers[], related_pages[], keywords[], model, generated_at }
 }
 """
 
 import json
+import re
 import uuid
 from datetime import datetime
+from pathlib import Path
 
 import streamlit as st
 
@@ -153,32 +157,217 @@ def save_analysis_as_case(project_data: dict, result: dict | None, provider: str
     return add("case", category, title, body, author="", related_pages=[])
 
 
+# ============================================================================
+# Phase 2: AI-assisted organizing
+# ============================================================================
+
+LAYER_LABELS = {
+    "law": "🏛 กฎหมาย",
+    "eng": "🔧 วิศวกรรม",
+    "design": "🎨 ออกแบบ",
+    "thai": "🪷 วัฒนธรรมไทย",
+    "fengshui": "☯ ฮวงจุ้ย",
+}
+
+
+def _load_kg_index() -> list[dict]:
+    """Load the KG node list (id + title + layers) for grounding AI suggestions"""
+    kg_path = Path(__file__).parent.parent / "kg-compact.json"
+    if not kg_path.exists():
+        return []
+    try:
+        data = json.loads(kg_path.read_text(encoding="utf-8"))
+        return [
+            {"id": n["id"], "title": n.get("title", n["id"]),
+             "layers": n.get("layers", []), "type": n.get("type", "concept")}
+            for n in data.get("nodes", [])
+        ]
+    except Exception:
+        return []
+
+
+def _build_organize_prompt(entry: dict, kg_nodes: list[dict]) -> tuple[str, str]:
+    """Return (system, user) prompts for AI organizing task"""
+    # Keep only id + title for context (minimize tokens)
+    index_lines = "\n".join(
+        f"- {n['id']} · {n['title']}" for n in kg_nodes[:160]
+    )
+    cat_meta = CATEGORIES.get(entry["category"], ("", entry["category"], ""))
+    type_meta = TYPES.get(entry["type"], ("", entry["type"], ""))
+
+    system = """คุณคือบรรณารักษ์ของ wiki สถาปัตยกรรมไทย · หน้าที่: จัดระเบียบ contribution ใหม่เข้ากับฐานข้อมูลเดิม
+
+ตอบเป็น JSON ล้วน ห้ามใส่ markdown · เริ่มด้วย { จบด้วย }
+
+Schema:
+{
+  "layers": ["law"|"eng"|"design"|"thai"|"fengshui"],
+  "related_pages": [
+    {"id": "concepts/xxx", "relevance": "direct|adjacent|background"}
+  ],
+  "keywords": ["คำสำคัญ 3-8 คำ"],
+  "proposed_new_pages": [
+    {"slug": "english-kebab-case", "title": "ชื่อเรื่อง", "reason": "ทำไมน่าสร้าง"}
+  ],
+  "short_summary": "สรุป 1-2 ประโยค"
+}
+
+- `layers`: เลือก 1-3 ชั้นที่เกี่ยวข้องมากที่สุด
+- `related_pages`: ต้องเป็น id ที่อยู่ในรายการด้านล่างเท่านั้น · อย่าสร้างใหม่
+- `proposed_new_pages`: เสนอเฉพาะกรณีที่ contribution นี้พูดถึงเรื่องที่ยังไม่มีหน้า · ว่างเปล่าถ้าไม่จำเป็น
+"""
+
+    user = f"""## Contribution
+
+- ประเภท: {type_meta[0]} {type_meta[1]}
+- หมวดหมู่: {cat_meta[0]} {cat_meta[1]}
+- หัวเรื่อง: {entry['title']}
+- เนื้อหา:
+
+{entry['body']}
+
+## รายการหน้า wiki ปัจจุบัน (id · title)
+
+{index_lines}
+
+---
+
+จัดระเบียบ contribution นี้ตาม JSON schema ด้านบน
+"""
+    return system, user
+
+
+def _extract_json(text: str) -> dict | None:
+    """Lift JSON object from LLM response"""
+    if not text:
+        return None
+    try:
+        return json.loads(text.strip())
+    except Exception:
+        pass
+    m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if m:
+        try:
+            return json.loads(m.group(1))
+        except Exception:
+            pass
+    # brace-match
+    start = text.find("{")
+    if start == -1:
+        return None
+    depth = 0
+    for i in range(start, len(text)):
+        if text[i] == "{":
+            depth += 1
+        elif text[i] == "}":
+            depth -= 1
+            if depth == 0:
+                try:
+                    return json.loads(text[start:i + 1])
+                except Exception:
+                    return None
+    return None
+
+
+def ai_organize(entry_id: str, api_key: str, provider: str, model: str = "gemini-2.5-flash") -> dict | None:
+    """Run AI organizer on a contribution by id · returns suggestions dict or None on failure"""
+    from components import llm  # lazy to avoid circular at import time
+
+    entry = next((e for e in get_all() if e["id"] == entry_id), None)
+    if not entry:
+        return None
+
+    kg = _load_kg_index()
+    system, user_text = _build_organize_prompt(entry, kg)
+
+    try:
+        if provider == "gemini":
+            raw = llm.call_gemini(api_key, system, user_text, model=model)
+        else:
+            raw = llm.call_claude(api_key, system, user_text)
+    except Exception as e:
+        return {"error": str(e)}
+
+    parsed = _extract_json(raw)
+    if not parsed:
+        return {"error": "AI ไม่ตอบเป็น JSON ที่ใช้ได้", "raw": raw[:500]}
+
+    # Validate related_pages against known KG ids
+    known_ids = {n["id"] for n in kg}
+    if isinstance(parsed.get("related_pages"), list):
+        parsed["related_pages"] = [
+            r for r in parsed["related_pages"]
+            if isinstance(r, dict) and r.get("id") in known_ids
+        ]
+    parsed["model"] = model
+    parsed["generated_at"] = datetime.now().isoformat()
+
+    # Persist into the contribution
+    for e in st.session_state.get("contributions", []):
+        if e["id"] == entry_id:
+            e["ai_suggestions"] = parsed
+            break
+
+    return parsed
+
+
+# ============================================================================
+# Wiki-ready markdown export
+# ============================================================================
+
 def to_markdown(entry: dict) -> str:
     """Convert a contribution into the wiki page format (for eventual ingestion)"""
     cat_meta = CATEGORIES.get(entry["category"], ("", entry["category"], ""))
     type_meta = TYPES.get(entry["type"], ("", entry["type"], ""))
     ts = entry["timestamp"][:10]  # date only
+    ai = entry.get("ai_suggestions") or {}
 
-    fm = f"""---
-title: "{entry['title']}"
-type: contribution
-created: {ts}
-updated: {ts}
-tags: [{entry['category']}, {entry['type']}, community]
-author: "{entry['author'] or 'anonymous'}"
-source_status: unverified
-status: {entry['status']}
----
-"""
-    body = f"""
-_{type_meta[0]} {type_meta[1]} · {cat_meta[0]} {cat_meta[1]}_
+    # Merge AI-suggested layers + related with user-provided ones
+    layers = ai.get("layers") or []
+    related_ai = [r["id"] for r in ai.get("related_pages", []) if r.get("id")]
+    related_all = list(dict.fromkeys((entry.get("related_pages") or []) + related_ai))
+    keywords = ai.get("keywords") or []
 
-{entry['body']}
-"""
-    if entry["related_pages"]:
-        body += "\n\n## เกี่ยวข้องกับ\n" + "\n".join(f"- [[{p}]]" for p in entry["related_pages"])
+    fm_lines = [
+        '---',
+        f'title: "{entry["title"]}"',
+        'type: contribution',
+        f'created: {ts}',
+        f'updated: {ts}',
+        f'tags: [{entry["category"]}, {entry["type"]}, community' +
+        (', ' + ', '.join(keywords) if keywords else '') + ']',
+    ]
+    if layers:
+        fm_lines.append(f'layers: [{", ".join(layers)}]')
+    fm_lines.extend([
+        f'author: "{entry["author"] or "anonymous"}"',
+        'source_status: unverified',
+        f'status: {entry["status"]}',
+    ])
+    if related_all:
+        fm_lines.append("related:")
+        for r in related_all:
+            fm_lines.append(f'  - "[[{r}]]"')
+    fm_lines.append('---')
+    fm = "\n".join(fm_lines) + "\n"
 
-    return fm + body
+    body_parts = [
+        "",
+        f"_{type_meta[0]} {type_meta[1]} · {cat_meta[0]} {cat_meta[1]}_",
+        "",
+        entry["body"],
+    ]
+    if ai.get("short_summary"):
+        body_parts += ["", "> AI summary: " + ai["short_summary"]]
+    if ai.get("proposed_new_pages"):
+        body_parts += ["", "## 💡 AI เสนอหน้าใหม่ที่ยังไม่มี", ""]
+        for p in ai["proposed_new_pages"]:
+            body_parts.append(f"- **{p.get('title', '-')}** (`{p.get('slug', '-')}`) — {p.get('reason', '')}")
+    if related_all:
+        body_parts += ["", "## เกี่ยวข้องกับ", ""]
+        body_parts += [f"- [[{r}]]" for r in related_all]
+
+    return fm + "\n".join(body_parts) + "\n"
 
 
 # ============================================================================
@@ -309,6 +498,8 @@ def _render_browse():
                 if entry.get("related_pages"):
                     st.caption("เกี่ยวข้อง: " + ", ".join(entry["related_pages"]))
 
+                _render_ai_panel(entry)
+
                 cc1, cc2, cc3 = st.columns(3)
                 cc1.download_button(
                     "📥 .json",
@@ -329,6 +520,66 @@ def _render_browse():
                 if cc3.button("🗑 ลบ", use_container_width=True, key=f"del_{entry['id']}"):
                     delete(entry["id"])
                     st.rerun()
+
+
+def _render_ai_panel(entry: dict):
+    """Show AI-suggested metadata for a contribution, with a 'run AI' button"""
+    ai = entry.get("ai_suggestions") or {}
+
+    if ai:
+        if ai.get("error"):
+            st.warning(f"⚠ AI จัดระเบียบไม่สำเร็จ: {ai['error']}")
+        else:
+            # Display suggestions
+            if ai.get("short_summary"):
+                st.info(f"🧠 **AI summary:** {ai['short_summary']}")
+
+            cols = st.columns([1, 1])
+            with cols[0]:
+                if ai.get("layers"):
+                    st.caption("**ชั้นความรู้:**")
+                    badges = " ".join(
+                        f'`{LAYER_LABELS.get(l, l)}`' for l in ai["layers"]
+                    )
+                    st.markdown(badges)
+                if ai.get("keywords"):
+                    st.caption("**คำสำคัญ:**")
+                    st.markdown(" ".join(f"`{k}`" for k in ai["keywords"]))
+            with cols[1]:
+                if ai.get("related_pages"):
+                    st.caption("**หน้าที่เกี่ยวข้อง (AI):**")
+                    for r in ai["related_pages"][:6]:
+                        rel = r.get("relevance", "")
+                        st.markdown(f"- `{r['id']}` _{rel}_")
+
+            if ai.get("proposed_new_pages"):
+                st.caption("**AI เสนอหน้าใหม่:**")
+                for p in ai["proposed_new_pages"]:
+                    st.markdown(f"- 💡 **{p.get('title', '-')}** — {p.get('reason', '')}")
+
+            st.caption(
+                f"_by {ai.get('model', 'ai')} · {ai.get('generated_at', '')[:16].replace('T', ' ')}_"
+            )
+
+    # Button to run (or re-run) AI
+    api_key = (
+        st.session_state.get("gemini_key")
+        if st.session_state.get("provider", "gemini") == "gemini"
+        else st.session_state.get("claude_key")
+    )
+    provider = st.session_state.get("provider", "gemini")
+    model = st.session_state.get("sb_model", "gemini-2.5-flash")
+
+    label = "✨ AI ช่วยจัดระเบียบ" if not ai else "🔄 รัน AI ใหม่"
+    btn_cols = st.columns([3, 1])
+    if btn_cols[1].button(
+        label, key=f"ai_org_{entry['id']}", use_container_width=True, disabled=not api_key
+    ):
+        with st.spinner("AI กำลังจัดระเบียบ... ~15-30 วิ"):
+            ai_organize(entry["id"], api_key, provider, model)
+        st.rerun()
+    if not api_key:
+        btn_cols[0].caption("_ใส่ API Key ที่ sidebar ก่อนเพื่อเปิดใช้ AI organizer_")
 
 
 def _render_bulk_download():
