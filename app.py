@@ -43,6 +43,7 @@ MAX_TOKENS = 4000
 # Paths
 KG_FILE = Path(__file__).parent / "kg-compact.json"
 SYSTEM_PROMPT_FILE = Path(__file__).parent / "system-prompt.md"
+FULL_KNOWLEDGE_FILE = Path(__file__).parent / "full-knowledge.md"
 
 
 # =============================================================================
@@ -61,6 +62,14 @@ def load_system_prompt():
     if SYSTEM_PROMPT_FILE.exists():
         return SYSTEM_PROMPT_FILE.read_text(encoding="utf-8")
     return "You are an architect's assistant."
+
+
+@st.cache_data
+def load_full_knowledge():
+    """Full content of key wiki pages (for accurate citations)"""
+    if FULL_KNOWLEDGE_FILE.exists():
+        return FULL_KNOWLEDGE_FILE.read_text(encoding="utf-8")
+    return ""
 
 
 # =============================================================================
@@ -136,13 +145,24 @@ def call_claude(api_key, system, user_prompt, image_bytes=None):
 def analyze_project(provider, api_key, project_data, plan_image_bytes=None):
     """Orchestrate analysis with chosen provider"""
     kg = load_knowledge_graph()
+    full_knowledge = load_full_knowledge()
     base_prompt = load_system_prompt()
 
     system = f"""{base_prompt}
 
-## Knowledge Graph (context)
+## ⭐ FULL KNOWLEDGE (เนื้อหาเต็มหน้า wiki สำคัญ · ใช้อ้างอิงตัวเลขจริง)
 
-{kg}"""
+{full_knowledge}
+
+---
+
+## Knowledge Graph Map (ภาพรวม 63 หน้า)
+
+{kg}
+
+---
+
+⚠ สำคัญ: Cite ตัวเลขกฎหมายจาก FULL KNOWLEDGE ด้านบนเท่านั้น · ห้ามสร้างตัวเลขเองจากความจำของคุณ"""
 
     user_text = f"""ข้อมูลโครงการ:
 - ชื่อ: {project_data['name']}
