@@ -271,6 +271,10 @@ def render_result():
         st.warning("⚠ AI ไม่ตอบเป็น JSON · แสดง markdown แทน")
         st.markdown(raw)
 
+    # Save to Hub (Phase 1 · auto-save as case study)
+    st.divider()
+    _render_save_to_hub(pd, data, provider)
+
     # Downloads
     st.divider()
     st.subheader("📥 ดาวน์โหลด")
@@ -317,6 +321,46 @@ def render_result():
         file_name=f"{pd['name']}-{ts}-raw.txt", mime="text/plain",
         use_container_width=True,
     )
+
+
+def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):
+    """Phase 1: one-click save current analysis as a case contribution.
+
+    Tracks which analyses have been sent via session_state to prevent duplicates
+    on reruns. Auto-classifies category using heuristics in contribute._auto_classify.
+    """
+    # Build a stable key for this analysis (name + timestamp of the form submission)
+    # Fall back to object id(project_data) if no timestamp available
+    sig_parts = [
+        project_data.get("name", ""),
+        str(project_data.get("land_area", "")),
+        str(project_data.get("budget", "")),
+        (project_data.get("special") or "")[:40],
+    ]
+    sig = "|".join(sig_parts)
+    saved_ids: dict = st.session_state.setdefault("_hub_saved", {})
+
+    st.subheader("📤 ส่งเข้า Hub ของชุมชน")
+    st.caption(
+        "บันทึกเคสนี้ลง **กล่องรอเข้า** → ช่วยให้ AI ฉลาดขึ้นเมื่อรายงานผ่านการตรวจ · "
+        "แก้ไข/ลบได้ที่แท็บ **💡 ช่วยเติม**"
+    )
+
+    if sig in saved_ids:
+        entry_id = saved_ids[sig]
+        st.success(f"✅ เคสนี้ส่งแล้ว · id `{entry_id}` · ดูในแท็บ **💡 ช่วยเติม**")
+    else:
+        auto_cat = contribute._auto_classify(project_data, result)
+        cat_emoji, cat_name, _ = contribute.CATEGORIES[auto_cat]
+        col_a, col_b = st.columns([3, 1])
+        col_a.caption(
+            f"จะถูกจัดเข้าหมวด **{cat_emoji} {cat_name}** โดยอัตโนมัติ · "
+            "(เปลี่ยนทีหลังได้)"
+        )
+        if col_b.button("💾 ส่งเข้า Hub", use_container_width=True, key="hub_save_btn"):
+            entry = contribute.save_analysis_as_case(project_data, result, provider)
+            saved_ids[sig] = entry["id"]
+            st.rerun()
 
 
 def render_tabs_section():

@@ -85,6 +85,74 @@ def clear():
     st.session_state["contributions"] = []
 
 
+def _auto_classify(project_data: dict, result: dict | None) -> str:
+    """Heuristic: pick the most relevant category for an auto-saved analysis.
+    Defaults to 'design' when nothing stands out.
+    """
+    special = (project_data.get("special") or "").lower()
+    fs = project_data.get("fengshui", "")
+
+    rules = [
+        ("fengshui", fs == "มาก"),
+        ("thai-culture", "ห้องพระ" in special or "ศาลภูมิ" in special or "บ้านไทย" in special),
+        ("renovation", "รีโนเวท" in special or "ต่อเติม" in special or "renovate" in special),
+        ("sustainability", "solar" in special or "ประหยัดพลังงาน" in special or "edge" in special or "leed" in special),
+        ("landscape", "สระ" in special or "pool" in special or "สวน" in special or "pergola" in special),
+        ("smart-home", "iot" in special or "smart" in special or "automation" in special),
+        ("cost", (project_data.get("budget") or 0) >= 20),
+    ]
+    for cat, cond in rules:
+        if cond:
+            return cat
+    # Elderly → accessibility falls under design layer
+    if project_data.get("has_elderly") == "ใช่":
+        return "design"
+    return "design"
+
+
+def save_analysis_as_case(project_data: dict, result: dict | None, provider: str) -> dict:
+    """Promote an analysis into a community case study automatically"""
+    name = project_data.get("name", "ไม่ระบุ")
+    zone = project_data.get("zone", "-")
+    area = project_data.get("land_area", 0)
+    floors = project_data.get("floors", "-")
+    bedrooms = project_data.get("bedrooms", "-")
+    budget = project_data.get("budget", 0)
+
+    title = f"{name} · {zone} · {area:.0f} ตร.ม. · {floors} ชั้น · {bedrooms} BR"
+
+    parts = ["**Brief โครงการ**", ""]
+    parts.append(f"- ที่ดิน: {project_data.get('land_w')}×{project_data.get('land_d')} ม. = {area:.0f} ตร.ม.")
+    parts.append(f"- จังหวัด: {project_data.get('province')} · เขต: {zone}")
+    parts.append(f"- ครอบครัว: {project_data.get('family_size')} คน · ผู้สูงอายุ: {project_data.get('has_elderly')}")
+    parts.append(f"- ชั้น: {floors} · ห้องนอน: {bedrooms}")
+    parts.append(f"- งบ: {budget} ลบ. · ฮวงจุ้ย: {project_data.get('fengshui')}")
+    if project_data.get("special"):
+        parts.append(f"- พิเศษ: {project_data['special']}")
+
+    if result:
+        s = result.get("summary", {})
+        parts.append("")
+        parts.append(f"**AI Analysis (by {provider})**")
+        parts.append("")
+        parts.append(f"- Feasibility: {s.get('feasibility', '-')} · Score: {s.get('score', '-')}/100")
+        if s.get("concern"):
+            parts.append(f"- ⚠ ประเด็น: {s['concern']}")
+        if s.get("strength"):
+            parts.append(f"- ⭐ จุดเด่น: {s['strength']}")
+        # Issues
+        issues = result.get("issues") or []
+        if issues:
+            parts.append("")
+            parts.append("**Top Issues:**")
+            for it in issues[:3]:
+                parts.append(f"- {it.get('title', '-')} — {it.get('detail', '')}")
+
+    body = "\n".join(parts)
+    category = _auto_classify(project_data, result)
+    return add("case", category, title, body, author="", related_pages=[])
+
+
 def to_markdown(entry: dict) -> str:
     """Convert a contribution into the wiki page format (for eventual ingestion)"""
     cat_meta = CATEGORIES.get(entry["category"], ("", entry["category"], ""))
