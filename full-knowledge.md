@@ -920,3 +920,3054 @@ related:
 - **ชั้นวัฒนธรรมไทย:** ชานบ้าน / ใต้ถุน / หน้าจั่วสูง = passive design ที่คนไทยรู้อยู่แล้ว — ดู [[wiki/concepts/บ้านไทยโบราณ|บ้านไทยพื้นถิ่น]]
 - **ชั้นกฎหมาย:** ระยะร่นที่ดี = มีที่ให้ลมและต้นไม้ ระยะร่นน้อย = passive ทำยาก
 - **ชั้นฮวงจุ้ย:** "ประตูหน้ารับลมดี" = cross ventilation พูดคนละภาษา เรื่องเดียวกัน
+
+
+=========================================
+# ROUND 1 · ความรู้ใหม่ (Tracks A + C + D + F)
+=========================================
+
+## 🌿 Track A · Landscape: สวนและภูมิสถาปัตย์
+---
+title: "ออกแบบสวนและภูมิสถาปัตย์ (Landscape Design)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [landscape, สวน, ภูมิสถาปัตย์, garden, outdoor]
+layers: [design, thai]
+applies_to: [สวน, พื้นที่นอกบ้าน, landscape]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/การวางทิศบ้าน|การวางทิศและผังบ้าน]]"
+  - "[[wiki/concepts/ศาลพระภูมิ|ศาลพระภูมิ]]"
+  - "[[wiki/concepts/ต้นไม้สำหรับบ้านไทย|ต้นไม้สำหรับบ้านไทย]]"
+---
+
+สวนไม่ใช่แค่ "ที่ว่างหลังหักบ้าน" — ต้องออกแบบให้**ใช้งานได้ · เย็นบ้าน · สวย · ดูแลง่าย**
+
+## 🎯 หลักการออกแบบสวนบ้านไทย
+
+### 5 หน้าที่หลักของสวน
+1. **Visual** — สวยจากในบ้าน + จากนอกบ้าน
+2. **Functional** — ใช้งาน (นั่งเล่น · ทานข้าว · เด็กเล่น)
+3. **Climatic** — ลด heat island · กรองฝุ่น · ทำให้บ้านเย็น
+4. **Privacy** — บังเพื่อนบ้าน · บังถนน
+5. **Cultural** — ศาลพระภูมิ · ต้นไม้มงคล
+
+## 📐 Zoning สวน (3 โซน)
+
+### 🚪 Front yard (สวนหน้าบ้าน)
+- **First impression** — แขกเห็นก่อน
+- มี**ศาลพระภูมิ** (NE)
+- ทางเดินเข้าบ้าน · ประตูรั้ว
+- **ไม่ควรจัดหนักแน่น** — ให้ประตูเข้าเด่น
+- ขนาด: ≥ 2–3 ม. ลึก · บังเพื่อนบ้านได้
+
+### 🏡 Side yard (ข้างบ้าน)
+- **Utility + service** — เก็บของ · เดิน service · วางถังน้ำ
+- อาจทำ**สวนเล็ก** (garden bed 60 ซม.)
+- รับลมด้านตะวันตก/ใต้ (สำหรับ cross ventilation)
+- ขนาด: 2 ม. ขั้นต่ำ (ร่นกฎหมาย)
+
+### 🌳 Back yard (หลังบ้าน)
+- **Recreation + family** — นั่งเล่น · ทานข้าว · เด็กเล่น
+- มักใหญ่สุด · privacy ดีสุด
+- **Pool · BBQ · pergola**
+- ต่อกับห้องทาน/family room · ให้ flow
+- ขนาด: ขั้นต่ำ 3 × 4 ม. (สำหรับ entertain)
+
+## 🌡 Climatic Design — สวนช่วยบ้านเย็น
+
+### Shade = **ลดอุณหภูมิ 3-5°C**
+
+**Shade trees** (ต้นไม้ให้ร่ม):
+- **มะม่วง · ชมพู่ · ทุเรียน** — ร่มเต็ม + กินได้
+- **จามจุรี · ก้ามปู** — ร่มใหญ่ · ทิ้งใบน้อย
+- **อินทนิล · ประดู่** — ดอกสวย · ร่มดี
+
+**ตำแหน่งต้นไม้:**
+- **ฝั่งตะวันตก** — บังแดดบ่าย (สำคัญสุด)
+- **ฝั่งตะวันตกเฉียงใต้** — บังลมร้อน + ฝน
+- **ใกล้ AC CDU** — ลดอุณหภูมิอากาศ · AC ทำงานน้อย
+
+### Transpiration cooling
+- ต้นไม้ใบกว้างระเหยน้ำ → อากาศรอบ**เย็นลง 2-3°C**
+- หญ้าและ groundcover ดีกว่าคอนกรีต
+- **Rule:** เขียว ≥ 30-40% ของพื้นที่รอบบ้าน
+
+## 🌸 Design Styles · 5 แบบนิยมในไทย
+
+| Style | Feel | เหมาะกับ |
+|-------|------|---------|
+| **Thai tropical** | ใบใหญ่ · ชื้น · เขียวหนา | บ้านไทยประยุกต์ · รีสอร์ท |
+| **Japanese / Zen** | มินิมอล · หิน · สงบ | บ้านโมเดิร์น · ชอบ quiet |
+| **Modern minimal** | เรียบ · น้อยชิ้น · grass | บ้าน modern · ดูแลน้อย |
+| **English cottage** | ดอกไม้หลายสี · ยุ่ง | บ้าน classic · แม่บ้านชอบ |
+| **Native Thai** | ไทยแท้ · ต้นไม้ท้องถิ่น | บ้านอนุรักษ์ · ทนแล้ง |
+
+## 🛠 องค์ประกอบสวน (มีอะไรต้องวาง)
+
+### 1. พืชพันธุ์ (Plants)
+- **ต้นไม้ใหญ่** — 1-3 ต้น (ห่างจากบ้าน 3+ ม.)
+- **ไม้พุ่ม** — 5-20 ต้น (privacy + texture)
+- **ไม้ล้มลุก** — 10-50 ต้น (สีสัน · ซีซั่น)
+- **Groundcover** — หญ้า · ทดแทนหญ้า (clover, lemongrass)
+- **Climbing plants** — สำหรับ pergola / trellis
+
+ดูเลือกจริงที่ [[wiki/concepts/ต้นไม้สำหรับบ้านไทย]]
+
+### 2. Hardscape
+ดู [[wiki/concepts/Hardscape-พื้นรั้ว-pergola]]:
+- ทางเดิน (paving)
+- Patio / deck
+- รั้ว / กำแพง
+- Pergola / ซุ้มไม้เลื้อย
+- ขั้นบันได (ในสวนลาด)
+
+### 3. Water features
+- สระว่ายน้ำ → [[wiki/concepts/ออกแบบสระว่ายน้ำ]]
+- น้ำพุ / บ่อปลา Koi
+- น้ำตกเล็ก
+- Rain garden (สวนรับฝน)
+
+### 4. Lighting
+- Path lights (low · 30-50 ซม.)
+- Up-lights (ต้นไม้ใหญ่ · สวยกลางคืน)
+- Wall wash (ผนัง · texture)
+- Floating (ในสระ · น้ำพุ)
+
+### 5. Furniture
+- โต๊ะ-เก้าอี้ outdoor (teak · rattan · aluminum)
+- Daybed
+- Swing / hammock
+
+## 📏 ขนาดและสัดส่วน
+
+### สัดส่วนแนะนำ
+- **บ้านในกรุง (100-200 ตร.ว.):** สวน 20-30% ของที่ดิน
+- **บ้านใน suburbs (300-500 ตร.ว.):** สวน 40-60%
+- **บ้านต่างจังหวัด (>500 ตร.ว.):** สวน 60-80%
+
+### พื้นที่ต่อ function
+- นั่งเล่น 4 คน: **2.5 × 2.5 ม.** (6 ตร.ม.)
+- ทานข้าว 6 ที่: **3 × 4 ม.** (12 ตร.ม.)
+- BBQ corner: **2 × 2 ม.** (4 ตร.ม.)
+- Kids play: **4 × 5 ม.** (20 ตร.ม.)
+- Yoga / workout: **3 × 4 ม.**
+
+## 💧 Irrigation (ระบบรดน้ำ)
+
+### ตัวเลือก
+- **Manual** (สายยาง) — เล็กสุด · เสียเวลา
+- **Sprinkler** — กระจายทั่ว · ดีสำหรับ lawn
+- **Drip irrigation** — ประหยัดน้ำ 30-50% · ดีสำหรับไม้พุ่ม
+- **Smart controller** — ดู weather forecast · ไม่รดตอนฝน
+
+### ขนาดแนะนำ
+- สวนเล็ก < 50 ตร.ม.: manual หรือ sprinkler
+- สวนกลาง 50-200 ตร.ม.: sprinkler + drip zones
+- สวนใหญ่ > 200 ตร.ม.: smart + zones
+
+## 🏠 Integration กับบ้าน
+
+### Indoor-Outdoor flow
+- **Sliding doors กว้าง** (3+ ม.) → living/dining สู่สวน
+- **Same floor level** inside-outside (step-free)
+- **ฝ้าต่อเนื่อง** (ovеrhang หรือ pergola)
+- **พื้นต่อเนื่อง** (material เดียวกัน)
+
+### Views from inside
+- Master bedroom หัน**ต้นไม้ใหญ่**
+- Kitchen sink หัน**courtyard**
+- Living หัน**patio**
+
+## 🐒 ความท้าทาย · Maintenance
+
+| ความยาก | Solution |
+|---------|---------|
+| ใบไม้ร่วง | เลือกต้น evergreen · หรือ schedule raking |
+| วัชพืช | Mulch หนา · weed fabric |
+| ฝนตกหนัก · น้ำท่วม | French drain · elevated beds |
+| ศัตรูพืช | Companion planting · สารชีวภาพ |
+| ดูแลไม่ไหว | Design low-maintenance (native plants, hardscape >50%) |
+
+## Checklist ออกแบบสวน
+
+- [ ] Zoning: front/side/back ชัดเจน
+- [ ] ศาลพระภูมิ NE (ถ้าเจ้าของสน)
+- [ ] Shade tree ฝั่งตะวันตก
+- [ ] Privacy screen (ต้นไม้หรือรั้ว)
+- [ ] Indoor-outdoor flow (sliding doors · level)
+- [ ] Outdoor entertaining space (ขนาดตาม family)
+- [ ] Irrigation system planned
+- [ ] Drainage (ระบายน้ำฝน)
+- [ ] Lighting path + accent
+- [ ] Low-maintenance design if possible
+- [ ] Budget: landscape 10-15% ของ total construction
+
+---
+
+## 🌿 Track A · Landscape: สระว่ายน้ำ
+---
+title: "ออกแบบสระว่ายน้ำ (Pool Design)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [pool, สระ, outdoor, water]
+layers: [design, eng, law]
+applies_to: [สระว่ายน้ำ, pool, pump-filter]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์|Landscape Design]]"
+  - "[[wiki/concepts/ระบบประปาและสุขาภิบาล|ระบบประปา]]"
+  - "[[wiki/concepts/โครงสร้างและฐานราก|โครงสร้าง]]"
+---
+
+สระว่ายน้ำ · เป็นส่วนที่**ซับซ้อนที่สุด**ในงาน landscape — โครงสร้าง · วิศวกรรมน้ำ · ระบบบำบัด · กฎหมาย
+
+## 🏊 ประเภทสระ (เลือกก่อนออกแบบ)
+
+| ประเภท | ขนาด | ใช้งาน | ราคา |
+|--------|------|--------|------|
+| **Lap pool** | 2-3 × 10-15 ม. | ว่ายออกกำลัง | 500K-1.5M |
+| **Plunge pool** | 2 × 3 ม. | แช่เย็น · ผ่อนคลาย | 200-500K |
+| **Family pool** | 4 × 8 ม. | เล่นน้ำ · kids | 800K-2M |
+| **Infinity edge** | varies | Luxury view | +30-50% |
+| **Natural pool** | varies | ecosystem · no chlorine | 1.5-3M |
+
+## 📏 ขนาดและ sizing
+
+### Depth (ความลึก)
+- **Shallow zone:** 0.90-1.20 ม. (เล่น · kids)
+- **Medium zone:** 1.20-1.50 ม. (ลอยน้ำ · standing)
+- **Deep zone:** 1.80-2.00 ม. (ว่ายจริง · diving ไม่แนะนำที่บ้าน)
+- **Rule:** ถ้าไม่มี lifeguard **ไม่ควรลึก > 1.80 ม.**
+
+### Dimensions แนะนำ
+- **Minimum usable:** 3 × 6 ม. (ว่ายเล่นได้)
+- **Good family:** 4 × 8-10 ม.
+- **Serious lap:** 3 × 15-25 ม.
+- **Width for 2 ที่ว่าย parallel:** ≥ 4 ม.
+
+### Deck (ขอบสระ)
+- **Minimum:** 1.20 ม. รอบสระ (นั่ง · เดิน)
+- **Good:** 2.00 ม. ด้านยาว · 1.50 ด้านสั้น
+- **Luxury:** Sun deck 3+ ม. ด้านหนึ่ง
+
+## ⚖ กฎหมายที่เกี่ยวข้อง
+
+### กฎกระทรวง 55 · ไม่ได้กำหนดเฉพาะสระ
+แต่มีเงื่อนไข:
+- **ที่ว่าง** (30% ของพื้นที่ชั้นที่มากที่สุด) — สระนับเป็น open space
+- **ระยะร่น** — ขอบสระห่างเขตที่ดิน ≥ 1 ม. แนะนำ (ปกติร่น 2 ม.)
+
+### ข้อบัญญัติท้องถิ่น (กทม.)
+- สระ >5 × 5 ม. อาจต้องขออนุญาตเพิ่ม (ดู ข้อบัญญัติ กทม.)
+- ต้อง licensed pool engineer certify
+
+### มาตรฐานความปลอดภัย
+- **รั้ว** รอบสระสูง ≥ 1.20 ม. (กันเด็กตก)
+- **Self-closing gate** with latch สูง > 1.50 ม.
+- **Non-slip deck**
+- **Pool cover** (optional · ป้องกัน + ประหยัด chemicals)
+
+## 🔧 ระบบสระ (Pool Systems)
+
+### 1. Circulation (ระบบหมุนเวียน)
+- **Skimmer** — ดูดน้ำผิวบน (ใบไม้ · น้ำมัน)
+- **Main drain** — ดูดน้ำก้น (ดึงออก filter)
+- **Return jets** — ส่งน้ำกลับ (4-8 จุด)
+- **Turnover time:** 4-6 ชั่วโมง (น้ำหมุนครบรอบ)
+
+### 2. Filtration (กรอง)
+| ประเภท | ราคา | Maintenance |
+|--------|------|-------------|
+| **Sand filter** | 15-30K | ง่าย · เปลี่ยนทราย 5-7 ปี |
+| **Cartridge** | 20-40K | ซับซ้อน · ล้าง monthly |
+| **DE (Diatomaceous Earth)** | 40-80K | ดีสุด · แพง |
+
+### 3. Sanitization (ฆ่าเชื้อ)
+- **Chlorine** (มาตรฐาน) — ราคาถูก · ตรวจรายสัปดาห์
+- **Salt system** (saltwater) — เกลือเข้มข้น 3,000 ppm · ผิวไม่แสบ · ราคาเครื่อง 40-80K
+- **UV + Ozone** — ประหยัดเคมี 70% · ต้องเครื่องเสริม
+- **Natural pool** — ระบบพืช + กรวด · no chemicals
+
+### 4. Heating (ถ้าอยากอุ่น)
+- **Solar heating** — ประหยัด · ต้องพื้นที่หลังคา
+- **Heat pump** — ไฟฟ้า · ประสิทธิภาพสูง · 5-10K/เดือน
+- **Gas heater** — เร็วสุด · แพงสุดค่าใช้จ่าย
+
+### 5. Pump
+- **Variable speed pump (inverter)** — ประหยัดไฟ 50-80%
+- **Size:** 1-1.5 HP สำหรับบ้าน
+- **Run time:** 6-10 ชั่วโมง/วัน
+
+## 🏗 โครงสร้างสระ
+
+### ประเภทการก่อสร้าง
+
+| ประเภท | ราคา/ตร.ม. | อายุ | ความยืดหยุ่น |
+|--------|-----------|------|--------------|
+| **Concrete (gunite)** | 15-30K | 40-60 ปี | Custom shape ได้ · แข็งแรง |
+| **Pre-cast fiberglass** | 8-15K | 20-30 ปี | ติดตั้งเร็ว · shape จำกัด |
+| **Vinyl liner** | 5-10K | 10-15 ปี liner | ถูกสุด · เปลี่ยน liner เป็นระยะ |
+
+### การเตรียมฐาน (Concrete pool)
+- **Excavation:** ลึก depth + 30 ซม. (สำหรับ gravel + slab)
+- **Rebar cage:** DB12 ทั่ว · DB16 ขอบ
+- **Gunite/shotcrete** หนา 20-25 ซม.
+- **Waterproofing:** cementitious + tiles
+
+### Tile / Finish
+- **Ceramic tiles** — มาตรฐาน · 300-800 บาท/ตร.ม.
+- **Glass mosaic** — luxury · 1,500-3,000 บาท/ตร.ม.
+- **Quartz aggregate** (Pebble Tec) — durable · 2,000-4,000 บาท/ตร.ม.
+
+## 🏥 Equipment room
+
+### ตำแหน่ง
+- **ใกล้สระ** (ลดความยาวท่อ)
+- **ไกลห้องนอน** (เสียง pump · 55-65 dB)
+- **Ventilated** (ความชื้น chlorine)
+- **Access easy** (service monthly)
+
+### พื้นที่ต้องการ
+- 2 × 2 ม. (4 ตร.ม.) สำหรับสระเล็ก-กลาง
+- 2.5 × 3 ม. (7.5 ตร.ม.) สำหรับสระใหญ่ + heater
+
+### Equipment ใน room
+- Pump + controller
+- Filter
+- Salt cell / chlorinator
+- Heat pump (ถ้ามี)
+- Automated controller
+- Backup power (UPS สำหรับ filter)
+
+## 💧 น้ำ Usage + Maintenance
+
+### การเติมน้ำ
+- **Initial fill:** 50,000-200,000 ลิตร (ขึ้นกับขนาด)
+- **Monthly refill:** 5-10% (การระเหย + splash)
+- **Source:** ประปา · บาดาล · น้ำฝน (ต้องกรอง)
+
+### Monthly costs
+- ไฟฟ้า pump: 1,500-3,000 บาท
+- เคมี: 500-1,500 บาท
+- Technician (monthly service): 1,500-3,000 บาท
+- **รวม: 3,500-7,500 บาท/เดือน**
+
+## 🌿 Eco-friendly options
+
+### Natural pool (ไม่มีเคมี)
+- 30-50% **ecosystem zone** (พืช · กรวด)
+- Beneficial bacteria breakdown organic matter
+- Plants uptake nutrients
+- Water circulates naturally
+- **ราคา:** สูงกว่า concrete ~30-50%
+- **Maintenance:** ลดเคมี 100% · เพิ่ม gardening
+
+### Solar pool heating
+- Solar collector 50-70% ของ pool surface
+- Heat water 3-5°C warmer
+- Extends swim season 1-2 เดือน
+- ROI 3-5 ปี
+
+## 🚫 Common mistakes
+
+1. **สระเล็กเกินไป** — 2 × 3 ม. มักขายบ้านยาก (ไม่ใช้ได้จริง)
+2. **ไม่เผื่อ equipment room** — เครื่องอยู่นอกบ้าน · เสียงดัง
+3. **ไม่มี skimmer** — น้ำสกปรกเร็ว
+4. **ร่นเพื่อนบ้านไม่พอ** — เสียงน้ำ · แสงสะท้อน
+5. **ทิศผิด** — สระฝั่งตะวันตก · ร้อนเกินว่ายไม่ได้
+
+## Checklist ออกแบบสระ
+
+- [ ] ประเภทสระ (lap/plunge/family)
+- [ ] ขนาดและ depth zones
+- [ ] ระยะร่นจากเขต (≥ 1-2 ม.)
+- [ ] รั้วรอบสระ (สูง ≥ 1.20)
+- [ ] Non-slip deck
+- [ ] ระบบกรอง (sand/cartridge/DE)
+- [ ] Sanitization (chlorine/salt/UV)
+- [ ] Equipment room (2-3 ตร.ม.)
+- [ ] Drainage รอบสระ
+- [ ] Budget รวม equipment + maintenance
+- [ ] Solar heating option
+- [ ] Wind + sun orientation
+- [ ] Pool engineer licensed sign-off
+
+---
+
+## 🌿 Track A · Landscape: Hardscape
+---
+title: "Hardscape · พื้น · รั้ว · Pergola"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [hardscape, paving, fence, pergola, outdoor]
+layers: [design, eng]
+applies_to: [พื้นนอก, รั้ว, กำแพง, pergola, deck]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์|Landscape Design]]"
+  - "[[wiki/concepts/วัสดุก่อสร้าง|วัสดุก่อสร้าง]]"
+  - "[[wiki/concepts/ระยะร่น|ระยะร่น]]"
+---
+
+Hardscape = ส่วน**ไม่มีชีวิต**ในสวน · พื้น · รั้ว · ซุ้ม · step · retaining wall · สำคัญต่อการใช้งานสวน
+
+## 🪨 1. Paving · พื้นนอกบ้าน
+
+### วัสดุพื้นยอดนิยม
+
+| วัสดุ | ราคา/ตร.ม. | ทนทาน | ดูแล | Look |
+|------|-----------|-------|------|------|
+| **กระเบื้อง porcelain outdoor** | 400-900 | สูง | ง่าย | Modern · clean |
+| **หินทราย (sandstone)** | 700-1,500 | กลาง | ล้างเป็นระยะ | Warm · natural |
+| **หินภูเขาไฟ (lava)** | 800-1,500 | สูง | ง่าย | Rustic · Thai-modern |
+| **ไม้เทียม (WPC)** | 1,500-3,000 | สูง | ง่าย | Warm · wooden look |
+| **ไม้จริง (ikea tech · ไม้สัก)** | 2,500-5,000 | ต่ำ-กลาง | ต้องน้ำมัน 2x/ปี | Premium natural |
+| **คอนกรีตขัดมัน (polished)** | 600-1,200 | สูง | ง่าย | Industrial |
+| **กรวดล้าง** | 500-1,000 | กลาง | กวาดเป็นระยะ | Traditional Thai |
+| **Brick paver** | 600-1,200 | สูง | ทน · repairable | Classic |
+
+### หลักเลือก
+- **ฝน?** → ไม่ใช้หินเรียบ · ต้อง anti-slip
+- **เดินเท้าเปล่า?** → ไม่ใช้หินร้อน (granite) ฝั่งตะวันตก
+- **Pool deck?** → ต้อง non-slip + heat-resistant
+- **Driveway?** → ทนน้ำหนักรถ · brick/concrete
+
+### เทคนิคการปู
+- **Slope 1-2%** ไปทาง drain (กันน้ำขัง)
+- **Expansion joint** ทุก 3-5 ม. (กันแตก)
+- **Base:** gravel 10 ซม. + sand 5 ซม. (หลีกเลี่ยงยุบ)
+- **Drainage channel** ริมบ้าน
+
+## 🚧 2. รั้ว & กำแพง (Fence & Wall)
+
+### ประเภทรั้ว
+
+| ประเภท | สูง | ราคา/ม. | ข้อดี |
+|--------|-----|---------|------|
+| **กำแพงปูน** | 1.50-2.00 | 3,500-6,000 | Privacy 100% · ทนทาน |
+| **กำแพงปูน + ตกแต่ง** | 2.00 | 5,000-10,000 | สวย · premium |
+| **รั้วเหล็ก** | 1.80 | 2,500-5,000 | โปร่ง · security |
+| **รั้วไม้** | 1.50-1.80 | 3,000-6,000 | warmth · ต้อง maintain |
+| **รั้วไม้ระแนง** (อลูมิเนียม/WPC) | 1.80 | 4,000-8,000 | modern · ทน |
+| **Hedge (ต้นไม้)** | 1.50-3.00 | 500-1,500 | เขียว · privacy · ต้องตัด |
+| **Mixed** (ปูน+เหล็ก+ต้นไม้) | 2.00 | 5,000-12,000 | ผสมข้อดี |
+
+### กฎหมายรั้ว (กฎกระทรวง 55 ข้อ 5)
+- ริมถนนสาธารณะ: ต้องทำมุม**ไม่น้อยกว่า 135°** ที่มุมรั้ว
+- ส่วนมุมรั้ว ≥ **4 ม.** ทำมุมกับถนนเป็นมุมฉาก
+- สูง ≥ 2 ม. หลังรั้วต้อง**ได้รับการพิจารณา**ในบางพื้นที่
+
+### ประตูรั้ว
+- **Manual gate:** 2.0-3.5 ม. กว้าง · 4,000-10,000 บาท
+- **Auto slide gate:** 3-4 ม. · 30,000-80,000 บาท (+motor)
+- **Auto swing gate:** 3 × 2 · 40,000-100,000 บาท
+- **Pedestrian gate:** 90 ซม. ขั้นต่ำ · 2,000-6,000
+
+### Security additions
+- CCTV ที่ประตูรั้ว (4K ultrawide)
+- Intercom (wired ดีกว่า wireless)
+- Auto-lock + remote
+- Spike top (ถ้าปลอดภัยสำคัญ · แต่ไม่สวย)
+
+## 🏛 3. Pergola · ซุ้ม · Gazebo
+
+### ประเภท
+
+| ประเภท | ขนาด | ราคา | ใช้งาน |
+|--------|------|------|--------|
+| **Pergola** (เปิดบน) | 3 × 4 ม. | 50-150K | ไม้เลื้อยปกคลุม · shade partial |
+| **Pergola + roof (solid)** | 3 × 4 ม. | 80-250K | shade + ฝน |
+| **Gazebo** (หลังคา 4 เหลี่ยม/octagon) | 3 × 3 ม. | 100-300K | Classic · โครงสร้าง permanent |
+| **Sala (ศาลา)** | 3 × 3-4 ม. | 150-400K | Thai style |
+| **Awning (ผ้าพับได้)** | 3 × 4 ม. | 30-80K | Flexible · ไม่ permanent |
+
+### วัสดุ
+- **โครง:** เหล็ก · ไม้จริง · อลูมิเนียม · คอนกรีต
+- **หลังคา:** กระจกนิรภัย · โพลีคาร์บอเนต · กระเบื้อง · ไม้เลื้อย
+- **เสา:** 4 เสา ทั่วไป · 6 เสา ถ้าใหญ่ > 4 × 5
+
+### ต้นไม้เลื้อยสำหรับ pergola
+- **Wisteria** — สวยมาก · ดอกม่วง
+- **ตะแบกเลื้อย** — ไทยนิยม · ดอกสวย
+- **บูกังเกน** — ไทยแท้ · หลายสี
+- **Passion fruit** — กินได้ + ร่ม
+- **Clematis** — classic · ดอกใหญ่
+
+## 🪜 4. ขั้นบันได + ทางลาด
+
+### Stair (บันไดสวน)
+- **ลูกตั้ง:** 10-15 ซม. (ต่ำกว่าในบ้าน · สวน sloped)
+- **ลูกนอน:** 35-40 ซม. (ยาวกว่า · ส่วนหนึ่ง step ออก)
+- **ความกว้าง:** ≥ 90 ซม. (1 คน) · 1.20 ม. (2 คน)
+- **Material:** หิน · ไม้ · concrete · brick
+
+### Ramp (ทางลาดสวน)
+- **ชัน:** ≤ 1:12 (8.33%) สำหรับ wheelchair
+- **ชัน:** ≤ 1:8 (12.5%) สำหรับเดินปกติ
+- **กว้าง:** ≥ 1.20 ม.
+- **ราวจับ:** สูง 80-85 ซม.
+
+## 🏔 5. Retaining wall (กำแพงกันดิน)
+
+### เมื่อไรต้องใช้?
+- ระดับดินต่างกัน **> 0.60 ม.**
+- ที่ดินลาดชัน
+- สร้างบ้านบนเนิน
+
+### ประเภท
+
+| ประเภท | สูง | ราคา/ตร.ม. | เหมาะกับ |
+|--------|-----|-----------|---------|
+| **Gravity (ก่ออิฐ/หิน)** | ≤ 1.5 ม. | 3,000-6,000 | สวยงาม · เล็ก |
+| **Reinforced concrete (RC)** | 1.5-3 ม. | 8,000-15,000 | มาตรฐาน |
+| **Gabion (ตะกร้าหิน)** | 1-4 ม. | 5,000-10,000 | Ecological · สวย |
+| **Crib wall (ไม้/concrete)** | 1-3 ม. | 6,000-12,000 | Permeable |
+
+### Key components
+- **Drainage** หลังกำแพง (french drain)
+- **Weep holes** ทุก 1-2 ม. (ระบายน้ำ)
+- **Footing** ลึก > 30% ของสูง
+- **Backfill** gravel ก่อนดิน
+
+## 🎨 Design integration
+
+### รวม hardscape เข้ากัน
+
+**Rule of thirds:**
+- 1/3 plant (ต้นไม้)
+- 1/3 hardscape (พื้น · กำแพง)
+- 1/3 open space (ที่ว่าง)
+
+**Material continuity:**
+- พื้นในบ้าน → พื้นข้างบ้าน (material / color same)
+- รั้วเดียวกันทั้งรอบบ้าน (ไม่ mix 3 แบบ)
+- Pergola + deck same wood tone
+
+**Lighting integration:**
+- พื้นมี path lights ฝังใน
+- รั้วมี uplights
+- Pergola มี string lights
+
+## 💰 Budget guide
+
+สำหรับบ้าน 300 ตร.ม. ที่ดิน 80 ตร.ว.:
+
+| Element | Budget range |
+|---------|--------------|
+| พื้น outdoor 60 ตร.ม. | 50-150K |
+| รั้ว 60 ม. | 250-500K |
+| ประตูรั้ว auto | 50-100K |
+| Pergola 12 ตร.ม. | 80-200K |
+| Retaining wall (ถ้าต้อง) | 100-300K |
+| Path + step | 30-80K |
+| Lighting | 50-150K |
+| **รวม** | **600K-1.5M** |
+
+= 5-10% ของค่าก่อสร้างบ้าน
+
+## Checklist
+
+- [ ] เลือกวัสดุพื้นตาม function + ฝน
+- [ ] รั้วสูง + ทำมุมตามกฎหมาย
+- [ ] ประตูรั้ว auto (ถ้า budget ok)
+- [ ] Pergola / sala เหนือพื้นที่ entertain
+- [ ] Drainage รอบ hardscape
+- [ ] Lighting path + accent
+- [ ] Material continuity ทั่วสวน
+- [ ] Retaining wall ถ้าต่างระดับ > 60 ซม.
+
+---
+
+## 🌿 Track A · Landscape: ต้นไม้
+---
+title: "ต้นไม้สำหรับบ้านไทย (Plants Guide for Thai Homes)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [plants, ต้นไม้, landscape, native, fengshui]
+layers: [design, thai, fengshui]
+applies_to: [สวน, ต้นไม้, ไม้ประดับ]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์|Landscape Design]]"
+  - "[[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์|Passive Design]]"
+  - "[[wiki/concepts/ฮวงจุ้ยเบื้องต้น|ฮวงจุ้ย]]"
+---
+
+คู่มือเลือกต้นไม้ · **บ้านไทยร้อนชื้น** · ดูแลง่าย · สวย · มงคล
+
+## 🌳 1. Shade Trees (ต้นไม้ใหญ่ให้ร่ม)
+
+### เหมาะสำหรับ **ฝั่งตะวันตก** (บังแดดบ่าย)
+
+| ต้น | สูง | ร่ม | Maintenance | หมายเหตุ |
+|-----|-----|-----|-------------|---------|
+| **จามจุรี** (Samanea) | 15-25 ม. | ใหญ่มาก | ทิ้งใบน้อย | ต้องพื้นที่ใหญ่ 10+ ม. |
+| **ก้ามปู** | 20-25 ม. | ใหญ่ | ทิ้งใบปานกลาง | สวย · Thai classic |
+| **มะม่วง** | 10-15 ม. | กลาง | กินผลได้ · ต้องตัดแต่ง | ยอดนิยม |
+| **ขนุน** | 10-20 ม. | กลาง-ใหญ่ | กินได้ · ไม้แข็ง | มงคล (ค้ำจุน) |
+| **ประดู่** | 15-25 ม. | ใหญ่ | ดอกเหลือง Q2 | มงคล |
+| **อินทนิล** | 10-15 ม. | กลาง | ดอกม่วง | สวยมาก |
+| **ไทรย้อย** | 10-20 ม. | ใหญ่ | รากกระจาย | ระวังท่อน้ำ |
+| **ตะแบก** | 10-20 ม. | กลาง-ใหญ่ | ดอกสวย Q2-3 | มงคล |
+
+**ระยะห่างจากบ้าน:**
+- ต้นใหญ่ (จามจุรี · ก้ามปู): ≥ **5-7 ม.** (รากไกล)
+- ต้นกลาง (มะม่วง · ขนุน): ≥ **3-5 ม.**
+- ต้นเล็ก: ≥ **2 ม.**
+
+## 🌲 2. Privacy Screen (บังสายตา)
+
+### Hedge & Dense trees
+
+| ต้น | ความสูง | Density | Growth rate |
+|-----|---------|---------|-------------|
+| **Bamboo (ไผ่)** | 5-15 ม. | หนามาก | เร็วมาก · ระวังแผ่ |
+| **Ficus tree (ไทร)** | 3-10 ม. | หนา | กลาง |
+| **Eugenia (ชะมวง)** | 3-5 ม. | หนา | กลาง |
+| **Ixora hedge (เข็ม)** | 1.5-3 ม. | หนา · ดอกสีแดง | ช้า |
+| **Bougainvillea (เฟื่องฟ้า)** | 2-5 ม. | หนา · หลากสี | เร็ว |
+| **Podocarpus (สนใบพาย)** | 3-6 ม. | หนา · modern | กลาง |
+| **Clerodendrum (พนมสวรรค์)** | 2-3 ม. | กลาง · ดอกสวย | เร็ว |
+
+### สำหรับผนังตะวันตก (บังแดด + บังสายตา)
+- **ไผ่สี / ไผ่ดำ** — ขึ้นเร็ว · สวย · แผ่ไม่มาก ถ้าปลูกในกระถาง
+- **Bougainvillea** — ทนแล้ง · แสงแดด
+- **Ficus annulata** — wall climber · เป็น living wall
+
+## 🌸 3. Flowering Shrubs (ไม้ดอก)
+
+### สีสันในสวน
+
+| ต้น | สี | ฤดู | Care |
+|-----|----|----|------|
+| **เข็ม (Ixora)** | แดง · ชมพู · ส้ม · เหลือง | ทั้งปี | ง่าย |
+| **เฟื่องฟ้า (Bougainvillea)** | หลากสี | ทั้งปี (ฤดูแล้งออกดี) | ทนแล้ง |
+| **ชบา (Hibiscus)** | หลากสี | ทั้งปี | ชอบน้ำ |
+| **ลีลาวดี (Plumeria)** | ขาว · ชมพู · เหลือง | มี.ค.-ต.ค. | ทนแล้ง |
+| **ดอกรัก (Crinum)** | ขาว · ม่วง | หน้าฝน | ง่าย |
+| **พลูด่าง (Scindapsus)** | ใบเขียว-เหลือง | - | ในร่ม |
+| **กุหลาบ (Rose)** | หลากสี | เย็นๆ | ยาก · ต้องดูแล |
+| **หน้าวัว (Anthurium)** | แดง · ขาว · ชมพู | ทั้งปี | ในร่ม |
+
+## 🌴 4. Tropical Feel
+
+### ใบใหญ่ · Lush look
+
+- **Heliconia (ดอกไก่)** — ดอกแดง/เหลือง · tropical ที่สุด
+- **Ginger lily (ดอกขิง)** — หอม · สวย
+- **Bird of Paradise (ดอกนก)** — signature plant · modern
+- **Traveller's palm** — ใบพัด · classic
+- **Banana (กล้วย)** — ใบใหญ่ · กินได้
+- **Fan palm** — ทนแล้ง · modern
+- **Monstera** — indoor popular · outdoor ได้ถ้าร่ม
+
+## 🥬 5. Edible garden (ปลูกกิน)
+
+### สมุนไพรไทย (low-maintenance)
+- **โหระพา · กะเพรา** — สมุนไพรไทยขาดไม่ได้
+- **มะกรูด** — ปลูกริมครัว
+- **ตะไคร้** — ทนแล้ง
+- **พริก** — แดด
+- **ขิง · ข่า** — ในร่มบางส่วน
+- **ใบเตย** — ปลูกริมน้ำ
+
+### ผักสวนครัว
+- **ผักชี · ต้นหอม** — ง่าย · 30-40 วัน
+- **คะน้า · กวางตุ้ง** — ปลูกกล่อง
+- **มะเขือเทศ · แตงกวา** — ต้องเชือกโยง
+- **ผักบุ้งจีน · ผักกาดหอม** — เร็ว · กินบ่อย
+
+### ไม้ผล
+- **มะนาว** — บ้านไทยควรมี
+- **มะละกอ** — 6 เดือนกินได้
+- **ฝรั่ง · กล้วย · มะม่วง** — กินผลสบาย
+- **มะพร้าว** — ต้องพื้นที่ · ทนลม
+
+## 🏮 6. Lucky plants (ไม้มงคล)
+
+### ตามตำราไทย-จีน
+
+| ต้น | ความเชื่อ | ตำแหน่งที่แนะนำ |
+|-----|-----------|----------------|
+| **โกศลตาล** | โชคลาภ · เงินไหลมา | หน้าบ้าน · NE |
+| **โป๊ยเซียน** | Lucky · ความสุข | หน้าประตู |
+| **ลีลาวดี** | ความเจริญ | ใต้ยกพื้น |
+| **มะยม** | ดูแลกัน | กลางสวน |
+| **ขนุน** | ค้ำจุน · อบอุ่น | ทิศตะวันออก |
+| **มะม่วง** | ความร่วมเย็น | ข้างบ้าน |
+| **ทับทิม** | มั่งคั่ง | ประตูหน้า |
+| **ไผ่สี** | ยั่งยืน · แข็งแรง | ตะวันออก |
+| **ดอกบัว** (สระ) | สงบ · pure | ใจกลาง |
+
+### ตามฮวงจุ้ย (ดู [[wiki/concepts/ฮวงจุ้ยเบื้องต้น]])
+
+ห้ามปลูก**หน้าประตูตรงๆ:**
+- ❌ กระบองเพชร · ไม้หนาม (wei qi)
+- ❌ ไม้แห้ง · ไม้ตาย
+- ❌ ไม้พิษ · ไม้ร้าย
+
+## ☀ 7. ตามทิศในสวน
+
+| ทิศ | Plants แนะนำ | เหตุผล |
+|-----|--------------|--------|
+| **ตะวันออก** | ไม้ดอก · ไม้ผล · bamboo | แดดเช้า · ธาตุไม้ |
+| **ใต้** | Bougainvillea · plumeria · ชบา | แดดจัด · ทนความร้อน |
+| **ตะวันตก** | Shade tree (จามจุรี) · ไผ่ | บังแดดบ่าย |
+| **เหนือ** | ต้นในร่ม · Fern · Philodendron | แดดน้อย · เย็น |
+
+## 🐜 8. Pest-resistant + Low maintenance
+
+### สำหรับคนไม่มีเวลา
+
+- **ต้นพลับพลึง** — ทนทุกอย่าง
+- **Snake plant (ลิ้นมังกร)** — indoor · กรองอากาศ
+- **ZZ plant** — indoor · ลืมรดน้ำได้
+- **Bougainvillea** — outdoor · ทนแล้ง
+- **Pandan (ใบเตย)** — ง่ายมาก
+- **Lemon grass (ตะไคร้)** — ไม่มีโรค
+- **Succulent** — ไม่ต้องรด
+
+## 🏠 9. Room-specific plants
+
+### ห้องไหน · ควรมีต้นอะไร?
+
+| ห้อง | Plants |
+|------|--------|
+| **ห้องน้ำ** | Peace lily · Spider plant · Pothos (ชอบชื้น) |
+| **ห้องนอน** | Lavender · Snake plant · Aloe (กรองอากาศ · บางตัวออกซิเจนกลางคืน) |
+| **ห้องนั่งเล่น** | Fiddle leaf fig · Rubber plant · Monstera |
+| **ห้องครัว** | สมุนไพร (กะเพรา · โหระพา · ตะไคร้) |
+| **Foyer** | ZZ plant · Snake plant (welcome) |
+
+## 💧 Watering Guide
+
+### ความต้องการน้ำ
+- **High water** (ทุกวัน): ไม้ดอก · หญ้า · ผักสวน
+- **Medium** (2-3 ครั้ง/สัปดาห์): shrub · ไม้ใบ
+- **Low** (สัปดาห์ละครั้ง): succulent · cactus · native
+- **Very low** (เมื่อแล้ง): mature tree
+
+### Best time to water
+- **เช้า 6:00-9:00** (ดีที่สุด)
+- **เย็น 16:00-18:00** (OK · แต่ใบเปียกตอนกลางคืน = โรคเชื้อรา)
+- **ห้าม** เที่ยงแดดจัด (water evaporate ก่อนซึมลงดิน)
+
+## 📏 Sizing สวน
+
+### Rough guide สำหรับบ้านทั่วไป
+
+**บ้านในกรุง (100 ตร.ว.):**
+- Shade trees: 1-2 ต้น
+- Shrubs: 15-20 ต้น
+- Ground cover: 20-40 ตร.ม.
+- Potted plants: 10-20
+
+**บ้าน suburbs (300 ตร.ว.):**
+- Shade trees: 3-5 ต้น
+- Shrubs: 30-50 ต้น
+- Ground cover: 100-200 ตร.ม.
+- Potted plants: 20-40
+
+## Checklist เลือกต้นไม้
+
+- [ ] Shade tree ฝั่งตะวันตก (สำคัญ!)
+- [ ] Privacy screen ที่ต้องบัง
+- [ ] Edible garden (สมุนไพรไทย basics)
+- [ ] ต้นไม้มงคล (ถ้าเชื่อ)
+- [ ] ไม้ดอกสีสัน 2-3 ต้น
+- [ ] พื้น groundcover แทน lawn (ประหยัดน้ำ)
+- [ ] Companion plants (ช่วยกัน · ไล่ศัตรูพืช)
+- [ ] Low-maintenance option ถ้าไม่มีเวลา
+
+---
+
+## 🌍 Track C · Sustainability: Green Certification
+---
+title: "Green Building Certification (TREES · LEED · EDGE)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [sustainability, green, TREES, LEED, EDGE, certification]
+layers: [design, eng]
+applies_to: [certification, green-building]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์|Passive Design]]"
+  - "[[wiki/concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์|Solar PV]]"
+  - "[[wiki/entities/พรบ-ส่งเสริมอนุรักษ์พลังงาน-2535|พรบ ส่งเสริมอนุรักษ์พลังงาน]]"
+---
+
+3 มาตรฐานอาคารยั่งยืนหลักที่ใช้ในไทย · **เพิ่มมูลค่าบ้าน 5-15%** · ลดค่าไฟ 30-60%
+
+## 📊 เปรียบเทียบ 3 มาตรฐาน
+
+| เรื่อง | **TREES** 🇹🇭 | **LEED** 🇺🇸 | **EDGE** 🌍 |
+|-------|:------------:|:-----------:|:------------:|
+| ผู้ดูแล | TGBI | USGBC | IFC (World Bank) |
+| เหมาะกับ | ไทย · ASEAN | Global prestige | Emerging markets |
+| ค่าใช้จ่าย certify | 30-100K | 100-500K | 40-150K |
+| **Complexity** | กลาง | สูง | ต่ำ |
+| การยอมรับในไทย | สูงขึ้นเรื่อยๆ | สูง | ปานกลาง |
+| สำหรับบ้าน? | ✅ TREES-HOME | LEED-Homes (limited in TH) | ✅ EDGE Residential |
+| Language | ไทย + Eng | English | English |
+
+## 🟢 1. TREES (Thai's Rating of Energy and Environmental Sustainability)
+
+### โดย **TGBI** (Thai Green Building Institute)
+
+### Rating levels
+- **Certified:** 30-37 points
+- **Silver:** 38-45
+- **Gold:** 46-57
+- **Platinum:** 58+
+
+### 8 หมวดประเมิน (100 คะแนนเต็ม)
+
+1. **SM · Site & Landscape** (16) — ตำแหน่งที่ดิน · สวน · ลดน้ำ
+2. **WC · Water Conservation** (6) — ประหยัดน้ำ · rainwater
+3. **EA · Energy & Atmosphere** (20) — **ใหญ่สุด** · OTTV · RTTV · solar
+4. **MR · Materials & Resources** (13) — recycle · local
+5. **IE · Indoor Environment** (17) — แสง · อากาศ · acoustics
+6. **EP · Environmental Protection** (10) — waste · biodiversity
+7. **GI · Green Innovation** (5) — creative solutions
+8. **BM · Building Management** (13) — commissioning · monitoring
+
+### TREES-HOME (สำหรับบ้านพักอาศัย)
+- Scaled-down version
+- **ราคา certify: 30-60K**
+- เหมาะ: บ้าน custom · อยากได้ prestige ไทย
+
+### ขั้นตอนการขอ
+1. **Registration** (5K)
+2. **Design phase review** (มีแบบผ่าน)
+3. **Construction phase** (ตรวจระหว่างสร้าง)
+4. **Final certification** (ได้ rating)
+
+Timeline: 6-18 เดือน · align กับ construction
+
+## 🔵 2. LEED (Leadership in Energy and Environmental Design)
+
+### โดย **USGBC** (United States)
+
+### Rating levels
+- **Certified:** 40-49 points
+- **Silver:** 50-59
+- **Gold:** 60-79
+- **Platinum:** 80+
+
+### Categories (110 points)
+1. Sustainable Sites (8-10)
+2. Water Efficiency (12)
+3. **Energy & Atmosphere (33)** — ใหญ่สุด
+4. Materials & Resources (13)
+5. Indoor Environmental Quality (16)
+6. Innovation in Design (6)
+7. Regional Priority Credits (4)
+
+### LEED ในไทย
+- อาคารใหญ่ LEED Certified เยอะขึ้น
+- บ้านเดี่ยว LEED-Homes ยังน้อย
+- ค่าใช้จ่ายสูง · prestige สูง
+- ลูกค้าต่างชาติชอบมากกว่าไทย
+
+## 🟠 3. EDGE (Excellence in Design for Greater Efficiencies)
+
+### โดย **IFC** (World Bank Group)
+
+### Requirements (ง่ายที่สุดใน 3 มาตรฐาน)
+
+**Minimum 20% reduction ในทั้ง 3 categories:**
+1. Energy
+2. Water
+3. Embodied energy ใน materials
+
+### Levels
+- **Certified:** 20% ในทั้ง 3 ด้าน
+- **Advanced:** 40% energy + 40% water
+- **Zero Carbon:** 100% reduction + offset
+
+### ข้อดีของ EDGE
+- **Software ฟรี** (edgebuildings.com) · คำนวณเองได้
+- **ราคา certify ต่ำสุด** (40-80K บาท)
+- มี**benefit การเงิน** (LOAN ดอกเบี้ยต่ำจาก WB · ธ.พานิชย์ไทยบางรายรับ)
+- **Fast** · ใช้เวลา 3-6 เดือน
+
+### เหมาะกับใคร
+- บ้าน custom budget ไม่สูงมาก
+- Developer โครงการหมู่บ้าน
+- อาคารพาณิชย์ขนาดกลาง
+
+## 🇹🇭 บังคับตามกฎหมาย · Building Energy Code (BEC)
+
+**ไม่ใช่ certification** แต่เป็น**กฎหมาย**ที่ต้องผ่าน:
+
+### อาคารที่ต้องผ่าน BEC (ปี 2566+)
+- สำนักงาน ≥ 2,000 ตร.ม.
+- ห้างสรรพสินค้า
+- โรงแรม
+- โรงเรียน · มหาวิทยาลัย
+- โรงพยาบาล
+- อาคารชุด (คอนโด)
+
+### Metrics
+- **OTTV** (ผนัง)
+- **RTTV** (หลังคา)
+- **SHGC** (กระจก)
+- **LPD** (ไฟส่องสว่าง)
+
+**บ้านเดี่ยว:** ไม่บังคับ · แต่หลักการเดียวกัน
+
+ดู [[wiki/summaries/สรุป-คู่มือ-EPPO-Architectural-Guidebook|EPPO Guidebook]] · [[wiki/summaries/สรุป-DEDE-Building-Design-Guide|DEDE BEC]]
+
+## 💡 Design strategies ที่ช่วยทั้ง 3 certs
+
+### Energy (ใหญ่สุด · 30-40% ของคะแนน)
+- **Passive design** (สำคัญสุด · ดู [[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์]])
+  - ทิศบ้าน · insulation · shading · cross ventilation
+- **Solar PV** 5-10 kW (ดู [[wiki/concepts/Solar-PV-ระบบผลิตไฟฟ้าจากแสงอาทิตย์]])
+- **Inverter AC + smart control**
+- **LED lighting** ทั้งบ้าน
+- **Heat pump water heater**
+
+### Water (10-15%)
+- **Dual flush toilet** (3/6 L แทน 9 L)
+- **Low-flow faucet · shower** (6 L/min)
+- **Rainwater harvesting** (ดู [[wiki/concepts/Rainwater-Harvesting]])
+- **Drip irrigation** (ประหยัด 30-50%)
+- **Native plants** (ไม่ต้องรด)
+
+### Materials (10-15%)
+- **Recycled content** (steel rebar · insulation)
+- **Local materials** (ไม้สัก · อิฐในประเทศ · SCG)
+- **Low-VOC paint · flooring**
+- **FSC certified wood**
+- **Recycled concrete aggregate**
+
+### Indoor Environment (15-20%)
+- **Natural daylight** ทุกห้อง
+- **Views outside** (70% ของ space)
+- **Operable windows** (ระบายอากาศ)
+- **Low-VOC finishes**
+- **Good ventilation rate** (ASHRAE 62)
+- **Acoustic comfort**
+
+## 💰 ROI · คุ้มค่าจริงไหม
+
+### Hard ROI (savings)
+- **Energy bill ลด 30-60%** per year
+- **Water bill ลด 20-40%** per year
+- **Maintenance cost** ลด 10-20%
+
+### Soft ROI
+- **Resale value +5-15%** (green premium)
+- **Tenant premium +5-10%** (rental market)
+- **Lower interest rate** (green mortgage · บางธนาคารมี)
+- **Brand · PR** (สำหรับ developer)
+- **Well-being** (resident health + productivity)
+
+### Payback period
+- TREES/EDGE Certified: **3-7 ปี**
+- Platinum/Zero Carbon: **7-15 ปี**
+- แต่**value throughout บ้านอายุ 50+ ปี**
+
+## 🎯 แนะนำสำหรับบ้านพักอาศัย
+
+### Budget เข้ม (< 10M)
+→ **EDGE** Certified (20% reduction)
+- Low cost · ได้ certificate
+- Focus: solar PV + inverter AC + LED + insulation
+
+### Budget กลาง (10-20M)
+→ **TREES-HOME Silver-Gold**
+- Prestige ไทย · ลูกค้าไทยยอมรับ
+- ครอบคลุม topics มากขึ้น
+
+### Budget สูง (20M+)
+→ **LEED Gold** หรือ **TREES Platinum**
+- Prestige สูงสุด
+- แสดง commitment ต่อ sustainability
+
+### Not for cert แต่เอา strategies
+→ หลายคนทำเหมือน green แต่**ไม่ certify** (ประหยัดค่าใช้จ่าย 50-150K)
+- ได้ saving เหมือน certified
+- แต่ไม่มี verify 3rd party · resale ไม่ได้ premium
+
+## Checklist สำหรับ certify
+
+ก่อนเริ่ม:
+- [ ] เลือก rating (TREES/LEED/EDGE)
+- [ ] เลือก rating level (Certified/Silver/Gold/Platinum)
+- [ ] หาsustainability consultant (LEED AP/TREES Expert)
+- [ ] Budget เผื่อค่า certify + fee consultant
+
+ระหว่างออกแบบ:
+- [ ] Integrate strategies ตั้งแต่ SD (**ไม่ใช่ทีหลัง**)
+- [ ] Energy model early (IES VE · EnergyPlus)
+- [ ] Material spec low-VOC + local
+- [ ] Daylight analysis
+- [ ] Submit design review ให้ rating org
+
+ระหว่างสร้าง:
+- [ ] Site management plan (waste · dust · soil)
+- [ ] Material tracking (receipts · certificates)
+- [ ] Commissioning plan ระบบ MEP
+
+หลังสร้าง:
+- [ ] Performance testing (blower door · duct leak)
+- [ ] Submit final documentation
+- [ ] รับ certificate · ติดป้าย
+
+---
+
+## 🌍 Track C · Sustainability: Solar PV
+---
+title: "Solar PV · ระบบผลิตไฟฟ้าจากแสงอาทิตย์"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [solar, PV, renewable, sustainability, energy]
+layers: [eng, design]
+applies_to: [solar-panels, inverter, battery]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ระบบไฟฟ้าบ้าน|ระบบไฟฟ้า]]"
+  - "[[wiki/concepts/Green-Building-Certification|Green Certification]]"
+  - "[[wiki/concepts/เทคโนโลยีในบ้าน|Smart Home Technology]]"
+---
+
+Solar PV ในไทย · **ROI 6-10 ปี** · ลดค่าไฟ 40-80% · **จำเป็น**สำหรับบ้านสมัยใหม่ที่ใส่ใจอนาคต
+
+## ⚡ 3 ประเภทระบบ
+
+### 1. **On-grid (Grid-tie)** 🔌
+ต่อกับ PEA/MEA · **ขายคืนได้**
+
+```
+Solar → Inverter → ใช้ในบ้าน
+                 → ส่งกลับไฟหลัก (net metering)
+```
+
+- ✅ **คืนทุนเร็วสุด** (6-8 ปี)
+- ✅ ไม่ต้อง battery (ประหยัด 40%)
+- ❌ **ไม่ใช้ตอนไฟดับ** (safety cut-off)
+- ❌ ต้องขออนุญาต PEA/MEA
+
+### 2. **Hybrid (On-grid + Battery)** 🔋
+ต่อกับ PEA + มี battery
+
+```
+Solar → Hybrid Inverter → ใช้ในบ้าน
+                        → Battery (backup)
+                        → กริด (net metering)
+```
+
+- ✅ ใช้ไฟได้ตอนดับ
+- ✅ ขายคืน + backup
+- ❌ แพงกว่า on-grid 30-50%
+- ✅ เหมาะ · **เลือกได้ดีสุด** สำหรับบ้าน
+
+### 3. **Off-grid** 🏕
+ไม่ต่อ grid เลย
+
+```
+Solar → Battery → ใช้ในบ้าน
+```
+
+- ✅ Independence จาก PEA
+- ❌ ต้อง battery ใหญ่ (แพงมาก)
+- ❌ Over-design (กลัวแดดน้อย)
+- เหมาะกับ: บ้านในที่ไม่มีไฟ · cabin · island
+
+## 📏 Sizing · บ้านต้องกี่ kW
+
+### Rule of thumb
+
+**จำนวน kW ที่ต้องการ** = รายเดือนใช้ไฟ (kWh) ÷ 120
+
+### ตัวอย่าง
+| การใช้ไฟ/เดือน | ค่าไฟ/เดือน | Solar size | พื้นที่หลังคา |
+|----------------|-------------|-----------|--------------|
+| **500 kWh** | 2,000 บาท | **4 kW** | 20 ตร.ม. |
+| **1,000 kWh** | 4,500 บาท | **8 kW** | 40 ตร.ม. |
+| **1,500 kWh** | 7,000 บาท | **12 kW** | 60 ตร.ม. |
+| **2,500 kWh** | 12,000 บาท | **20 kW** | 100 ตร.ม. |
+
+### Production ในไทย
+- **Peak Sun Hours:** 4-5 ชั่วโมง/วัน (สมุทรปราการ-ภูเก็ต: 5+)
+- **Production per 1 kW installed:** 4-5 kWh/วัน
+- **Production per year:** 1,400-1,700 kWh per 1 kW
+
+## 🏠 Components
+
+### 1. Solar Panels
+
+| ประเภท | Efficiency | อายุ | ราคา/Watt |
+|--------|-----------|------|-----------|
+| **Monocrystalline** (แนะนำ) | 20-22% | 25-30 ปี | 10-15 บาท |
+| **Polycrystalline** | 17-19% | 25 ปี | 8-12 บาท |
+| **Thin-film** | 10-13% | 20 ปี | 6-10 บาท |
+
+**Brands ที่นิยมในไทย:**
+- **Tier 1** (Premium): LG, SunPower, REC, Canadian Solar
+- **Tier 2** (Good): Trina, Jinko, JA Solar, Longi
+- **Tier 3** (Budget): หลายแบรนด์ · ระวัง warranty
+
+**Panel size (typical):** 1.7 × 1.0 ม. = 1.7 ตร.ม.
+**Power per panel:** 400-550W (2026 standard)
+
+### 2. Inverter (เปลี่ยน DC → AC)
+
+| ประเภท | ข้อดี | ข้อเสีย |
+|--------|-------|---------|
+| **String inverter** | ราคาประหยัด · เดินสายง่าย | ถ้า panel 1 ตัวเสีย string ทั้งหมดลดผลิต |
+| **Microinverter** | แต่ละ panel ทำงานอิสระ · monitor รายตัว | ราคาแพงขึ้น 30-50% |
+| **Hybrid inverter** | รองรับ battery | แพงกว่า string |
+| **Power optimizer** (SolarEdge) | mid-option · per-panel tracking | ราคากลาง |
+
+**Brands:** Huawei · Sungrow · SMA · Fronius · Growatt · Deye
+
+### 3. Battery (ถ้ามี)
+
+| ประเภท | Cycle | อายุ | ราคา/kWh |
+|--------|-------|------|---------|
+| **Lead-acid** | 500-1,200 | 5-8 ปี | 10-15K |
+| **Lithium-ion (LFP)** | 5,000-6,000 | 10-15 ปี | 25-40K |
+| **NMC (Tesla Powerwall)** | 3,000-5,000 | 10 ปี | 40-50K |
+
+**Typical size:** 5-10 kWh ต่อบ้าน (backup 4-8 ชั่วโมง)
+
+### 4. Monitoring system
+- App แสดง production · consumption · savings
+- Alerts ถ้ามีปัญหา
+- ควบคุม battery + load (smart)
+
+## 💰 Cost Breakdown (2026)
+
+### On-grid 5 kW (บ้านทั่วไป)
+```
+Panels 5 kW (10 × 500W):       50,000-75,000
+Inverter 5 kW:                 30,000-50,000
+Mounting + wiring:             20,000-40,000
+Installation + commissioning:  30,000-50,000
+Permit + PEA approval:         5,000-15,000
+---
+รวม:                           135,000-230,000 บาท
+= 27,000-46,000 บาท/kW
+```
+
+### Hybrid 8 kW + 10 kWh battery
+```
+Panels 8 kW:                   80,000-120,000
+Hybrid inverter 8 kW:           60,000-100,000
+Battery 10 kWh (LFP):          250,000-400,000
+Mounting + installation:       50,000-80,000
+---
+รวม:                           440,000-700,000 บาท
+```
+
+### Off-grid 10 kW + 30 kWh
+```
+รวม: 1.2-2.0 ล้านบาท (ต้อง over-design)
+```
+
+## 📈 ROI Analysis
+
+### On-grid 5 kW (ตัวอย่าง)
+
+**Input:**
+- ลงทุน: 180,000 บาท
+- ผลิต: 5 × 1,500 = 7,500 kWh/ปี
+- ค่าไฟประหยัด: 7,500 × 4.5 = 33,750 บาท/ปี
+- Net metering (ส่งกลับ): +3,000 บาท/ปี
+- **รวม savings: 36,750 บาท/ปี**
+
+**ROI:**
+- Payback: 180,000 ÷ 36,750 = **~5 ปี**
+- Life of system: 25 ปี
+- Total return: 25 × 36,750 - 180,000 = **738,750 บาท**
+- ROI: **410% ในรอบอายุ**
+
+### Hybrid 8 kW
+
+**Input:**
+- ลงทุน: 550,000 บาท
+- Savings: 45,000 บาท/ปี (solar) + 20,000 (backup ไม่ต้องซื้อ generator)
+- **Total: 65,000 บาท/ปี**
+
+**ROI:**
+- Payback: **~8-9 ปี**
+- Battery replacement ปีที่ 12 (+200,000)
+- Total return 25 ปี: 1,200,000 บาท
+
+## ⚖ การขออนุญาต (ไทย)
+
+### On-grid (ต้องขออนุญาต · บังคับ)
+
+**Step 1: PEA/MEA Application**
+- Fill form พร้อมแบบ single-line diagram
+- เสีย fee 500-2,000 บาท
+- รอ approval 30-60 วัน
+
+**Step 2: Installation**
+- ต้องใช้**ผู้รับเหมาที่ได้รับใบอนุญาต**
+- Equipment ได้**certification** (มอก. · IEC)
+
+**Step 3: Commissioning**
+- PEA มาตรวจ · test
+- **Energy trading license** (สำหรับขายคืน)
+
+**Timeline รวม:** 3-6 เดือน
+
+### Off-grid (ไม่ต้องขออนุญาต)
+- แค่ติดใช้เอง
+- **ไม่ได้รับประโยชน์** net metering
+
+## 🏗 Roof considerations
+
+### พื้นที่หลังคาที่ต้องการ
+- **1 kW = 4-5 ตร.ม.** (panel only)
+- **+ 20% buffer** (walkway · obstruction) = 5-6 ตร.ม./kW
+- 5 kW = 25-30 ตร.ม. หลังคา
+- 10 kW = 50-60 ตร.ม.
+
+### ประเภทหลังคา
+
+| หลังคา | Install ease | Cost premium |
+|-------|:-----------:|:------------:|
+| **Concrete tile** | ✅ ง่าย | 0 |
+| **Metal sheet** | ✅ ง่ายมาก | 0 |
+| **Clay tile** | ⚠ ยาก · เจาะ | +10-20% |
+| **Shingle** | ⚠ กลาง | +10% |
+| **Flat roof** (ดาดฟ้า) | ✅ easiest | 0 (แต่ต้อง tilt frame) |
+
+### Orientation
+- **ทิศใต้** (best · SE/SW ก็ดี)
+- **หลีกเลี่ยงทิศเหนือ** (production ลด 30-40%)
+- **Tilt angle:** 10-15° ในไทย (ละติจูด 13-19°)
+
+### Shading
+- **Shading 10%** = production ลด 20-30%
+- ตัดต้นไม้บังแดด
+- Monitor shading ตลอดวัน
+
+## 💡 Hybrid + EV · บ้านแห่งอนาคต
+
+### Integration
+```
+Solar → Hybrid Inverter → บ้าน
+                       ↓
+                    Battery
+                       ↓
+                    EV charger
+```
+
+### ข้อดี
+- EV ชาร์จจาก solar กลางวัน → **ขับรถฟรี**
+- Battery เสริมตอนกลางคืน
+- Grid เป็นแค่ backup
+- **Net-zero home** ทำได้
+
+## 🔌 Net Metering (ส่งไฟคืน)
+
+### ในไทย (2026)
+- **PEA:** Net billing (ขายคืนราคา 2.2 บาท/kWh · ต่ำกว่าซื้อ 4-5 บาท)
+- **MEA:** เหมือน PEA
+- **ข้อจำกัด:** ขนาด solar ≤ ค่า peak demand ของบ้าน
+
+### Feed-in Tariff (FiT)
+- โครงการเก่า (Solar rooftop for people): ขายคืน 6.85 บาท/kWh · โควตาเต็มแล้ว
+- โครงการใหม่ 2567: 2.2 บาท/kWh (standard rate)
+
+## 🚫 Common mistakes
+
+1. **Size เล็กเกิน** — ไม่คุ้มค่าติดตั้ง
+2. **Size ใหญ่เกิน** — ส่งคืนมาก · เสียโอกาส (net metering ไม่คืนราคาเต็ม)
+3. **Panel ราคาถูกมาก** — Tier 3 · ไม่มี warranty จริง
+4. **Inverter ผิดขนาด** — ควรเป็น 75-100% ของ panel kW
+5. **ไม่ monitor** — ไม่รู้ panel เสีย · เสียโอกาส
+6. **ไม่มี anti-island** — อันตราย · illegal
+7. **ทิศผิด** — ติดทิศเหนือลดผลิต 30%
+
+## Checklist เริ่มโปรเจค Solar
+
+- [ ] Audit การใช้ไฟ 12 เดือน (กำหนด size)
+- [ ] ตรวจหลังคา (wind load · roof age · shading)
+- [ ] ขอ quote จาก 3 installers
+- [ ] เช็ค equipment brand + warranty
+- [ ] คำนวณ ROI ด้วยข้อมูลจริง
+- [ ] ขออนุญาต PEA/MEA (ถ้า on-grid)
+- [ ] ตรวจ certification (มอก./IEC)
+- [ ] Monitoring system
+- [ ] Insurance เพิ่ม (บางกรมธรรม์ไม่ครอบ)
+- [ ] Commissioning + warranty registration
+
+---
+
+## 🌍 Track C · Sustainability: Rainwater Harvesting
+---
+title: "Rainwater Harvesting · ระบบเก็บน้ำฝน"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [rainwater, water, sustainability, conservation]
+layers: [eng, design]
+applies_to: [ระบบน้ำฝน, ถังเก็บ, filtration]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ระบบประปาและสุขาภิบาล|ระบบประปา]]"
+  - "[[wiki/concepts/Green-Building-Certification|Green Certification]]"
+  - "[[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์|Landscape]]"
+---
+
+บ้านไทยฝนตกเฉลี่ย **1,500-2,500 mm/ปี** · หลังคา 100 ตร.ม. = **150-250 ลบ.ม./ปี**
+= **ประหยัดน้ำประปา 50-80%** · คุ้มค่าติดตั้ง
+
+## 🌧 How much rainwater?
+
+### คำนวณ
+
+```
+ปริมาณน้ำฝน (m³/ปี) = พื้นที่หลังคา (m²) × น้ำฝน (mm/ปี) × 0.001 × 0.8 (efficiency)
+```
+
+### ตัวอย่าง
+| หลังคา | น้ำฝน (ต่อปี) | น้ำที่เก็บได้ |
+|--------|--------------|--------------|
+| **80 ตร.ม.** (บ้านเล็ก) | 1,800 mm | 115 ลบ.ม. (115,000 L) |
+| **150 ตร.ม.** (บ้านกลาง) | 1,800 mm | 216 ลบ.ม. |
+| **250 ตร.ม.** (บ้านใหญ่) | 1,800 mm | 360 ลบ.ม. |
+
+**เทียบค่าน้ำประปา:** 1 ลบ.ม. = 10-15 บาท
+- บ้านเล็ก: ประหยัด **1,200-1,700 บาท/ปี**
+- บ้านใหญ่: ประหยัด **3,600-5,400 บาท/ปี**
+
+## 🏠 ระบบ 3 ระดับ
+
+### Level 1 · Simple (ราคาถูก · DIY)
+
+```
+หลังคา → รางน้ำ → downpipe → ถังเก็บ → ใช้สวน/ล้างรถ
+```
+
+- ถัง: 500-2,000 L
+- ราคา: 5,000-15,000 บาท
+- ใช้: รดน้ำต้นไม้ · ล้างรถ · ล้างพื้น
+- ไม่ดื่ม (ไม่ได้กรอง)
+
+### Level 2 · Filtered (ใช้ได้ทั่วบ้านยกเว้นดื่ม)
+
+```
+หลังคา → รางน้ำ → Leaf filter → First-flush diverter → ถังเก็บ → 
+Pump → UV filter → ใช้ใน house (toilet · laundry · shower)
+```
+
+- ถัง: 3,000-10,000 L
+- ราคา: 50,000-150,000 บาท
+- ใช้: toilet flushing · laundry · shower · สวน
+- **ลดประปา 50-70%**
+
+### Level 3 · Potable (ดื่มได้)
+
+```
+... + Reverse Osmosis + UV disinfection → ดื่มได้
+```
+
+- ราคา: 150,000-400,000 บาท
+- ต้องมี**permit** (อาจเป็น grey area)
+- Maintenance เข้มงวด
+- เหมาะ remote / off-grid
+
+## 🛠 Components
+
+### 1. Collection (หลังคาและราง)
+
+**หลังคาที่เหมาะ:**
+- ✅ **Metal sheet** (ดีสุด · คุณภาพน้ำดี)
+- ✅ **Concrete tile** (OK)
+- ⚠ **Clay tile** (OK · แต่ tile บางชนิดปล่อย copper)
+- ❌ **Asphalt shingle** (มี petroleum · ไม่ใช่ potable)
+- ❌ **หลังคาทาสี lead-based** (ห้าม)
+
+**Gutter (รางน้ำ):**
+- Seamless aluminum (best)
+- PVC (ราคาประหยัด)
+- ขนาด 4-6 inch width
+- slope 1:200 ไปทาง downpipe
+
+### 2. Pre-filtration
+
+**Leaf filter (กรองใบไม้):**
+- ติดที่ top ของ downpipe
+- Mesh 1-2 mm
+- ล้าง monthly
+
+**First-flush diverter:**
+- ปล่อยน้ำ **5-10 ลิตรแรก** ทิ้ง (ชะล้างฝุ่นจากหลังคา)
+- เข้าระบบหลังจากนั้น
+- รีเซ็ตอัตโนมัติหลัง 24 ชั่วโมง
+
+### 3. Storage tanks
+
+| ประเภทถัง | ขนาด | ราคา | ข้อดี |
+|-----------|------|------|------|
+| **Polyethylene (PE)** | 500-10,000 L | 3-40K | เบา · ราคาถูก · ติดตั้งง่าย |
+| **Fiberglass (FRP)** | 1,000-50,000 L | 10-150K | ทนทาน · อายุยาว |
+| **Concrete** | ตั้งแต่ 10,000 L | 30-200K | ใหญ่ · ฝังใต้ดิน |
+| **Stainless steel** | 500-20,000 L | 20-200K | สะอาด · ราคาสูง |
+
+**Sizing guide:**
+- For garden only: 1,000-2,000 L
+- For toilets + laundry: 3,000-5,000 L
+- **Whole house (non-potable):** 5,000-10,000 L
+- Off-grid: 20,000+ L
+
+### 4. Filtration (สำหรับใช้ในบ้าน)
+
+**Sediment filter:**
+- กรองฝุ่น · 5-20 micron
+- ต้องเปลี่ยน 3-6 เดือน
+
+**Carbon filter:**
+- กรองกลิ่น · คลอรีน · organic
+- 6-12 เดือน
+
+**UV sterilizer:**
+- ฆ่าเชื้อแบคทีเรีย 99.9%
+- lamp ต้องเปลี่ยน 1 ปี
+- ราคา 5,000-15,000 บาท
+
+**RO (สำหรับ potable):**
+- กรองละเอียดที่สุด
+- เสีย 50-80% ของน้ำ (waste)
+- ราคา 15,000-50,000 บาท
+
+### 5. Pump + distribution
+
+**Booster pump:**
+- 200-500 W typical
+- Auto pressure switch
+- เหมือน pump ประปาปกติ
+
+**Backup switching:**
+- ถ้าน้ำฝนหมด → auto switch ไปประปา
+- มี solenoid valve controlled
+
+## 🏗 Integration ระบบบ้าน
+
+### Dual plumbing (2 ระบบท่อ)
+
+```
+ประปา:
+├── Sink (ครัว, ล้างมือ)
+├── Shower
+└── Drinking water
+
+น้ำฝน:
+├── Toilet flush
+├── Laundry washer
+├── Garden irrigation
+├── Car wash
+└── Outdoor faucet
+```
+
+- **ระบบคู่ขนาน** · ท่อคนละชุด
+- สีท่อ**ต่างกัน** (ประปา · ขาว/ฟ้า · น้ำฝน · เขียว)
+- **Cross-connection prevention** (สำคัญ!)
+
+### Labeling บังคับ
+- ป้าย **"Non-potable water"** บน faucet ที่ใช้น้ำฝน
+- ป้ายภาษาไทย **"น้ำไม่ดื่ม"**
+
+## 💰 Cost Analysis
+
+### บ้าน 150 ตร.ม. หลังคา
+
+**Level 2 system:**
+```
+Tank 5,000 L:                30,000
+Pump + pressure switch:      15,000
+Filters (sediment, carbon):  15,000
+UV sterilizer:                8,000
+Piping (dual system):        40,000
+Installation:                20,000
+---
+Total:                       128,000 บาท
+```
+
+**Savings/year:**
+- น้ำฝน 200 ลบ.ม./ปี × 12 บาท = **2,400 บาท**
+- Toilet ~30% ของน้ำบ้าน = 500 บาท
+- สวน = 1,500 บาท
+- **รวม: 4,400 บาท/ปี**
+
+**Payback:** 128,000 ÷ 4,400 = **29 ปี** ❌
+
+**หมายเหตุ:** ROI purely financial ไม่คุ้ม · แต่:
+- ✅ Green certification points (TREES · LEED · EDGE)
+- ✅ Resale value + 3-5%
+- ✅ Independence จากประปา
+- ✅ Environmental impact
+- ✅ Backup ตอนประปาไม่ไหล
+
+### Best value: Level 1 (garden only)
+```
+Tank 1,500 L:                10,000
+Gutter + downpipe:             5,000
+Basic filter:                  2,000
+Hose + spigot:                 3,000
+---
+Total:                       20,000 บาท
+```
+Savings รดน้ำต้นไม้: 1,500 บาท/ปี · **Payback 13 ปี** · ประเมิน eco + ไม่ fancy
+
+## 🏠 Design Integration
+
+### ตั้งแต่ SD phase
+
+1. **Orient roof ให้ดี** — แต่หลังคาน้อย หลังใหญ่ · ทำ collection ที่เดียว
+2. **Downpipe positions** — เอาไปรวมที่จุด tank location
+3. **Tank location** — ใกล้ downpipe · ห่างจากที่เดินเล่น (เสียง + unsightly)
+4. **Pump room** — ใกล้ MDB · ระบายอากาศ
+5. **Dual plumbing** — ต้องวางแผนใน DD
+
+### Under-ground vs above-ground tank
+
+| | Underground | Above-ground |
+|-|:-----------:|:------------:|
+| Space | เก็บที่ว่าง | ใช้ที่ดินส่วนหนึ่ง |
+| Cost | +50-100% (ขุด) | ถูก |
+| Water temp | เย็น · algae ไม่ขึ้น | อุ่น · algae ขึ้น |
+| Maintenance | ยาก | ง่าย |
+| Visual | ซ่อน | เห็น · อาจ ugly |
+| **Best for** | บ้านใหม่ design integrated | บ้านเก่า · retrofit |
+
+## 🐛 Maintenance schedule
+
+### Monthly
+- ตรวจ gutter · ล้างใบไม้
+- ตรวจ first-flush diverter
+- ตรวจความสะอาดของ tank
+
+### Quarterly
+- เปลี่ยน sediment filter
+- ตรวจ pressure pump
+- ล้าง gutter screens
+
+### Annually
+- เปลี่ยน UV lamp
+- Inspect tank · เปลี่ยน carbon filter
+- Test water quality
+- ตรวจ pipe leaks
+
+### Every 5 years
+- ล้างถังเต็มๆ (drain · sanitize · refill)
+- เปลี่ยน pump (ถ้าจำเป็น)
+
+## ⚠ ข้อควรระวัง
+
+### Bacteria & Mosquitoes
+- **ถังต้องปิดสนิท** (ไม่ให้แสง · ไม่ให้ยุงวางไข่)
+- Overflow pipe มี**มุ้งลวด**
+
+### Seasonal variability
+- ไทย: ฝน 6-8 เดือน · แล้ง 4-6 เดือน
+- **ต้องมี backup** (ประปา switch-over)
+
+### Contamination
+- ห้าม**โลหะหนัก**บนหลังคา
+- ระวัง**bird droppings**
+- **ตั๊กแตน · แมลง** อาจลงถัง
+
+## Checklist Rainwater Project
+
+**Design:**
+- [ ] คำนวณ roof area + rain data
+- [ ] เลือก level (1/2/3)
+- [ ] Tank size ตาม goals
+- [ ] Tank location (under/above ground)
+- [ ] Dual plumbing layout
+
+**Materials:**
+- [ ] Tank (PE/FRP/concrete)
+- [ ] Leaf filter
+- [ ] First-flush diverter
+- [ ] Filtration (sediment + carbon)
+- [ ] UV (ถ้าใช้ในบ้าน)
+- [ ] Pump + pressure switch
+
+**Integration:**
+- [ ] Piping dual (potable + rainwater)
+- [ ] Backup switching to mains
+- [ ] Labels "Non-potable"
+- [ ] Overflow + drain
+- [ ] Mosquito screens
+
+**After install:**
+- [ ] Maintenance schedule
+- [ ] Water quality test
+- [ ] Document system for resident
+
+---
+
+## 🔨 Track D · Renovation: รีโนเวทบ้านเก่า
+---
+title: "รีโนเวทบ้านเก่า · Workflow และข้อควรระวัง"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [renovation, รีโนเวท, remodel, existing]
+layers: [design, eng, law]
+applies_to: [renovation, remodel, extension]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ตรวจสอบโครงสร้างเดิม|ตรวจสอบโครงสร้างเดิม]]"
+  - "[[wiki/concepts/ต่อเติมบ้าน|ต่อเติมบ้าน]]"
+  - "[[wiki/entities/พรบ-ควบคุมอาคาร-2522|พรบ ควบคุมอาคาร]]"
+  - "[[wiki/concepts/ขั้นตอนขออนุญาต|ขั้นตอนขออนุญาต]]"
+---
+
+รีโนเวทเป็น **70% ของงานสถาปนิกจริง** · ต่างจากสร้างใหม่มาก · มี**ข้อจำกัดมาก**แต่ **margin สูง**
+
+## 📊 ประเภทรีโนเวท · 5 ระดับ
+
+| ระดับ | Scope | Budget typical | Timeline |
+|-------|-------|---------------|----------|
+| **1. Cosmetic** (ทาสี · เปลี่ยน fixture) | ไม่แตะ structure | 100K-500K | 1-2 เดือน |
+| **2. Refresh** (เปลี่ยนพื้น · ห้องน้ำ · ครัว) | partial | 500K-2M | 2-4 เดือน |
+| **3. Major remodel** (เปลี่ยน layout · tear down non-load-bearing walls) | significant | 2-5M | 4-8 เดือน |
+| **4. Structural renovation** (เพิ่มชั้น · เปลี่ยน structural) | major work | 3-10M | 6-12 เดือน |
+| **5. Gut renovation** (เปลือกอาคารคงไว้ · ภายในรื้อหมด) | essentially new build | 80% ของ new | 12-18 เดือน |
+
+## ⚖ กฎหมายสำคัญ · ต้องรู้
+
+### พรบ.ควบคุมอาคาร 2522
+
+**มาตรา 21** — การ "ดัดแปลง" อาคารต้องได้รับใบอนุญาต **หรือ** แจ้งตามม.39 ทวิ
+
+**"ดัดแปลง"** หมายถึง:
+- เปลี่ยนแปลง · เคลื่อนย้าย · เพิ่มเติม · ลดส่วนใดส่วนหนึ่ง
+- รวมถึง **เปลี่ยนการใช้**อาคาร
+
+### การดัดแปลงที่ **ไม่ต้อง**ขออนุญาต (ตาม ม.39)
+
+- **ไม่เปลี่ยน**: พื้นที่ · ความสูง · พื้นที่ปกคลุมดิน · ทรงหลังคา · โครงสร้าง
+- **ไม่เพิ่ม**: น้ำหนักโครงสร้าง
+- **ไม่เปลี่ยน**: การใช้อาคาร
+
+### ตัวอย่างที่ **ต้องขออนุญาต**
+
+- ต่อเติมห้องเพิ่ม (เพิ่ม footprint)
+- เพิ่มชั้น (เพิ่ม FAR · สูง)
+- เปลี่ยน facade (เปลี่ยนหน้าตา + น้ำหนัก)
+- เปลี่ยนจาก residential → commercial
+
+### ตัวอย่างที่ **ไม่ต้อง**
+
+- ทาสี · เปลี่ยนกระเบื้อง
+- เปลี่ยน fixture ในห้องน้ำ (ไม่ย้าย)
+- เปลี่ยน built-in furniture
+- ปรับภายใน (ไม่แตะ structure)
+
+## 🔍 Workflow รีโนเวท · 7 Phases
+
+### Phase 1 · Initial Assessment (1-2 สัปดาห์)
+
+**Site visit + documentation:**
+- [ ] วัด + ถ่าย existing condition
+- [ ] ดึงแบบเดิม (ถ้ามี) จากกรมโยธาธิการ · เทศบาล
+- [ ] ตรวจอายุบ้าน · ประวัติการซ่อม
+- [ ] คุยเจ้าของเรื่อง goals · budget · scope
+
+### Phase 2 · Structural Inspection (1-2 สัปดาห์) ⭐
+
+ดู [[wiki/concepts/ตรวจสอบโครงสร้างเดิม|ตรวจสอบโครงสร้างเดิม]]
+
+- โครงสร้างทนต่อ load เพิ่มไหม?
+- รอยร้าวมีความหมายอะไร?
+- ฐานราก seattle / tilt?
+- วัสดุ deterioration level?
+- Electrical + plumbing usable?
+
+**Hire structural engineer ให้ตรวจ · รายงาน**
+
+### Phase 3 · Design (1-3 เดือน)
+
+Similar to new build แต่**มี constraints จากของเดิม**:
+
+- [ ] Base drawing จาก existing survey
+- [ ] **Work around** load-bearing walls
+- [ ] Plan relocation of MEP (expensive)
+- [ ] Match aesthetic with existing (or contrast intentionally)
+- [ ] **Client brief** ต้องชัด · what to keep / remove
+
+### Phase 4 · Permitting (2-4 สัปดาห์)
+
+- [ ] Determine if permit needed (ดูหัวข้อ **ไม่ต้อง**ขออนุญาต ข้างบน)
+- [ ] If yes: submit ข.1 (ดัดแปลง) + structural calcs + before/after
+- [ ] **Wait for approval** ก่อนเริ่ม
+- [ ] Some cities: notify neighbors
+
+### Phase 5 · Demolition (1-4 สัปดาห์) ⚠
+
+**Critical phase · ระวัง:**
+- [ ] **Asbestos test** (ถ้าบ้านอายุ > 30 ปี) 
+- [ ] **Lead paint test** (ถ้าก่อน 1978)
+- [ ] **Selective demo** (ไม่รื้อทั้งหมดก่อน)
+- [ ] Protect existing (floors, stairs to keep)
+- [ ] **Dust protection** (ใส่ plastic sheeting)
+- [ ] Temporary support ถ้ารื้อ wall ที่มี load
+
+**ของเสียต่อ:**
+- คัดแยก recycling
+- Hazardous waste (asbestos · lead) → licensed disposal
+
+### Phase 6 · Construction (3-8 เดือน)
+
+- [ ] **Weekly site visits** (มากกว่า new build)
+- [ ] **Surprise factor** — เจออะไรไม่คาดฝันเสมอ (leaks, rot, termites)
+- [ ] Budget **contingency 20-30%** (new build 10-15%)
+- [ ] Temporary utilities if family staying
+
+### Phase 7 · Punch list + Occupancy (2-4 สัปดาห์)
+
+- [ ] Final inspection
+- [ ] Fix deficiencies
+- [ ] **Certificate of occupancy** (if major)
+- [ ] Handover ให้เจ้าของ
+- [ ] As-built drawings
+
+## 💰 Budget Reality Check
+
+### Renovation cost per ตร.ม.
+
+| Scope | บาท/ตร.ม. |
+|-------|-----------|
+| **Cosmetic only** | 5,000-10,000 |
+| **Refresh** (พื้น · ห้องน้ำ) | 10,000-20,000 |
+| **Major remodel** | 20,000-35,000 |
+| **Structural renovation** | 30,000-50,000 |
+| **Gut renovation** | 35,000-55,000 |
+| **New build** (reference) | 22,000-40,000 |
+
+### ทำไมบางครั้งรีโนเวทแพงกว่า new?
+- **Surprise costs** (เจอปัญหาเดิม)
+- **Work-around** cost
+- **Demolition** cost
+- **Temporary support** cost
+- **Slower work** (preserve existing)
+
+### เมื่อควรเลือก **รื้อ + สร้างใหม่** แทนรีโนเวท?
+
+ถ้ารีโนเวทเสีย ≥ **70%** ของ new build cost
+→ **รื้อสร้างใหม่**ดีกว่า:
+- ไม่มี surprise
+- ไม่มีข้อจำกัด
+- Timeline คาดเดาได้
+- ผลลัพธ์ดีกว่า
+
+## 🏠 Common Renovation Scenarios
+
+### 1. ห้องน้ำ (ยอดนิยมที่สุด)
+
+**Typical scope:**
+- Tile · fixtures · vanity · shower
+- Sometimes: relocate sink · toilet
+
+**Cost:** 100-500K ต่อห้องน้ำ
+**Timeline:** 2-6 สัปดาห์
+
+**Key decisions:**
+- Keep location of plumbing? (save 30%+)
+- Same tile footprint? (save demolition)
+- Waterproofing (**do NOT skip!**)
+
+### 2. ห้องครัว
+
+**Typical scope:**
+- Cabinet · countertop · appliances
+- Sometimes: open to dining
+
+**Cost:** 200K-1.5M
+**Timeline:** 1-3 เดือน
+
+**Key decisions:**
+- Built-in custom or modular (IKEA/HomePro)?
+- Keep plumbing location?
+- Move to open concept? (แพง · รื้อ wall)
+
+### 3. Open-plan living
+
+**Typical scope:**
+- Remove wall between living + dining/kitchen
+- Upgrade finishes
+
+**Cost:** 300K-1M
+**Timeline:** 2-4 เดือน
+
+**Watch out:**
+- **Load-bearing wall** ต้อง beam (+100-300K)
+- Beam depth lose ceiling height
+- HVAC redesign
+
+### 4. เพิ่มชั้น (2 → 3)
+
+**Cost:** 800K-3M
+**Timeline:** 6-9 เดือน
+
+**Check:**
+- Existing foundation รองรับได้ไหม (structural eng)
+- Roof become 2nd floor ceiling
+- Stair relocation
+
+### 5. Adaptive reuse (บ้าน → office / guesthouse)
+
+**Cost:** Similar to renovation level 3-4
+**Extra:** Change of use permit (ข.2)
+
+**Challenges:**
+- Different building code (commercial stricter)
+- Accessibility might be required
+- Parking requirement different
+
+## ⚠ Red Flags ที่ต้องระวัง
+
+### 🚩 Structural
+- Cracks > 5 mm wide (esp. diagonal)
+- Floor sloping > 1%
+- Doors not closing
+- Water stains ด้านบน
+
+### 🚩 Moisture
+- Rot smell
+- Mold visible
+- Paint blistering
+- Water damage ceilings
+
+### 🚩 Pest (ไม่ง่ายรักษา)
+- Termites (ปลวก) — ไม้โครงสร้าง
+- Rodents in attic
+
+### 🚩 Old systems
+- Asbestos (aluminum siding · pipe wrap · tiles)
+- Lead paint (ก่อน 1978)
+- Knob & tube wiring
+- Galvanized plumbing (corroded)
+- ข้อกฎหมายไฟฟ้าเก่า (no grounding)
+
+## 💡 Tips มือโปร
+
+### Scope creep (ปัญหา #1)
+- Client "ขอเพิ่ม..." ระหว่างสร้าง → **แพงกว่าเดิม 30-50%**
+- **Freeze scope** ก่อนเริ่ม demo
+- Change order ต้องเขียน (written agreement)
+
+### Budget surprises
+- เริ่ม demo → เจอปัญหา → need unexpected work
+- **Always have 20-30% contingency**
+- Share surprises กับ client transparent
+
+### Client stress
+- Live-in renovation stress max
+- ถ้า bath + kitchen โดน → ต้อง relocate
+- Communication · weekly updates
+
+### Save the old
+- ของเดิมบางอย่าง valuable:
+  - Wood doors (solid)
+  - Vintage tiles
+  - Crown moldings
+  - Hardware (hinges · knobs)
+- **Donate / resell** · reduce waste
+
+## Checklist เริ่มโปรเจครีโนเวท
+
+### Before agreeing
+- [ ] Understand client goals
+- [ ] Visit site + photograph
+- [ ] Discuss realistic budget + timeline
+- [ ] Explain surprise potential
+
+### Early design
+- [ ] Existing drawings + survey
+- [ ] Structural engineer inspection
+- [ ] Utilities audit (electrical · plumbing)
+- [ ] Environmental (asbestos · lead)
+
+### Permitting
+- [ ] Determine scope need permit
+- [ ] Notify neighbors (courtesy)
+- [ ] Submit paperwork
+
+### Execution
+- [ ] Weekly site meetings
+- [ ] 20-30% contingency budget
+- [ ] Document unexpected findings
+- [ ] Dust + safety protection
+- [ ] Temporary utilities for resident
+
+### Closeout
+- [ ] Final inspection
+- [ ] Punch list complete
+- [ ] As-built drawings
+- [ ] Warranties to client
+- [ ] Post-occupancy follow-up 6 months
+
+---
+
+## 🔨 Track D · Renovation: ตรวจสอบโครงสร้างเดิม
+---
+title: "ตรวจสอบโครงสร้างเดิม (Structural Inspection for Renovation)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [renovation, structural, inspection, existing-building]
+layers: [eng, design]
+applies_to: [existing-building, structural]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/รีโนเวทบ้านเก่า|รีโนเวทบ้านเก่า]]"
+  - "[[wiki/concepts/โครงสร้างและฐานราก|โครงสร้างและฐานราก]]"
+---
+
+ก่อนรีโนเวท ต้องตรวจสอบ**โครงสร้างเดิม** · **บังคับ**ถ้าต่อเติม/เพิ่มชั้น · ป้องกันปัญหาแตก · ล้ม · เอียง
+
+## 🎯 ใครตรวจ · เมื่อไร
+
+### ต้องใช้**วิศวกรโยธาใบอนุญาต**
+
+**โดยเฉพาะเมื่อ:**
+- เพิ่มชั้น
+- รื้อผนังรับน้ำหนัก
+- เพิ่มน้ำหนักมาก (สระว่ายน้ำ · heavy equipment)
+- ขยายพื้นที่
+- บ้านเก่า > 30 ปี (อาจมี code เก่า)
+
+### สถาปนิกทำเองได้ (visual inspection)
+- เล็กๆ · สีเสียหาย · รอยแตก hair-line
+- เตรียมข้อมูลให้วิศวกร
+- แต่**ไม่ได้sign off** structural
+
+## 🔍 Visual Inspection Checklist
+
+### Foundation (ฐานราก)
+
+**Visible indicators:**
+- [ ] **Cracks** > 5 mm wide (serious) · hairlines OK
+- [ ] **Diagonal cracks** (rotating/settling)
+- [ ] **Stair-step cracks** ในอิฐ (ground movement)
+- [ ] Foundation tilt
+- [ ] Water seepage around foundation
+- [ ] Tree roots ใกล้ (<3 ม.)
+
+**Tools:**
+- Laser level
+- Crack gauge
+- Moisture meter
+
+### Columns (เสา)
+
+- [ ] Vertical alignment (plumb within 1:500)
+- [ ] **Concrete spalling** (ตัวเสาหลุด)
+- [ ] **Rebar exposed** (corrosion · structural concern)
+- [ ] Dimension (measure actual size)
+
+### Beams (คาน)
+
+- [ ] **Sag** ที่เห็นได้ (> L/300)
+- [ ] Cracks underneath (tension cracks)
+- [ ] Water stains (wood rot เหมือน)
+- [ ] Deflection loaded vs unloaded
+
+### Slabs (พื้น)
+
+- [ ] Level check (sloping)
+- [ ] Cracks pattern
+- [ ] Spalling underneath
+- [ ] **Bounce** (อ่อน · deflection excessive)
+
+### Walls
+
+- [ ] Load-bearing **identify** (ซ่อนในแปลน)
+- [ ] Plumb check
+- [ ] Cracks esp. window/door corners
+- [ ] Masonry joints integrity
+- [ ] Waterproofing (external walls)
+
+### Roof
+
+- [ ] Truss/rafter integrity
+- [ ] Rot (wood frames)
+- [ ] Leaks (stains underneath)
+- [ ] Tile/sheet condition
+
+## 🧪 Common Structural Issues
+
+### 1. **Settlement (ดินยุบ)**
+
+**Signs:**
+- Diagonal cracks (↘↙)
+- Doors/windows stuck
+- Floor slope
+- Separation of building elements
+
+**Cause:**
+- Soft soil (กทม. เจอบ่อย)
+- Tree roots
+- Water undermining (broken pipe)
+- New loading (renovation nearby)
+
+**Fix:**
+- Underpinning (ใส่ pile เพิ่มใต้ฐาน)
+- Re-leveling (hydraulic jacks)
+- Cost: 200K-2M depending scope
+
+### 2. **Concrete Spalling + Rebar Corrosion**
+
+**Signs:**
+- Concrete แตกเป็นชิ้น
+- Rust stains
+- Rebar visible (orange/brown)
+
+**Cause:**
+- Water + chloride penetration
+- Thin cover
+- Old age
+- Near sea / humid
+
+**Fix:**
+- Chip out loose concrete
+- Clean rebar + treat
+- Apply corrosion inhibitor
+- Patch with epoxy mortar
+- Cost: 500-2,000 บาท/ตร.ม.
+
+### 3. **Cracks**
+
+**Types:**
+| Width | Severity |
+|-------|:--------:|
+| < 1 mm (hairline) | Cosmetic |
+| 1-3 mm | Monitor |
+| 3-5 mm | Investigate |
+| > 5 mm | **Structural** |
+| > 10 mm | **Urgent** |
+
+**Diagnostic:**
+- Vertical cracks ≠ structural (often shrinkage)
+- **Diagonal cracks = structural** (shear · settlement)
+- Horizontal in masonry wall = overload (get expert NOW)
+
+### 4. **Termites (ปลวก)**
+
+**บ้านไทย · very common**
+
+**Signs:**
+- Mud tubes ข้างผนัง / ใต้บ้าน
+- Wood that sounds hollow
+- Wings dropped near windows
+- Frass (droppings · looks like sawdust)
+
+**Treatment:**
+- **Soil termite treatment** (barrier around foundation)
+- Bait stations
+- Replace affected wood
+- Cost: 20-50K for typical house
+
+### 5. **Moisture/Mold**
+
+**Signs:**
+- Water stains
+- Peeling paint
+- Musty smell
+- Black/green patches
+
+**Causes:**
+- Roof leak
+- Plumbing leak
+- Condensation
+- Rising damp from ground
+
+**Fix:**
+- Find + fix source
+- Remove affected materials
+- Disinfect
+- Waterproof treatment
+
+## 🏗 Load Calculation (for Adding Load)
+
+### Dead load (permanent)
+- ตัวอาคารเอง
+- Finishes · fixtures
+- Never changes
+
+### Live load (variable)
+- **บ้านพักอาศัย:** 2.0 kN/m² (200 kg/m²)
+- **Storage:** 5.0 kN/m²
+- **Green roof:** 1.5 kN/m² + soil weight
+- **Pool:** น้ำหนักน้ำ + pool structure (1,000+ kg/m³)
+- **Heavy equipment:** varies
+
+### Adding load (renovation)
+
+**Example: Add green roof on existing flat slab**
+```
+Existing capacity: 2.0 kN/m² live load
+New: 1.5 kN/m² (plants) + 0.8 kN/m² (200 mm soil)
+    = 2.3 kN/m² · OVER capacity!
+    
+Options:
+- Reduce soil depth
+- Add structural reinforcement
+- Use lightweight growing medium (perlite)
+```
+
+### Adding floor (เพิ่มชั้น)
+
+**Check:**
+1. Column capacity (axial load)
+2. Foundation capacity (soil bearing)
+3. Beam spans
+4. Lateral load (wind, seismic)
+
+**Typical cost ถ้าต้อง upgrade:**
+- Column jacketing: 15-30K/column
+- Footing upgrade: 30-100K/footing
+- New steel beams: 50-200K
+- **Sometimes makes rebuild cheaper!**
+
+## 📋 Inspection Report Template
+
+ข้อมูลที่รายงานควรมี:
+
+### 1. Executive Summary
+- อาคารอายุ · สภาพโดยรวม
+- Major concerns (red/yellow/green)
+- สามารถรีโนเวทได้ระดับไหน
+
+### 2. Detailed findings
+- By element (foundation/column/beam/slab/wall/roof)
+- Photos
+- Measurements
+- Defect locations
+
+### 3. Recommendations
+- Must-fix before renovation
+- Monitor items
+- Can be ignored
+
+### 4. Load capacity assessment
+- Current capacity
+- Additional load allowed
+- Required strengthening
+
+### 5. Cost estimates
+- Per finding
+- Priority ranking
+
+## 💼 Hiring a Structural Engineer
+
+### What to look for
+- **ใบอนุญาต**จากสภาวิศวกร
+- **ประสบการณ์** rehabilitation (ต่างจาก new build)
+- References / previous projects
+- Can explain simply to client
+
+### Typical fee
+- **Inspection only:** 15-50K
+- **Inspection + recommendation:** 30-100K
+- **Full design for retrofit:** 50-300K
+- **% of retrofit cost:** 3-5%
+
+### Report timeline
+- Inspection: 1-3 days onsite
+- Report: 1-3 weeks
+- Design (if needed): 2-6 weeks
+
+## 🎯 Decision Framework
+
+หลัง inspection:
+
+### ✅ Green light (proceed normally)
+- No major structural issues
+- Within existing capacity for planned work
+- Cosmetic/minor repair needed
+
+### ⚠ Yellow light (proceed carefully)
+- Issues exist but addressable
+- May need strengthening (adds cost)
+- Careful scheduling
+
+### 🛑 Red light (consider rebuild)
+- Major settlement · structural failure
+- Cost to fix > 50% of rebuild
+- Cannot support planned load
+- Many compounding issues
+
+## Checklist Inspection (ใช้ on-site)
+
+### Foundation
+- [ ] Visible cracks (width + direction)
+- [ ] Settlement indicators
+- [ ] Water proximity/seepage
+- [ ] Trees within 3 m
+
+### Structure
+- [ ] Column alignment · damage
+- [ ] Beam sag · cracks
+- [ ] Slab level · deflection
+- [ ] Wall plumb · cracks
+
+### Envelope
+- [ ] Roof condition
+- [ ] Waterproofing
+- [ ] Windows/doors alignment
+
+### Systems
+- [ ] Electrical age · code
+- [ ] Plumbing material · leaks
+- [ ] HVAC age · capacity
+
+### Environmental
+- [ ] Asbestos/lead (if old)
+- [ ] Mold presence
+- [ ] Termites/pest
+
+### Documentation
+- [ ] Original drawings?
+- [ ] Previous repairs?
+- [ ] Ownership history
+- [ ] Insurance claims history
+
+---
+
+## 💼 Track F · Business: Marketing + Portfolio
+---
+title: "Marketing + Portfolio สำหรับสถาปนิก"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [marketing, portfolio, branding, business, architecture]
+layers: [design]
+applies_to: [business, marketing]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/Client-Management|Client Management]]"
+  - "[[wiki/syntheses/เทมเพลต-TOR-สัญญา|เทมเพลต TOR]]"
+---
+
+Marketing สถาปนิก · แตกต่างจาก mass marketing · **คุณภาพงาน > จำนวน**
+
+## 🎯 Marketing Funnel สำหรับสถาปนิก
+
+```
+Awareness (คนรู้จัก)
+    ↓
+Interest (สนใจดูงาน)
+    ↓
+Consideration (เทียบกับคนอื่น)
+    ↓
+Consultation (คุยกัน 30 นาที)
+    ↓
+Client (เซ็นสัญญา)
+    ↓
+Referral (แนะนำคนอื่น) ← สำคัญที่สุด
+```
+
+### Conversion rates ทั่วไป
+- **1,000** awareness → 50 interest → 10 consultation → **1-2 clients**
+- Conversion **0.1-0.2%** from awareness
+- แต่**referrals ~30-50% close rate**
+
+## 📸 Portfolio · หัวใจสำคัญ
+
+### Structure · 10 โปรเจคดีที่สุด
+
+**ไม่ใช่** ทุกโปรเจคที่เคยทำ · แต่**เลือกเฉพาะดีสุด**
+
+**Per project:**
+1. **Hero shot** (cover image · drone · golden hour)
+2. **Key story** (2-3 paragraphs · challenge + solution)
+3. **5-8 photos** (exterior · interior · detail · progress)
+4. **Floor plans** (simplified · readable)
+5. **Client testimonial** (1-2 sentences)
+6. **Key facts** (location · size · year · budget range)
+
+### Photography · ลงทุนสำคัญ
+
+**Professional photographer:**
+- Cost: 30-100K ต่อโปรเจค (1-2 วัน)
+- ROI: **คุ้มกว่าทำเอง 10 เท่า**
+- Thai architects นิยม: @beersingnoi · @soopakornlimtong · @sopheefotograf
+
+**DIY tips (ถ้างบจำกัด):**
+- Sony A7/Canon R (full-frame)
+- Wide angle 14-24mm
+- Golden hour (ก่อน/หลังพระอาทิตย์ขึ้น-ตก 30 นาที)
+- Tripod + manual settings
+- Edit in Lightroom
+
+### Portfolio formats
+
+| Format | Pros | Cons | For |
+|--------|------|------|-----|
+| **Website** | Always accessible · SEO · update easy | Maintenance | Primary |
+| **PDF** | Easy share · printable | Static | Send prospects |
+| **Instagram** | Discovery · visual | Algorithm changes | Branding |
+| **Behance** | Design community | Less Thai audience | Global |
+| **Physical book** | Impressive meeting | Expensive · heavy | High-end clients |
+
+## 🌐 Website
+
+### Essentials (must have)
+- [ ] **Homepage** with 3-5 hero projects
+- [ ] **Portfolio** (10+ projects · well organized)
+- [ ] **About** (personal story · values · team)
+- [ ] **Services** (what you do · scope)
+- [ ] **Process** (how you work · phases)
+- [ ] **Contact** (form · phone · email · office)
+- [ ] **Blog** (SEO · expertise signaling)
+
+### Design principles
+- **Minimalist** · let work speak
+- **Fast loading** (< 3 sec)
+- **Mobile-first** (60%+ traffic mobile)
+- **Easy navigation** (3 clicks to anything)
+- **High-quality images** (but optimized)
+
+### Tech stack ที่แนะนำ
+- **Squarespace** · Wix (ไม่ต้องคิดมาก · drag-drop)
+- **WordPress** (flexibility · SEO)
+- **Webflow** (designer-friendly)
+- **Framer** (modern · animations)
+
+Cost: 5-50K ต่อปี hosting + theme
+
+## 📱 Social Media
+
+### Platforms ที่แนะนำ
+
+**Instagram** (ต้องมี · 🌟🌟🌟🌟🌟)
+- โพสต์ 3-5 ครั้ง/สัปดาห์
+- Carousel posts (5-10 images per project)
+- Reels (short videos · construction progress · walk-throughs)
+- Stories daily · behind the scenes
+- Use **Thai + English** hashtags
+
+**Facebook** (ไทย demographic · 🌟🌟🌟)
+- Page + Group (ถ้ามี community)
+- Post longer content
+- Event pages (open house · talks)
+
+**TikTok** (กำลังมา · 🌟🌟🌟🌟)
+- Educational (อธิบายเรื่องบ้าน)
+- Time-lapse construction
+- Behind the scenes
+- Growing audience Gen-Z
+
+**YouTube** (🌟🌟🌟)
+- Project walkthroughs (5-10 min)
+- Educational series
+- Client testimonials
+- SEO long-tail
+
+**LinkedIn** (🌟🌟)
+- B2B networking
+- Articles about industry
+
+### Posting strategy
+
+**80/20 rule:**
+- 80% = Value (education · inspiration · projects)
+- 20% = Promotion (new project · service · CTA)
+
+### Content Pillars (4 categories)
+
+1. **Project showcases** (40%) — Finished work, process
+2. **Educational** (30%) — Home tips, trends, law
+3. **Behind the scenes** (20%) — Team, office, construction
+4. **Personal/Inspirational** (10%) — Values, beliefs
+
+## 🎯 Target Customer Personas
+
+### Persona 1: "Young professional couple"
+- Age 30-40 · married · 1-2 kids soon
+- First home · budget tight but want quality
+- Social media savvy
+- Want Modern/Thai-modern
+- **Marketing:** Instagram · content about smart home, kid-friendly design
+
+### Persona 2: "Upgrader"
+- Age 40-55 · established career
+- Second home / upsize · budget flexible
+- Want unique · status
+- Value privacy
+- **Marketing:** Facebook · word of mouth · referrals · luxury content
+
+### Persona 3: "Retirement home"
+- Age 55-65 · empty nester
+- Moving to suburb / provincial
+- Aging in place priority
+- Tradition · value
+- **Marketing:** Personal network · Line · traditional media
+
+### Persona 4: "Investor/Developer"
+- Age varies · business mindset
+- Multiple projects · ROI focus
+- Speed + quality balance
+- **Marketing:** LinkedIn · network events · B2B
+
+## 💰 Pricing Strategy
+
+### ASA standard fees (ดู [[wiki/syntheses/เทมเพลต-TOR-สัญญา]])
+
+**% ของค่าก่อสร้าง:**
+- 5M: 8-10%
+- 5-20M: 6-8%
+- 20-50M: 5-7%
+- 50M+: 4-6%
+
+### Premium positioning
+- **สูงกว่า market 20-30%** สำหรับ:
+  - Established brand
+  - Award-winning
+  - Unique niche (heritage · luxury · sustainable)
+
+### Budget positioning
+- **ต่ำกว่า market 10-20%** เมื่อ:
+  - Early career
+  - Building portfolio
+  - High volume strategy
+
+### Value-based pricing (แนะนำ)
+- คิดจาก value ให้ลูกค้า
+- บ้าน 30M · save ค่าก่อสร้าง 10% = 3M · fee 6% = 1.8M · worth
+- วิเคราะห์ให้ client ด้วย ROI logic
+
+## 🤝 Networking + Referrals
+
+### Referral sources
+
+| แหล่ง | Quality | Volume |
+|-------|:-------:|:------:|
+| **Past clients** | ⭐⭐⭐⭐⭐ | Medium |
+| **Contractors** (ที่เคยทำงานดี) | ⭐⭐⭐⭐ | High |
+| **Suppliers** (ferniture, materials) | ⭐⭐⭐ | Medium |
+| **Other professionals** (lawyer, accountant) | ⭐⭐⭐⭐ | Low-Medium |
+| **Real estate agents** | ⭐⭐⭐ | High variable |
+
+### Building referrals
+- **Thank you gifts** (flowers · wine) after project
+- **Check-ins** 6 month · 1 year
+- **Holiday cards** · birthdays
+- **Open house events** (for past clients to bring friends)
+
+### Networking events
+- **ASA events** (สมาคมสถาปนิกสยาม)
+- **DocomomoThailand** events
+- **Property/Real estate expos**
+- **Local business chambers**
+
+## 📝 Content Marketing
+
+### Blog topics ที่ performs
+
+**Educational (SEO magnets):**
+- "วิธีคำนวณ FAR สำหรับที่ดิน ย.3"
+- "ห้องน้ำผู้สูงอายุควรออกแบบยังไง"
+- "ฮวงจุ้ยบ้านสำหรับคนปีวอก"
+- "บ้านประหยัดพลังงานในงบ 5 ล้าน"
+
+**Process insights:**
+- "กระบวนการออกแบบบ้านจาก 0 สู่ 100%"
+- "ทำไมบ้านสร้างเสร็จแพงกว่างบ?"
+- "5 ความผิดพลาดที่เจ้าของบ้านมักทำ"
+
+**Case studies (ได้รับอนุญาตจาก client):**
+- Before/After
+- Challenge → solution
+- Client testimonial
+
+### Frequency
+- **Start:** 2 articles/month (consistency)
+- **Scale:** 4-8/month once established
+
+### Distribution
+- Website blog (SEO)
+- Social media (Facebook/IG teaser)
+- Newsletter (ถ้ามี subscribers)
+- Guest post (Baanlaesuan · DDproperty · Dwell)
+
+## 📊 Metrics to track
+
+### Monthly KPIs
+- Website visits
+- Instagram followers + engagement
+- Inquiries (leads)
+- Consultations booked
+- Proposals sent
+- Contracts signed
+- Client satisfaction scores
+
+### Conversion rates
+- Visitors → inquiry: **1-2%** (good)
+- Inquiry → consultation: **40-60%**
+- Consultation → proposal: **50-70%**
+- Proposal → contract: **20-40%**
+- Overall: **0.05-0.2%**
+
+### ROI Marketing
+- Client lifetime value: 500K-5M (architect fee)
+- CAC (cost per acquisition): 10-100K
+- Break-even: 10-200 visitors = 1 client
+
+## 🎨 Brand building
+
+### Elements
+
+**Visual:**
+- Logo (clean · timeless)
+- Color palette (3-5 colors)
+- Typography (2 fonts: heading + body)
+- Photography style
+
+**Verbal:**
+- Tagline (อะไรคือจุดเด่น?)
+- Tone of voice (professional? friendly? luxury?)
+- Elevator pitch (60 seconds)
+
+**Experience:**
+- Office design (first impression)
+- Communication response time
+- Documentation quality
+- Gift + follow-up
+
+### Niche specialization
+
+**Specialist > Generalist:**
+- "บ้านไทย-modern ในงบ 5-15 ล้าน" (specific)
+- "บ้านผู้สูงอายุ aging-in-place"
+- "Renovation ตึกแถวเก่า → cafe/studio"
+- "Luxury villa ริมทะเล"
+- "Passive + Green certified homes"
+
+## 🚫 Common mistakes
+
+1. **Portfolio ที่ไม่ update** · ดูล้าสมัย
+2. **Website ไม่ mobile-friendly**
+3. **Response time ช้า** (> 24 ชม.)
+4. **Quote ฟรีไม่จำกัด** · เสียเวลา
+5. **ไม่มี process ชัดเจน** · ลูกค้าไม่เชื่อใจ
+6. **รับทุกงานที่เสนอ** · ไม่ focus
+7. **ไม่ขึ้นราคา 3-5 ปี** · เสียกำไร
+8. **ทำตาม trend มาก** · ไม่มี identity
+
+## Checklist Marketing ก่อนเริ่ม
+
+- [ ] Portfolio 8-10 best projects ready
+- [ ] Professional photography done
+- [ ] Website live + mobile-friendly
+- [ ] Instagram + 1-2 platforms active
+- [ ] Contact form + response protocol (< 24 hr)
+- [ ] Pricing structure clear
+- [ ] Target persona defined
+- [ ] Content calendar (2 mo ahead)
+- [ ] Referral system (thank-you · follow-up)
+- [ ] Tracking metrics setup
+
+## 📅 Monthly Marketing Schedule
+
+### Week 1
+- [ ] Post 2-3 project updates (IG)
+- [ ] Blog article
+- [ ] Engagement (comment · reply)
+
+### Week 2
+- [ ] Post behind-the-scenes (stories)
+- [ ] Newsletter (if subscribers)
+- [ ] Network event
+
+### Week 3
+- [ ] Finished project showcase
+- [ ] Educational carousel
+- [ ] Client check-in (past clients)
+
+### Week 4
+- [ ] Review metrics
+- [ ] Plan next month
+- [ ] Update portfolio (if new work)
+
+---
+
+## 💼 Track F · Business: Client Management
+---
+title: "Client Management · การจัดการลูกค้า"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [client, relationship, communication, management]
+layers: [design]
+applies_to: [business, client-interaction]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/syntheses/เทมเพลต-client-brief|Client Brief]]"
+  - "[[wiki/syntheses/เทมเพลต-TOR-สัญญา|TOR]]"
+  - "[[wiki/concepts/Marketing-Portfolio-สถาปนิก|Marketing]]"
+---
+
+**80% ของปัญหาโปรเจค = communication failure** · การจัดการลูกค้าดี = โปรเจคสำเร็จ + referrals
+
+## 🤝 Client Journey · 5 Phases
+
+```
+Discovery → Consultation → Contract → Design/Build → Post-Occupancy
+```
+
+## Phase 1 · Discovery (ก่อนเจอตัว)
+
+### Client inquiry
+- **Response time:** ตอบภายใน **24 ชั่วโมง** (เร็วกว่า = conversion ดีกว่า 3 เท่า)
+- **Channels:** Email · Line · Phone · Website form
+- **Template auto-reply:**
+
+```
+ขอบคุณที่ติดต่อมาครับ/ค่ะ
+
+เราได้รับข้อมูลเบื้องต้นแล้ว · จะตอบกลับละเอียดภายใน 24 ชั่วโมง
+
+ระหว่างรอ · ดูงานเราได้ที่ [website/IG]
+หรือดาวน์โหลด brief template: [link]
+```
+
+### Initial qualification (ดูคร่าวๆ)
+
+**Questions:**
+1. **Budget** range? (ถ้าเปิดเผยได้)
+2. **Timeline** · เมื่อต้องการเข้าอยู่?
+3. **Location** · ที่ไหน?
+4. **Scope** · บ้านใหม่/renovate?
+5. **Have plot?** · มีที่ดินแล้ว?
+
+### Red flags ที่ทำให้ควรปฏิเสธ
+- 🚩 Budget ไม่สมจริง (ต่ำกว่า 50% ของ market)
+- 🚩 Timeline ไม่สมจริง (want 3 months from 0)
+- 🚩 ไม่ยอมเปิดเผย budget
+- 🚩 เคย**เลิกสัญญา**กับสถาปนิกคนก่อน (dig deeper)
+- 🚩 Know-it-all attitude
+- 🚩 ตกลงทุกอย่าง "ดีหมด" (ไม่มี vision)
+
+## Phase 2 · Consultation (30-60 min · ฟรี)
+
+### เตรียมก่อนเจอ
+
+**ส่งให้ client ก่อน:**
+- Portfolio PDF (best 5 projects)
+- Client brief template ([[wiki/syntheses/เทมเพลต-client-brief]])
+- FAQ document
+- Process overview
+
+**ถาม client ก่อน:**
+- Pinterest board (ภาพที่ชอบ)
+- Budget range
+- List of must-haves
+
+### During consultation · Structure
+
+**0-5 นาที · Warm up**
+- ทำความรู้จัก · small talk
+- Find common interest
+
+**5-15 นาที · Understand them**
+- ฟังมากกว่าพูด (70% listening)
+- Brief ของพวกเขา (ดู [[wiki/syntheses/เทมเพลต-client-brief]])
+- Ask **"why"** มากกว่า "what"
+- Write notes (แสดงว่าใส่ใจ)
+
+**15-25 นาที · Your approach**
+- How you work (phases, timeline)
+- Examples ที่คล้ายกัน
+- What you can deliver
+
+**25-35 นาที · Practical discussions**
+- Timeline realistic
+- Budget reality check
+- Next steps
+
+**35-40 นาที · Close**
+- Summary
+- Give homework (brief to fill)
+- Agree on follow-up date
+
+### Key techniques
+
+**Mirroring:**
+- Use their words
+- Pause before responding
+- Show understanding
+
+**Active listening:**
+- "Help me understand..."
+- "What you're saying is..."
+- "Why is that important to you?"
+
+**Anchoring budget:**
+- "Projects like this usually 8-12M"
+- ถ้าเกิน budget · ปรับ scope · ไม่ discount
+
+## Phase 3 · Contract (เซ็นสัญญา)
+
+### Proposal structure
+
+1. **Executive summary** (1 page)
+2. **Understanding of needs** (show you listened)
+3. **Proposed approach** (how you'll solve)
+4. **Deliverables per phase**
+5. **Timeline (Gantt)**
+6. **Fee + payment schedule**
+7. **Exclusions** (what's NOT included)
+8. **Next steps**
+
+### Presenting proposal
+
+**In-person > email:**
+- Walk them through it
+- Answer questions live
+- Build relationship
+- **Book follow-up meeting in 3-5 days** (decision)
+
+### Negotiation
+
+**Ok to negotiate:**
+- Payment schedule
+- Scope adjustments
+- Timeline flexibility
+
+**NOT ok:**
+- Discount >10% (lowers value)
+- Skip consultant (structural/MEP)
+- Rush phases
+
+### Contract signing · [[wiki/syntheses/เทมเพลต-TOR-สัญญา|TOR template]]
+
+**Both parties sign:**
+- Each initialed page
+- Attachments stapled
+- Copies to each
+- Deposit payment (15%)
+
+## Phase 4 · During Design/Build (months)
+
+### Communication cadence
+
+**Weekly (during design):**
+- 30-min call / video
+- Status update email
+- **Minutes within 24 hrs**
+
+**Bi-weekly (during construction):**
+- Site visit
+- Progress photos
+- RFI response
+- Change orders (if any)
+
+### Meeting best practices
+
+**Before:**
+- Agenda sent 24 hrs ahead
+- What needed from client (decisions)
+- Materials for discussion
+
+**During:**
+- On time
+- Follow agenda
+- Take notes
+- **No decisions under pressure**
+
+**After:**
+- Minutes within 24 hrs
+- Action items with owner + deadline
+- Follow-up until done
+
+### Presenting designs
+
+**Show, don't just tell:**
+- Drawings (plan, section, elevation)
+- 3D rendering
+- Material samples
+- Physical model (premium)
+- Photos of similar examples
+
+**Pricing options:**
+- Good / Better / Best
+- Always offer 3 choices
+- Let client feel in control
+
+### Managing emotions
+
+**Client excited:**
+- Great! Keep momentum
+- Don't over-commit
+- Stick to phase gates
+
+**Client worried (common):**
+- Listen first
+- Acknowledge feelings
+- Provide reassurance + facts
+- Offer concrete solutions
+
+**Client angry:**
+- Don't react defensively
+- Ask questions to understand
+- Take responsibility (where valid)
+- Offer path forward
+- Follow up next day
+
+**Client silent (worst):**
+- Proactively check in
+- Send draft / proposal to trigger
+- Don't interpret silence as agreement
+
+### Change orders (CRITICAL)
+
+**Always in writing:**
+```
+Change Order #[number]
+Date: [date]
+Project: [name]
+
+Change requested: [what]
+Reason: [why]
+Impact on design: [details]
+Impact on schedule: [days]
+Impact on cost: [amount]
+Revised total: [new total]
+
+Signed:
+Client: _________ Date: _____
+Architect: _________ Date: _____
+```
+
+**Rules:**
+- **No verbal agreements** for scope changes
+- **Cost upfront**, not at end
+- **Impact on timeline** explicit
+- **Sign before implementing**
+
+## Phase 5 · Handover + Post-Occupancy
+
+### Project completion
+
+**Punch list walk-through:**
+- With client + contractor
+- Document every issue
+- Fix timeline
+- Client sign-off when done
+
+**Handover package:**
+- As-built drawings (USB + printed)
+- Warranty certificates
+- User manuals
+- Maintenance schedule
+- Contact list (contractors, suppliers)
+
+### Thank you gift
+- Flowers + note (delivered on move-in)
+- Architectural book / coffee table piece
+- Restaurant gift certificate
+- Budget: 2,000-5,000 บาท (valuable · memorable)
+
+### Follow-up schedule
+
+**1 month:**
+- "How's it going?"
+- Note any issues
+
+**3 months:**
+- Seasonal changes check
+- Warranty still active · use it
+
+**6 months:**
+- Full follow-up call
+- Photo update
+- Ask for testimonial
+
+**1 year:**
+- Anniversary check-in
+- Ask for referral
+- Offer to photograph
+
+**2-3 years:**
+- Holiday cards
+- Professional photography (for portfolio)
+- Post on social media (with permission)
+
+## 🎭 Managing Difficult Clients
+
+### The indecisive one
+**Signs:** Can't pick · changes mind · asks "what would you do"
+
+**Handling:**
+- Offer 3 options (force choice)
+- Provide recommendation with reasoning
+- Set decision deadlines
+- Charge for excessive revisions
+
+### The micromanager
+**Signs:** Daily check-ins · second-guessing · wanting everything custom
+
+**Handling:**
+- Set communication boundaries (weekly calls only)
+- Define decision points clearly
+- Stick to process
+- Charge premium for extra meetings
+
+### The budget cruncher
+**Signs:** Constant "can we cut this?"
+
+**Handling:**
+- Educate on value
+- Show ROI (not just cost)
+- Offer tiered options
+- Know when to walk away
+
+### The late payer
+**Signs:** "Check is in the mail" · excuses
+
+**Handling:**
+- **Stop work immediately** if payment > 30 days late
+- Interest charge clause (7.5%/year)
+- Escalate in writing
+- Last resort: legal
+
+### The scope-creeper
+**Signs:** "Just one more thing..." repeatedly
+
+**Handling:**
+- Use change orders strictly
+- "Happy to! Let me quote it"
+- Don't do work before signed CO
+
+## 💬 Difficult conversations
+
+### Delivering bad news
+
+**Structure:**
+1. Set context (not in email · call / in-person)
+2. Facts (what happened)
+3. Impact (cost · timeline)
+4. Plan (what next)
+5. Ask (questions · support)
+
+**Example:**
+> "Khun somchai · I need to update you on the foundation. During excavation we found unexpected soft soil that requires deeper piles. This will add 150,000 baht and 2 weeks. I have three options for us to discuss. Can we meet tomorrow?"
+
+### Saying no (to scope creep)
+
+**Sandwich technique:**
+1. Positive: "Great idea!"
+2. No: "However, this addition would [impact]"
+3. Alternative: "Here's what we could do instead..."
+
+### Firing a client (last resort)
+
+**When:**
+- Non-payment repeated
+- Verbally abusive
+- Unreasonable · no resolution
+- Scope unreasonable
+
+**How:**
+- Written notice
+- Cite contract clauses
+- Offer to hand off
+- Document everything
+
+## 📱 Communication Tools
+
+### Thai market standard
+
+**Line** — most common in Thailand
+- Line Official Account for business
+- Auto-reply
+- Organize by project (group per project)
+
+**Email** — formal correspondence
+- Contracts · proposals · invoices
+- Meeting minutes · change orders
+- Document trail
+
+**Phone / WhatsApp** — urgent
+- Site issues
+- Quick decisions
+- Avoid for records
+
+**Project management tool:**
+- Asana / Trello / Monday
+- Share with client · real-time updates
+- Document history
+
+## 🎯 Success metrics
+
+### Per project
+- Delivered on time?
+- Within budget?
+- Client satisfaction (1-10)?
+- Scope changes minimized?
+- Referrals received?
+
+### Overall
+- Client lifetime value
+- Repeat clients %
+- Referral rate (>30% = healthy)
+- Completion rate (projects finished)
+- Testimonial/reviews quality
+
+## Checklist ต่อลูกค้าใหม่
+
+### Onboarding (week 1)
+- [ ] Welcome package (email + physical)
+- [ ] Contact list (team intro)
+- [ ] Communication protocol agreed
+- [ ] Brief received back
+- [ ] Kickoff meeting scheduled
+
+### Throughout
+- [ ] Weekly communication maintained
+- [ ] All changes in writing
+- [ ] Minutes sent within 24 hrs
+- [ ] Invoicing on schedule
+- [ ] Photos/updates regular
+
+### Project closeout
+- [ ] Punch list complete
+- [ ] Handover package delivered
+- [ ] Thank you gift
+- [ ] Testimonial requested
+- [ ] Warranty documents
+- [ ] Follow-up calendar set
