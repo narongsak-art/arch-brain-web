@@ -8,8 +8,8 @@ def _init_state():
     st.session_state.setdefault("history", [])
 
 
-def add_to_history(project_data: dict, analysis: str, provider: str):
-    """Append a new analysis to history"""
+def add_to_history(project_data: dict, analysis: str, provider: str, structured: dict | None = None):
+    """Append a new analysis to history. `structured` is parsed JSON if available."""
     _init_state()
     entry = {
         "id": datetime.now().strftime("%Y%m%d-%H%M%S"),
@@ -21,6 +21,7 @@ def add_to_history(project_data: dict, analysis: str, provider: str):
         "provider": provider,
         "project_data": project_data,
         "analysis": analysis,
+        "structured": structured,
     }
     st.session_state["history"].insert(0, entry)
 
@@ -60,13 +61,21 @@ def render_history_panel():
 
     for entry in history:
         ts = datetime.fromisoformat(entry["timestamp"]).strftime("%Y-%m-%d %H:%M")
+        has_struct = bool(entry.get("structured"))
+        struct_badge = " · ✨ Structured" if has_struct else ""
         with st.expander(
             f"🏠 **{entry['name']}** · {entry['province']} · {entry['zone']} · "
-            f"{entry['land_area']:.0f} ตร.ม. · {ts} · _{entry['provider']}_"
+            f"{entry['land_area']:.0f} ตร.ม. · {ts} · _{entry['provider']}_{struct_badge}"
         ):
             tab_a, tab_b = st.tabs(["📊 ผลวิเคราะห์", "📋 ข้อมูลโครงการ"])
             with tab_a:
-                st.markdown(entry["analysis"])
+                if has_struct:
+                    from components import structured_analysis
+                    structured_analysis.render_analysis(entry["structured"])
+                    with st.expander("📝 raw markdown / JSON"):
+                        st.code(entry["analysis"], language="json")
+                else:
+                    st.markdown(entry["analysis"])
             with tab_b:
                 st.json(entry["project_data"])
 

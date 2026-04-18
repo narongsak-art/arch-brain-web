@@ -31,6 +31,10 @@ from components import (
     export_pdf,
     tiers,
     booking,
+    structured_analysis,
+    share,
+    image_gen,
+    draw_plan,
 )
 from components.progress import AnalysisProgress
 
@@ -55,7 +59,7 @@ GEMINI_MODELS = {
 }
 DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
 CLAUDE_MODEL = "claude-sonnet-4-6"
-MAX_TOKENS = 4000
+MAX_TOKENS = 8000
 
 KG_FILE = Path(__file__).parent / "kg-compact.json"
 SYSTEM_PROMPT_FILE = Path(__file__).parent / "system-prompt.md"
@@ -139,8 +143,12 @@ def call_claude(api_key, system, user_prompt, image_bytes=None):
     return response.content[0].text
 
 
-def analyze_project(provider, api_key, project_data, plan_image_bytes=None, progress=None):
-    """Orchestrate analysis with chosen provider + report stage progress"""
+def analyze_project(provider, api_key, project_data, plan_image_bytes=None, progress=None, structured=True):
+    """Orchestrate analysis with chosen provider + report stage progress.
+
+    If structured=True, instruct LLM to return JSON; otherwise markdown.
+    Returns: raw text (caller parses).
+    """
     if progress:
         progress.advance("load_kb")
     kg = load_knowledge_graph()
@@ -150,7 +158,10 @@ def analyze_project(provider, api_key, project_data, plan_image_bytes=None, prog
     if progress:
         progress.advance("build_prompt", f"{len(kg):,} chars KG · {len(full_knowledge):,} chars knowledge")
 
-    system = f"""{base_prompt}
+    if structured:
+        system = structured_analysis.build_structured_prompt(base_prompt, full_knowledge, kg)
+    else:
+        system = f"""{base_prompt}
 
 ## ⭐ FULL KNOWLEDGE (เนื้อหาเต็มหน้า wiki สำคัญ · ใช้อ้างอิงตัวเลขจริง)
 
@@ -287,6 +298,18 @@ def render_sidebar():
 
     st.sidebar.markdown("---")
 
+    # Output format toggle
+    st.sidebar.markdown("##### 📋 รูปแบบผลวิเคราะห์")
+    structured_mode = st.sidebar.toggle(
+        "✨ Structured output (ตาราง · charts)",
+        value=st.session_state.get("structured_mode", True),
+        help="เปิด: AI ตอบเป็น JSON → แสดงเป็นตาราง/charts/metrics · ปิด: markdown ธรรมดา",
+        key="structured_mode_toggle",
+    )
+    st.session_state["structured_mode"] = structured_mode
+
+    st.sidebar.markdown("---")
+
     # KG stats
     st.sidebar.markdown("### 📊 Knowledge Graph")
     try:
@@ -415,14 +438,25 @@ def render_analyze_tab(provider, api_key):
     # Plan upload + annotation (always visible)
     st.markdown("---")
     st.markdown("### 📎 อัปโหลดแปลน (ไม่บังคับ)")
-    uploaded_file = st.file_uploader(
-        "ภาพแปลน · screenshot",
-        type=["jpg", "jpeg", "png"],
-        help="ถ้า upload แปลน · AI จะวิเคราะห์จาก layout จริง · สามารถวาดมาร์คได้",
-    )
+
     image_bytes = None
-    if uploaded_file:
-        image_bytes = annotate.render_annotate_widget(uploaded_file)
+    drawn_bytes = st.session_state.get("_drawn_plan_bytes")
+    if drawn_bytes:
+        st.success("✅ ใช้แปลนที่วาดในแท็บ **🖊 วาดแปลน**")
+        st.image(drawn_bytes, caption="แปลนที่วาดไว้", use_container_width=True)
+        image_bytes = drawn_bytes
+        col_clear, _ = st.columns([1, 3])
+        if col_clear.button("🗑 ล้าง · ใช้ upload แทน", key="clear_drawn"):
+            del st.session_state["_drawn_plan_bytes"]
+            st.rerun()
+    else:
+        uploaded_file = st.file_uploader(
+            "ภาพแปลน · screenshot",
+            type=["jpg", "jpeg", "png"],
+            help="ถ้า upload แปลน · AI จะวิเคราะห์จาก layout จริง · สามารถวาดมาร์คได้ · หรือไปแท็บ **🖊 วาดแปลน** เพื่อวาดสดๆ",
+        )
+        if uploaded_file:
+            image_bytes = annotate.render_annotate_widget(uploaded_file)
 
     # Analyze button (only enabled on last step)
     st.markdown("---")
@@ -446,15 +480,31 @@ def render_analyze_tab(provider, api_key):
 
 def _run_analysis(provider, api_key, project_data, image_bytes):
     try:
+        # Respect the user's output-mode toggle (structured JSON by default)
+        structured = st.session_state.get("structured_mode", True)
         with AnalysisProgress(provider) as prog:
-            analysis = analyze_project(provider, api_key, project_data, image_bytes, progress=prog)
+            analysis = analyze_project(
+                provider, api_key, project_data, image_bytes,
+                progress=prog, structured=structured,
+            )
             prog.done(success=True)
 
         st.success(f"✅ วิเคราะห์เสร็จ (โดย {provider.title()})")
-        history.add_to_history(project_data, analysis, provider)
+
+        # Try to parse structured JSON if that mode was selected
+        parsed_data = None
+        if structured:
+            parsed_data = structured_analysis.extract_json_blob(analysis)
+
+        history.add_to_history(project_data, analysis, provider, parsed_data)
         st.markdown("---")
         st.header("📊 ผลวิเคราะห์")
-        st.markdown(analysis)
+        if parsed_data:
+            structured_analysis.render_analysis(parsed_data)
+        else:
+            if structured:
+                st.warning("⚠ AI ไม่ตอบในรูปแบบ JSON · แสดงเป็น markdown")
+            st.markdown(analysis)
 
         # Download
         st.markdown("---")
@@ -520,6 +570,10 @@ def _run_analysis(provider, api_key, project_data, image_bytes):
                     help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ .html แทน",
                 )
 
+        # Share link (read-only URL to give to clients)
+        st.markdown("---")
+        share.render_share_button(project_data, parsed_data, analysis, provider)
+
         st.info("💾 ผลวิเคราะห์ถูกบันทึกไว้ที่แท็บ **📚 ประวัติ** แล้ว · ถามเพิ่มได้ที่แท็บ **💬 Chat**")
 
     except requests.HTTPError as e:
@@ -574,10 +628,12 @@ def main():
     render_features()
     st.markdown("---")
 
-    tab_analyze, tab_history, tab_chat, tab_compare, tab_io, tab_kg = st.tabs([
+    tab_analyze, tab_draw, tab_history, tab_chat, tab_mockup, tab_compare, tab_io, tab_kg = st.tabs([
         "🔍 วิเคราะห์ใหม่",
+        "🖊 วาดแปลน",
         "📚 ประวัติ",
         "💬 Chat",
+        "🎨 ภาพ mockup",
         "🔀 เปรียบเทียบ",
         "💾 Save/Load",
         "🕸 KG Explorer",
@@ -585,6 +641,10 @@ def main():
 
     with tab_analyze:
         render_analyze_tab(provider, api_key)
+
+    with tab_draw:
+        fd = st.session_state.get("form_data", {})
+        draw_plan.render_draw_tab(fd)
 
     with tab_history:
         history.render_history_panel()
@@ -604,6 +664,23 @@ def main():
             full_knowledge=load_full_knowledge(),
             kg=load_knowledge_graph(),
         )
+
+    with tab_mockup:
+        # Image generation uses the latest project in history (or wizard form as fallback)
+        hist = history.get_history()
+        if hist:
+            fd = hist[0]["project_data"]
+            st.caption(f"ใช้ข้อมูลจากโปรเจคล่าสุด: **{fd.get('name', '-')}**")
+        else:
+            fd = st.session_state.get("form_data", {})
+            if fd:
+                st.caption(f"ใช้ข้อมูลจากฟอร์มปัจจุบัน: **{fd.get('name', '-')}** · วิเคราะห์ก่อนจะได้ข้อมูลจริง")
+            else:
+                st.info("กรอกฟอร์มที่แท็บ **วิเคราะห์ใหม่** ก่อน เพื่อให้ AI มี brief สร้างภาพ")
+        if fd:
+            image_gen.render_image_gen_panel(fd, api_key if provider == "gemini" else "")
+            if provider != "gemini":
+                st.warning("Image generation ใช้ Gemini API เท่านั้น · สลับ provider ที่ sidebar")
 
     with tab_compare:
         compare.render_compare_panel()
