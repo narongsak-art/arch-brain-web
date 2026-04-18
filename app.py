@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute
+from components import theme, llm, analysis, presets, history, contribute, project_io
 
 
 # =============================================================================
@@ -364,13 +364,14 @@ def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):
 
 
 def render_tabs_section():
-    """Secondary content below main flow · tabs for history + contribute"""
+    """Secondary content below main flow · tabs for history + contribute + save/load"""
     st.divider()
     hist_count = len(history.get_all())
     contrib_count = len(contribute.get_all())
-    tab_hist, tab_contrib = st.tabs([
+    tab_hist, tab_contrib, tab_io = st.tabs([
         f"📚 ประวัติ ({hist_count})",
         f"💡 ช่วยเติม ({contrib_count})",
+        "💾 Save/Load",
     ])
     with tab_hist:
         if hist_count == 0:
@@ -379,6 +380,8 @@ def render_tabs_section():
             history.render_panel()
     with tab_contrib:
         contribute.render_panel()
+    with tab_io:
+        project_io.render_panel()
 
 
 # =============================================================================
