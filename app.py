@@ -69,6 +69,7 @@ def render_sidebar():
     with st.sidebar:
         st.markdown("### 🏠 สมองจำลองของสถาปนิก")
         st.caption("Architect's Brain · v3.0")
+        theme.toggle_widget(container=st.sidebar)
         st.divider()
 
         provider = st.radio(
@@ -130,14 +131,9 @@ def render_sidebar():
 # =============================================================================
 
 def render_hero():
-    st.markdown(
-        """
-        <div class="ab-hero">
-          <h1>🏠 สมองจำลองของสถาปนิก</h1>
-          <p>วิเคราะห์แปลนบ้านไทยด้วย AI + Knowledge Graph 5 ชั้น · ผลใน ~60 วินาที</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    theme.hero(
+        "🏠 สมองจำลองของสถาปนิก",
+        "วิเคราะห์แปลนบ้านไทยด้วย AI + Knowledge Graph 5 ชั้น · ผลใน ~60 วินาที",
     )
 
 
