@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf
 
 
 # =============================================================================
@@ -321,6 +321,29 @@ def render_result():
         file_name=f"{pd['name']}-{ts}-raw.txt", mime="text/plain",
         use_container_width=True,
     )
+
+    # Print-ready exports (row 2)
+    c4, c5 = st.columns(2)
+    html_doc = export_pdf.build_print_html(pd, md_content, provider)
+    c4.download_button(
+        "🖨 HTML (พิมพ์ → PDF)", data=html_doc,
+        file_name=f"{pd['name']}-{ts}.html", mime="text/html",
+        use_container_width=True,
+        help="เปิดใน browser แล้วกด Ctrl+P → Save as PDF (รองรับฟอนต์ไทย)",
+    )
+    pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(pd, md_content, provider)
+    if pdf_bytes:
+        c5.download_button(
+            "📄 PDF (Sarabun)", data=pdf_bytes,
+            file_name=f"{pd['name']}-{ts}.pdf", mime="application/pdf",
+            use_container_width=True,
+            help="Native PDF · ใช้ฟอนต์ Sarabun จากไฟล์ที่ shipped",
+        )
+    else:
+        c5.button(
+            "📄 PDF (ไม่พร้อม)", disabled=True, use_container_width=True,
+            help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ HTML แทน",
+        )
 
 
 def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):
