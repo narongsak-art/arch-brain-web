@@ -3971,3 +3971,5310 @@ Architect: _________ Date: _____
 - [ ] Testimonial requested
 - [ ] Warranty documents
 - [ ] Follow-up calendar set
+
+
+=========================================
+# ROUND 2 · ความรู้ใหม่ (Tracks B + E + G + H)
+=========================================
+
+## 🎨 Track B · Interior: Color Theory
+---
+title: "Color Theory สำหรับบ้าน · ทฤษฎีสีและการเลือก palette"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [interior, color, palette, design]
+layers: [design]
+applies_to: [interior, painting, materials]
+jurisdiction: universal
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/Lighting-Design|Lighting Design]]"
+  - "[[wiki/concepts/Material-Finishes|Material Finishes]]"
+---
+
+Color = **อารมณ์บ้าน** · ส่งผลกระทบจิตใจ · พลังงาน · perception ขนาดห้อง
+
+## 🎨 พื้นฐาน Color Wheel
+
+### 3 ประเภทสี
+
+**Primary:** แดง · เหลือง · น้ำเงิน
+**Secondary:** ส้ม · เขียว · ม่วง (ผสม primary)
+**Tertiary:** 6 สี (primary + secondary)
+
+### 3 Properties
+- **Hue** — ชื่อสี (red, blue, etc.)
+- **Saturation** — ความเข้ม (dull vs vivid)
+- **Value** — สว่าง/มืด (light vs dark)
+
+## 🎯 Color Schemes · 6 แบบคลาสสิก
+
+### 1. **Monochromatic** (สีเดียว · ปรับ shade)
+- Example: น้ำเงินอ่อน · น้ำเงินกลาง · น้ำเงินเข้ม
+- **Feel:** สงบ · minimal
+- **Risk:** น่าเบื่อ · ต้อง texture เพิ่ม
+
+### 2. **Analogous** (สีใกล้เคียง)
+- Example: น้ำเงิน · เขียว-น้ำเงิน · เขียว
+- **Feel:** Harmonious · natural
+- **Risk:** Low contrast
+
+### 3. **Complementary** (สีตรงข้าม)
+- Example: น้ำเงิน + ส้ม · เหลือง + ม่วง
+- **Feel:** Vibrant · energetic
+- **Risk:** ร้อนตา ถ้าใช้เต็มเหล่า
+- **Rule:** 70% สีหลัก · 30% สีตรงข้าม (accent)
+
+### 4. **Split-complementary** (ตรงข้าม + ข้างเคียง)
+- Example: น้ำเงิน + ส้มแดง + ส้มเหลือง
+- **Feel:** Balanced contrast
+
+### 5. **Triadic** (3 สี ห่างเท่ากัน)
+- Example: แดง · เหลือง · น้ำเงิน (primary)
+- **Feel:** Playful · vibrant
+- **Risk:** ถ้าใช้ full saturation = ดูเด็ก
+
+### 6. **Tetradic** (4 สี)
+- Example: 2 คู่ complementary
+- **Feel:** Rich · complex
+- **Risk:** ยาก balance · advanced
+
+## 🏠 60-30-10 Rule (ใช้ได้ทุกห้อง)
+
+```
+60% = สีหลัก (ผนัง · พื้น · ceiling · trim)
+30% = สีรอง (โซฟา · curtain · ใหญ่ๆ)
+10% = Accent (pillow · art · vase · small items)
+```
+
+**Example · ห้องนั่งเล่น:**
+- 60% Off-white ผนัง + light oak floor + white ceiling
+- 30% Charcoal grey sofa + navy curtain
+- 10% Mustard yellow pillow + brass lamp + terracotta vase
+
+## 🌡 Color Temperature · Warm vs Cool
+
+### Warm colors (แดง · ส้ม · เหลือง · น้ำตาล)
+- **Feel:** อบอุ่น · energetic · cozy
+- **Space effect:** ทำห้องรู้สึก**เล็กลง** + อบอุ่น
+- **Best for:** ห้องนั่งเล่น · dining · ห้องนอน (ฝั่งเหนือ)
+- **Avoid:** ห้องเล็ก + ฝั่งตะวันตก (ร้อน double)
+
+### Cool colors (น้ำเงิน · เขียว · ม่วง · เทา)
+- **Feel:** สงบ · relaxed · spacious
+- **Space effect:** ทำห้องรู้สึก**ใหญ่ขึ้น** + เย็น
+- **Best for:** ห้องเล็ก · ห้องน้ำ · ห้องทำงาน · ฝั่งตะวันตก
+- **Avoid:** ห้องที่ต้องอบอุ่น (ห้องนอน)
+
+### Neutral (ขาว · ดำ · เทา · เบจ · น้ำตาลอ่อน)
+- **Feel:** Timeless · flexible
+- **Use:** Base canvas · let accent pop
+- **Risk:** Boring ถ้าไม่มี texture
+
+## 🎭 Color Psychology · อารมณ์จากสี
+
+| สี | อารมณ์ | เหมาะกับห้อง |
+|----|-------|--------------|
+| **แดง** | Passion · appetite · energy | Dining · accent |
+| **ส้ม** | Warmth · creativity | Kids · playroom · kitchen |
+| **เหลือง** | Happy · optimism | Kitchen · breakfast nook |
+| **เขียว** | Nature · calm · restorative | Bedroom · bathroom · study |
+| **น้ำเงิน** | Trust · calm · focus | Office · bedroom · bathroom |
+| **ม่วง** | Luxury · creativity | Accent · bedroom premium |
+| **ขาว** | Clean · pure · spacious | Everything |
+| **เทา** | Sophisticated · neutral | Modern homes |
+| **ดำ** | Drama · luxury · grounding | Accent · frame · fixtures |
+| **น้ำตาล** | Earthy · warm · stable | Floor · furniture · trim |
+
+## 🌞 ผลของแสงต่อสี
+
+### Natural daylight
+- **Morning (east):** warm yellow tone
+- **Midday:** neutral white
+- **Evening (west):** warm golden
+- **Overcast:** cool blue tint
+
+### Artificial lighting
+- **Warm white (2700-3000K):** makes warm colors richer
+- **Neutral (3500-4000K):** truest color representation
+- **Cool (5000-6500K):** cold · washes out warm colors
+
+### Test before paint
+1. **ทา patch** 1 × 1 ม. บนผนังจริง
+2. **ดู 3 เวลา** (morning, noon, evening)
+3. **ดูกับ artificial light** เปิด
+4. **ดู 24 ชั่วโมง** ก่อนตัดสินใจ
+
+## 🇹🇭 Thai-specific palettes
+
+### 1. Thai-modern (minimal + warmth)
+- Base: off-white · light beige
+- Wood: teak tone (warm brown)
+- Accent: terracotta · navy blue
+- Feel: แผ่นสภาพสากล · คง warmth ของ Thai
+
+### 2. Tropical resort
+- Base: white · cream
+- Greens: palm · banana leaf
+- Accents: coral · sunset orange · ocean blue
+- Wood: warm teak
+- Feel: Beach · vacation
+
+### 3. Thai heritage
+- Rich browns · golds
+- Deep reds · burgundy
+- Dark teak (chocolate)
+- Accents: jade green · peacock blue
+- Feel: Traditional · palatial
+
+### 4. Zen / Japanese-Thai
+- Beige · off-white · soft grey
+- Black accents
+- Natural wood (light oak · bamboo)
+- Plants as color
+- Feel: Mindful · calm
+
+### 5. Contemporary luxury
+- Charcoal · ivory · gold
+- Navy · burgundy accent
+- Marble · metallic finishes
+- Feel: Hotel-like · sophisticated
+
+## 🏠 Room-by-Room Guide
+
+### Foyer
+- **Role:** First impression · welcoming
+- **Colors:** Neutral + 1 accent
+- **Avoid:** Too dark (depressing)
+- **Tip:** Mirror to expand
+
+### Living Room
+- **Role:** Family gathering
+- **Colors:** Warm neutral with accent
+- **Trend:** Earthy tones (terracotta, olive, mustard)
+- **Avoid:** Too stark white (cold)
+
+### Kitchen
+- **Role:** Cooking + eating (if dine-in)
+- **Colors:** White/cream cabinets classic · or deep blue/green modern
+- **Countertop:** Neutral (marble, quartz)
+- **Accent:** Backsplash tile (pop of color)
+
+### Dining
+- **Role:** Gathering, food focus
+- **Colors:** Rich warm (red, orange, gold) stimulates appetite
+- **Avoid:** Blue/purple (suppresses appetite)
+
+### Bedroom (Master)
+- **Role:** Rest + romance
+- **Colors:** Soft, muted (lavender, sage, dusty rose)
+- **Avoid:** High contrast, bright primaries
+- **Headboard accent:** Deeper color
+
+### Bedroom (Kid)
+- **Role:** Play + sleep
+- **Colors:** Playful but not overwhelming
+- **Tip:** Accent wall with bright, rest neutral
+- **Grow-with:** Avoid overly themed (outgrow fast)
+
+### Bathroom
+- **Role:** Spa-like ideal
+- **Colors:** Cool tones (blue, green, grey) · white classic
+- **Accent:** Black fixtures · wood vanity
+- **Avoid:** Dark/busy (makes look smaller)
+
+### Home Office
+- **Role:** Focus + productivity
+- **Colors:** Blue (focus) · green (calm) · neutral
+- **Avoid:** Red (aggressive · hard to concentrate)
+- **Natural light:** Essential
+
+## 💡 Practical Tips
+
+### Make small rooms look bigger
+- **Light colors** on walls (expand)
+- **Monochromatic** scheme (fewer visual breaks)
+- **Match trim + wall color**
+- **Strategic mirror**
+
+### Make large rooms feel cozy
+- **Darker paint** (close in)
+- **Warm tones**
+- **Contrast accents** (visual interest)
+- **Break up with paneling · wainscoting**
+
+### Low ceilings → feel higher
+- **Light/white ceiling** (paint lighter than walls)
+- **Vertical stripes** on walls
+- **Tall furniture** (bookshelves to ceiling)
+
+### Dark rooms → feel brighter
+- **Light-reflecting colors** (pale blue · mint · cream)
+- **High-gloss finish** (bounces light)
+- **Large mirrors** opposite windows
+- **Avoid navy · forest green** (makes darker)
+
+## 🎨 Paint brands ไทย
+
+| Brand | Level | ประเทศ | ราคา/แกลลอน |
+|-------|:-----:|:------:|:------------:|
+| **Dulux** | Premium | 🇬🇧 UK | 1,200-2,000 |
+| **Jotun** | Premium | 🇳🇴 NOR | 1,500-2,500 |
+| **TOA** | Mid | 🇹🇭 TH | 800-1,500 |
+| **Captain** | Mid | 🇹🇭 TH | 700-1,400 |
+| **Nippon** | Mid | 🇯🇵 JP | 800-1,600 |
+| **4 Seasons** | Budget | 🇹🇭 TH | 500-900 |
+
+**Rule:** ห้องภายใน **2 coats** · ภายนอก **2-3 coats**
+
+### Finishes
+- **Matte** — hide imperfections · can't clean easy · bedrooms
+- **Eggshell** — slight sheen · easy clean · most rooms
+- **Satin** — more durable · bathrooms · kitchens
+- **Semi-gloss** — high traffic · trim · doors
+- **High-gloss** — dramatic · furniture · specialty
+
+## 🎭 Color timing in design
+
+### Early (SD phase)
+- Propose 2-3 palette options
+- Mood boards with images
+- Physical swatches
+
+### Mid (DD phase)
+- Finalize palette
+- Specific paint codes (Dulux / Jotun)
+- Coordinate with fabric · flooring
+
+### Late (CD phase)
+- Paint schedule in specification
+- Room-by-room codes
+
+## Checklist Color Project
+
+- [ ] Understand client lifestyle + preferences
+- [ ] Select color scheme type (mono/analog/comp etc.)
+- [ ] Apply 60-30-10 rule
+- [ ] Consider light direction (E/W/N/S)
+- [ ] Test patches before commit
+- [ ] Coordinate with flooring/furniture
+- [ ] Paint samples to client with lighting
+- [ ] Document final palette (with codes)
+- [ ] Account for ceiling + trim colors
+- [ ] Plan for accent updates (easier than wall)
+
+---
+
+## 🎨 Track B · Interior: Lighting Design
+---
+title: "Lighting Design · การออกแบบแสงสว่างในบ้าน"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [interior, lighting, LED, illumination]
+layers: [design, eng]
+applies_to: [interior, lighting, fixtures]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ระบบไฟฟ้าบ้าน|ระบบไฟฟ้า]]"
+  - "[[wiki/concepts/Color-Theory-สำหรับบ้าน|Color Theory]]"
+---
+
+Lighting = **3rd dimension of architecture** · ออกแบบดี → บ้านสวย · อยู่สบาย · ประหยัด
+
+## 🎯 3 Layers of Light
+
+### 1. **Ambient (General)** — แสงหลักทั่วไป
+- รวม lumens ให้พอใช้ห้อง
+- Downlight · pendant · ceiling fan light
+- **75-80% ของแสงรวม**
+
+### 2. **Task** — แสงเฉพาะจุด
+- ทำงาน · อ่าน · ครัว · แต่งตัว
+- Desk lamp · under-cabinet · vanity
+- ต้อง sufficient lumens
+
+### 3. **Accent** — แสงตกแต่ง
+- Art · architecture feature · mood
+- Track light · wall wash · uplight
+- 15-20% ของแสงรวม
+
+**Rule:** ห้องต้องมี**ทั้ง 3 layers** จึงจะ feel "designed"
+
+## 💡 Lumen & Lux Explained
+
+### Lumens (ปริมาณแสงออกจากหลอด)
+- แสงที่หลอด**ผลิตทั้งหมด**
+- LED 60W equivalent ≈ 800 lumens
+- บน package หลอดไฟ
+
+### Lux (ความสว่างตกบนพื้นผิว)
+- Lumens ÷ พื้นที่
+- **1 lux = 1 lumen/m²**
+- Standard for design
+
+### Lux recommendations per room
+
+| ห้อง | Ambient (Lux) | Task (Lux) |
+|------|:-------------:|:----------:|
+| Living | 100-200 | 400-500 (reading) |
+| Dining | 150-250 | 300-500 (on table) |
+| **Kitchen** | 300-400 | **500-700 (prep area)** |
+| Bedroom | 100-150 | 300-500 (reading) |
+| **Bathroom** | 150-200 | **500+ (vanity)** |
+| **Home Office** | 300-400 | **500-750 (desk)** |
+| Hallway | 100-200 | - |
+| Stair | 150-300 | - |
+| Laundry | 200-400 | - |
+| Closet | 200-400 | - |
+
+### Calculating need
+
+```
+Total lumens = Lux × Area (m²)
+
+Example: Living 20 ตร.ม. · 150 Lux ambient
+= 150 × 20 = 3,000 lumens
+
+Options:
+- 4x 800-lumen LED downlight (4 × 800 = 3,200) ✓
+- 1 big pendant 3,000 lumen + secondary
+```
+
+## 🎨 Color Temperature (Kelvin)
+
+```
+1,500K    2,700K    3,500K    5,000K    6,500K+
+Candle    Warm      Neutral   Daylight  Cool
+  ↓         ↓         ↓         ↓          ↓
+Intimate  Cozy      Balanced  Focused   Stark
+```
+
+### Rooms → Temperature
+
+| ห้อง | K Recommend |
+|------|:-----------:|
+| Living | 2,700-3,000K |
+| Dining | 2,700K (intimate dinner) |
+| Kitchen ambient | 3,000-3,500K |
+| Kitchen task | 4,000K (food true color) |
+| Bedroom | 2,700K |
+| Bathroom ambient | 3,000K |
+| Bathroom vanity | 3,500-4,000K (makeup accurate) |
+| Office | 4,000-5,000K (alert + focus) |
+| Closet | 4,000K (clothing color accurate) |
+| Outdoor | 3,000-4,000K |
+
+**Tip:** Mix temperatures ok · but consistent **within 1 room**
+
+## 🔌 LED · มาตรฐานปัจจุบัน
+
+### Advantages of LED
+- **Life:** 15,000-50,000 ชั่วโมง (15-30 ปีใช้ปกติ)
+- **Efficiency:** 80-100 lumens/watt (incandescent = 15)
+- **No heat:** ปลอดภัย · ประหยัด AC
+- **Dimmable:** (ถ้าซื้อ dimmable + dimmer switch)
+- **Instant on:** No warm-up
+
+### Cost Comparison
+
+For 800 lumens (60W equivalent):
+```
+Incandescent: 15 baht · 1,000 hr life · 60W power
+LED:          80-200 baht · 25,000 hr life · 8W power
+
+Electricity cost per year (3 hr/day):
+Incandescent: 60W × 3hr × 365 × 4.5 baht/kWh = 296 baht
+LED:          8W  × 3hr × 365 × 4.5 baht/kWh = 39 baht
+Savings: 256 baht/year per bulb
+
+Payback of LED: 100/256 = 0.4 years
+```
+
+## 🏠 Fixture Types
+
+### Downlight (ฝัง ceiling)
+- **Recessed 3-6 inch**
+- **Spacing:** 1.2-1.5 × ceiling height
+- **Example:** ceiling 2.6 ม. → spacing 3-4 ม.
+- **Best for:** General ambient
+
+### Pendant (ห้อย)
+- **Over dining table:** 75-85 ซม. above tabletop
+- **Over island:** 75-90 ซม.
+- **Size rule:** Width of pendant = half of table width
+- **Cluster:** 3 pendants for long table
+
+### Chandelier
+- **Traditional:** ห้อง entrance · dining formal
+- **Modern:** statement piece · living
+- **Size:** Add room length + width (in feet) · result = diameter (inches)
+  - 12 ฟุต + 14 ฟุต = 26" chandelier diameter
+
+### Wall sconce
+- **Height:** 152-165 ซม. from floor (eye level)
+- **Bathroom vanity:** either side of mirror · 150 ซม. height
+- **Stair:** every 3-4 ขั้น · 1.80 ม. high
+
+### Track lighting
+- **Flexibility:** Adjustable heads · change direction
+- **Best for:** Galleries · kitchens · displaying art
+- **Modern:** Slim profile · integrated
+
+### Under-cabinet (ครัว)
+- **LED strip** under upper cabinets
+- **3000K · 500+ lumens per 30 cm**
+- **Essential** for kitchen work surface
+
+### Floor lamp / Table lamp
+- **Floor:** height 1.5-1.8 ม.
+- **Table:** on side table next to sofa / bed
+- **Adds warmth** · not relying on overhead
+
+### Linear / Cove lighting
+- **Ambient upward**
+- **Dramatic in living, bedroom**
+- **Hides source**
+- Cost: 500-2,000 baht/meter
+
+## 🌞 Natural Light Integration
+
+### Principles
+- **South + East** = best for living spaces
+- **West** = challenge (too hot afternoon)
+- **North** = consistent soft light (art studios)
+
+### Window sizes (rules of thumb)
+- **Window area:** 10-15% ของ floor area
+- **Natural light penetrates:** 2 × window height into room
+
+### Enhancing natural light
+- **Mirror opposite window** — double the light
+- **Light-colored walls/ceiling** — reflect
+- **Glass/transparent partitions** — let light travel
+- **Clerestory windows** — high + natural
+- **Skylights** — top-down light
+- **Light shelves** — bounce deeper into room
+
+## 🎨 Scene-setting · Dimmers & Smart
+
+### Why dimmers
+- Same fixture = multiple moods
+- Dimmed LED uses less power
+- Extend bulb life
+
+### Smart lighting systems
+
+**Entry level (0.5-5K per switch):**
+- Smart switch (Sonoff · Aqara · Shelly)
+- WiFi or Zigbee
+- App control + schedule
+
+**Mid tier (10-50K total):**
+- Philips Hue
+- Lutron Caseta
+- Voice + automation
+
+**Premium (100K+):**
+- Lutron HomeWorks QS
+- Control4
+- Savant
+- Whole-house integration
+- **Scene programming** (morning, evening, movie, entertain)
+
+### Lighting scenes (programmed)
+
+```
+"Welcome Home"  — entry bright, hall 70%, living 50%
+"Dinner"        — dining 60%, kitchen 30%, living 20%
+"Movie Night"   — living 10%, hallway 20%, rest off
+"Night"         — hallway path 5%, motion-triggered
+"Morning"       — gradual sunrise simulation
+"Away"          — random lights to mimic occupancy
+```
+
+## 🏠 Room-by-Room Design
+
+### Living Room
+**3 layers needed:**
+- Ambient: Ceiling + wall wash
+- Task: Floor lamp next to reading chair
+- Accent: TV backlight · art wall spotlights
+
+### Kitchen
+**3 critical zones:**
+- Ambient: Ceiling downlights
+- Under-cabinet: LED strip
+- Island/peninsula: Pendants
+
+### Dining
+**Focal point:**
+- Pendant/chandelier over table
+- Dim capability essential
+- Wall sconces optional
+
+### Bedroom
+**Multi-purpose:**
+- Ambient: Soft ceiling or indirect
+- Task: Bedside lamps (both sides if couple)
+- Accent: Wall wash headboard
+
+### Bathroom
+**Critical for makeup/shaving:**
+- Ambient: Waterproof downlights
+- Task: Vanity lights (flanking mirror, not above)
+- Accent: Shower light · backlit mirror
+
+### Home Office
+**Eye-friendly:**
+- Ambient: 400-500 lux
+- Task: Desk lamp + monitor backlight
+- Avoid: Glare from screens, harsh downlights
+
+### Exterior
+**Multiple purposes:**
+- Security: Motion-triggered
+- Safety: Path lights (low)
+- Aesthetic: Uplight trees · down-lights architecture
+- Entry: Accent door
+
+## 🌿 Landscape Lighting
+
+### Path lights
+- Height: 30-50 ซม.
+- Spacing: 1.5-2 ม.
+- Downward direction (avoid glare)
+
+### Uplights (ต้นไม้)
+- Shine up into tree canopy
+- Mushroom · bullet · spotlight
+- Fixture in ground or on tree
+
+### Wall wash (external walls)
+- Architectural feature
+- Texture emphasis
+
+### Pool
+- Underwater LED
+- Color-changing (optional)
+- Landscape around pool
+
+### Low voltage (12V) vs line voltage (230V)
+- **12V:** easier DIY · safer · cheaper install
+- **230V:** longer runs · bigger lights
+
+## 🎛 Dimmer Types
+
+| Type | Compatible | Pros | Cons |
+|------|-----------|------|------|
+| **Rotary** | Incand · halogen | Simple · cheap | Not for LED usually |
+| **Slide** | Most types | Granular control | Can be flickery |
+| **Leading edge** | Incand · halogen | Cheap | Not for LED |
+| **Trailing edge** | LED · halogen | Smooth LED | Expensive |
+| **0-10V** | Commercial LED | Widest range | Low-voltage wiring |
+| **DALI** | Commercial/premium | Addressable · fine control | Complex install |
+
+**For home LED:** Use **trailing edge dimmer** (universal LED compatible)
+
+## 💰 Budget Guide
+
+### บ้าน 200 ตร.ม.
+
+**Budget tier (~50K):**
+- Standard LED downlights
+- Basic pendant/sconces
+- Regular switches
+- 150-200 fixtures
+
+**Mid tier (~150-300K):**
+- Designer fixtures
+- Dimmable throughout
+- LED strips under cabinets
+- Smart switches in main rooms
+
+**Premium (~500K+):**
+- Designer · architectural fixtures
+- Full smart home
+- Landscape lighting
+- Pool/feature lighting
+- Scene programming
+
+## 🚫 Common Mistakes
+
+1. **Only 1 layer** (overhead light only)
+2. **ไม่มี dimmer** (can't adjust mood)
+3. **Wrong color temperature** (warm in office, cool in bedroom)
+4. **Downlight ทุกที่** (looks commercial · not cozy)
+5. **Pendant ต่ำไป** over dining (blocks faces)
+6. **Pendant สูงไป** (no intimacy)
+7. **Task light ไม่พอ** (strain eyes)
+8. **Glare from exposed bulbs**
+9. **Exposed LED strips** (should diffuse)
+10. **ไม่เผื่อ future** (hardwired only · no switch)
+
+## Checklist Lighting Project
+
+### Design phase
+- [ ] Room-by-room lux requirements
+- [ ] 3 layers per room
+- [ ] Color temperature consistent per zone
+- [ ] Dimmer where needed
+- [ ] Natural light integration
+- [ ] Outdoor lighting plan
+
+### Fixture selection
+- [ ] All LED (no incandescent)
+- [ ] Energy Star / มอก. certified
+- [ ] Matched style
+- [ ] Color rendering index (CRI) > 80
+- [ ] Warranty 3-5 ปี
+
+### Installation
+- [ ] Proper electrical (ดู [[wiki/concepts/ระบบไฟฟ้าบ้าน]])
+- [ ] Junction box · conduits
+- [ ] Driver accessibility (LED drivers fail · must reach)
+- [ ] Switching layout (3-way for stairs · halls)
+- [ ] Smart system configured
+
+### Pre-occupancy
+- [ ] All dim tested
+- [ ] Scenes programmed
+- [ ] Client trained on control
+- [ ] Spare bulbs provided
+- [ ] Maintenance schedule
+
+---
+
+## 🎨 Track B · Interior: Acoustics
+---
+title: "Acoustics + Soundproofing · ระบบเสียงในบ้าน"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [acoustics, sound, STC, soundproofing, interior]
+layers: [design, eng]
+applies_to: [interior, walls, ceilings, doors]
+jurisdiction: universal
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/วัสดุก่อสร้าง|วัสดุก่อสร้าง]]"
+  - "[[wiki/concepts/ออกแบบห้องทำงาน|ห้องทำงาน]]"
+  - "[[wiki/concepts/ออกแบบห้องนอน|ห้องนอน]]"
+---
+
+Acoustics = สิ่งที่**ลูกค้าลืมบอกแต่ต้องการ** · เสียงรบกวนคืนหนึ่งพังทุกอย่าง
+
+## 🔊 Sound Basics
+
+### What is sound?
+- Vibrations through medium (air · walls · floor)
+- Measured in **dB (decibels)**
+- Higher dB = louder
+
+### Common sound levels
+
+| Source | dB |
+|--------|:--:|
+| Whisper | 30 |
+| Quiet library | 40 |
+| Normal conversation | 50-60 |
+| Refrigerator hum | 50 |
+| Traffic light | 70 |
+| Vacuum cleaner | 75 |
+| City traffic | 85 |
+| Loud music | 100 |
+| Rock concert | 110 |
+| Jet engine | 140 |
+
+### Comfort levels in home
+
+| Space | Target (dB) |
+|-------|:-----------:|
+| Bedroom night | 25-30 |
+| Bedroom day | 30-35 |
+| Office/study | 35-40 |
+| Living room | 40-45 |
+| Kitchen | 45-50 |
+
+## 📊 Key Metrics
+
+### STC (Sound Transmission Class)
+- **Rating of wall/door/floor blocking airborne sound**
+- Higher = better
+
+| STC | Sound blocking |
+|:---:|---------------|
+| 25 | Normal speech understandable |
+| 30 | Normal speech audible but not understood |
+| 35 | Loud speech not understood |
+| 40 | Loud speech faint |
+| 45-50 | Loud speech inaudible |
+| 55+ | Premium · luxury construction |
+
+### IIC (Impact Insulation Class)
+- **Rating for impact sound through floor**
+- Footsteps · dropped items
+- Same scale as STC
+
+### NRC (Noise Reduction Coefficient)
+- **Absorption** — how much sound material soaks
+- 0 = all reflect · 1 = all absorb
+- Carpet: 0.5 · Acoustic panel: 0.9+
+
+## 🧱 Wall Construction · STC Ratings
+
+### Typical Thai residential
+
+**Standard 4" block wall (no insulation):**
+- **STC 35**
+- Hear loud voices · not details
+- OK for neighbors but not for privacy
+
+**Drywall both sides + block + insulation:**
+- **STC 45-50**
+- Premium residential
+- Loud speech faint
+
+**Staggered stud wall + double drywall + insulation:**
+- **STC 55**
+- Hotel-quality
+- Near silent
+
+### Costs
+
+| Construction | Cost/m² | STC |
+|-------------|:-------:|:---:|
+| Single layer drywall + studs | 400 | 30-35 |
+| Double drywall + insulation | 700 | 40-45 |
+| Double drywall + rockwool | 900 | 45-50 |
+| **Resilient channel + 2-layer** | 1,500 | 50-55 |
+| Mass-loaded vinyl sandwich | 2,500+ | 55-60 |
+
+## 🔑 Key Principles
+
+### 1. Mass matters
+- Heavier = blocks more sound
+- **2× mass = +5-6 dB STC**
+- Cement wall > drywall · stone > wood
+
+### 2. Airgap helps
+- Double wall with air gap between
+- **Stud wall + separate stud wall = +10 STC**
+- "Staggered stud" technique
+
+### 3. Damping
+- Sound turns into heat (friction)
+- **Green Glue** between drywall layers
+- Resilient channel decouples studs
+
+### 4. Absorption (inside room)
+- Soft materials reduce **reverberation**
+- Carpet · curtain · acoustic panel
+- Affects**feel inside**, not between rooms
+
+### 5. Flanking paths (sneaky sound)
+- Sound travels**around** the wall
+- Through door · ceiling · HVAC duct
+- **Weakest link** determines overall STC
+
+## 🎯 Problem Areas
+
+### 1. Doors (biggest weakness)
+
+**Standard hollow-core door: STC 15-20** (huge gap!)
+
+**Upgrades:**
+- **Solid-core door** → STC 30
+- **Weather strip + door sweep** → +3-5 STC
+- **Acoustic door** (hotel) → STC 35-40
+- **Double door with vestibule** → STC 45+
+
+### 2. Windows
+
+**Standard single glass: STC 25**
+
+**Upgrades:**
+- **Double glazing** → STC 28-30
+- **Double with different thickness** → STC 33
+- **Laminated glass** → STC 35
+- **Acoustic laminated with interlayer** → STC 38+
+- **Double window assembly** (2 windows 10 cm apart) → STC 45-50
+
+### 3. HVAC ducts
+- Sound travels through ducts
+- **Flexible duct absorbs sound** (vs rigid metal)
+- **Lined duct** with acoustic material
+- **Separate zones** per area
+
+### 4. Floor-ceiling (between floors)
+
+**Concrete slab 20 cm: STC 50 · IIC 45**
+
+**Upgrades:**
+- **Floating floor** (resilient layer) → +5-10 IIC
+- **Carpet + pad** → +10 IIC
+- **Suspended ceiling below** → +5-10 STC
+
+## 🏠 Room Design · Acoustic
+
+### Bedroom (must be quiet)
+**Target:** 25-30 dB night
+- Thick walls (STC 45+)
+- Solid-core door
+- Heavy curtain
+- Carpet or rug
+- AC quiet (< 35 dB)
+- Far from street · kitchen · bathroom
+
+### Home Office (need focus)
+**Target:** 35-40 dB
+- **Soundproof surrounding:** STC 40+
+- **Acoustic panel on walls** (NRC 0.8+)
+- **Carpet or area rug**
+- **Bookshelves** (diffuse sound)
+- **Avoid glass doors** (transparent to sound)
+
+### Media Room / Home Theater
+**Target:** Isolated 100%
+- **Double drywall** both sides
+- **Staggered stud or double stud**
+- **Resilient channel**
+- **Mass-loaded vinyl** layer
+- **Acoustic panels** inside
+- **Bass traps** corners
+- **Double door vestibule**
+
+### Kitchen (noisy · affect others)
+**Target:** Contain sound
+- **Hood vent low dB** (< 50 dB at high setting)
+- **Dishwasher quiet** (< 45 dB spec)
+- **Soft close** drawers/cabinets
+- **Pantry door** to mudroom (contain prep noise)
+
+### Bathroom (privacy)
+- **Fan quiet** (< 1.0 sones)
+- **Toilet "silent flush"** models
+- **Bathroom wall** insulated
+- **Door:** Solid core
+
+## 🔨 Retrofitting Sound
+
+### Existing home · adding soundproofing
+
+**Can't redo walls easily · options:**
+
+**Quick wins (cheap):**
+- Door weather strip + sweep (300-800 baht)
+- Heavy curtain (window)
+- Area rug
+- Acoustic panel (decorative · 2-5K per panel)
+- Soft furniture (sofa · cushions)
+
+**Medium effort:**
+- Add layer of drywall + damping compound over existing
+- Replace hollow door → solid core
+- Window storm panels
+
+**Major (expensive · like new construction):**
+- Stud up new wall inside existing (-8 cm room)
+- Full replace wall systems
+- Floating ceiling
+
+## 🎨 Inside-Room Acoustics
+
+### Reverberation
+- How long sound "echoes"
+- Too much = talky rooms (hard to understand)
+- Too little = dead rooms (weird feeling)
+
+### Target reverberation time (RT60)
+
+| Room | Target seconds |
+|------|:-------------:|
+| Living | 0.5-0.8 |
+| Bedroom | 0.3-0.5 |
+| Home theater | 0.4-0.6 |
+| Music room | 0.8-1.2 |
+
+### Balancing absorbing & reflecting
+
+**Absorbing:**
+- Carpet · rug
+- Upholstered furniture
+- Curtains (heavy)
+- Acoustic panels
+- Bookshelves (with books)
+- Plants (soft leaves)
+
+**Reflecting:**
+- Hard floor (concrete · tile)
+- Glass
+- Plaster walls
+- Metal surfaces
+
+**Rule:** Home needs **30-50% absorbing material**
+- Too little → echo
+- Too much → dead
+
+## 💡 Acoustic Panels (for inside room)
+
+### Types
+
+**Fabric-wrapped fiberglass**
+- Most common
+- 1-2" thick
+- NRC 0.8-0.95
+- Cost: 1,500-4,000 บาท/panel
+
+**Acoustic foam** (wedge/pyramid)
+- Budget option
+- NRC 0.5-0.7
+- Looks like recording studio
+- Cost: 300-800 baht/panel
+
+**Wooden slat panels**
+- Decorative + acoustic
+- NRC 0.6-0.8
+- Premium look
+- Cost: 2,000-5,000 บาท/panel
+
+**Plant walls**
+- Natural sound absorber
+- Improve air + acoustic
+- Expensive to maintain
+
+### Placement (for home theater/office)
+- **First reflection points** (sides · ceiling)
+- **Rear wall** behind listener
+- **Corners** (bass traps)
+- **30-50% coverage** of walls
+
+## 🌐 Outdoor Sound
+
+### Traffic noise reduction
+
+**1. Distance (obvious)**
+- Double distance = -6 dB
+- Set back from road
+
+**2. Solid barriers**
+- Concrete wall 2 ม. · -10-15 dB
+- Earth berm (dense) · -10-20 dB
+- Hedge (thick) · -5-10 dB
+
+**3. Building orientation**
+- Garage/service toward road
+- Living away from road
+- Bedroom back of property
+
+**4. Windows**
+- Triple glass facing noise source
+- Fixed (not operable) for max quality
+
+## 💰 Budget Reality
+
+### บ้าน 200 ตร.ม.
+
+**Basic (standard code · STC 35-40):**
+- No extra cost
+- Normal block walls + single drywall
+- Acceptable privacy
+
+**Good (premium residential · STC 45-50):**
+- +200-500K (bedroom + office walls + doors)
+- Significant improvement
+
+**Audiophile / hotel (STC 55+):**
+- +500K-2M
+- Only for home theater · recording studio · luxury
+
+## 🚫 Common Mistakes
+
+1. **Thin walls between bedrooms** (sibling fights!)
+2. **Glass walls between office/living** (no focus)
+3. **Shared plumbing wall** (hear toilet flush)
+4. **HVAC return grille across bedroom wall** (sound highway)
+5. **Hollow doors** on master bedroom
+6. **No acoustic treatment** in home theater
+7. **Concrete floor** throughout (echoey)
+
+## Checklist Acoustic Design
+
+### Planning phase
+- [ ] Identify quiet zones (bedroom · office · media)
+- [ ] Identify noisy zones (kitchen · laundry · garage)
+- [ ] Buffer between noisy & quiet
+- [ ] Street noise exposure · orient accordingly
+
+### Design phase
+- [ ] Wall assembly specs per STC requirement
+- [ ] Door specs (solid-core minimum for privacy rooms)
+- [ ] Window specs (double glass for bedroom · office)
+- [ ] HVAC acoustic treatment
+- [ ] Ceiling assembly between floors
+
+### Finish phase
+- [ ] Soft finishes in echoey rooms
+- [ ] Acoustic panels if needed
+- [ ] Door sweeps + weather strips
+- [ ] Curtain · rug
+
+### After construction
+- [ ] Acoustic testing (optional · dB meter)
+- [ ] Adjust + add treatment if complaints
+- [ ] Resident education on sound use
+
+---
+
+## 🎨 Track B · Interior: Material Finishes
+---
+title: "Material Finishes · วัสดุตกแต่งภายใน"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [interior, finishes, materials, flooring, wall]
+layers: [design]
+applies_to: [interior, walls, floors, ceilings]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/วัสดุก่อสร้าง|วัสดุก่อสร้าง]]"
+  - "[[wiki/concepts/Color-Theory-สำหรับบ้าน|Color Theory]]"
+  - "[[wiki/concepts/Acoustics-Soundproofing|Acoustics]]"
+---
+
+Finishes = **สิ่งที่ลูกค้าสัมผัสทุกวัน** · เลือกดี = ความประทับใจระยะยาว + resale
+
+## 🏠 Interior Material Categories
+
+1. **Flooring** — พื้น
+2. **Walls** — ผนัง (ทา · ติดวอลเปเปอร์ · บุ)
+3. **Ceilings** — เพดาน
+4. **Doors & windows** — ประตูหน้าต่าง
+5. **Countertops** — เคาน์เตอร์
+6. **Cabinets** — ตู้
+7. **Fabric & soft** — ม่าน · โซฟา · เตียง
+8. **Hardware** — มือจับ · ก๊อกน้ำ · สุขภัณฑ์
+
+## 🪵 1. Flooring
+
+### Hard Surfaces
+
+| วัสดุ | ราคา/ตร.ม. | ทน | ดูแล | สัมผัส | Best for |
+|------|:---------:|:---:|:----:|:-----:|---------|
+| **กระเบื้องเซรามิก** | 150-500 | ⭐⭐⭐ | ง่าย | เย็น · แข็ง | ห้องน้ำ · ครัว · outdoor |
+| **Porcelain tile** | 400-1,200 | ⭐⭐⭐⭐⭐ | ง่ายมาก | เย็น · แข็ง | Everywhere |
+| **Marble** | 2,000-6,000 | ⭐⭐⭐⭐ | ดูแลระวัง (stain) | Luxury · เย็น | Foyer · bathroom · luxury |
+| **Granite** | 1,500-4,000 | ⭐⭐⭐⭐⭐ | ง่าย | Cool · tough | Kitchen · outdoor |
+| **Terrazzo** | 800-2,500 | ⭐⭐⭐⭐ | กลาง | Warm · modern | Modern homes |
+| **หินขัด (Polished)** | 600-1,500 | ⭐⭐⭐⭐ | ง่าย | Industrial | Modern · loft |
+| **คอนกรีตขัดมัน** | 500-1,200 | ⭐⭐⭐⭐⭐ | ง่าย | Cool · industrial | Modern · commercial |
+| **Brick paver** | 500-1,200 | ⭐⭐⭐⭐ | ทน | Warm · rustic | Outdoor · garage |
+
+### Wood Flooring
+
+| วัสดุ | ราคา/ตร.ม. | ทน | ดูแล | สัมผัส | Best for |
+|------|:---------:|:---:|:----:|:-----:|---------|
+| **Solid wood (ไม้สัก)** | 1,500-5,000 | ⭐⭐⭐⭐ | หลีกเลี่ยงน้ำ | Premium · warm | Living · bedroom luxury |
+| **Engineered wood** | 900-2,500 | ⭐⭐⭐⭐ | กลาง | Warm · wood feel | Bedroom · living |
+| **Laminate** | 400-1,000 | ⭐⭐⭐ | ง่าย | Wood look · plastic feel | Budget · renovate |
+| **Vinyl plank (LVP)** | 400-1,500 | ⭐⭐⭐⭐ | ง่ายมาก | Soft · waterproof | Kitchen · bathroom · kids |
+| **Bamboo** | 700-1,800 | ⭐⭐⭐⭐ | กลาง | Sustainable · warm | Eco-conscious |
+| **Parquet** | 1,200-3,500 | ⭐⭐⭐⭐ | ดูแลระวัง | Vintage charm | Classic · heritage |
+
+### Soft Flooring
+
+| วัสดุ | ราคา/ตร.ม. | ทน | ดูแล | Best for |
+|------|:---------:|:---:|:----:|---------|
+| **Carpet (wall-to-wall)** | 400-1,500 | ⭐⭐ | ทำความสะอาด | Bedroom · home theater |
+| **Area rug** | - | Varies | Moveable | Layer over hard floor |
+| **Sisal / Jute** | 800-2,000 | ⭐⭐⭐ | Natural look | Tropical · eco |
+
+### เลือกพื้นอย่างไร
+
+**Questions to ask:**
+1. ห้องไหน? (wet / dry)
+2. Traffic? (high / low)
+3. Kids + pets?
+4. Sound echo concerns?
+5. Maintenance budget?
+6. Climate (humidity in Thai)
+7. Style aesthetic?
+
+**Decision matrix:**
+```
+Wet + Kids       → LVP หรือ Porcelain
+Dry + Luxury     → Engineered wood หรือ marble
+High traffic     → Porcelain หรือ cement
+Quiet needed     → Carpet หรือ cork
+Budget tight     → Ceramic หรือ laminate
+```
+
+## 🎨 2. Wall Finishes
+
+### Paint (most common)
+
+**Finishes:**
+- **Matte/Flat** — no sheen · hide defects · harder to clean
+- **Eggshell** — slight sheen · easy to clean · most popular
+- **Satin** — shiny · high-traffic · kitchens/baths
+- **Semi-gloss** — shiny · trim · doors
+- **High-gloss** — mirror · dramatic · specialty
+
+**Brands · ดู [[wiki/concepts/Color-Theory-สำหรับบ้าน]]**
+
+### Wallpaper
+
+| ประเภท | ราคา/m | ทน | Best for |
+|--------|:------:|:---:|---------|
+| **Vinyl wallpaper** | 150-500 | ⭐⭐⭐⭐ | Kitchen · bathroom · bedroom |
+| **Non-woven** | 300-900 | ⭐⭐⭐⭐ | Living · dining · feature wall |
+| **Grass cloth** | 1,500-4,000 | ⭐⭐⭐ | Natural · premium · feature |
+| **Fabric wall** | 2,000-5,000 | ⭐⭐⭐ | Luxury · sound dampening |
+| **Murals / Custom print** | 1,000-3,000 | ⭐⭐⭐ | Feature walls |
+
+### Specialty walls
+
+**Wood cladding:**
+- Vertical slats · warmth · acoustic
+- 1,500-5,000 บาท/ตร.ม.
+
+**Stone / brick veneer:**
+- Rustic · textural
+- 800-3,000 บาท/ตร.ม.
+
+**Tile (bathroom/kitchen):**
+- Subway tile · hex · mosaic
+- 400-2,500 บาท/ตร.ม.
+
+**3D panels:**
+- Geometric · modern
+- 400-1,500 บาท/ตร.ม.
+
+**Concrete look (stucco / venetian plaster):**
+- Industrial · artisan
+- 800-3,000 บาท/ตร.ม.
+
+## 🏛 3. Ceilings
+
+| ประเภท | ราคา/ตร.ม. | Pros |
+|--------|:---------:|------|
+| **Smooth drywall + paint** | 300-600 | Standard · affordable |
+| **Coffered ceiling** | 1,500-4,000 | Dramatic · formal |
+| **Beam ceiling (faux or real)** | 2,000-6,000 | Warm · architectural |
+| **Wood plank** | 1,500-4,000 | Warm · cottage · modern |
+| **Gypsum board с decorative** | 800-2,500 | Classical · trim molding |
+| **Acoustic tile** | 500-1,500 | Sound + maintenance access |
+| **Wood slat (acoustic)** | 2,000-5,000 | Modern · acoustic · warm |
+| **Exposed concrete** | - | Industrial · minimal cost |
+
+### Height considerations
+- **Low ceiling (< 2.60 ม.):** Keep ceiling simple · light color
+- **Standard (2.60-3.00 ม.):** Flexibility · any treatment
+- **High (> 3.00 ม.):** Drama · coffered · beams · chandelier
+
+## 🚪 4. Doors
+
+### Types
+
+| ประเภท | ราคา/บาน | ทน | เสียง | Best for |
+|--------|:-------:|:---:|:----:|---------|
+| **Hollow door (laminate)** | 2,000-5,000 | ⭐⭐ | Poor | Budget · internal low-traffic |
+| **Solid core (engineered)** | 4,000-10,000 | ⭐⭐⭐⭐ | Good | Bedroom · office |
+| **Solid wood (ไม้สัก)** | 15,000-40,000 | ⭐⭐⭐⭐⭐ | Good | Main entry · luxury |
+| **UPVC door** | 5,000-12,000 | ⭐⭐⭐⭐ | OK | Exterior · budget |
+| **Aluminum** | 4,000-15,000 | ⭐⭐⭐⭐ | OK | Exterior · modern |
+| **Steel security** | 15,000-40,000 | ⭐⭐⭐⭐⭐ | Good | Main entry · security |
+| **Glass (frameless)** | 15,000-40,000 | ⭐⭐⭐ | Poor (transparent sound) | Feature · bathroom · shower |
+
+### Door hardware
+- **Cheap:** 200-500 บาท (feel plasticky)
+- **Standard:** 500-1,500 บาท
+- **Premium:** 2,000-8,000 บาท (solid brass · feel amazing)
+- **Designer:** 10,000+ บาท
+
+## 🪑 5. Countertops
+
+| วัสดุ | ราคา/ตร.ม. | Pros | Cons |
+|------|:---------:|------|------|
+| **Granite** | 3,000-10,000 | Durable · heat resistant · natural | Seal yearly · stain if unsealed |
+| **Quartz (engineered stone)** | 4,000-15,000 | Durable · no seal · consistent | Man-made look · not heat-resistant |
+| **Marble** | 5,000-20,000 | Luxury · cool for baking | Stain · scratch easy |
+| **Solid surface (Corian)** | 3,000-10,000 | Seamless · easy repair | Not heat resistant · can scratch |
+| **Butcher block (wood)** | 2,000-8,000 | Warm · cuttable | Needs oil · stain |
+| **Stainless steel** | 3,000-8,000 | Durable · hygienic | Shows smudges · industrial |
+| **Laminate** | 800-2,500 | Affordable · many colors | Less durable · not heat-resistant |
+| **Concrete** | 2,000-6,000 | Custom · modern | Can crack · stain |
+| **Porcelain slab** | 2,500-8,000 | Large format · durable | Can chip at edges |
+
+### Kitchen island recommendations
+- **Primary area:** Quartz (practical) or Marble (luxury)
+- **Secondary/prep:** Butcher block (chop on it)
+
+## 🚪 6. Cabinets
+
+### Types (by construction)
+
+**Built-in custom:**
+- Custom-made to space
+- Better fit · better storage
+- 3,000-15,000 บาท/ม. running length
+- Premium option
+
+**Modular (IKEA · HomePro · SB Design):**
+- Pre-made boxes
+- Cheaper · quick install
+- 1,500-6,000 บาท/ม.
+- 80% of Thai homes use
+
+**Semi-custom:**
+- Modular base + custom doors/hardware
+- Best of both · 2,500-8,000 บาท/ม.
+
+### Materials
+
+| Material | Pros | Cons |
+|----------|------|------|
+| **MDF + melamine** | Cheap · light · stable | Water damage · no refinish |
+| **Plywood + melamine** | Stronger · better moisture | More expensive |
+| **Plywood + veneer** | Real wood look · sustainable | Can chip · sanding refinish |
+| **Solid wood** | Premium · ageless | Expensive · warps possible |
+| **Acrylic front** | Glossy · modern · easy clean | Scratch easy · expensive |
+| **Laminate** | Variety · durable | Not refinishable |
+
+### Hardware (cabinet pulls, hinges)
+
+- **Cheap:** 30-100 บาท each (wobbly)
+- **Standard:** 100-400 บาท
+- **Designer:** 500-2,500 บาท
+- **Soft-close hinges:** essential · +50-200 บาท each
+
+## 🪟 7. Window Treatments
+
+### Curtain
+
+**Fabrics:**
+- **Cotton/linen** — light · airy · cheap-mid
+- **Silk** — luxury · fragile
+- **Polyester** — durable · cheap
+- **Velvet** — elegant · sound-dampening
+- **Blackout fabric** — bedroom essential
+
+**Lining:**
+- Unlined (light airy)
+- Lined (drape better)
+- Blackout lined (bedroom)
+- Thermal lined (efficient · noise)
+
+**Cost:** 800-5,000 บาท/window (fabric + installation)
+
+### Blinds
+
+| ประเภท | ราคา/ตร.ม. | Look |
+|--------|:---------:|------|
+| **Venetian (aluminum)** | 400-900 | Practical · modern |
+| **Wooden venetian** | 800-2,500 | Warm · classic |
+| **Roller blind** | 400-2,000 | Clean · modern |
+| **Roman shade** | 1,500-5,000 | Decorative · soft |
+| **Cellular shade** | 1,500-4,000 | Insulating (honeycomb) |
+| **Plantation shutter** | 3,000-8,000 | Permanent · luxury |
+| **Motorized** | +200% | Smart home integration |
+
+### Sheers (ผ้าม่านโปร่ง)
+- Soft diffuse light
+- Day privacy
+- Layer under curtain
+- 500-2,000 บาท/window
+
+## 🏺 8. Sanitary Ware + Hardware
+
+### Faucets
+
+**Brands · ราคา:**
+- **Grohe · Hansgrohe** (premium): 8,000-50,000 บาท/ก๊อก
+- **American Standard · TOTO · Cotto (mid):** 3,000-15,000
+- **Budget:** 1,500-5,000
+
+**Choose wisely in kitchen:**
+- **Pull-down spray** = useful daily
+- **Good warranty** (cheap dies fast)
+
+### Toilets
+- **Close-coupled** (standard): 3,000-15,000
+- **One-piece** (seamless): 8,000-25,000
+- **Wall-hung** (modern): 15,000-40,000
+- **Smart toilet** (TOTO · Cotto): 30,000-150,000
+
+### Bathtub
+- **Acrylic freestanding:** 15,000-80,000
+- **Cast iron classic:** 40,000-200,000
+- **Stone composite:** 80,000-500,000
+
+### Shower
+- **Basic set:** 3,000-10,000
+- **Rain shower head:** +5,000-15,000
+- **Shower system** (multiple heads): 30,000-150,000
+
+## 🎨 Design Integration
+
+### Material palette · 5-7 max
+
+Don't use too many materials · **3-5 materials** per room looks cohesive
+
+**Example living room:**
+1. Flooring: Engineered wood (oak)
+2. Walls: White paint + 1 feature wall (dark blue)
+3. Cabinet: White + brass hardware
+4. Countertop: White quartz
+5. Fabric: Linen (couch) + velvet (chairs)
+
+= **5 materials** · clean + varied
+
+### Continuity across rooms
+
+**Repeat materials** for flow:
+- Same floor throughout (except wet rooms)
+- Same trim color (white throughout)
+- Hardware family (all brass · all black)
+- Consistent door handles
+
+## 💰 Budget Allocation (for finishes)
+
+For 200 ตร.ม. home:
+
+**Budget (5-10% of construction):**
+- Flooring: 30-40%
+- Walls: 15-20%
+- Cabinets: 15-25%
+- Plumbing fixtures: 10-15%
+- Lighting: 10-15%
+- Doors: 5-10%
+
+**Total for 200 ตร.ม. standard:**
+- Total budget: 800K-2M
+- Split per above
+
+## 🚫 Common Mistakes
+
+1. **All premium** everywhere → over budget · diminishing return
+2. **All cheap** → looks like bad hotel
+3. **Trendy only** → outdated in 5 years
+4. **Too many materials** → busy · incoherent
+5. **Hardware ถูกมาก** → feels flimsy daily
+6. **Flooring change in middle of room** → weird transitions
+7. **Matching everything** → sterile · no personality
+
+## 💡 Tips from Pros
+
+### "80/20 rule of finishes"
+- Spend on things you **touch daily** (faucets · door handles · light switches)
+- Save on things you just **see** (wall paint · ceiling)
+- Invest in **timeless** classic, not trends
+
+### "Test samples in context"
+- Paint chip on wall · 3 days
+- Flooring in actual room lighting
+- Tile with grout color mock-up
+
+### "Consider maintenance"
+- Marble countertop · require sealing
+- White carpet · kids · stains
+- Brass hardware · patina over time (some love · some hate)
+
+### "Durability > trend"
+- Spend on **bones** (flooring · doors · cabinets)
+- Change easily: curtains · paint · pillows
+
+## Checklist Material Selection
+
+### Planning
+- [ ] Budget allocation per category
+- [ ] Style direction (modern/Thai/minimal/luxury)
+- [ ] Color palette locked (see [[wiki/concepts/Color-Theory-สำหรับบ้าน]])
+- [ ] Lifestyle considerations (kids · pets · entertaining)
+
+### Selection
+- [ ] Flooring (per room zone)
+- [ ] Wall treatments
+- [ ] Ceiling treatments
+- [ ] Door · window specs
+- [ ] Countertops (kitchen · bathroom)
+- [ ] Cabinet (materials + hardware)
+- [ ] Lighting (integrated with [[wiki/concepts/Lighting-Design]])
+- [ ] Fabrics (curtain · furniture · rug)
+- [ ] Sanitary ware (toilet · faucet · bathtub)
+- [ ] Hardware (door · cabinet · electrical plates)
+
+### Sampling
+- [ ] Physical samples obtained
+- [ ] Tested in actual lighting
+- [ ] Client approved
+- [ ] Backup options identified
+
+### Specification
+- [ ] Detailed spec sheet per item
+- [ ] SKU · brand · color code
+- [ ] Quantities calculated (+10% buffer)
+- [ ] Delivery timeline
+- [ ] Installer identified
+
+---
+
+## 🏢 Track E · Building Types: Townhouse
+---
+title: "ออกแบบทาวน์เฮาส์ (Townhouse Design)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [townhouse, building-type, urban, rowhouse]
+layers: [design, law, eng]
+applies_to: [townhouse, row-house]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/entities/กฎกระทรวง-ฉบับที่-55|กฎกระทรวง 55]]"
+  - "[[wiki/concepts/ระยะร่น|ระยะร่น]]"
+  - "[[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์|Passive Design]]"
+---
+
+ทาวน์เฮาส์ = **80% ของที่อยู่อาศัยใหม่**ในกรุงเทพ · ข้อจำกัดมากแต่**เป็น canvas ให้นวัตกรรม**
+
+## 📐 Types (ตามกฎหมายไทย)
+
+### 1. **ห้องแถว** (กฎกระทรวง 55)
+- **ผนังกันไฟ** ร่วมระหว่างห้อง
+- วัสดุทั่วไป (รวมไม้)
+- มักเป็น **ร้านค้า**ชั้นล่าง
+
+### 2. **ตึกแถว** (กฎกระทรวง 55)
+- **ผนังกันไฟ** ร่วม
+- **วัสดุทนไฟ** ทุกโครงสร้าง
+- มักใช้**พาณิชย์**
+
+### 3. **บ้านแถว** (บ้านพักอาศัยติดกัน)
+- เฉพาะ residential
+- ไม่ใช่ commercial
+
+## ⚖ กฎหมายสำคัญ (ดู [[wiki/summaries/สรุป-กฎกระทรวง-ฉบับที่-55]])
+
+### ความกว้างคูหา (ข้อ 2)
+- **ห้องแถว/ตึกแถว:** ≥ 4 ม.
+- **ความลึก:** 4-24 ม.
+- **พื้นที่คูหา:** ≥ 30 ตร.ม.
+
+### ต่อเนื่องกันไม่เกิน (ข้อ 4)
+- **≤ 10 คูหา · ≤ 40 ม.** ยาวรวม
+- เกินต้องมี**ผนังกันไฟแยก cluster**
+
+### ผนังกันไฟ (ข้อ 17)
+- **หนา ≥ 8 ซม.** (อิฐธรรมดา/คอนกรีต)
+- หรือผนังทนไฟที่ผ่านมาตรฐาน
+- **สูงเกินหลังคา ≥ 30 ซม.**
+- ทุก ≤ **5 คูหา**
+
+### ที่ว่าง (ข้อ 34 · ห้องแถวไม่ติดถนน)
+- **ด้านหน้า ≥ 6 ม.**
+- **ด้านหลัง ≥ 3 ม.**
+
+### ที่ว่าง (ข้อ 36 · บ้านแถว)
+- **ด้านหน้า ≥ 3 ม.**
+- **ด้านหลัง ≥ 2 ม.**
+
+### ระยะดิ่ง (ข้อ 22)
+- **ชั้นล่าง:** 3.50 ม.
+- **ตั้งแต่ชั้น 2:** 3.00 ม.
+
+## 🏗 Typical Layouts
+
+### Standard Thai townhouse (3 ชั้น · 18 ตร.ว.)
+
+```
+ที่ดิน: 6 × 15 ม. = 90 ตร.ม.
+Footprint: 6 × 12 ม. = 72 ตร.ม.
+(หักหน้า 3 ม. · หลัง 0 ม. touching)
+
+ชั้น 1: 72 ตร.ม.
+- Carport 2 คัน (24 ตร.ม.)
+- Entry + hallway
+- Living (ไม่มีครัว)
+- Half bath
+
+ชั้น 2: 72 ตร.ม.
+- Kitchen + dining (18 ตร.ม.)
+- Family room (15 ตร.ม.)
+- ห้องน้ำ (4 ตร.ม.)
+- ระเบียง (5 ตร.ม.)
+
+ชั้น 3: 72 ตร.ม.
+- Master bed + bath (25 ตร.ม.)
+- Bed 2 + bath (20 ตร.ม.)
+- Family space (10 ตร.ม.)
+
+Total: ~215 ตร.ม.
+```
+
+### Luxury townhouse (4 ชั้น · 30-50 ตร.ว.)
+
+- Additional: Home theater + gym + rooftop garden
+- Elevator shaft
+- Private pool (plunge)
+- Home office separate
+
+## 🎯 Design Challenges (ทาวน์เฮาส์เฉพาะ)
+
+### 1. **แคบลึก** (narrow + deep)
+
+**ปัญหา:** แสงเข้ากลางไม่ถึง · feels like cave
+
+**Solutions:**
+- **Courtyard / light well** กลางบ้าน (ดู [[wiki/cases/by-type/บ้านเดี่ยว-3-ชั้น/2026-04-18-demo-บ้าน-B-narrow-lot|Case example]])
+- **Skylight** หลังคาชั้น 3 ลงมา
+- **Open plan** ชั้นล่าง (ให้แสงเดินทาง)
+- **Interior glass** (partition ห้องด้วยกระจก)
+- **White walls** (reflect light deep)
+
+### 2. **Stack ventilation essential**
+
+**ปัญหา:** ไม่มีหน้าต่างข้าง · ลมไม่วน
+
+**Solutions:**
+- **Void from ground to roof** (courtyard)
+- **Operable skylight** (stack effect)
+- **Cross vent front ↔ back** each floor
+- **Ceiling fans** ทุกห้อง
+- **AC zones** efficient
+
+### 3. **Privacy เพื่อนบ้าน**
+
+**ปัญหา:** ผนังร่วม · เสียง · visual
+
+**Solutions:**
+- **Acoustic insulation** ผนังร่วม (ดู [[wiki/concepts/Acoustics-Soundproofing]])
+  - 2-layer drywall + rockwool
+  - Target STC 50+
+- **Staggered bedroom locations** (ไม่ติดกันตรง)
+- **Blackout curtain** เต็มทุกหน้าต่าง
+- **ห้องน้ำ/ครัว** adjacent side (buffer)
+
+### 4. **Parking tight**
+
+**ปัญหา:** หน้ากว้าง 6 ม. · 2 คัน ชิด
+
+**Solutions:**
+- **Lift/stacker** (1 ล่าง 1 บน)
+- **Tandem parking** (รถคันหลังออกก่อน)
+- **Auto gate** (slide) · ประหยัดพื้นที่
+
+### 5. **No yard**
+
+**ปัญหา:** ไม่มีสวนใหญ่
+
+**Solutions:**
+- **Rooftop garden** (ระเบียงใหญ่ชั้นบน)
+- **Courtyard green** (pocket garden)
+- **Vertical garden** (wall)
+- **Balcony plants**
+- **Indoor plants** (biophilic · ดู [[wiki/concepts/Biophilic-Design]])
+
+## 💡 Innovative Solutions
+
+### 1. Vertical mixed-use
+```
+ชั้น 1: ร้านค้า / home office
+ชั้น 2-3: บ้านพักอาศัย
+ชั้น 4 (ถ้ามี): Rental unit (short-term / Airbnb)
+Rooftop: Garden
+```
+
+### 2. Live-work-learn
+- Home office + showroom ชั้นล่าง
+- Study area with daylight
+- Meeting room (for clients)
+
+### 3. 3-generation stack
+- **ชั้น 1:** ผู้สูงอายุ (accessible)
+- **ชั้น 2:** พ่อแม่ + ลูก
+- **ชั้น 3:** ลูกโต (teen + privacy)
+- Elevator + accessibility planned
+
+## 🏛 Structural considerations
+
+### Party walls (ผนังร่วม)
+
+**Shared party wall = structural:**
+- Both units share
+- Cannot modify without **neighbor consent**
+- Check before renovation
+- Easement rights
+
+**Own wall (ตนเอง ติดเขต):**
+- Fully yours
+- Can modify
+- Usually with small gap
+
+### Foundation
+
+**กทม. ดินอ่อน:**
+- Pile foundation (bore or driven)
+- Depth 15-25 ม.
+- Micropile ถ้าก่อสร้างใกล้บ้านเดิม (ไม่สั่น)
+
+### Common issues
+- **Settlement** ไม่เท่ากับเพื่อนบ้าน → รอยร้าว
+- **Water infiltration** จากหลังคาร่วม
+- **Electrical codes** แต่ละยุค
+
+## 🎨 Interior Design Strategy
+
+### Make it feel bigger
+
+**Visual:**
+- Light colors on walls (expand)
+- Continuous flooring (same material all rooms)
+- Large mirrors facing windows
+- Tall windows (to ceiling)
+- Vertical line elements (stripes · tall shelves)
+
+**Spatial:**
+- Open plan where possible
+- Avoid small corridors
+- Multi-functional spaces
+- Built-in storage (free floor)
+
+### Staircase as focal point
+- Tight space · make beautiful
+- Open staircase (see-through)
+- Feature lighting (pendant in void)
+- Gallery wall along stairs
+
+### Lighting strategy (ดู [[wiki/concepts/Lighting-Design]])
+
+**Each floor needs:**
+- Ambient (ceiling)
+- Task (for function)
+- Accent (for feeling)
+
+**Townhouse special:**
+- **Courtyard uplights** (drama + depth)
+- **Stair lights** (safety + beauty)
+- **Multiple small pendants** not one big (low ceilings)
+
+## 🌿 Landscape for Townhouse
+
+### Front (หน้าบ้าน)
+- **3 ม. × 6 ม.** = 18 ตร.ม. typical
+- Small garden + ศาลพระภูมิ + walkway
+- **Container gardens** (can move)
+- **Vertical plants** (privacy from street)
+- **Water feature** (small fountain) · sound mask traffic
+
+### Rooftop
+- **Waterproofing critical** (structural)
+- **Lightweight planters** (plants in pots)
+- **Trellis/pergola** for shade
+- **Drip irrigation**
+- **Drainage** top priority
+
+### Courtyard (ถ้ามี)
+- **Glass roof or skylight** (open to above)
+- **Feature plant** (single dramatic tree/sculpture)
+- **Reflect pool** (small mirror)
+- Hardscape minimal (not busy)
+
+## 🔥 Fire Safety (critical for townhouse)
+
+### Requirements (กฎกระทรวง 55)
+
+**อาคาร ≥ 4 ชั้น:**
+- **บันไดหนีไฟ** (ดู [[wiki/concepts/บันไดและทางหนีไฟ]])
+- ห้องแถวถ้าไม่เกิน 4 ชั้น · ชันบันไดเกิน 60° ได้ (ข้อ 28)
+
+### Best practices
+
+- **Smoke detector** every floor
+- **Fire extinguisher** per floor
+- **Escape routes** known to family
+- **Fire-rated doors** stairwell
+- **Ventilation** stair (pressurization in modern buildings)
+
+## 💰 Cost Considerations
+
+### Typical cost per ตร.ม. (tier)
+
+| Tier | บาท/ตร.ม. | Finishes |
+|------|:---------:|---------|
+| **Budget** | 12,000-18,000 | Basic · Thai standard |
+| **Standard** | 18,000-28,000 | SCG equivalent · mid-range |
+| **Premium** | 28,000-40,000 | Imported materials · smart home basics |
+| **Luxury** | 40,000-60,000+ | Premium everything · elevator |
+
+### ตัวอย่าง 215 ตร.ม. townhouse
+- **Budget:** 2.6-3.9M (~ 3M)
+- **Standard:** 3.9-6M (~ 5M)
+- **Premium:** 6-8.6M (~ 7M)
+- **Luxury:** 8.6-13M+ (~ 10M)
+
+### Cost-saving opportunities
+- **Shared wall** = structural savings
+- **Modular design** (repeat units)
+- **Standard window sizes** (stock)
+- **Same layout different units** (bulk material order)
+
+### Cost-adding features
+- **Elevator:** +500K-2M (depending quality)
+- **Rooftop garden** (structural + waterproofing): +200-800K
+- **Courtyard** (skylight + structural): +300-1M
+- **Smart home** (whole-house): +100-500K
+
+## 🎯 Common Townhouse Types in Thai Market
+
+### 1. Home + Office (HO)
+- Ground: Office / workshop (can be showroom)
+- Upper: Residential
+- Target: Creatives · small biz · doctors
+- Example: Asoke · Thonglor · Ari
+
+### 2. ทาวน์โฮม หมู่บ้าน (Development)
+- Standard layout · repeat
+- Target: Young family · first home
+- Example: Sansiri · AP · Land & Houses estates
+- Typically 3 ชั้น · 16-25 ตร.ว.
+
+### 3. Luxury urban villa townhouse
+- Custom finishes
+- Private pool (ground floor plunge)
+- Elevator
+- Target: Professionals · Expats
+- Example: Phrom Phong · Ekkamai projects
+
+### 4. Heritage shophouse (historic)
+- Renovation of old shophouse
+- Preserve facade
+- Modern interior
+- Example: Talad Noi · Old Town Bangkok
+
+## 🎯 Design Principles
+
+### 1. **Think vertical**
+- Each floor has purpose
+- Stacking zones wisely
+- Noisy zones together (kitchen+laundry+parking)
+- Quiet zones together (bedroom+study)
+
+### 2. **Light is gold**
+- Every inch of natural light
+- Reflect deep into floor plan
+- Courtyard + skylight = investment
+
+### 3. **Privacy layering**
+- Public (entry · living · dining) lower
+- Semi-private (family room · kitchen) middle
+- Private (bedrooms · baths) upper
+
+### 4. **Circulation efficiency**
+- Stair at best spot (not corner · accessible)
+- Halls minimal
+- Built-in storage in dead spaces
+
+### 5. **Future flexibility**
+- Walls = non-load-bearing where possible
+- Plumbing in **stacked** zones (easy relocate)
+- Electrical **reserve circuit** per floor
+
+## Checklist ออกแบบทาวน์เฮาส์
+
+### Site + Law
+- [ ] คูหา ≥ 4 ม. ความกว้าง
+- [ ] ความลึก 4-24 ม.
+- [ ] ไม่เกิน 10 คูหา · 40 ม. ยาว
+- [ ] ผนังกันไฟทุก ≤ 5 คูหา
+- [ ] ระยะร่นหน้า 6 ม. (ห้องแถว) · 3 ม. (บ้านแถว)
+- [ ] ระยะร่นหลัง 3 ม. / 2 ม.
+
+### Design
+- [ ] Courtyard หรือ skylight (แสงกลางบ้าน)
+- [ ] Cross ventilation every floor
+- [ ] 3-zone vertical (public/semi/private)
+- [ ] Staircase ดี (safety · beauty)
+- [ ] Storage built-in
+- [ ] Rooftop use (garden · equipment)
+
+### Engineering
+- [ ] Pile foundation (BKK)
+- [ ] Party wall structural clarity
+- [ ] Plumbing stacked
+- [ ] Electrical capacity
+- [ ] Acoustic isolation (STC 45+ party walls)
+- [ ] Fire safety (alarm · extinguisher · escape)
+
+### Amenities
+- [ ] Parking ≥ 2 spaces
+- [ ] Storage room
+- [ ] Laundry area
+- [ ] ศาลพระภูมิ (หน้าบ้าน NE)
+
+### Finishing
+- [ ] Material palette cohesive
+- [ ] Lighting 3 layers per floor
+- [ ] Fabric/window treatments
+- [ ] Landscape (front + rooftop)
+
+---
+
+## 🏢 Track E · Building Types: Condo
+---
+title: "ออกแบบคอนโดยูนิต (Condominium Unit Design)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [condo, apartment, building-type, urban]
+layers: [design, law]
+applies_to: [condo-unit, apartment]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/entities/กฎกระทรวง-ฉบับที่-55|กฎกระทรวง 55]]"
+  - "[[wiki/entities/กฎกระทรวง-ฉบับที่-33-อาคารสูง|กฎกระทรวง 33]]"
+  - "[[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์|Passive Design]]"
+---
+
+คอนโด = **residential growth area** กทม. · ยูนิตเล็ก 25-30 ตร.ม. ถึง penthouse 200+ · สถาปนิกต้อง optimize space
+
+## 📐 ประเภท Unit
+
+| ประเภท | ขนาดทั่วไป | จำนวนห้องนอน |
+|--------|:---------:|:------------:|
+| **Studio** | 25-35 ตร.ม. | 0 (open plan) |
+| **1 Bedroom** | 30-50 ตร.ม. | 1 |
+| **1 Bedroom Plus** | 45-60 ตร.ม. | 1 + work corner |
+| **2 Bedrooms** | 55-85 ตร.ม. | 2 |
+| **3 Bedrooms** | 85-130 ตร.ม. | 3 |
+| **Penthouse** | 150+ ตร.ม. | 3-5 + terrace |
+| **Duplex** | 90-200 ตร.ม. | 2-4 (2 floors) |
+
+## ⚖ กฎหมายที่เกี่ยวข้อง
+
+### กฎกระทรวง 55 (ใช้ในคอนโด)
+- **หน่วยที่พักอาศัยรวม ≥ 20 ตร.ม./unit** (ข้อ 19) — **minimum legal!**
+- ระยะดิ่ง 2.60 ม. (ห้องพักอาศัย · ข้อ 22)
+- ทางเดินในอาคาร ≥ 1.50 ม. (ข้อ 21 · อาคารอยู่อาศัยรวม)
+
+### กฎกระทรวง 33 (อาคารสูง)
+- คอนโดส่วนใหญ่เข้าข่าย (สูง ≥ 23 ม. = อาคารสูง)
+- Sprinkler · fire alarm · emergency power **บังคับ**
+- Refuge area · lift emergency
+
+### กฎกระทรวงสิ่งอำนวยความสะดวก (48)
+- อาคารอยู่อาศัยรวม ≥ 2,000 ตร.ม.
+- Accessibility บังคับ
+
+### ผังเมือง (FAR)
+- กทม. ย.6-ย.10 · FAR 4.5-8.0
+- ย.1-ย.5 · บังคับ aspect (high-density ยาก)
+
+### Parking (กฎกระทรวง 7)
+- **1 คัน / 1 ครอบครัว** (ยูนิต ≥ 60 ตร.ม.)
+- ยูนิต < 60 ตร.ม. · no parking required (แต่ tower มักจัดไว้)
+
+## 🏠 Space Efficiency Principles
+
+### 1. **Every ตร.ม. counts**
+
+คอนโด 30 ตร.ม. · ค่าเฉลี่ย 80,000-200,000 บาท/ตร.ม. (กทม.)
+→ 1 ตร.ม. = 80K-200K · **ไม่ waste ได้**
+
+### 2. Multi-functional
+
+**ตัวอย่าง:**
+- **Sofa bed** = สโฟ่ขาดคนพัก + เตียงแขก
+- **Dining table** = WFH desk
+- **Kitchen island** = dining table
+- **Murphy bed** = bedroom ตอนกลางคืน · office ตอนกลางวัน
+- **Under-bed storage** = หน่วยเก็บของ
+
+### 3. **Vertical storage**
+
+- **Ceiling tall cabinets** (ให้ถึง ceiling)
+- **Over-door racks**
+- **Under-stair storage** (ถ้า duplex)
+- **Loft storage** (ระยะดิ่งเหลือ)
+
+### 4. Built-in > freestanding
+
+- Built-in wardrobe vs ตู้เสื้อผ้า (+20-30% efficient)
+- Built-in desk vs โต๊ะ
+- Built-in TV unit vs ชั้นยาว
+- Corner bench dining
+
+## 📐 Unit Layouts
+
+### Studio 25-30 ตร.ม.
+
+```
+┌─────────────────────┐
+│  🛏 Sleep           │
+│  📺 Living          │ ← All-in-one
+│                     │
+│  [ Kitchenette ]    │
+│  [ Washer ]         │
+│                     │
+│  🚿 Bath            │
+│  🚪 Entry           │
+└─────────────────────┘
+```
+
+**Design goals:**
+- **Zoning by function** (ไม่ใช่ wall)
+- Use area rug to define
+- Bed against wall (not middle)
+- Kitchenette compact (1.2 × 0.6 ม. counter)
+
+### 1-Bedroom 30-50 ตร.ม.
+
+```
+┌─────────────────────┐
+│ 🛏 Bedroom 3×3 m   │
+│                     │
+├─────────────────────┤
+│ Living / Dining     │
+│     6×3 m            │
+├──────┬──────────────┤
+│ Kit. │ 🚿 Bath      │
+│ 1.5× │ 1.5×2       │
+│ 3 m  │              │
+└──────┴──────────────┘
+```
+
+### 2-Bedroom 55-85 ตร.ม.
+
+```
+┌─────────────────────┐
+│ 🛏 Bed 2   │  🛏 M.  │
+│  3×3 m     │  3.5×4  │
+│            │  +bath  │
+├────────────┴────────┤
+│ Living / Dining     │
+│     open plan       │
+├──────┬──────────────┤
+│ Kitch│ Bath 2       │
+└──────┴──────────────┘
+```
+
+## 🎯 Common Layout Problems
+
+### Long narrow unit (lanta · shotgun)
+
+**Issues:**
+- Only 1 external wall (light/air)
+- Dark interior
+- Hard to furniture arrange
+
+**Solutions:**
+- **Open plan** middle (dining/kitchen · get light from window end)
+- **Glass partitions** instead of walls
+- **Mirror** opposite window
+- **Light colors**
+
+### Corner unit (premium)
+
+**Advantages:**
+- 2 walls of windows
+- Better ventilation
+- More natural light
+- Higher price
+
+**Design:**
+- **Feature the corner** (large view · bed headboard)
+- Wrap-around balcony
+- **Glass corner** (no structural post)
+
+### South-facing (hot in Thailand!)
+
+**Issues:**
+- Afternoon sun · very hot
+- HVAC works overtime
+
+**Solutions:**
+- **Exterior shading** (balcony · louvre)
+- **Low-E glass**
+- **Interior blackout curtains**
+- **Kitchen/bath on south side** (heat buffer)
+
+### North-facing (cold · cave-like)
+
+**Issues:**
+- Less natural light
+- Can feel gloomy
+
+**Solutions:**
+- **Light colors** everything
+- **Mirror to amplify**
+- **Warm lighting** (3000K)
+- **Maximize window size**
+
+## 🏪 Kitchen Design in Small Unit
+
+### Studio / 1BR
+
+**Linear kitchenette (1.5-2.5 ม.):**
+- Sink + 2-burner cooktop + small fridge
+- Upper cabinets to ceiling
+- Under-counter washer (compact)
+- **Total:** 1.5-2.5 ตร.ม.
+
+### 2BR+
+
+**L-shape kitchen:**
+- More storage
+- Dedicated range + hood
+- Dishwasher possible
+- **Total:** 4-8 ตร.ม.
+
+### Premium unit
+
+**Island kitchen:**
+- Separate cooking + serving
+- Breakfast bar
+- Full appliances
+- **Total:** 10-15 ตร.ม.
+
+## 🚿 Bathroom Efficiency
+
+### Minimum viable (1.5 × 2 ม.)
+- Toilet + sink + shower stall
+- Wall-hung toilet (save floor)
+- Corner vanity
+- Frameless glass shower (feel bigger)
+
+### Standard (1.8 × 2.4 ม.)
+- Full shower + tub option
+- Double sink possible
+- More storage
+
+### Master en-suite (2.4 × 3+ ม.)
+- Separate tub + shower
+- Walk-in closet adjacent
+- Double vanity
+- Premium fixtures
+
+## 🪟 Windows + Balcony
+
+### Window sizes
+
+**Minimum code (for habitable):**
+- 10% of floor area (natural light)
+- 5% operable (ventilation)
+
+**Good design:**
+- **Floor-to-ceiling** where possible
+- **Corner windows** premium
+- **Operable** (not fixed)
+- **Noise-reducing glass** (near traffic)
+
+### Balcony
+
+**Functions:**
+- Outdoor breathing space
+- Laundry drying (ไทย)
+- AC CDU location
+- Small garden
+- Seating area
+
+**Minimum useful:** 1.0 × 2.5 ม. (2.5 ตร.ม.)
+**Good:** 1.5 × 3.5 ม. (5 ตร.ม.)
+**Premium:** 2.0 × 5+ ม.
+
+### Privacy from across-building
+- Frosted glass panels (lower half)
+- Plants (balcony garden)
+- Strategic furniture placement
+- Blinds/curtains
+
+## 💡 Smart Home for Condo
+
+### Apartment-friendly (no major reno)
+
+**Level 1 · Plug-and-play:**
+- Smart plugs (turn on lamp app)
+- Smart bulbs (Philips Hue)
+- Smart speaker (Google/Alexa)
+- **Cost: 5-15K**
+
+**Level 2 · Switch replacement:**
+- Smart switches (Sonoff · Aqara)
+- Smart curtain motor
+- Smart thermostat (for AC)
+- **Cost: 15-40K**
+
+**Level 3 · Advanced:**
+- Whole-condo automation
+- CCTV + access control
+- Voice throughout
+- **Cost: 50-150K**
+
+### What to prioritize
+1. **Smart door lock** (main entry)
+2. **Smart AC** (biggest energy saver)
+3. **Smart lighting** (convenience)
+4. **Smart blinds** (privacy + sun control)
+5. **Security camera** (front door + balcony)
+
+## 🎨 Design Styles Popular in Bangkok Condos
+
+### Japandi (Japanese + Scandinavian)
+- Minimal · warm wood · muted colors
+- Very popular 2024-2026
+- Light colors expand small space
+- Natural textures (linen · wool · wood)
+
+### Modern Muji
+- White walls · light wood · plants
+- Calming · clutter-free
+- Storage hidden
+
+### Thai-Modern
+- Minimal with Thai elements
+- Teak accents
+- Silk cushions
+- Subtle Buddhist imagery
+
+### Luxury Hotel-inspired
+- Dark rich colors
+- Marble countertops
+- Gold/brass accents
+- Velvet curtains
+
+### Industrial
+- Exposed concrete
+- Metal fixtures
+- Dark wood
+- Edison bulbs
+
+## 💰 Budget & ROI
+
+### Renovation cost (existing condo)
+
+**Light cosmetic (paint + pillows + art):**
+- **50-150K** · DIY-able
+- New look · no structural
+
+**Full renovation (30-50 ตร.ม. condo):**
+- **500K-1.5M**
+- New kitchen · bath · built-ins · floor
+- Still-keep structure + plumbing location
+
+**Complete overhaul (including plumbing move):**
+- **1.5-3M**
+- Custom everything
+- Wait for building approval
+
+### ROI on renovation
+- Value increase: **50-80% of reno cost** (typical)
+- Unless entering luxury market
+- **Best ROI:** kitchen + master bath
+
+## 🏗 Developer-side (ถ้าออกแบบคอนโดใหม่)
+
+### Unit mix strategy
+- 30% Studio (investors · single)
+- 40% 1BR (young professionals)
+- 25% 2BR (family · couple)
+- 5% 3BR / penthouse (luxury)
+
+### Common areas (10-15% of sellable area)
+- Lobby · concierge
+- Gym · pool · sky garden
+- Co-working
+- Kids area
+- Storage
+
+### Circulation (8-12% of GFA)
+- Elevator core
+- Stair (emergency)
+- Corridor
+
+### Parking (big impact on cost)
+- Underground: 200-400K/space
+- Above-ground (deck): 150-300K/space
+- Mechanical stacker: 80-150K/space
+- Automated: 200-400K/space
+
+## 🎯 Challenges Unique to Condo
+
+### 1. HOA (Juristic Person) rules
+- **Cannot alter** exterior (windows · balcony rail)
+- **Sound restrictions** (hours · drilling)
+- **Plumbing routing** often fixed
+- **Move-in limitations** (elevator booking)
+
+### 2. Shared walls
+- **Neighbor noise** · especially top/bottom floor
+- **Acoustic investment** critical
+
+### 3. Storage scarcity
+- No garage · attic · basement
+- Every item needs place
+
+### 4. Utilities
+- Cannot add HVAC unit (aesthetic rules)
+- Water heater limited size
+- Electrical capacity fixed
+
+## Checklist · ออกแบบคอนโดยูนิต
+
+### Planning
+- [ ] Target demographic (single/couple/family)
+- [ ] Unit size match market
+- [ ] Orientation (window facing)
+- [ ] Parking requirement (law)
+- [ ] HOA/juristic rules review
+
+### Design
+- [ ] Zoning without walls (rugs · furniture)
+- [ ] Multi-functional furniture
+- [ ] Built-in storage (vertical)
+- [ ] Natural light optimization
+- [ ] Privacy (balcony · windows)
+- [ ] Color to expand space
+
+### Engineering
+- [ ] Plumbing in fixed positions
+- [ ] Electrical within capacity
+- [ ] AC CDU balcony or dedicated space
+- [ ] Lighting 3 layers
+
+### Finishing
+- [ ] Material palette consistent
+- [ ] Hardware quality
+- [ ] Smart home ready
+- [ ] Window treatments (acoustic · solar)
+
+### Code
+- [ ] ≥ 20 ตร.ม./unit (กฎกระทรวง 55)
+- [ ] ฝ้า ≥ 2.60 ม.
+- [ ] Fire safety (if in อาคารสูง)
+- [ ] Accessibility (if > 2,000 ตร.ม. total)
+
+---
+
+## 🏢 Track E · Building Types: Resort Villa
+---
+title: "ออกแบบรีสอร์ตวิลลา (Resort Villa Design)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [villa, resort, luxury, tropical, vacation]
+layers: [design, thai]
+applies_to: [resort, villa, vacation-home]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์|Passive Design]]"
+  - "[[wiki/concepts/บ้านไทยโบราณ|บ้านไทยโบราณ]]"
+  - "[[wiki/concepts/ออกแบบสระว่ายน้ำ|ออกแบบสระว่ายน้ำ]]"
+---
+
+Resort villa · **Luxury tropical architecture** · integrate กับธรรมชาติ · indoor-outdoor flow · พื้นที่พิเศษ
+
+## 🏝 Types of Resort Villa
+
+### 1. **Beachfront villa**
+- Direct beach access
+- Orient to sea view
+- Wind + salt consideration
+- 200-500 ตร.ม. typical
+
+### 2. **Hillside villa**
+- Dramatic views
+- Cascading levels
+- Multiple decks
+- Private pool
+
+### 3. **Jungle / Nature villa**
+- Integration with trees
+- Natural materials
+- Treehouse feel
+- 100-300 ตร.ม.
+
+### 4. **Urban villa (city escape)**
+- Oasis within city
+- Private garden + pool
+- Privacy maximized
+- 300-800 ตร.ม.
+
+### 5. **Pool villa**
+- Private pool required
+- Indoor-outdoor
+- Entertainment focus
+
+## 🎯 Key Design Principles
+
+### 1. **Indoor-Outdoor Flow**
+
+**The rule:** Guest can transition seamlessly · nothing "inside vs outside"
+
+**Techniques:**
+- **Large sliding/pocket doors** (2.4-4 ม. wide)
+- **Flush floor levels** (no step)
+- **Continuous materials** (same floor in/out)
+- **Covered outdoor spaces** (semi-outdoor deck)
+- **Open ceilings/walls** (retractable/louvre)
+
+### 2. **Zoning for Privacy**
+
+```
+Public zone (living/dining/pool) → family + guests
+    ↓
+Semi-private (study/media) → family only
+    ↓
+Private (bedrooms) → individuals
+    ↓
+Spa/service → private family
+```
+
+**Layered privacy:**
+- Visual (don't see into bedroom from pool)
+- Auditory (bedroom far from music area)
+- Physical (locked doors · codes)
+
+### 3. **View Optimization**
+
+**Every room has view:**
+- Bedrooms → best view
+- Bathrooms → view (waterfall · garden)
+- Kitchen → garden view (while cooking)
+- Living → hero view (pool · sea · mountain)
+
+### 4. **Multiple Entertainment Zones**
+
+Unlike regular home · villa hosts parties:
+- **Main living** (formal)
+- **Family room** (casual · TV · movie)
+- **Outdoor lounge** (pool · sala)
+- **Dining** (formal + casual alfresco)
+- **BBQ area**
+- **Bar**
+
+## 🏗 Villa Program (Spaces)
+
+### Essential (must have)
+
+**Bedrooms:**
+- Master suite (25-40 ตร.ม. + en-suite 10-15)
+- 2-4 guest bedrooms with en-suite
+- Possibly pool villa bedroom (opens to pool)
+
+**Living:**
+- Main living (50-100 ตร.ม.)
+- Double-height if possible
+- Open to outdoor
+
+**Dining:**
+- Indoor (10-20 ตร.ม.)
+- Outdoor sala dining (15 ตร.ม.)
+- Bar/wine area
+
+**Kitchen:**
+- **Prep kitchen** (Thai-style · 15-25 ตร.ม.)
+- **Show kitchen** (Western · 10-15 ตร.ม.)
+- Pantry
+- Butler pantry
+
+**Bathrooms:**
+- Each bedroom en-suite
+- Powder room near living
+- Pool bathroom (outside access)
+
+**Service:**
+- Laundry (6-10 ตร.ม.)
+- Staff quarters (2-3 rooms · 20-30 ตร.ม.)
+- Maid's room
+- Storage (10+ ตร.ม.)
+- Garage (2-4 cars)
+
+### Luxury extras
+
+**Wellness:**
+- **Gym** (20-40 ตร.ม.)
+- **Spa room** (15-25 ตร.ม.)
+- **Sauna/steam** (5-10 ตร.ม.)
+- **Yoga deck** (20-40 ตร.ม.)
+
+**Entertainment:**
+- **Home theater** (25-50 ตร.ม.)
+- **Game room / billiards** (30-50 ตร.ม.)
+- **Bar** (10-20 ตร.ม.)
+- **Wine cellar** (10-20 ตร.ม.)
+- **Music / Karaoke room**
+
+**Outdoor:**
+- **Pool** (multiple · jacuzzi)
+- **Outdoor kitchen / BBQ**
+- **Fire pit**
+- **Cabana / sala**
+- **Garden + path**
+- **Helipad** (ultra-luxury)
+
+### Specialty
+
+- **Meditation/prayer room**
+- **Library / reading room**
+- **Art studio**
+- **Wine cellar**
+- **Walk-in closet palace** (30-50 ตร.ม.)
+- **Safe room**
+
+## 🌿 Tropical Design Strategies
+
+### Deep overhangs
+
+**Why:** Sun protection + rain
+- **Overhang 1.5-2.5 ม.** wraparound
+- Allows windows open during rain
+- Shade living areas afternoon
+
+### High ceilings
+
+- **3.5-5 ม.** living areas
+- **Double-height** volumes dramatic
+- **Thermal stack** effect (hot air rise out)
+- **Grand feel** essential luxury
+
+### Natural materials
+
+- **Teak / ยางนา** (flooring · structure)
+- **Stone** (travertine · local granite)
+- **Bamboo** (accent · ceilings)
+- **Rattan / wicker** (furniture · screens)
+- **Natural fabric** (linen · cotton)
+
+### Water features
+
+- **Reflecting pools** (front entrance)
+- **Water courtyard** (cooling · calming)
+- **Waterfall** (into pool or wall)
+- **Fountains** (Balinese · Thai)
+
+### Lush planting
+
+- **Tropical hedge** (privacy)
+- **Palm trees** (framing · structure)
+- **Flowering plants** (color)
+- **Vertical gardens** (walls living)
+- **Pool plants** (lotus · lily)
+
+## 🏖 Key Rooms · Villa Specific
+
+### Master suite (บ้านใหญ่ 40-70 ตร.ม.)
+
+**Must have:**
+- **Walk-in closet** (10-20 ตร.ม.)
+- **En-suite bath** (15-25 ตร.ม.)
+- **Private terrace** (access to pool)
+- **Seating area** (2 chairs + table)
+- **Mini-bar / coffee station**
+- **Writing desk**
+
+**Views:** Best view of property · ocean · pool · mountain
+
+### Master bathroom (15-25 ตร.ม.)
+
+**Luxury features:**
+- **Soaking tub** (with view)
+- **Walk-in shower** (rainfall + body jets · dual heads)
+- **Double vanity** (his + hers)
+- **Water closet** (separate compartment)
+- **Makeup vanity** (different lighting)
+- **Heated towel rail**
+- **Outdoor shower** (private)
+
+### Outdoor sala / bale
+
+**Thai style:**
+- **Pitched roof** (thatch or tile)
+- **Wooden floor** (raised 30 ซม.)
+- **Open sides** (breeze)
+- **Daybed + cushions**
+- **Hanging plants**
+- **Paddle fans**
+
+**Modern:**
+- **Flat roof with planted green**
+- **Aluminum frame**
+- **Retractable screens**
+- **Integrated lighting + speakers**
+
+### Outdoor kitchen
+
+- **Built-in BBQ** (propane / charcoal)
+- **Wok burner** (Thai cooking outdoor)
+- **Sink + prep counter**
+- **Small fridge / ice maker**
+- **Pizza oven** (optional · wood-fired)
+- **Bar seating**
+
+### Pool + Spa
+
+**Pool:**
+- **Infinity edge** (ocean/view)
+- **Pool deck** wraparound
+- **Sun loungers** 6-10
+- **Pool pavilion** (shade)
+- **Night lighting** (color-changing LED)
+
+**Spa:**
+- **Jacuzzi** (6-8 seats)
+- **Pool heater** (year-round use)
+- **Cold plunge** (luxury · next to sauna)
+
+## 🎨 Thai-Tropical Architecture Styles
+
+### 1. **Bali-inspired**
+- Pointed roofs
+- Stone carvings
+- Wood · natural materials
+- Dark wood floors
+
+### 2. **Traditional Thai (ไทยประยุกต์)**
+- Elevated floor (ใต้ถุน)
+- Steep roofs
+- Gilded accents
+- Teak throughout
+
+### 3. **Modern Tropical**
+- Clean lines · minimal
+- Large glass
+- Polished concrete + wood
+- Less ornament
+
+### 4. **Tropical Asian Zen**
+- Japanese influence
+- Gravel gardens
+- Minimal · serene
+- Black + natural wood
+
+### 5. **Luxury Modern**
+- International style
+- Marble · glass · steel
+- Sharp angles
+- Dramatic lighting
+
+## ⚖ กฎหมายที่เกี่ยวข้อง
+
+### Location-specific
+
+**Beachfront:**
+- **25-30 ม.** ห่างจากแนว High Water (depends location)
+- **อาคารริมน้ำ** รุนแรงกว่า
+
+**Hillside:**
+- **Slope analysis** required
+- **Erosion control** measures
+- Tree protection (some areas)
+
+**Protected zones:**
+- Marine National Park
+- Heritage zones
+- Military zones
+
+### Standard building codes
+
+Still apply (กฎกระทรวง 55 · 33 etc.)
+- Setbacks
+- FAR/OSR
+- Height restrictions
+- Fire safety
+
+## 💰 Cost Guide
+
+### Per ตร.ม. (baseline)
+
+| Tier | บาท/ตร.ม. | Features |
+|------|:---------:|---------|
+| **Luxury** | 50,000-80,000 | Premium finishes · bespoke |
+| **Ultra-luxury** | 80,000-150,000 | Imported everything · signature design |
+| **Trophy** | 150,000+ | Anything goes · art-like |
+
+### Villa 500 ตร.ม. standard luxury
+- **25M-40M** (50K-80K/ตร.ม.)
+- Landscape: +3-10M
+- Pool: +1.5-3M
+- Furnishing: +5-15M
+- **All-in:** 35-70M
+
+### Villa 800 ตร.ม. ultra-luxury
+- **80M-160M+**
+- + landscape 10-30M
+- + interior design fees (10-20% of construction)
+
+## 📍 Location considerations (ไทย)
+
+### Popular destinations
+
+**Phuket:**
+- Surin · Kamala · Rawai
+- Beachfront premium
+- Hillside with sea view
+- Established developer market
+
+**Samui:**
+- Chaweng Noi · Bophut
+- Lower price than Phuket
+- Growing luxury market
+
+**Krabi / Phi Phi:**
+- Ao Nang · Rai Leh
+- Unique landscape
+- Less developed luxury
+
+**Hua Hin:**
+- Thai royalty tradition
+- Golf + beach
+- Day trip from BKK
+
+**Chiang Mai:**
+- Hillside villas
+- Cultural context
+- Cooler climate
+
+**Bangkok outskirts:**
+- Bang Saray · Cha-am
+- Weekend homes
+- Close to city
+
+## 🚫 Common Villa Design Mistakes
+
+### 1. **Living zone not large enough**
+- Parties of 20-40 people common
+- 50+ ตร.ม. living recommended
+
+### 2. **Kitchen too fancy for Thai cooking**
+- Need **dirty kitchen** separate
+- Outdoor Thai cooking station
+
+### 3. **Staff quarters too small**
+- 2+ staff live-in
+- Need private bathroom + kitchen
+
+### 4. **Pool shape awkward**
+- Must be swimmable (rectangular part ≥ 4 × 10)
+- Shape-follow views, not just aesthetics
+
+### 5. **No equipment room**
+- Pool · AC · solar · battery · laundry
+- Mechanical takes space (15-30 ตร.ม.)
+
+### 6. **Ignore salt air/humidity**
+- Material selection crucial
+- Stainless steel grade appropriate
+- Moisture barriers
+
+### 7. **Security undersold**
+- Remote location · higher risk
+- CCTV · alarm · safe room
+
+## 🌟 Signature Villa Features
+
+### "Wow moment" architecture
+
+- **Double-height foyer** with drama chandelier
+- **Floating stair** with view backdrop
+- **Infinity pool** with visual illusion
+- **Indoor-outdoor transition** (40+ ฟุต glass)
+- **Cantilevered deck** (over slope)
+- **Wine wall / library ladder**
+
+## Checklist · Villa Project
+
+### Brief
+- [ ] Guest capacity (family + hosted)
+- [ ] Year-round vs seasonal
+- [ ] Target rental market? (if investment)
+- [ ] Style direction clear
+- [ ] Budget realistic
+
+### Site
+- [ ] Views analyzed
+- [ ] Sun path · wind direction
+- [ ] Orientation for views + climate
+- [ ] Access (main road · cars · service)
+- [ ] Utilities available
+
+### Design
+- [ ] Zoning (public/private/service)
+- [ ] Indoor-outdoor flow
+- [ ] Multiple entertainment zones
+- [ ] Master suite privileged
+- [ ] Staff areas adequate
+
+### Systems
+- [ ] Security (CCTV · alarm · smart lock)
+- [ ] Audio-visual (whole house)
+- [ ] Smart home
+- [ ] Pool systems (filter · heat · chemistry)
+- [ ] Backup power
+
+### Landscape (ดู [[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์]])
+- [ ] Private garden
+- [ ] Pool surround
+- [ ] Outdoor entertainment
+- [ ] Native tropical plants
+
+### Luxury touches
+- [ ] Art program
+- [ ] Lighting control
+- [ ] HVAC zoning (energy · comfort)
+- [ ] Closet/storage palace
+- [ ] Signature finishes
+
+---
+
+## 🏢 Track E · Building Types: Home Office / Retail
+---
+title: "Home Office + Retail (Mixed-Use)"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [mixed-use, home-office, shophouse, retail, live-work]
+layers: [design, law]
+applies_to: [mixed-use, commercial, residential]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบทาวน์เฮาส์|ทาวน์เฮาส์]]"
+  - "[[wiki/concepts/ออกแบบห้องทำงาน|ห้องทำงาน]]"
+  - "[[wiki/concepts/ขั้นตอนขออนุญาต|ขั้นตอนขออนุญาต]]"
+---
+
+**Home + business** · ไทยมีประวัติการอยู่+ทำการค้าในอาคารเดียว (ตึกแถว) · ปัจจุบันรูปแบบใหม่ผสาน live-work
+
+## 🏢 Common Models
+
+### 1. **Shophouse (ตึกแถว)** — Classic Thai
+- **Ground:** Shop/restaurant
+- **Upper:** Residence
+- **Target:** ร้านค้า · คาเฟ่ · restaurant owner
+- **Examples:** Chinatown · Old town BKK · Siam Square
+
+### 2. **Home office (HO)** — Modern
+- **Ground:** Office/studio/showroom
+- **Upper:** Residence
+- **Target:** Creative · consulting · doctors
+- **Examples:** Thonglor · Ari · Ekkamai
+
+### 3. **Live-work studio** — Creative
+- **Single space:** Both functions
+- **Target:** Artist · designer · maker
+- **Examples:** Warehouse conversion · loft
+
+### 4. **Airbnb / STR (short-term rental)** — Hybrid
+- **Residence + rental**
+- **Separate entry** preferred
+- **Target:** Tourist market · investor
+
+### 5. **Clinic + residence** — Professional
+- **Ground:** Clinic/dental/medical
+- **Upper:** Doctor's family
+- **Target:** Doctor · dentist · professionals
+
+## ⚖ กฎหมายที่สำคัญ
+
+### "Change of Use" (ม.21 พรบ.ควบคุมอาคาร)
+
+Converting residence → business requires **new permit** (ฟอร์ม ข.2)
+
+**Documentation needed:**
+- Existing drawings (as-is)
+- Proposed change (drawings + description)
+- New use classification
+- Parking reassessment
+- Accessibility (if applicable)
+
+### Mixed-use in กฎกระทรวง 7 (ที่จอดรถ)
+
+**Residence:** ไม่บังคับ (บ้านเดี่ยว)
+
+**Commercial portion:**
+- **Restaurant ≥ 150 ตร.ม.:** 1 คัน/15 ตร.ม.
+- **Office ≥ 300 ตร.ม.:** 1 คัน/60 ตร.ม.
+- **Retail ≥ 300 ตร.ม.:** 1 คัน/20 ตร.ม.
+
+**แนะนำ:** วางแผน parking ตั้งแต่ต้น · ง่ายกว่า retrofit
+
+### Signage laws
+
+- **Commercial signage** regulated
+- **Size** + height limits
+- **Permission** needed from เทศบาล
+
+### Business licensing
+
+**Depends on business type:**
+- **Food**: food license + health inspection
+- **Retail**: business registration
+- **Medical**: medical council
+- **Alcohol**: liquor license
+
+## 🏗 Design Strategies
+
+### 1. **Separate Entrances**
+
+**Why critical:**
+- Privacy home family
+- Professional appearance
+- Security
+- Different hours operation
+
+**Implementation:**
+- **Main business entrance** (street side · prominent)
+- **Home entrance** (side · rear · garage)
+- Different doorbells · mail · intercom
+- Keypad/fingerprint each
+
+### 2. **Acoustic Separation**
+
+**Problem:** Business noise affects family
+
+**Solutions:**
+- **Solid floor-ceiling** between commercial (ground) + residence (upper)
+  - Concrete slab > wood
+  - Acoustic treatment below ceiling
+  - Floating floor above
+- **STC 55+** walls/floor between zones
+- **Scheduled quiet hours** (respect family upstairs)
+
+### 3. **Different HVAC**
+
+**Reasons:**
+- Commercial hours different
+- Family can be home weekend
+- Different comfort preferences
+- Billing separation
+
+**Options:**
+- Separate AC systems (split)
+- Zoned ducted system
+- Smart thermostats (schedule)
+
+### 4. **Storage Separation**
+
+**Business needs:**
+- Stock room
+- Supplies
+- Refrigeration
+- Records
+
+**Family needs:**
+- Household items
+- Seasonal decoration
+- Personal belongings
+
+**Design:**
+- Business storage ground floor (near shop)
+- Family storage upper (near bedrooms)
+- **Don't share** · reduces confusion
+
+## 🎯 Ground Floor Strategies
+
+### Shopfront / Storefront design
+
+**Street presence:**
+- **Large glass windows** (display)
+- **Clear signage area**
+- **Lighting** (evening visibility)
+- **Welcoming entrance** (wide · no step ideal)
+
+**Thai urban context:**
+- **Shophouse tradition** (narrow facade · deep interior)
+- Typical: 4-6 ม. wide · 12-18 ม. deep
+- Row connected (party walls)
+
+### Floor plan · Retail
+
+```
+┌─────────────────────────────┐
+│  🚪 Main Entry (street)    │
+│  📺 Display window         │
+├─────────────────────────────┤
+│                             │
+│  Retail Floor               │
+│  (customer area)            │
+│                             │
+├─────────┬──────────┬────────┤
+│ Service │ Counter  │ Office │
+│ / back  │          │        │
+│ room    │          │        │
+├─────────┴──────────┴────────┤
+│  🚪 Back entry (staff/home)│
+│  🚗 Parking (behind)       │
+└─────────────────────────────┘
+```
+
+### Floor plan · Office
+
+```
+┌─────────────────────────────┐
+│  Reception                  │
+│  ↓                          │
+│  Meeting room               │
+├─────────────────────────────┤
+│  Open workspace             │
+│  + private offices          │
+├─────────────────────────────┤
+│  Kitchen / break            │
+│  Bathroom · Storage         │
+│  🚪 Back exit → residence  │
+└─────────────────────────────┘
+```
+
+### Floor plan · Restaurant/Cafe
+
+```
+┌─────────────────────────────┐
+│  🚪 Entry                  │
+│  Host · Waiting             │
+├─────────────────────────────┤
+│  Dining area                │
+│  (tables · booths)          │
+├─────────────────────────────┤
+│  Bar                        │
+├─────────────────────────────┤
+│  Kitchen (open or closed)   │
+│  Pantry · Cold storage      │
+├─────────────────────────────┤
+│  🚻 Customer bathroom      │
+│  Staff room · Back door     │
+└─────────────────────────────┘
+```
+
+## 🚻 Plumbing in Mixed-Use
+
+### Separate systems
+
+**Pros:**
+- Independent usage
+- Easier repairs (not affect other)
+- Bill separation possible
+
+**Cons:**
+- Higher upfront cost
+- More complex
+
+### Shared systems
+
+**Pros:**
+- Cheaper installation
+- Simpler design
+
+**Cons:**
+- Peak hours conflict (restaurant + family shower same time)
+- Business closure affects home repair
+
+**Recommendation:**
+- **Water supply** can share (with flow capacity sized)
+- **Sewer** shared OK
+- **Hot water** separate is wise (restaurant need commercial scale)
+
+## 🔥 Fire & Safety
+
+### Stricter for commercial
+
+**Commercial spaces need:**
+- **Emergency exit** marked
+- **Fire extinguishers** per area
+- **Smoke detectors**
+- **Emergency lighting**
+- **Exit signs**
+- **Manual pull stations**
+
+### Restaurant specifics
+- **Hood fire suppression** (mandatory)
+- **Grease trap** plumbing
+- **Gas shut-off** accessible
+
+### Protecting residence
+- **Fire-rated wall + door** between commercial and residence
+- **Separate smoke detection** (alert family if shop fire)
+- **Escape plan** family upstairs
+
+## 🎨 Design Integration
+
+### Branding continuity
+
+If running your own business · the **architecture = branding**
+- **Facade express business personality** (modern · traditional · luxury · casual)
+- **Interior style match brand**
+- **Entrance experience** sets tone
+- **Back-of-house** matches quality (guests see sometimes)
+
+### Separation aesthetics
+- **Commercial:** Brand-aligned · could be bold
+- **Residence:** Personal · comfortable · private
+- **Transition space** (stairs/foyer between) · neutral
+
+## 🌱 Environmental Benefits
+
+### Mixed-use advantages
+
+- **No commute** (live + work)
+- **Efficient land use** (one building · two uses)
+- **Community vitality** (people live + work)
+- **Reduces traffic** (don't drive to work)
+- **Supports local** (foot traffic to shops)
+
+### Design for sustainability
+
+Same principles as residential (ดู [[wiki/concepts/Green-Building-Certification]])
+- Natural light (important for retail anyway)
+- Passive cooling (residence + shop save AC)
+- Solar on rooftop
+- Rainwater (garden + toilet)
+
+## 💼 Business Considerations (for architect)
+
+### Client types
+
+**Owner-occupier:**
+- Most common model
+- Cost-conscious
+- Long-term thinking
+
+**Investor-owner:**
+- Rent residence or commercial separately
+- ROI focus
+- Flexibility matters
+
+**Family business:**
+- Multi-generational
+- Succession planning
+- May evolve over time
+
+### Common challenges
+
+**Zoning mismatch:**
+- Residence area zoning
+- May need special permit for commercial
+- Restrictions on signage/hours
+
+**Neighborhood complaints:**
+- Parking overflow
+- Noise · smells (restaurant)
+- Delivery trucks
+
+**Operational scaling:**
+- Small business grows
+- Need more space
+- Conflict with residence
+
+## 💡 Smart Use Cases
+
+### 1. **Photographer studio + home**
+- Ground: Studio (daylight-rich)
+- Upper: Home
+- Shared: Kitchen (sometimes)
+
+### 2. **Restaurant + owner's home**
+- Ground: Restaurant
+- 2nd floor: Prep/office · can become family kitchen off-hours
+- 3rd+: Family residence
+- Roof: Family garden
+
+### 3. **Dental clinic + doctor's home**
+- Ground: Clinic (3-4 chairs · X-ray)
+- Upper: Family residence with private elevator
+- Separate entrance
+- Professional image
+
+### 4. **Yoga studio + instructor's home**
+- Ground: Studio + bath/changing
+- Upper: 1-2 bedroom loft
+- Shared: Kitchen (sometimes lunch for students)
+
+### 5. **Guesthouse / Airbnb + home**
+- Main: Owner home
+- Separate: 2-4 guest rooms with bath
+- Shared OR separate entry
+- Shared amenities (pool · garden)
+
+## 🎯 Design by Business Type
+
+### Retail shop
+
+**Key needs:**
+- Display frontage
+- Storage 15-25% of sales area
+- Easy customer access
+- Cashier sightlines
+- Inventory management
+
+### Restaurant
+
+**Key needs:**
+- Kitchen 30-40% of dining area
+- Hood/exhaust
+- Dishwashing zone
+- Customer flow (entry · order · seating · exit)
+- Storage · walk-in cooler
+
+### Office/Co-working
+
+**Key needs:**
+- Natural light
+- Flexible layout
+- Meeting spaces
+- Printing · storage
+- Power outlets everywhere
+- Ergonomic workstations
+
+### Clinic/Medical
+
+**Key needs:**
+- Reception + waiting
+- Examination rooms (closed · private)
+- Lab/treatment spaces
+- Hygiene standards
+- Separate entry/exit
+- Accessibility (ADA-equivalent)
+
+### Studio/Creative
+
+**Key needs:**
+- Flexible open space
+- Good natural light
+- Work surfaces
+- Storage for materials
+- Cleanable surfaces
+- Large door for equipment
+
+## 💰 Cost Considerations
+
+### Cost drivers
+
+**Commercial portion:**
+- Often **premium finishes** (customer impression)
+- More robust (higher traffic)
+- Specialty equipment (restaurants kitchen, medical)
+- Higher ceiling (grand feel)
+- Commercial HVAC
+
+**Mixed-use multiplier:**
+- **+20-40%** vs pure residential
+- Due to: separate systems · complex permits · specialty equipment
+
+### Example cost · ตึกแถวใหม่ 240 ตร.ม. (3 ชั้น · ground = shop)
+
+| Budget tier | Cost |
+|:-----------:|:----:|
+| Basic | 4-6M |
+| Mid (standard finishes) | 6-8M |
+| Premium (brand image) | 8-12M+ |
+
+## Checklist Mixed-Use Design
+
+### Planning
+- [ ] Zoning permits business use
+- [ ] Parking calculation
+- [ ] Accessibility requirements
+- [ ] Business license feasibility
+- [ ] Neighbor concerns
+
+### Design
+- [ ] Separate entrances
+- [ ] Acoustic separation
+- [ ] HVAC separation
+- [ ] Plumbing strategy
+- [ ] Fire-rated separation
+- [ ] Storefront design
+
+### Business-specific
+- [ ] Retail: display · storage · checkout
+- [ ] Restaurant: kitchen · waste · hood
+- [ ] Office: workstations · meeting rooms
+- [ ] Clinic: exam rooms · accessibility
+- [ ] Studio: flexible open space
+
+### Family side
+- [ ] Private entrance
+- [ ] Quiet zones (bedroom)
+- [ ] Privacy from customers
+- [ ] Family amenities (living · dining · kitchen)
+
+### Permits & Legal
+- [ ] Building permit (new or ดัดแปลง)
+- [ ] Business license
+- [ ] Signage permit
+- [ ] Health/food license (if restaurant)
+- [ ] Accessibility compliance
+
+---
+
+## 🧠 Track G · Theory: Biophilic Design
+---
+title: "Biophilic Design · การออกแบบเชื่อมกับธรรมชาติ"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [biophilic, nature, wellness, theory]
+layers: [design]
+applies_to: [interior, theory]
+jurisdiction: universal
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/WELL-Standard|WELL Standard]]"
+  - "[[wiki/concepts/ออกแบบสวนและภูมิสถาปัตย์|Landscape]]"
+  - "[[wiki/concepts/ต้นไม้สำหรับบ้านไทย|Plants Guide]]"
+---
+
+Biophilic = "love of life" · **ธรรมชาติในบ้าน** improves mental + physical health · productivity · happiness
+
+## 🌿 14 Patterns of Biophilic Design
+
+ตามทฤษฎี Terrapin Bright Green · 3 กลุ่ม · 14 patterns
+
+### Group 1 · **Nature in the Space** (direct nature)
+
+1. **Visual Connection with Nature** — See plants, water, animals
+2. **Non-Visual Connection** — Hear birds · feel breeze · smell flowers
+3. **Non-Rhythmic Sensory Stimuli** — Wind moving leaves · butterfly
+4. **Thermal & Airflow Variability** — Breeze · temperature gradient
+5. **Presence of Water** — Fountain · pond · aquarium
+6. **Dynamic & Diffuse Light** — Sun through leaves · shadow play
+7. **Connection with Natural Systems** — See rain · seasons · sunrise
+
+### Group 2 · **Natural Analogues** (representations)
+
+8. **Biomorphic Forms & Patterns** — Fractals · curves · organic shapes
+9. **Material Connection with Nature** — Wood · stone · natural fiber
+10. **Complexity & Order** — Natural patterns (leaf · coral · fractal)
+
+### Group 3 · **Nature of the Space** (spatial feelings)
+
+11. **Prospect** — Long view · open vista (safety from high ground)
+12. **Refuge** — Sheltered protected space
+13. **Mystery** — Partial view · invites exploration
+14. **Risk/Peril** — Controlled threat (high bridge · cliff edge)
+
+## 💡 Why Biophilic Works (Evidence-based)
+
+### Research findings
+
+- **Views of nature** → reduce stress 15-30%
+- **Plants in office** → productivity +15%, fewer sick days
+- **Natural light** → better sleep, mood, Vitamin D
+- **Natural materials** → lower cortisol (stress hormone)
+- **Nature sounds** → faster recovery from stress
+
+### In hospitals:
+- Patients facing trees recovered **1 day faster**
+- Used **30% less pain medication**
+
+### In offices:
+- Call center employees with views took **11% fewer sick days**
+- Schools with more daylight · **20-26% better test scores**
+
+## 🏠 Implementing in Thai Home
+
+### Level 1 · Basic (anyone can)
+
+**Living greenery:**
+- Potted plants (3-5 minimum per room)
+- Snake plant · pothos · monstera (easy care)
+- Herbs in kitchen
+- Succulent garden
+
+**Natural materials:**
+- Wood furniture (not plastic laminate)
+- Linen/cotton fabric (not polyester)
+- Clay pottery
+- Wool rugs
+
+**Natural views:**
+- Orient sofa to window
+- Don't block window
+- Clear window (no frosting)
+
+**Cost:** 5-20K · immediate impact
+
+### Level 2 · Intermediate (retrofit)
+
+**Plant walls:**
+- Living wall · moss wall
+- 10K-100K depending size
+- Kitchen · living · office
+
+**Water features:**
+- Small tabletop fountain
+- Fish bowl · small aquarium
+- Pond (if outdoor)
+- 5K-50K
+
+**Natural sound:**
+- Window open (actually hear outdoor)
+- Sound system with nature sounds (for bedroom)
+- Wind chime · bell
+
+**Enhanced daylight:**
+- Remove heavy curtains (use sheer)
+- Mirror opposite window
+- Light tube (from roof)
+- Skylight retrofit
+
+**Cost:** 20-100K
+
+### Level 3 · Advanced (design phase)
+
+**Architecture integrates nature:**
+
+**Courtyard:**
+- Light well with trees
+- Glass walls facing courtyard
+- Indoor garden
+- 100-500K build cost
+
+**Indoor-outdoor flow:**
+- Sliding door walls (pocket)
+- Same floor material inside-out
+- Covered outdoor living
+- 200-1M depending scope
+
+**Natural ventilation (ดู [[wiki/concepts/ออกแบบบ้านให้เย็นโดยไม่พึ่งแอร์]]):**
+- Cross ventilation designed
+- Stack effect (high ceiling + roof vent)
+- Operable windows everywhere
+- Included in architecture
+
+**Rooftop garden:**
+- Full garden on roof
+- Walkable surfaces
+- Plants native
+- 200-1M
+
+**Integrated water:**
+- Reflecting pool at entrance
+- Waterfall wall
+- Rain chains instead of downspouts
+- 100-500K
+
+## 🪴 Specific Strategies · Room by Room
+
+### Entry / Foyer
+- **Large plant** (welcoming)
+- **Stone/pebble floor inset**
+- **Glass to garden visible**
+- Natural wood door
+
+### Living Room
+- **View to garden/courtyard**
+- **Multiple plants** (corners · shelves)
+- **Wood + stone materials**
+- **Natural fabric sofa** (linen · cotton)
+- **Accent: natural fiber rug**
+
+### Kitchen
+- **Herbs growing** at sink
+- **Wood cutting boards**
+- **Stone/wood countertop**
+- **Window above sink** (garden view)
+- **Rattan/bamboo accessories**
+
+### Dining
+- **Wood table** (solid)
+- **Pendant light** with organic form
+- **Vase of fresh flowers** (weekly)
+- **Plant centerpiece**
+- **Open to garden** (sliding door)
+
+### Bedroom
+- **Plants for air** (snake plant · peace lily)
+- **Natural bedding** (100% cotton · linen · bamboo)
+- **Wood headboard**
+- **Dimmable lighting** (mimic sunset)
+- **Dawn simulator** (sunrise wake-up)
+- **Open window at night** if possible
+
+### Bathroom
+- **Natural stone** (travertine · river rock)
+- **Wood vanity**
+- **Plants for humidity** (peace lily · fern)
+- **Skylight over shower** (if possible)
+- **Natural fiber bath mat**
+
+### Home Office
+- **Plants near monitor**
+- **Wood desk**
+- **Window facing** (if possible)
+- **Natural light desk lamp**
+- **Natural sound** (nature sounds · fountain)
+
+## 🌳 Thai Tropical · Biophilic-Ready
+
+ไทยมี **built-in advantage** สำหรับ biophilic:
+
+### Traditional Thai house features (ดู [[wiki/concepts/บ้านไทยโบราณ]])
+
+- **ใต้ถุนสูง** → connect ground
+- **ชานบ้าน** → transitional nature space
+- **หน้าต่างเปิดทะลุ** → natural ventilation
+- **วัสดุธรรมชาติ** (ไม้ · ไผ่)
+- **หลังคาเปิดจั่ว** → sky connection
+- **ต้นไม้รอบบ้าน** → จามจุรี · ขนุน
+
+### Apply in modern Thai home
+
+**Courtyard (sala kitchen/garden):**
+- Central plant courtyard
+- Cooling stack effect
+- All rooms face in
+
+**Semi-outdoor dining:**
+- Sala sala · Thai pavilion
+- Open sides · roof
+- Dine with garden view
+
+**Water element:**
+- Lotus pond
+- Small waterfall
+- Koi pond
+
+## 🎨 Color + Biophilic
+
+### Natural colors palette
+
+**Earth tones:**
+- Cream · beige · tan
+- Terracotta · rust
+- Ochre · mustard
+
+**Nature greens:**
+- Sage · olive · forest
+- Moss · fern
+
+**Ocean/sky blues:**
+- Sky blue · ocean
+- Navy depths
+
+**Avoid overuse of:**
+- Bright primary colors
+- Neon
+- Pure black (deadens space)
+
+## 📊 Measuring Impact
+
+### Qualitative (feel)
+- Do residents smile more?
+- Less anxiety?
+- Better sleep?
+- Guests comment on feeling?
+
+### Quantitative (metrics)
+- **Energy bills** ↓ (passive design → less AC)
+- **Productivity** ↑ (WFH · focus)
+- **Sleep quality** (wearable data)
+- **Indoor air quality** (CO₂ · VOC monitor)
+- **Real estate value** (biophilic premium 10-15%)
+
+## 💰 Cost Perspective
+
+**Biophilic doesn't mean expensive:**
+- Plants: 200-2K each
+- Natural materials often comparable to synthetic
+- Natural light + ventilation: design cost only
+- Maintenance for plants: 500-2K/month (hire)
+
+**Smart spending:**
+- 80% impact from **design choices** (orientation · windows · materials)
+- 20% from add-ons (water features · art)
+
+**Premium biophilic:**
+- Living wall: 5-50K/ตร.ม.
+- Interior courtyard: 200K-1M
+- Full integration: 10-15% construction budget
+
+## 🚫 Common Mistakes
+
+1. **Fake plants** — defeats purpose
+2. **Over-planted** · jungle look overwhelming
+3. **Wrong plants for light** · dying plants depressing
+4. **All natural materials** · incohesive
+5. **Plants in wrong spots** · bedroom too many (humidity · oxygen sharing)
+6. **Ignoring humidity** · wood warps in wet rooms
+7. **Token gestures** · one plant isn't biophilic
+
+## Checklist Biophilic Implementation
+
+### Starter (everyone)
+- [ ] 3+ real plants per room
+- [ ] Window blinds open during day
+- [ ] Some natural materials (wood/stone somewhere)
+- [ ] View of nature from at least 3 spots
+- [ ] Fresh air regularly (open window)
+
+### Intermediate
+- [ ] Plant wall · living feature
+- [ ] Water feature · somewhere
+- [ ] Natural scents (essential oil · fresh flowers)
+- [ ] Nature sounds (fountain · window open)
+- [ ] Multiple material categories (wood + stone + plant)
+
+### Advanced
+- [ ] Courtyard · light well
+- [ ] Indoor-outdoor flow
+- [ ] Cross ventilation designed
+- [ ] Rooftop/terrace garden
+- [ ] Natural light optimized (no dark interior)
+- [ ] Biomorphic architecture details
+
+---
+
+## 🧠 Track G · Theory: WELL Standard
+---
+title: "WELL Standard · มาตรฐานบ้านเพื่อสุขภาพ"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [WELL, wellness, health, certification]
+layers: [design]
+applies_to: [wellness, design-theory]
+jurisdiction: universal
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/Biophilic-Design|Biophilic Design]]"
+  - "[[wiki/concepts/Green-Building-Certification|Green Certification]]"
+  - "[[wiki/concepts/ระบบปรับอากาศและระบายอากาศ|HVAC]]"
+---
+
+**WELL Building Standard** · focus on **human health & wellness** (ต่างจาก LEED ที่ focus environment)
+ตั้งขึ้นโดย International WELL Building Institute (IWBI)
+
+## 🎯 10 Concepts · WELL v2
+
+WELL covers **10 concepts** ที่ส่งผลต่อสุขภาพ:
+
+| # | Concept | Focus |
+|:-:|---------|-------|
+| 1 | **Air** | Clean · fresh · low pollutant |
+| 2 | **Water** | Quality · access · monitoring |
+| 3 | **Nourishment** | Healthy eating environment |
+| 4 | **Light** | Daylight · artificial lighting |
+| 5 | **Movement** | Activity encouraged |
+| 6 | **Thermal Comfort** | Right temperature · humidity |
+| 7 | **Sound** | Acoustic comfort · privacy |
+| 8 | **Materials** | Low-toxicity · safe |
+| 9 | **Mind** | Mental wellbeing · biophilic |
+| 10 | **Community** | Social connection |
+
+## 💨 1. Air Quality
+
+### Key strategies
+
+**Ventilation rate:**
+- Fresh air **30 m³/hr per person** (ASHRAE 62)
+- **Demand-controlled ventilation** (CO₂ sensors)
+
+**Filtration:**
+- **MERV 13** minimum (ดี)
+- **HEPA (H13)** for PM2.5 (ไทย · very important)
+
+**VOC reduction:**
+- Low/no-VOC paint (< 50 g/L)
+- Low-VOC flooring (Greenguard certified)
+- Formaldehyde-free cabinets
+- Air flush before occupancy
+
+**Monitoring:**
+- CO₂ sensor (< 800 ppm ideal)
+- PM2.5 monitor (< 12 µg/m³)
+- Humidity (30-60%)
+- Display in common area
+
+### Thailand-specific
+
+**PM2.5 pollution:**
+- Bangkok · Chiang Mai seasonal
+- **HEPA filter + air purifier** · essential
+- **Positive pressure home** (sealed + HEPA intake)
+- Monitor AQI
+
+## 💧 2. Water Quality
+
+### Strategies
+
+**Filtration:**
+- Whole-house filter (sediment + chlorine)
+- Point-of-use (drinking · ice · RO)
+- Shower filter (chlorine for skin)
+
+**Testing:**
+- Lead · copper (old pipes)
+- Bacteria
+- Chlorine residue
+- pH
+
+**Hot water safety:**
+- Set max 60°C (prevent scalding)
+- Mixing valve for shower
+
+**Thailand considerations:**
+- Tap water not drinkable
+- Bottled/RO water for drinking
+- Rainwater filtered for non-potable
+- Boil backup
+
+## 🥗 3. Nourishment
+
+### Home kitchen design for health
+
+**Open pantry display:**
+- Healthy food visible (fruit bowl · vegetables out)
+- Junk food hidden
+- **Behavioral nudge**
+
+**Water accessibility:**
+- Drinking water station visible
+- Cool water dispenser
+- Multiple drinking stations
+
+**Cooking spaces:**
+- Large prep counter (encourages cooking at home)
+- Good knives · tools accessible
+- Induction (safer than gas)
+
+**Dining environment:**
+- No TV at dinner table (mindful eating)
+- Pleasant view
+- Comfortable seating
+
+## ☀ 4. Light (ดู [[wiki/concepts/Lighting-Design]])
+
+### Strategies
+
+**Daylight:**
+- Window area ≥ 15% of floor
+- Operable for ventilation
+- Position desk facing window
+
+**Circadian rhythm:**
+- **Morning bright light** (5,000K · 500+ lux)
+- **Evening warm** (2,700K · dim)
+- **Night darkness** (< 30 lux)
+- **Tunable smart lighting** (automated)
+
+**Artificial at night:**
+- < 3,000K after 7pm
+- Dimmers everywhere
+- No blue light 2 hrs before bed
+- Blackout curtains bedroom
+
+**Visual comfort:**
+- No glare from screens
+- Task lighting for detail work
+- Avoid flickering LED
+
+## 🚶 5. Movement
+
+### Encourage activity
+
+**Home features:**
+- **Stair prominent** (not hidden)
+- **Home gym** or workout space
+- **Standing desk** option
+- **Bike storage** (encourage cycling)
+- **Walking paths** in garden/compound
+
+**Design psychology:**
+- Stairs **wider + better-lit than elevator**
+- Outdoor furniture comfortable (extend time)
+- Short walks to kitchen (filling water breaks)
+
+## 🌡 6. Thermal Comfort
+
+### Target
+
+**Temperature:** 22-26°C (ASHRAE 55)
+**Humidity:** 30-60% RH
+**Air movement:** 0.1-0.25 m/s (still to gentle breeze)
+
+### Strategies
+
+**Zone control:**
+- Different rooms · different setpoints
+- Occupancy-based
+- Smart thermostat
+
+**Fans:**
+- Ceiling fan every room (reduce AC 3-5°C setting)
+- Portable fans
+- Supplemental comfort
+
+**Humidity control:**
+- Dehumidifier (Thai humid)
+- AC with dehumidifier function
+- Ventilation when cooler outside
+
+**Thermal variety:**
+- Not uniform 24°C everywhere
+- **Gradient comfort** (slightly warmer kitchen · cooler bedroom)
+
+## 🔊 7. Sound (ดู [[wiki/concepts/Acoustics-Soundproofing]])
+
+### Target
+
+**Maximum noise:**
+- Bedroom night: 30 dB
+- Office: 40 dB
+- Living: 45 dB
+
+### Strategies
+- Soundproofing between rooms
+- Insulation (acoustic rated)
+- Soft furnishings (absorb)
+- White noise option (bedroom)
+
+## 🧪 8. Materials
+
+### Low-toxicity
+
+**Paint:**
+- Zero-VOC (< 5 g/L)
+- Benjamin Moore Natura · Dulux Better Living
+
+**Flooring:**
+- Hardwood (no formaldehyde glue)
+- Natural linoleum (not vinyl)
+- Wool carpet (not synthetic)
+
+**Cabinets:**
+- NAF (no added formaldehyde)
+- Plywood not MDF
+- Bamboo (sustainable)
+
+**Fabric:**
+- Organic cotton
+- Linen
+- Wool
+- Avoid stain-resistant coatings (PFAS)
+
+### Certifications
+- **Greenguard Gold**
+- **Cradle-to-Cradle**
+- **Declare Label** (Red List Free)
+
+## 🧘 9. Mind
+
+### Mental wellness
+
+**Biophilic integration** (ดู [[wiki/concepts/Biophilic-Design]])
+
+**Quiet spaces:**
+- Meditation room / corner
+- Reading nook
+- Away from household noise
+
+**Art + beauty:**
+- Personal meaningful art
+- Natural views
+- Pleasant proportions
+
+**Restoration:**
+- Dedicated sleep sanctuary (bedroom)
+- Spa-like bathroom
+- Zen garden
+
+**Personal control:**
+- Adjustable lighting · temp
+- Choice of spaces · moods
+- Privacy where needed
+
+## 👥 10. Community
+
+### Social spaces
+
+**Home scale:**
+- Large dining table (family + guests)
+- Living for conversation
+- Outdoor entertainment
+
+**Building scale (condo/development):**
+- Shared gathering spots
+- Kids' play areas
+- Gym/pool (meet neighbors)
+- Walking paths
+
+## 🏠 WELL vs LEED vs TREES
+
+| Focus | **LEED** | **WELL** | **TREES** |
+|-------|:-------:|:--------:|:---------:|
+| Environment | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Human health | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Region focus | Global | Global | Thai-ASEAN |
+| Home applicable | Limited | Full (WELL Home) | TREES-HOME |
+| Cost | High | Highest | Medium |
+
+**Can combine:** WELL + LEED certified = Platinum sustainability
+
+## 💰 WELL Certification
+
+### Not all need formal cert
+
+**For personal home:**
+- Use WELL strategies without certifying
+- Save $100K+ in certification fees
+- Achieve 80% of benefits
+
+**For brand / rental / sale:**
+- Certification adds value
+- WELL Gold / Platinum levels
+
+### WELL at Home
+
+**Simplified version** for residential
+- 22 requirements · not 100+
+- Self-assessment
+- Lower cost
+- Enough for most
+
+## 🎯 Implement at Home (Budget-Friendly)
+
+### Week 1 · Quick wins
+- [ ] HEPA air purifier (3-10K)
+- [ ] CO₂ + PM2.5 monitor (2-5K)
+- [ ] Water filter (3-15K)
+- [ ] Blackout curtains bedroom
+- [ ] Ceiling fans all rooms
+- [ ] Zero-VOC paint (repaint)
+
+### Month 1 · Medium effort
+- [ ] Plants every room (5-10K)
+- [ ] Natural materials swap (gradual)
+- [ ] Standing desk / workout area
+- [ ] Smart thermostat
+- [ ] Dim lighting evenings (3000K)
+
+### Year 1 · Bigger
+- [ ] Whole-house HEPA integration
+- [ ] Water softener + filter
+- [ ] Acoustic treatment critical rooms
+- [ ] Home gym
+- [ ] Biophilic retrofit
+
+## 📊 Measuring Your WELL Score
+
+### Simple checklist (not certification · self-assess)
+
+**Air:** (0-10)
+- [ ] AQI monitor visible
+- [ ] HEPA filter on HVAC
+- [ ] Cross ventilation possible
+- [ ] Low-VOC finishes
+- [ ] No smoking
+
+**Water:** (0-10)
+- [ ] Drinking water filter
+- [ ] Shower filter
+- [ ] Whole-house sediment filter
+- [ ] Water quality tested
+- [ ] Rainwater system (bonus)
+
+**Light:** (0-10)
+- [ ] All rooms have window
+- [ ] Dimmable lighting
+- [ ] Warm evening lighting
+- [ ] Blackout bedroom
+- [ ] Morning bright wake-up
+
+**Thermal:** (0-10)
+- [ ] Temperature monitor
+- [ ] Humidity control
+- [ ] Ceiling fans everywhere
+- [ ] Zoned control
+- [ ] Operable windows
+
+**Sound:** (0-10)
+- [ ] Quiet bedroom (< 35 dB night)
+- [ ] Good HVAC (quiet fan)
+- [ ] Soft furnishings rooms
+- [ ] Acoustic treatment if needed
+- [ ] No echoey rooms
+
+Score out of 50:
+- 40+ · Excellent WELL alignment
+- 30-40 · Good · room to improve
+- < 30 · Basic · significant opportunity
+
+## Checklist WELL Implementation
+
+### Foundation (low cost)
+- [ ] HEPA air purifier main areas
+- [ ] CO₂/PM2.5 monitor
+- [ ] Water filter drinking
+- [ ] Ceiling fans
+- [ ] Blackout curtains bedrooms
+- [ ] Plants visible
+
+### Design (build-phase)
+- [ ] Orient for daylight
+- [ ] Window area ≥ 15%
+- [ ] Low-VOC specifications
+- [ ] Acoustic-rated assemblies
+- [ ] HVAC filtration grade
+- [ ] Whole-house water filter
+
+### Behavior
+- [ ] Open windows regularly
+- [ ] Morning walk/light
+- [ ] Evening dim lighting
+- [ ] Cook at home
+- [ ] Family meals together
+- [ ] Garden time
+
+---
+
+## 👨‍👩‍👧 Track H · Specialty: Aging-in-Place Deep
+---
+title: "Aging-in-Place · ออกแบบบ้านให้แก่ได้สบาย"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [aging, elderly, accessibility, universal-design, specialty]
+layers: [design, law]
+applies_to: [elderly-home, universal-design]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/สิ่งอำนวยความสะดวกผู้พิการ|Universal Design]]"
+  - "[[wiki/summaries/สรุป-กฎกระทรวง-สิ่งอำนวยความสะดวก-ผู้พิการ|กฎหมาย]]"
+  - "[[wiki/concepts/ออกแบบห้องน้ำ|ออกแบบห้องน้ำ]]"
+---
+
+**60+ population** ขยายตัวใหญ่สุดในไทย · aging-in-place = คนอยู่บ้านตัวเองถึงสุด · **ไม่ใช่ส่งบ้านพักคนชรา**
+Design ดี = lifespan บ้าน 50+ ปี · 3 generations
+
+## 📊 Why This Matters Thailand
+
+### Demographics
+- **Thailand population age 60+:** 21% (2026) → **30%** (2040)
+- **Aging society** officially declared 2021
+- **Most elderly prefer:** stay at home (not senior home)
+- **Multi-generational household:** still common
+
+### Economics
+- Senior home cost: 30,000-80,000 บาท/เดือน
+- Home modification: one-time 500K-2M
+- **ROI:** 5-10 ปี break-even + quality of life
+
+## 🏗 Aging-in-Place Philosophy
+
+### Design for "oldest future self"
+
+Not "design for elderly · then we move them somewhere"
+
+**Timeline thinking:**
+- **50s-60s:** Active · independent · prefer usable/beautiful
+- **70s-80s:** Slowing · may need assistance occasional
+- **80s+:** May need wheelchair · full-time care
+
+**Design for full spectrum** · not just one phase
+
+### Universal Design principles (7)
+
+1. **Equitable Use** — Same for all abilities
+2. **Flexibility** — Multiple ways to use
+3. **Simple & Intuitive** — No complex controls
+4. **Perceptible Information** — Multiple senses
+5. **Tolerance for Error** — Forgiving
+6. **Low Physical Effort** — Easy on body
+7. **Size & Space for Access**
+
+## 🚪 Entry + Entrances
+
+### Main entry
+
+**Step-free entry:**
+- **No step** to front door (ramp if grade change)
+- **Covered** (protection entry · walker/wheelchair)
+- **Wide** door ≥ **90 ซม.** (95 ideal)
+- **Lever handle** (not knob)
+- **Smart lock** (no fumbling with keys)
+
+### Foyer
+
+**Bench for putting on shoes:**
+- Low (38-45 ซม.)
+- Arms for push-up assistance
+- Good lighting
+- Near door
+
+**Storage within reach:**
+- Not high cabinets
+- Hook for jacket at shoulder height
+- Umbrella stand accessible
+
+## 🏠 Home Layout Principles
+
+### Single-story living possible
+
+**Critical for late stages (wheelchair):**
+- **Master bedroom + bath on ground floor**
+- Or: plan for future conversion of dining/office
+
+**For 2+ story homes:**
+- **Elevator shaft reserved** (even if not installed yet)
+- Minimum 1.1 × 1.4 ม. footprint
+- Structural support ready
+- Electrical capacity for future install
+
+### Wide circulation
+
+**Hallways:** ≥ **1.20 ม.** (wheelchair turn 1.50 for easy)
+**Doorways:** ≥ **90 ซม.** (throughout · not just main)
+**Turning radius:** 1.50 × 1.50 ม. (wheelchair space)
+
+### Open plan advantages
+
+**Why good for aging:**
+- Fewer walls · wider feeling
+- Caregiver can see resident
+- Wheelchair path easier
+- Less isolated
+
+## 🚿 Bathroom (critical)
+
+### Accessibility design
+
+**Door:**
+- **90 ซม. sweep open** (outward opens · rescue possible if fall)
+- Or **sliding door** (doesn't hit bath fixtures)
+- Lever handle
+
+**Size:**
+- Minimum **2.0 × 2.4 ม.** (fully accessible)
+- Standard (2.4 × 3.0) better
+
+**Shower (preferred over tub):**
+- **Walk-in / roll-in** (no threshold)
+- **Minimum 1.0 × 1.2 ม.** stall
+- **Better 1.2 × 1.5** · wheelchair accessible
+- **Fold-down seat** (built into wall)
+- **Grab bars** (vertical + horizontal)
+- **Handheld shower** (not just rain head)
+- **Controls within reach** of seated person
+- **Temperature limited** (65°C max · prevents scald)
+- **Anti-slip floor** (R11+ rating)
+
+**Toilet:**
+- **Height 48-50 ซม.** (higher than standard 40)
+- Or **comfort-height** toilet (ADA)
+- **Wall-hung possible** (clean under)
+- **Grab bars** side wall + rear
+- **Space beside toilet** ≥ 45 ซม. (transfer)
+
+**Vanity:**
+- **Knee space** underneath (wheelchair pull up)
+- **Lowered sink** (76-86 ซม. height · not 90+)
+- **Lever faucet**
+- **Mirror tilted** (seated viewing)
+- **Storage within 40-140 ซม.** height range
+
+**Lighting:**
+- **High illumination** (500+ lux)
+- **Night light** automatic (motion sensor)
+- **No shadows** (multi-source)
+
+### Bathroom retrofitting checklist
+- [ ] Door width ≥ 85 ซม.
+- [ ] Door swings out
+- [ ] Grab bars at toilet + shower
+- [ ] Walk-in shower (no threshold)
+- [ ] Non-slip floor
+- [ ] Handheld shower
+- [ ] Taller toilet (or raised seat)
+- [ ] Lever handles (faucet · door)
+- [ ] Night light
+
+## 🍳 Kitchen
+
+### Accessible design
+
+**Cabinets:**
+- **Lower cabinets** accessible (standard)
+- **Pull-out shelves** (no reaching back)
+- **Lazy susans** corners
+- **D-shaped handles** (easier grasp)
+- **Upper cabinets lower** (reach max 1.80 ม.)
+
+**Counters:**
+- **Variable heights** (possible)
+  - Standard 85-90 ซม.
+  - Lower section 76-80 ซม. (seated use)
+- **Counter edges rounded**
+- **Contrasting edge** (perceive edge)
+
+**Sink:**
+- **Shallow** (not deep · strain)
+- **Knee space below** (seated)
+- **Lever faucet** with pull-down
+- **Hot water limited** temperature
+
+**Cooking:**
+- **Induction cooktop** (safer than gas · no open flame)
+- **Electric oven** with side-hinged door
+- **Raised dishwasher** (less bending)
+- **Easy-read controls**
+
+**Storage:**
+- **Pantry drawer-based** (not shelves)
+- **Frequently-used at eye level**
+- **Rarely-used low/high**
+- **Weight distribution** (heavy items between hip-shoulder)
+
+## 🛏 Bedroom
+
+### Master bedroom design
+
+**Bed:**
+- **Height:** 55-60 ซม. (easier in/out than low bed)
+- **Access from 3 sides** if possible
+- **Adjustable base** (luxury · medical)
+- **Firm mattress** (rise easier)
+
+**Lighting:**
+- **Dimmers**
+- **Bedside lights** both sides (2-way switch)
+- **Night path** (motion to bathroom)
+- **Reading light** aimed (book support)
+
+**Bedside:**
+- **Solid table** · arm support if dizzy standing
+- **Phone reach** (emergency)
+- **Water · medications** within reach
+
+**Closet:**
+- **Walk-in** accessible (roll-in if future)
+- **Closet rods adjustable height**
+- **Lighting automatic** (motion)
+- **Seating** inside (put on shoes)
+
+### Safety features
+- **Emergency alert** button accessible
+- **Fire/smoke detector**
+- **CO detector** (if gas nearby)
+- **Phone/alert pendant**
+
+## 🪜 Stairs + Vertical Movement
+
+### If stairs must exist
+
+**Design:**
+- **Wider treads** 28-30 ซม. (not 22 minimum)
+- **Lower risers** 15-17 ซม. (not 20 max)
+- **Handrails BOTH sides** (grab preference · return strength)
+- **Contrasting nosing** (visibility)
+- **Good lighting** step-level
+- **Non-slip tread surface**
+- **Landing every 12 steps** (rest)
+
+### Alternatives to plan for
+
+**Stair lift:**
+- **4-10K baht per floor**
+- Install possible later
+- Space: 45 ซม. along stair
+- Electricity at top/bottom
+
+**Residential elevator:**
+- **500K-1.5M** (1-2 floor)
+- Space: 1.1 × 1.4 ม. minimum
+- **Structural reinforcement** needed
+- Plan during build (retrofit 3x more)
+
+## 💡 Technology for Aging
+
+### Smart home basics (helpful)
+
+**Voice control (critical):**
+- Google Nest · Alexa
+- Hands-free if mobility issues
+- Control everything
+
+**Automated lighting:**
+- Motion sensor hallways (night)
+- Schedule-based
+- Remote access
+
+**Smart thermostat:**
+- Remote adjust (family)
+- Automated schedule
+- Energy saving
+
+**Smart lock:**
+- Keypad/fingerprint
+- Remote unlock (deliveries · caregiver)
+- No keys lost
+
+### Medical alert systems
+
+**Types:**
+- **Pendant** with button (fall detection)
+- **Smart watch** (Apple Watch · Samsung)
+- **In-home system** (Philips Lifeline)
+- Connected to family or service
+
+### Health monitoring
+
+- Blood pressure automatic
+- Heart rate (watch)
+- Sleep patterns (mattress sensor)
+- Fall detection
+
+## 🎨 Design Aesthetics
+
+### Not "hospital look"
+
+**Fight against:**
+- Clinical appearance
+- Institutional feel
+- Obvious disability accommodations
+
+**Integrate invisibly:**
+- Grab bars that look like towel bars
+- Widened doors (just standard look)
+- Roll-in shower (like luxury shower)
+- Wheelchair-accessible counters (like breakfast bar)
+
+### Beautiful + Accessible
+
+- Marble grab bar
+- Artistic lever handles
+- Walk-in shower like spa
+- Wide halls = elegant proportion
+- Open plan = luxury
+
+## 💰 Cost Impact
+
+### During new construction
+- **+5-10% of total** for universal design
+- Mostly comes from wider doors/halls
+- Larger bathrooms
+
+### Retrofitting existing home
+- **300K-1.5M** for comprehensive adaptation
+- Grab bars · ramps · bathroom update: 100-300K
+- Full accessibility retrofit: 500K-2M
+- Elevator retrofit: 1-2.5M
+
+### ROI
+- Senior home cost: 360K-960K/year
+- Avoid moving (once) = 1-2M+ savings
+- **Aging-in-place quality** priceless
+
+## 🩺 Medical Needs Planning
+
+### Spaces for care
+
+**Home care space:**
+- **Medical supplies storage**
+- **Medication management**
+- **Caregiver room** (if live-in)
+- **Privacy** (dignity during care)
+
+### Equipment
+
+**Mobility:**
+- Walker stand area
+- Wheelchair parking
+- Scooter charging
+
+**Medical:**
+- Hospital bed space (if needed)
+- IV pole
+- Oxygen tank
+- Space for lift equipment
+
+## 👥 Multi-generational
+
+### Privacy + connection balance
+
+**Older resident needs:**
+- Own entrance (independence)
+- Private kitchen (coffee at 5am · no disturb family)
+- Own bathroom
+- Quiet bedroom
+
+**Family needs:**
+- Own space private
+- Visiting space (check in)
+- Flexible for evolving
+
+### Layout options
+
+**Accessory Dwelling Unit (ADU):**
+- Separate small unit on property
+- Kitchen + bath + bed + living
+- Can rent if not needed
+- 40-80 ตร.ม.
+
+**In-law suite in house:**
+- Private wing
+- Own entrance ideally
+- Kitchen in · full bath
+- Same house · separate zones
+
+**Shared with clear zones:**
+- Own bedroom + bath
+- Shared common areas
+- Respect different schedules
+
+## Checklist · Aging-in-Place
+
+### Must-have (from day 1)
+
+- [ ] Step-free entry
+- [ ] Master on ground floor (or elevator-ready)
+- [ ] Doorways ≥ 90 ซม.
+- [ ] Halls ≥ 1.20 ม.
+- [ ] Bathroom door swings out
+- [ ] Walk-in shower (no threshold)
+- [ ] Grab bars in shower + toilet
+- [ ] Lever handles (not knobs)
+- [ ] Non-slip flooring
+- [ ] Raised toilet or ADA-comp
+
+### Plan for future
+
+- [ ] Elevator shaft reserved
+- [ ] Structural load supports elevator
+- [ ] Emergency alert system wiring
+- [ ] Medical equipment space
+- [ ] Caregiver room potential
+
+### Tech ready
+- [ ] Smart home baseline
+- [ ] Voice control everywhere
+- [ ] Video doorbell
+- [ ] Medical alert integration
+
+### Safety
+- [ ] Handrails both sides stairs
+- [ ] Good lighting everywhere
+- [ ] Motion-sensor night paths
+- [ ] Smoke/CO detectors
+- [ ] Fire extinguishers
+
+### Emotional
+- [ ] Not obviously "for elderly"
+- [ ] Beautiful accessibility
+- [ ] Multi-generation friendly
+- [ ] Comfortable to age gracefully
+
+---
+
+## 👨‍👩‍👧 Track H · Specialty: Kid-Safe Design
+---
+title: "Kid-Safe Design · บ้านปลอดภัยสำหรับเด็ก"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [kids, children, safety, specialty]
+layers: [design]
+applies_to: [families-with-children]
+jurisdiction: universal
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/ออกแบบห้องเด็ก|ออกแบบห้องเด็ก]]"
+  - "[[wiki/concepts/ระบบไฟฟ้าบ้าน|ระบบไฟฟ้า]]"
+---
+
+เด็ก 0-6 ขวบ · สถานการณ์อันตรายเกิด**ที่บ้านเกินครึ่ง** · ออกแบบดี = ลดอุบัติเหตุ 80%+
+
+## ⚠ Top Injuries (Thailand statistics)
+
+| อันดับ | อุบัติเหตุ | % ที่เกิดที่บ้าน |
+|:-----:|-----------|:--------------:|
+| 1 | **Falls** (หกล้ม · ตก) | 45% |
+| 2 | **Burns** (น้ำร้อน · ไฟ) | 18% |
+| 3 | **Drowning** (สระ · อ่าง) | 12% |
+| 4 | **Poisoning** (chemicals · พืช) | 10% |
+| 5 | **Cuts/Punctures** | 8% |
+| 6 | **Choking/Suffocation** | 5% |
+| 7 | **Electric shock** | 2% |
+
+**Most preventable** with good design
+
+## 🪟 Fall Prevention
+
+### Windows
+- **Window guards** all bedrooms (child up to 6 years)
+- **Child-safe opening limiters** (≤ 10 ซม. opening)
+- **Window cords** (blind) — out of reach (strangulation risk)
+- **Screens** (insects + visual barrier)
+
+### Balconies / Terraces
+- **Railings ≥ 1.20 ม.** (not 90 ซม.)
+- **Vertical balusters** ≤ 10 ซม. apart (no foothold · no head-through)
+- **No horizontal climbing** (no ladder effect)
+- **Solid panels bottom 80 ซม.** (blocks climbing)
+- **Furniture away from rail** (can't push chair to climb)
+
+### Stairs
+- **Gates top + bottom** (age 0-2 years)
+- **Railing BOTH sides** (even if narrow stair)
+- **Closed risers** (no feet through · under)
+- **Non-slip tread** (carpet or treads)
+- **Good lighting**
+- **Contrasting nosing** (visual edge)
+
+### Floors
+- **Non-slip** especially bathroom · kitchen · entry
+- **Rug pads** (rugs don't slide)
+- **No sharp level changes** (trips)
+- **Soft landing** in play areas (foam tiles · carpet)
+
+### Furniture
+- **Anchor to walls** (tall dressers · bookshelves · TVs)
+  - TVs have tipped on 1 child every 3 weeks in US
+- **Corner guards** (sharp corners)
+- **Soft-close drawers** (pinch fingers)
+- **No climbing temptations** (bookshelf with low shelves)
+
+## 🔥 Burn Prevention
+
+### Water
+- **Thermostatic mixing valve** — max **45°C** shower
+- **Child-safe faucet** (temperature memory)
+- **Hot tap** marked
+
+### Kitchen
+- **Stove guards** (rail around hot burners)
+- **Pan handles inward** (not overhang)
+- **Induction cooktop** (no open flame · surface cool)
+- **Lock oven** when hot
+
+### Fire
+- **Lighters/matches** locked up
+- **Candles** away from curtains
+- **Fireplace screens** (if applicable)
+- **Gas shutoff** accessible (but out of reach for kids)
+
+### Heat-producing appliances
+- **Hot water heater** insulated
+- **Heated towel rails** · thermostat-controlled
+- **Ironing board** stored vertical (not kids reach)
+
+## 💧 Drowning Prevention
+
+### Pool (ultimate hazard)
+- **Fence around pool** ≥ 1.20 ม. height
+- **Self-closing · self-latching gate**
+- **Pool cover** when not in use
+- **Alarm on pool** (motion)
+- **No furniture climbable** near fence
+- **Swimming lessons** early (3-4 years)
+
+### Bathtub
+- **Never leave unattended** (< 5 years)
+- **Non-slip bath mat**
+- **Drain cover** (hair caught risk)
+- **Temperature limited**
+
+### Buckets / large containers
+- **Empty water immediately** after use
+- 2 cm of water can drown toddler
+- Buckets upside-down stored
+
+## 🧪 Poison Prevention
+
+### Lock-up chemicals
+- **Cleaning supplies** locked cabinet (not under sink!)
+- **Medications** locked high
+- **Cosmetics** (many toxic)
+- **Alcohol** (dangerous for small bodies)
+- **Batteries** (button batteries deadly if swallowed)
+
+### Plants (surprise toxic)
+
+**Common toxic houseplants:**
+- Dieffenbachia (ชนิดที่ขาวปลายใบ)
+- Philodendron
+- Lily (all species)
+- Azalea
+- Peace lily
+- Aloe vera (only topical · not eat)
+
+**Keep all plants out of reach** if toddlers
+
+### Outdoor
+- Poison hemlock
+- Oleander (toxic all parts)
+- Castor bean
+- Mushrooms (wild)
+
+## 🪡 Sharp Objects
+
+### Storage
+- **Knives locked** (kitchen)
+- **Scissors** out of reach
+- **Tools** in workshop locked
+- **Glass items** (breakable) · elevated
+
+### Toys
+- **Age-appropriate** (small parts = choking)
+- **Check for sharp edges**
+- **No broken toys**
+
+## 🔌 Electrical Safety
+
+### Outlets
+- **Tamper-resistant outlets** (spring-loaded · can't insert object)
+- **Covers on unused outlets**
+- **GFCI/RCBO** wet areas (kitchen · bathroom · outdoor)
+- **Strip guards** (block kid from pulling plugs)
+
+### Cords
+- **Tuck away** out of reach
+- **Cord shorteners** (wrap excess)
+- **No dangling cords** (pull things down)
+
+### Appliances
+- **Small appliances** unplugged when not in use
+- **Cord management**
+
+## 🪨 Choking Hazards
+
+### Small items
+
+**"Toilet paper tube test":**
+- If fits in toilet paper tube · choking risk for < 3 years
+- Examples: coins · buttons · small toys · batteries · grapes · hot dogs
+
+### Window coverings
+- **Cordless blinds** (preferred)
+- **Cord cleats** (wrap cords high)
+- **Continuous loop** cord-free
+
+## 🛏 Furniture + Fabrics
+
+### Beds (for infants/toddlers)
+- **Crib slats** ≤ 6 ซม. (head can't go through)
+- **No loose bedding** (SIDS risk)
+- **Firm mattress**
+- **No bumper pads** (suffocation)
+
+### Older kids
+- **Bunk beds** — age 6+
+- **Guard rails** upper bunk
+- **Safe ladder** (not vertical)
+
+### Linens
+- **Natural fibers** (less flammable than synthetic)
+- **Avoid loose heavy curtains** near crib
+
+## 🏠 Room-specific Design
+
+### Nursery (0-2 years)
+- Electric outlet covers
+- No cords near crib
+- Baby monitor
+- Changing table with straps
+- Soft lighting for night
+
+### Toddler room (2-5 years)
+- Anchored furniture
+- Soft flooring (cork · wool · carpet)
+- Low bed (can climb in/out)
+- Age-appropriate toys
+- Playroom ready
+
+### Kitchen (shared family space)
+- Child gate (0-2)
+- Stove guards
+- Knife blocks high or locked
+- Plastic dishes within reach
+- Small table/chair for kids
+
+### Bathroom (shared)
+- Water temperature limited
+- Non-slip bath
+- Medicine cabinet locked
+- Toilet lock (drowning risk)
+
+### Living room (active play area)
+- Corner guards on tables
+- Anchored TV
+- Cords tucked
+- Window guards
+- Soft flooring
+
+### Backyard
+- Pool fenced
+- Trampoline netted
+- Play equipment age-appropriate
+- Non-toxic plants
+- Smart fencing (gate alerts)
+
+## 🎨 Design that grows
+
+### Future-proof for kids
+
+**Avoid:**
+- Super-themed rooms (outgrow in 2 years)
+- Character-specific decor (character dies in popularity)
+
+**Do:**
+- **Neutral bones** · swap accessories
+- Peel-and-stick wallpaper (easy change)
+- Cork boards (change decoration)
+- Adjustable shelving (grow with needs)
+
+### Ages 0-4 · Safety paramount
+- Gates · outlet covers · locks everywhere
+- Soft floors · minimal sharp
+- Simple decor
+
+### Ages 5-10 · Play focus
+- Workstation (homework)
+- Art wall
+- Reading nook
+- Toy storage organized
+
+### Ages 10+ · Privacy
+- Desk for schoolwork
+- Personal style
+- Door locks (age-appropriate)
+- Friend-visit ready
+
+### Teen · Independence
+- Own bathroom if possible
+- Private retreat
+- Technology integration
+- Respect privacy
+
+## 💡 Technology for Child Safety
+
+### Monitors
+- **Baby monitor** (video + audio)
+- **Fall detection** (watches for elderly that also detect kids)
+- **Smart plugs** (schedule · remote off)
+
+### Cameras
+- Front door · backyard
+- Not inside kids' rooms (privacy)
+
+### Alarms
+- **Window/door open alarms**
+- **Pool alarms**
+- **Smoke + CO**
+
+### Smart locks
+- Auto-lock (kids can't leave at night)
+- Keypad (not keys)
+- Access log
+
+## 📋 Age-Specific Checklists
+
+### 0-6 months
+- [ ] Crib safe standards
+- [ ] Baby monitor
+- [ ] Changing station secured
+- [ ] Firm mattress · no bumpers
+
+### 6-18 months (crawling/walking)
+- [ ] Outlet covers
+- [ ] Stair gates
+- [ ] Cabinet locks (kitchen · bath)
+- [ ] Toilet locks
+- [ ] Furniture anchored
+- [ ] Corner guards
+
+### 18 months-3 years (climbing)
+- [ ] Window guards
+- [ ] Fireplace screens
+- [ ] Plants out of reach
+- [ ] Medicine locked
+- [ ] Small objects out
+
+### 3-5 years (exploring)
+- [ ] Tool locks
+- [ ] Pool access restricted
+- [ ] Safety rules taught
+- [ ] Supervision zones defined
+
+### 5+ years
+- [ ] Age-appropriate responsibilities
+- [ ] Emergency plans known
+- [ ] Independent but checked
+
+## 🌈 Don't Make Home Clinical
+
+### Balance safety with living
+
+**Too restrictive:**
+- Kids never learn risk
+- Family tension
+- Ugly safety features
+
+**Right balance:**
+- Hide safety (invisible gates · designer outlet covers)
+- Teach kids (rules + reasons)
+- Progressive freedom (more as age)
+- Supervision as backup
+
+### Beautiful Child-Safe
+
+Examples:
+- Solid-wood crib · elegant + safe
+- Integrated cord management · invisible
+- Designer outlet covers (match palette)
+- Artful railings · safe + beautiful
+- Soft play area · looks like adult furniture
+
+## Checklist · Kid-Safe Design
+
+### Construction phase
+- [ ] Tamper-resistant outlets
+- [ ] GFCI/RCBO wet areas
+- [ ] Thermostatic mixing valves
+- [ ] Stair design safe
+- [ ] Balcony railings proper
+- [ ] Window guards possible
+- [ ] Pool fence (if pool)
+
+### Age 0-2
+- [ ] Baby-proof every room walked through
+- [ ] Gates on stairs + kitchen
+- [ ] Furniture anchored
+- [ ] Cords tucked
+- [ ] Small objects off floors
+
+### Age 2-5
+- [ ] Upgrade baby proofing
+- [ ] Teach dangers
+- [ ] Pool access controlled
+- [ ] Bathroom supervision
+
+### Age 5+
+- [ ] Transition freedom
+- [ ] Room privacy appropriate
+- [ ] Friends' visits setup
+- [ ] Emergency plan known
+
+### Overall
+- [ ] Hazards eliminated (not just managed)
+- [ ] Safety features beautiful
+- [ ] Grows with child
+- [ ] Family + friends comfort
+
+---
+
+## 👨‍👩‍👧 Track H · Specialty: Multi-Generational Home
+---
+title: "Multi-Generational Home · บ้าน 3 รุ่น"
+type: concept
+created: 2026-04-18
+updated: 2026-04-18
+tags: [multi-generational, family, zoning, specialty]
+layers: [design, thai]
+applies_to: [family-home, 3-generation]
+jurisdiction: TH
+source_status: synthesis
+sources: []
+related:
+  - "[[wiki/concepts/Aging-in-Place-Deep|Aging-in-Place]]"
+  - "[[wiki/concepts/Kid-Safe-Design|Kid-Safe Design]]"
+  - "[[wiki/concepts/บ้านไทยโบราณ|บ้านไทยโบราณ]]"
+---
+
+ไทยมีประเพณี **3 generations ใต้หลังคาเดียว** · ปัจจุบันกลับมา (อาจเพราะ elderly care + housing cost)
+ออกแบบบ้านให้**ทุกคนมีพื้นที่** + **ใกล้ชิดกัน**
+
+## 👨‍👩‍👧‍👦 Why Multi-Gen Again?
+
+### ประโยชน์
+- **ช่วยดูแลเด็ก** (ปู่ย่าตายาย ช่วยเลี้ยงหลาน)
+- **ช่วยดูแลผู้สูงอายุ** (ลูกใกล้ดูพ่อแม่)
+- **เงินประหยัด** (1 บ้าน 3 ครอบครัว)
+- **วัฒนธรรมไทย** (ครอบครัวแน่นแฟ้น)
+- **ช่วยเหลือกันเสียสละ** (labor divide)
+
+### ความท้าทาย
+- **Privacy** (3 ครอบครัว · ความต้องการต่าง)
+- **Routine conflicts** (work hours · bed hours)
+- **Financial** (ใครจ่ายค่าอะไร)
+- **Decision making** (ใครตัดสินใจ)
+- **Conflict resolution** (เลี่ยงไม่ได้)
+
+## 🏠 3 Design Approaches
+
+### 1. **Integrated shared home** (Traditional Thai)
+
+**All under one roof · shared kitchen · shared everything**
+
+- **Pros:** Truly together · economical · familial
+- **Cons:** Least privacy · most conflict risk
+- **Best for:** Well-aligned families · small elderly parent
+
+```
+┌─────────────────────────┐
+│  Family living          │
+│  Family dining          │
+│  Family kitchen         │
+├────────┬────────┬───────┤
+│ Elder  │ Parents │ Kids │
+│ suite  │ master  │ rooms│
+└────────┴────────┴───────┘
+```
+
+### 2. **In-law suite** (Balanced)
+
+**Main home + attached "apartment" for elder**
+
+- Own bedroom + bath + small living/kitchenette
+- Connected to main home
+- Share dinner/family time
+- Privacy for morning/evening
+
+**Size:** 30-50 ตร.ม. for in-law suite
+
+```
+┌─────────────────────┬─────────────┐
+│                     │             │
+│  Main Home          │  In-law     │
+│  (parents + kids)   │  Suite      │
+│                     │  (elder)    │
+│  - Living           │  - Bedroom  │
+│  - Dining           │  - Bath     │
+│  - Kitchen          │  - Kitchenette
+│  - Bedrooms         │  - Small LR │
+│                     │             │
+└─────────────────────┴─────────────┘
+        Shared entry
+```
+
+### 3. **Separate ADU** (Most independence)
+
+**Accessory Dwelling Unit · own entrance · own everything**
+
+- Separate small home on property
+- Full kitchen + bath
+- Optional shared use
+
+**Size:** 40-80 ตร.ม.
+
+```
+[Main House]         [ADU]
+┌──────────┐       ┌────────┐
+│ Family   │       │ Elder  │
+│          │  ─────│ unit   │
+│ Kitchen  │       │        │
+│ Living   │       │ Own    │
+│ Bedrooms │       │ entry  │
+└──────────┘       └────────┘
+     Shared garden / pool
+```
+
+## 🎯 Design Principles
+
+### 1. **Zoning by Generation**
+
+**3 zones · clear boundaries:**
+
+**Ground floor (Elders)**
+- Main bedroom + bath
+- Living room accessible
+- Kitchen access
+- **Aging-in-place** (ดู [[wiki/concepts/Aging-in-Place-Deep]])
+
+**Upper floors (Parents + Kids)**
+- Master suite (parents)
+- Kids rooms
+- Family room
+
+**Shared zones (all):**
+- Dining (big table · gather)
+- Outdoor/garden
+- Laundry · storage
+
+### 2. **Sound Separation**
+
+**Critical · บ้าน 3 gen เสียงรบกวน #1 problem**
+
+- **Concrete slab between floors** (ไม่ใช่ไม้)
+- **Acoustic wall** between suites (STC 50+)
+- **Double doors** elder suite (vestibule)
+- **Bedroom not stacked directly above kitchen/living**
+
+(ดู [[wiki/concepts/Acoustics-Soundproofing]])
+
+### 3. **Privacy Gradient**
+
+**Public → Semi-private → Private → Most private**
+
+```
+Entry → Living → Dining → Kitchen → Master → Elder/Kids
+↓                                            ↓
+Public                                    Most private
+```
+
+**Elder suite:** separate sub-entrance (own cards)
+
+### 4. **Kitchen Strategy**
+
+**Option A · 1 large shared kitchen**
+- Big kitchen · everyone cooks
+- Can have 2 cooking stations
+- Shared dining
+
+**Option B · 1 main + 1 small in elder suite**
+- Main kitchen for family meals
+- Small elder kitchenette (coffee · tea · light cooking)
+- Avoid 5am routine conflicts
+
+**Option C · 2 full kitchens**
+- Thai kitchen + Western kitchen
+- Or: main + ADU separate
+- Most independent
+
+### 5. **Bathroom Ratio**
+
+**Rule:** 1 bathroom per 1-2 people
+
+For 3-gen 8-person family:
+- **Elder suite:** 1 bathroom (accessibility)
+- **Master:** 1 en-suite
+- **Kids:** 1-2 shared
+- **Guest/common:** 1
+
+**Total: 4-5 bathrooms**
+
+## 🏠 Thai-Specific Considerations
+
+### Cultural factors
+
+**Hierarchy + respect:**
+- Elders have **best/quietest room**
+- Elders eat first (if traditional)
+- **ห้องพระ** near elder's access
+- Name elders properly
+
+**Festival/ceremony spaces:**
+- Large dining for Songkran · New Year
+- Monk visits (ต้อนรับพระ)
+- Family gatherings (wedding · ordination · funeral)
+- Need flexible large space
+
+### Physical traditions
+
+**Morning routine:**
+- Elders wake early (4:30-6am)
+- Make merit · pray
+- **Quiet space** for this
+
+**Evening:**
+- Watch news together
+- Dinner as family
+- **Gathering space** with TV
+
+**Shoe removal:**
+- Large foyer (multiple family members)
+- Shoe storage (10+ pairs visible)
+- Bench to sit while removing
+
+### Spatial layout patterns
+
+**Traditional Thai:**
+- **ห้องกลาง** (central family gathering · hangs out)
+- **ชานบ้าน** (transition semi-outdoor)
+- **ครัวแยก** (Thai cooking smells)
+- **ใต้ถุน** (cool below)
+
+Apply modern but keep spirit
+
+## 📐 Room Sizes for Multi-Gen
+
+### Elder suite
+
+**Minimum functional:**
+- Bedroom: 12 ตร.ม.
+- Bath: 5 ตร.ม.
+- Total: 17 ตร.ม.
+
+**Comfortable (in-law suite):**
+- Bedroom + sitting: 20-25 ตร.ม.
+- Bath: 6-8 ตร.ม.
+- Kitchenette: 5 ตร.ม.
+- Total: 30-40 ตร.ม.
+
+**Full ADU:**
+- Bed: 15 ตร.ม.
+- Living: 15 ตร.ม.
+- Kitchen: 8 ตร.ม.
+- Bath: 6 ตร.ม.
+- Entry/hall: 4 ตร.ม.
+- Total: 50-80 ตร.ม.
+
+### Kids (age-dependent)
+
+**Young children:**
+- 10-12 ตร.ม. · shared if siblings close age
+
+**School age:**
+- 12-15 ตร.ม. · own room
+- Desk space
+- Storage
+
+**Teenagers:**
+- 14-18 ตร.ม. · privacy important
+- Walk-in mini (if possible)
+- Semi en-suite (share with sibling max)
+
+### Common areas (for 6-10 people)
+
+- **Living:** 25-40 ตร.ม.
+- **Dining:** 18-30 ตร.ม. (8-10 seats table)
+- **Kitchen:** 12-20 ตร.ม. (big enough multi-cooking)
+- **Family room:** 15-25 ตร.ม. (flex space)
+
+### Total home size · 3-gen
+
+- **Minimum functional:** 180-220 ตร.ม.
+- **Comfortable:** 280-350 ตร.ม.
+- **Luxury:** 400+ ตร.ม.
+
+## 🚪 Entry Strategy
+
+### Multiple entrances (for privacy)
+
+**Main entrance** (front)
+- All family uses
+- Guests arrive here
+- Grand entry
+
+**Service entrance** (side/back)
+- Maids use
+- Laundry access
+- Thai kitchen adjacent
+
+**Elder suite entrance** (if separate)
+- Independent access
+- Own mailbox
+- Visitors to elder don't walk through family
+
+**Kids entrance** (mudroom/side)
+- Dirty after school
+- Backpack drop
+- Transition to inside
+
+## 💼 Living Spaces Strategy
+
+### Multiple living zones (for different activities)
+
+1. **Formal living** (meet strangers)
+   - Receive guests
+   - Not daily use
+
+2. **Family room** (casual daily)
+   - TV · game · conversation
+   - Most-used space
+
+3. **Study/quiet room** (read · work)
+   - No TV · no distraction
+   - Accessible all ages
+
+4. **Outdoor living** (sala/patio)
+   - Breakfast
+   - Evening
+   - Weekend
+
+### Kitchen setup
+
+**Thai kitchen (outdoor or semi):**
+- Wok burner (high BTU)
+- Grilling
+- Handles Thai cooking smells
+
+**Show kitchen (indoor):**
+- Open to dining
+- Light prep · coffee · bake
+- Clean look
+
+### Dining table
+- **Seats 8-12** (for family + guests)
+- Extending table option
+- **Round preferred** (fengshui · conversation)
+
+## 🛡 Conflict Prevention
+
+### Physical design reduces friction
+
+**Separate zones active time:**
+- Elder suite · kitchen independent (no 5am wake)
+- Kids playroom · away from elder quiet time
+- Master suite · away from kids
+
+**Noise reduction:**
+- Concrete construction
+- Solid doors
+- Carpet/rug in noisy areas
+
+**Climate control:**
+- Individual zone thermostats
+- Elders may want warmer (79°F)
+- Kids want cooler (72°F)
+
+### Rules + routines (not design but important)
+
+- Meal times agreed
+- Bath time coordination
+- Laundry schedule
+- Cleaning duties
+- Budget sharing
+- Decision making
+
+## 🪴 Amenities for Multi-Gen
+
+### Elder-friendly features
+- **Elevator** (ถ้ามี 2+ ชั้น)
+- **Grab bars** · non-slip
+- **Ramps** (ไม่มี step)
+- **Accessible bathroom**
+- **Emergency alert**
+
+### Kid-friendly features (ดู [[wiki/concepts/Kid-Safe-Design]])
+- **Play area**
+- **Homework space**
+- **Toy storage**
+- **Safety features**
+- **Outdoor play**
+
+### Parent-friendly
+- **Master suite oasis**
+- **Home office** (WFH)
+- **Exercise area**
+- **Date-night nook**
+
+### Shared
+- **Big kitchen · cook together**
+- **Family dining**
+- **Media room · movies together**
+- **Pool · garden · BBQ**
+- **ห้องพระ**
+
+## 💰 Cost Considerations
+
+### vs. Separate homes
+
+**3 separate apartments/houses (5 people each):**
+- Land: 3x
+- Construction: 3x
+- Duplicate kitchens · baths · living
+- More maintenance
+
+**3-gen home (same 15 people):**
+- Land: 1x
+- Construction: 1.3-1.5x (bigger but one home)
+- Shared infrastructure
+- Less maintenance
+
+**Savings:** 30-40% total cost · PLUS emotional benefits
+
+### Cost per sqm
+
+Same as single-family home typically
+- Larger = lower per sqm slightly (economies)
+- More bathrooms · kitchens = slight premium
+- Elevator · accessibility = +5-10%
+
+## 🎨 Design Case Example
+
+### บ้าน 300 ตร.ม. · 3 Generations (8 คน)
+
+**Family:**
+- คุณย่า 72 + คุณยาย 70 (2 elders)
+- พ่อ 45 + แม่ 42 (parents)
+- ลูก 18 · 15 · 12 (3 kids)
+- ลุง 48 (อยู่ด้วย)
+
+**Allocation:**
+
+**ชั้น 1 (150 ตร.ม.):** Elder + Common
+- Elder suite 1 (คุณย่า): 30 ตร.ม.
+- Elder suite 2 (คุณยาย): 30 ตร.ม.
+- Living family 25 ตร.ม.
+- Dining 25 ตร.ม.
+- Kitchen 15 ตร.ม. (Thai outdoor 8 ตร.ม.)
+- Powder 3 ตร.ม.
+- Entry · storage 12 ตร.ม.
+
+**ชั้น 2 (100 ตร.ม.):** Parents + teen
+- Master 25 ตร.ม. + bath 10 ตร.ม.
+- Walk-in 8 ตร.ม.
+- Kids 18-year-old 15 ตร.ม. + en-suite 6 ตร.ม.
+- Family room 20 ตร.ม.
+- Study/office 12 ตร.ม.
+- Laundry 4 ตร.ม.
+
+**ชั้น 3 (50 ตร.ม.):** Kids + Uncle
+- Kids 15 + 12 rooms (shared or 2 small) 25 ตร.ม.
+- Kids' bathroom 6 ตร.ม.
+- Uncle room + bath 18 ตร.ม.
+- Playroom / study 15 ตร.ม.
+
+**Total: 300 ตร.ม.** · 8 people live comfortably
+
+## Checklist · Multi-Gen Design
+
+### Zoning
+- [ ] Elder suite ground floor (accessible)
+- [ ] Master suite own floor
+- [ ] Kids' own zone
+- [ ] Shared zones defined
+
+### Privacy
+- [ ] Acoustic separation (STC 50+ walls between units)
+- [ ] Sound reduced between floors
+- [ ] Separate entrance for elder (if possible)
+- [ ] Eat hours coordinated
+
+### Accessibility
+- [ ] Step-free entry
+- [ ] Wide doors (≥ 90 ซม.)
+- [ ] Elevator or elevator-ready
+- [ ] Accessible bathroom (elder)
+- [ ] Grab bars where needed
+
+### Shared Spaces
+- [ ] Large dining (8-10 seats)
+- [ ] Big kitchen (multi-cook)
+- [ ] Comfortable family room
+- [ ] Outdoor entertaining
+
+### Functional
+- [ ] Multiple bathrooms (1 per 1-2 people)
+- [ ] Laundry accessible
+- [ ] Storage abundant
+- [ ] Service areas defined
+
+### Cultural (Thai)
+- [ ] ห้องพระ placed correctly
+- [ ] ศาลพระภูมิ
+- [ ] Thai kitchen outdoor
+- [ ] Shoe removal space
+- [ ] Ceremony flexibility
+
+### Growth
+- [ ] Kids grow (room flexibility)
+- [ ] Elder may need wheelchair (space ready)
+- [ ] New family members (spaces adaptable)
