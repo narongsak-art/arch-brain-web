@@ -602,7 +602,12 @@ def inject_css():
       ::-webkit-scrollbar-thumb:hover {{ background: var(--primary); }}
     </style>
     """
-    st.markdown(css, unsafe_allow_html=True)
+    # Use st.html() when available (Streamlit 1.32+) — bypasses markdown sanitizer
+    # Fall back to st.markdown for older versions.
+    if hasattr(st, "html"):
+        st.html(css)
+    else:
+        st.markdown(css, unsafe_allow_html=True)
 
 
 def theme_toggle(container=None):
