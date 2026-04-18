@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide",
 )
 
-theme.apply_theme()
+theme.inject_css()
 
 # Hero
 st.markdown("""

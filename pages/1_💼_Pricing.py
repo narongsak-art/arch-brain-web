@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide",
 )
 
-theme.apply_theme()
+theme.inject_css()
 
 st.title("💼 แพ็กเกจและราคา")
 st.caption("เลือกแพ็กเกจที่เหมาะกับการใช้งาน · ยกเลิกได้ทุกเมื่อ")
