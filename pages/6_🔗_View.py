@@ -64,10 +64,143 @@ if not payload:
         "ถ้าลิงก์ใหญ่เกิน · ใช้การ upload ไฟล์ `.json` แทน"
     )
     st.markdown("---")
-    uploaded_payload = share.upload_share_file()
-    if uploaded_payload:
-        payload = uploaded_payload
-        st.rerun()
+
+    # Demo payload so visitors can see what a share link looks like
+    col_demo, col_upload = st.columns(2)
+    with col_demo:
+        st.markdown("#### 🎬 Demo")
+        st.caption("ตัวอย่างหน้าผลวิเคราะห์ · ไม่ต้อง login")
+        if st.button("▶ ดู Demo", type="primary", use_container_width=True):
+            st.session_state["_view_demo"] = True
+            st.rerun()
+    with col_upload:
+        st.markdown("#### 📥 Upload file")
+        uploaded_payload = share.upload_share_file()
+        if uploaded_payload:
+            payload = uploaded_payload
+            st.rerun()
+
+    if st.session_state.get("_view_demo"):
+        payload = {
+            "v": "1.0",
+            "project_data": {
+                "name": "บ้านเดี่ยว-Demo",
+                "land_w": 15, "land_d": 20, "land_area": 300,
+                "province": "กรุงเทพมหานคร", "zone": "ย.3",
+                "street_w": 6.0, "family_size": 4, "has_elderly": "ใช่",
+                "floors": "2", "bedrooms": "3", "budget": 8.0,
+                "fengshui": "ปานกลาง",
+                "special": "ห้องพระ · ผู้สูงอายุชั้นล่าง",
+            },
+            "structured": {
+                "summary": {
+                    "feasibility": "green",
+                    "feasibility_note": "ที่ดิน 300 ตร.ม. เพียงพอต่อบ้าน 2 ชั้น 3 ห้องนอน · FAR ใช้ประมาณ 0.8 จากที่อนุญาต 1.5",
+                    "overall_score": 82,
+                    "key_concern": "ระยะร่นข้างบ้านต้องตรวจวัดกับที่ดินข้างเคียง",
+                    "key_strength": "ที่ดินกว้างพอที่จะออกแบบแยกโซนผู้สูงอายุ-หลัก-บริการได้ชัด",
+                },
+                "metrics": {
+                    "land_area_sqm": 300,
+                    "buildable_area_sqm": 210,
+                    "far_allowed": 1.5,
+                    "far_estimated": 0.8,
+                    "osr_required_pct": 30,
+                    "setback_front_m": 3.0,
+                    "setback_side_m": 2.0,
+                    "setback_back_m": 2.0,
+                    "max_height_m": 12,
+                    "estimated_floor_area_sqm": 240,
+                    "estimated_cost_mbaht": 7.5,
+                },
+                "layers": {
+                    "law": {"status": "pass", "score": 88, "findings": [
+                        {"severity": "info", "title": "FAR 0.8 ภายในที่อนุญาต",
+                         "detail": "ย.3 ให้ FAR 1.5 · แปลนปัจจุบันใช้ 0.8 · เหลือพื้นที่ขยาย",
+                         "citation": "ข้อบัญญัติ กทม. 2544"},
+                    ]},
+                    "eng": {"status": "pass", "score": 80, "findings": [
+                        {"severity": "info", "title": "Span สมเหตุสมผล",
+                         "detail": "Span 4-6 ม. สำหรับคอนกรีต · OK", "citation": ""},
+                    ]},
+                    "design": {"status": "warning", "score": 78, "findings": [
+                        {"severity": "warning", "title": "Cross-ventilation จำกัด",
+                         "detail": "ควรเพิ่มหน้าต่างฝั่งตะวันออก-ตะวันตก", "citation": ""},
+                    ]},
+                    "thai": {"status": "pass", "score": 85, "findings": [
+                        {"severity": "info", "title": "ห้องพระตำแหน่งดี",
+                         "detail": "ชั้น 2 ทิศตะวันออก · เหมาะสม", "citation": ""},
+                    ]},
+                    "fengshui": {"status": "warning", "score": 72, "findings": [
+                        {"severity": "warning", "title": "ประตูหลักตรงกับห้องน้ำ",
+                         "detail": "ควรปรับ layout หรือใส่ screen กั้น", "citation": ""},
+                    ]},
+                },
+                "rooms": [
+                    {"name": "ห้องนอนใหญ่ (MBR)", "type": "bedroom",
+                     "recommended_size_min_sqm": 18, "recommended_size_max_sqm": 25,
+                     "orientation_best": "ทิศเหนือ/ตะวันออก · หลีกเลี่ยงตะวันตก",
+                     "thai_culture_note": "เตียงไม่หันเท้าชี้ประตู",
+                     "fengshui_note": "หัวเตียงแนบผนัง · ไม่ใต้คาน",
+                     "key_points": ["walk-in ที่เหมาะสม 4-6 ตร.ม.", "หน้าต่างคู่เพื่อระบายอากาศ"],
+                     "issues": []},
+                    {"name": "ห้องนอนผู้สูงอายุ", "type": "bedroom",
+                     "recommended_size_min_sqm": 14, "recommended_size_max_sqm": 18,
+                     "orientation_best": "ชั้นล่าง · ทิศที่เงียบ",
+                     "thai_culture_note": "ใกล้ห้องพระเพื่อสะดวกในการสวดมนต์",
+                     "fengshui_note": None,
+                     "key_points": ["พื้นเรียบ · ไม่มีขั้น", "ห้องน้ำติดห้อง (en-suite)", "ราวจับในห้องน้ำ"],
+                     "issues": []},
+                    {"name": "ครัวไทย", "type": "kitchen",
+                     "recommended_size_min_sqm": 8, "recommended_size_max_sqm": 14,
+                     "orientation_best": "ทิศใต้/ตะวันออกเฉียงใต้",
+                     "thai_culture_note": "แยกจากครัวฝรั่ง · ระบายอากาศดี",
+                     "fengshui_note": "เตาไม่หันเข้าประตู",
+                     "key_points": ["พัดลมดูดควัน 1,000+ m³/h", "กันไฟ-กันน้ำเต็มผนัง"],
+                     "issues": []},
+                    {"name": "ห้องพระ", "type": "prayer",
+                     "recommended_size_min_sqm": 4, "recommended_size_max_sqm": 8,
+                     "orientation_best": "ชั้นบน · ทิศตะวันออก",
+                     "thai_culture_note": "ไม่อยู่ใต้ห้องน้ำ · ไม่ติดผนังห้องน้ำ",
+                     "fengshui_note": "โต๊ะพระสูงเสมอสายตาในขณะยืน",
+                     "key_points": ["ห้ามเอาของอื่นมาเก็บ", "ระบายอากาศดี"],
+                     "issues": []},
+                ],
+                "issues": [
+                    {"rank": 1, "severity": "medium", "title": "ประตูหลักตรงห้องน้ำ (ฮวงจุ้ย)",
+                     "detail": "ทางฮวงจุ้ยมองว่าไม่ดี · ลูกค้าสนใจฮวงจุ้ยจะกังวล",
+                     "action": "ย้ายห้องน้ำ หรือเพิ่ม screen กั้น"},
+                    {"rank": 2, "severity": "medium", "title": "Cross-ventilation จำกัด",
+                     "detail": "หน้าต่างอยู่ด้านเดียว · ลมพัดไม่ผ่าน",
+                     "action": "เพิ่มหน้าต่างฝั่งตรงข้าม หรือ clerestory"},
+                    {"rank": 3, "severity": "low", "title": "ระยะร่นข้างบ้าน",
+                     "detail": "ต้องวัดกับที่ดินข้างเคียงจริงก่อน",
+                     "action": "สำรวจรังวัดก่อนออกแบบขั้นถัดไป"},
+                ],
+                "strengths": [
+                    {"rank": 1, "title": "ที่ดินสมดุลพอเหมาะ",
+                     "detail": "300 ตร.ม. พอจะจัด 3 โซน (หลัก / ผู้สูงอายุ / บริการ) แยกชัด"},
+                    {"rank": 2, "title": "ห้องพระตำแหน่งดี",
+                     "detail": "ชั้นบนทิศตะวันออก · ไม่ใต้ห้องน้ำ"},
+                    {"rank": 3, "title": "งบสมเหตุสมผล",
+                     "detail": "8 ลบ. ต่อพื้นที่ใช้สอย 240 ตร.ม. = ~33,000 บาท/ตร.ม. · grade กลาง-ดี"},
+                ],
+                "next_actions": [
+                    {"step": 1, "action": "รังวัดที่ดินจริง", "who": "เจ้าของ", "when": "ก่อนออกแบบ"},
+                    {"step": 2, "action": "ทดสอบดิน (soil test)", "who": "วิศวกร", "when": "ก่อนออกแบบ"},
+                    {"step": 3, "action": "แก้ layout ประตูหลัก-ห้องน้ำ", "who": "สถาปนิก", "when": "ก่อนออกแบบ"},
+                    {"step": 4, "action": "คำนวณโหลด + ฐานราก", "who": "วิศวกร", "when": "ก่อนก่อสร้าง"},
+                ],
+                "confidence": "medium",
+                "caveats": [
+                    "ไม่มีข้อมูลดินจริง · สมมติว่าเป็นดินเหนียวพอใช้ได้",
+                    "ไม่ได้วัดทิศจริง · สมมติตามข้อมูลใน brief",
+                ],
+            },
+            "analysis": None,
+            "provider": "gemini",
+            "timestamp": datetime.now().isoformat(),
+        }
 
 if payload:
     project_data = payload.get("project_data", {})
