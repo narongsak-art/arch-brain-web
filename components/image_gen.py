@@ -71,6 +71,8 @@ VIEW_TYPES = {
 
 def build_prompt(project_data: dict, view_type: str, extra: str = "") -> str:
     """Build a natural-language prompt for image gen from project brief"""
+    from components import materials  # lazy to avoid circular imports
+
     vt = VIEW_TYPES.get(view_type, VIEW_TYPES["birdseye"])
 
     parts = []
@@ -94,6 +96,12 @@ def build_prompt(project_data: dict, view_type: str, extra: str = "") -> str:
     special = (project_data.get("special") or "").strip()
     if special:
         parts.append(f"Special requirements: {special}.")
+
+    # Thai materials palette (if user picked one)
+    palette = materials.palette_summary()
+    if palette:
+        parts.append(f"Materials palette: {palette}.")
+
     parts.append(
         "Tropical climate design: wide eaves, ventilated openings, "
         "shaded veranda, appropriate for Thailand's hot-humid climate."

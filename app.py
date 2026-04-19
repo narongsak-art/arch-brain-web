@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers, admin, studio
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers, admin, studio, materials
 
 
 # =============================================================================
@@ -247,6 +247,8 @@ def render_form() -> dict:
 
 
 def build_user_message(pd: dict) -> str:
+    palette = materials.palette_summary()
+    palette_line = f"- วัสดุที่เลือก (palette): {palette}\n" if palette else ""
     return f"""ข้อมูลโครงการ:
 - ชื่อ: {pd['name']}
 - ที่ดิน: {pd['land_w']} × {pd['land_d']} ม. ({pd['land_area']:.0f} ตร.ม.)
@@ -257,7 +259,7 @@ def build_user_message(pd: dict) -> str:
 - งบ: {pd['budget']} ล้านบาท
 - ฮวงจุ้ย: {pd['fengshui']}
 - ความต้องการพิเศษ: {pd['special']}
-
+{palette_line}
 วิเคราะห์โครงการนี้ตาม JSON schema ด้านบน (structured output · ห้ามใส่ markdown)
 """
 
@@ -453,8 +455,10 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     contrib_count = len(contribute.get_all())
     img_count = len(st.session_state.get("generated_images", []))
     bk_count = len(booking.get_all())
-    tab_studio, tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price = st.tabs([
+    palette_count = len(materials.get_palette())
+    tab_studio, tab_materials, tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price = st.tabs([
         f"🎨 Studio",
+        f"🧵 วัสดุ ({palette_count})",
         f"📚 ประวัติ ({hist_count})",
         f"💬 Chat",
         f"🔀 เปรียบเทียบ",
@@ -466,6 +470,8 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     ])
     with tab_studio:
         studio.render_panel()
+    with tab_materials:
+        materials.render_panel()
     with tab_hist:
         if hist_count == 0:
             st.info("🕐 ยังไม่มีประวัติ · วิเคราะห์โปรเจคแรกเพื่อเริ่มบันทึก")
