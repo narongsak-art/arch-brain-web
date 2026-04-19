@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers
 
 
 # =============================================================================
@@ -70,6 +70,10 @@ def render_sidebar():
         st.markdown("### 🏠 สมองจำลองของสถาปนิก")
         st.caption("Architect's Brain · v3.0")
         theme.toggle_widget(container=st.sidebar)
+        st.divider()
+
+        # Tier badge
+        tiers.render_sidebar_badge()
         st.divider()
 
         provider = st.radio(
@@ -238,12 +242,13 @@ def run_analysis(provider: str, api_key: str, model: str,
             state="complete", expanded=False,
         )
 
-        # Save to session + history
+        # Save to session + history + bump quota
         st.session_state["result"] = parsed
         st.session_state["raw_text"] = raw
         st.session_state["project_data"] = project_data
         st.session_state["last_provider"] = provider
         history.add(project_data, raw, parsed, provider)
+        tiers.increment_analysis()
         st.rerun()
 
     except Exception as e:
@@ -335,19 +340,25 @@ def render_result():
         use_container_width=True,
         help="เปิดใน browser แล้วกด Ctrl+P → Save as PDF (รองรับฟอนต์ไทย)",
     )
-    pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(pd, md_content, provider)
-    if pdf_bytes:
-        c5.download_button(
-            "📄 PDF (Sarabun)", data=pdf_bytes,
-            file_name=f"{pd['name']}-{ts}.pdf", mime="application/pdf",
-            use_container_width=True,
-            help="Native PDF · ใช้ฟอนต์ Sarabun จากไฟล์ที่ shipped",
+    if not tiers.can_use("pdf_export"):
+        c5.button(
+            "📄 PDF (🔒 Pro)", disabled=True, use_container_width=True,
+            help="PDF export เป็น feature Pro · ดูแพ็กเกจที่แท็บ 💼 Pricing",
         )
     else:
-        c5.button(
-            "📄 PDF (ไม่พร้อม)", disabled=True, use_container_width=True,
-            help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ HTML แทน",
-        )
+        pdf_bytes, pdf_err = export_pdf.try_build_pdf_bytes(pd, md_content, provider)
+        if pdf_bytes:
+            c5.download_button(
+                "📄 PDF (Sarabun)", data=pdf_bytes,
+                file_name=f"{pd['name']}-{ts}.pdf", mime="application/pdf",
+                use_container_width=True,
+                help="Native PDF · ใช้ฟอนต์ Sarabun จากไฟล์ที่ shipped",
+            )
+        else:
+            c5.button(
+                "📄 PDF (ไม่พร้อม)", disabled=True, use_container_width=True,
+                help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ HTML แทน",
+            )
 
 
 def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):
@@ -397,7 +408,7 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     contrib_count = len(contribute.get_all())
     img_count = len(st.session_state.get("generated_images", []))
     bk_count = len(booking.get_all())
-    tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book = st.tabs([
+    tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price = st.tabs([
         f"📚 ประวัติ ({hist_count})",
         f"💬 Chat",
         f"🔀 เปรียบเทียบ",
@@ -405,6 +416,7 @@ def render_tabs_section(provider: str, api_key: str, model: str):
         "💾 Save/Load",
         f"🎨 ภาพ mockup ({img_count})",
         f"📅 จองปรึกษา ({bk_count})",
+        "💼 Pricing",
     ])
     with tab_hist:
         if hist_count == 0:
@@ -418,12 +430,18 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     with tab_contrib:
         contribute.render_panel()
     with tab_io:
-        project_io.render_panel()
+        # Save/Load is a Pro feature · gate it
+        if tiers.feature_gate("save_load", "Save/Load project JSON"):
+            project_io.render_panel()
     with tab_mockup:
-        pd = st.session_state.get("project_data") or project_io._build_pd_from_form()
-        image_gen.render_panel(pd, api_key, provider)
+        # Image generation is a Pro feature · gate it
+        if tiers.feature_gate("image_gen", "Image generation"):
+            pd = st.session_state.get("project_data") or project_io._build_pd_from_form()
+            image_gen.render_panel(pd, api_key, provider)
     with tab_book:
         booking.render_panel()
+    with tab_price:
+        tiers.render_pricing_panel()
 
 
 # =============================================================================
@@ -459,8 +477,15 @@ def main():
     if not api_key:
         st.info("👈 ใส่ API Key ที่ sidebar ก่อนเริ่ม")
     else:
-        if st.button("🔍 วิเคราะห์โครงการ", type="primary", use_container_width=True):
-            run_analysis(provider, api_key, model, project_data, image_bytes)
+        can_analyze, quota_err = tiers.check_quota()
+        if not can_analyze:
+            st.error(quota_err)
+            if st.button("💎 ดูแพ็กเกจ Pro", use_container_width=True):
+                # no real nav across tabs; user can scroll down to Pricing
+                st.info("เปิดแท็บ **💼 Pricing** ด้านล่างเพื่อดูรายละเอียด")
+        else:
+            if st.button("🔍 วิเคราะห์โครงการ", type="primary", use_container_width=True):
+                run_analysis(provider, api_key, model, project_data, image_bytes)
 
     # Show result if one exists
     if st.session_state.get("result") or st.session_state.get("raw_text"):
