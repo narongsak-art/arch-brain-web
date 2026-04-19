@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers, admin
 
 
 # =============================================================================
@@ -450,6 +450,11 @@ def render_tabs_section(provider: str, api_key: str, model: str):
 
 def main():
     theme.inject()
+
+    # Admin mode: ?admin=<token> takes priority over everything
+    if admin.is_admin_mode():
+        admin.render_panel()
+        return
 
     # Share mode: if ?share=... is in URL, render read-only view instead
     if share.is_share_mode():
