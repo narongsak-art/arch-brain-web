@@ -77,6 +77,9 @@
 | 17 | **Compare 2 analyses** (diff table · layer bars · side-by-side) | compare.py | `812d13d` |
 | 18 | **Booking** (4 tiers · mailto + .ics · session history) | booking.py | `aa7db64` |
 | 19 | **Tier Free/Pro** (quota · feature gate · pricing tab) | tiers.py | `6e04db2` |
+| 20 | **GitHub push** (Phase 3 · PAT-auth · per-entry commit) | github_sync.py | `ac39c59` |
+| 21 | **Admin moderation** (Phase 4 · review queue · approve/reject/edit) | admin.py | `e321770` |
+| 22 | **Auto-rebuild pipeline** (Phase 5 · 2 GH Actions · flexible vault) | .github/workflows/ | `3ca80ea` |
 
 ### 📊 Knowledge Graph
 
@@ -84,36 +87,45 @@
 - **291 KB** full-knowledge.md · bundled 32 curated pages
 - **4 new tracks:** Smart Home · Cost Estimation · BIM · Tropical Design (16 pages · +5,821 บรรทัด)
 
-### 🏗 Architecture (v3 complete · 12 components · 1 entry · 3 config · 1 script)
+### 🏗 Architecture (v3 complete · 14 components · 1 entry · 2 scripts · 2 workflows)
 
 ```
 arch-brain-web/
-├── app.py                      # main · sidebar + form + result + tabs (~510 lines)
+├── app.py                                    # main · sidebar + form + result + tabs
 ├── components/
-│   ├── theme.py                # CSS tokens + light/dark + hero helper
-│   ├── llm.py                  # Gemini + Claude clients
-│   ├── analysis.py             # structured JSON prompt / parser / renderer / md export
-│   ├── presets.py              # 5 home-type templates with on_click callback
-│   ├── history.py              # session history + per-item ops
-│   ├── contribute.py           # 12-category hub + AI organizer + auto-save
-│   ├── project_io.py           # Save/Load JSON · schema-validated
-│   ├── export_pdf.py           # markdown → HTML (print) + reportlab PDF
-│   ├── share.py                # gzip+base64 URL encode/decode + view mode
-│   ├── image_gen.py            # Gemini Flash Image · 4 views · gallery
-│   ├── chat.py                 # per-analysis chat · 6 suggestions
-│   ├── compare.py              # 2-project side-by-side + diff + layer bars
-│   ├── booking.py              # 4-tier service · mailto + .ics
-│   └── tiers.py                # Free/Pro · quota · feature gate · pricing
-├── scripts/build_kg.py         # wiki → kg-compact.json + full-knowledge.md
-├── kg-compact.json             # 104 nodes · 425 edges
-├── full-knowledge.md           # 291 KB curated bundle
-├── system-prompt.md            # AI system prompt
-├── fonts/README.md             # Sarabun TTF instructions (optional)
-├── contributions/              # Tier 2 staging (future GitHub push)
-│   └── README.md               # schema + 12 categories doc
-├── PRD.md                      # this file
-├── README.md · DEPLOY.md       # user-facing docs
-└── requirements.txt            # streamlit · requests · anthropic · Pillow · pandas · reportlab
+│   ├── theme.py                              # CSS tokens + light/dark + hero helper
+│   ├── llm.py                                # Gemini + Claude clients
+│   ├── analysis.py                           # structured JSON prompt / parser / renderer
+│   ├── presets.py                            # 5 home-type templates
+│   ├── history.py                            # session history + per-item ops
+│   ├── contribute.py                         # 12-category hub + AI organizer + auto-save
+│   ├── project_io.py                         # Save/Load JSON
+│   ├── export_pdf.py                         # markdown → HTML + reportlab PDF
+│   ├── share.py                              # gzip+base64 URL + view mode
+│   ├── image_gen.py                          # Gemini Flash Image · 4 views · gallery
+│   ├── chat.py                               # per-analysis chat · 6 suggestions
+│   ├── compare.py                            # 2-project side-by-side + diff
+│   ├── booking.py                            # 4-tier service · mailto + .ics
+│   ├── tiers.py                              # Free/Pro · quota · feature gate
+│   ├── github_sync.py                        # PAT-auth contribution push
+│   └── admin.py                              # Phase 4 moderation view
+├── scripts/
+│   ├── build_kg.py                           # wiki → kg-compact.json (flexible vault)
+│   └── ingest_contributions.py               # approved JSON → .md files
+├── .github/workflows/
+│   ├── rebuild-kg.yml                        # auto-regen KG on wiki change
+│   └── promote-approved.yml                  # auto-promote approved → wiki-mirror
+├── kg-compact.json                           # 104 nodes · 425 edges
+├── full-knowledge.md                         # 291 KB curated bundle
+├── system-prompt.md                          # AI system prompt
+├── fonts/README.md                           # Sarabun TTF instructions
+├── contributions/                            # Tier 2 staging (GitHub push lands here)
+│   └── README.md                             # schema + 12 categories doc
+├── wiki-mirror/                              # (created by GH Action when first approval)
+├── PRD.md                                    # this file
+├── ADMIN.md                                  # admin workflow guide
+├── README.md · DEPLOY.md
+└── requirements.txt                          # streamlit · requests · anthropic · Pillow · pandas · reportlab
 ```
 
 ### 🖥 UI surface (8 tabs)
@@ -238,24 +250,33 @@ secondary tabs:
 - Booking (4 services · mailto + .ics)
 - Tier Free/Pro (quota + feature gate + pricing)
 
-### 🟡 Next priorities
+### ✅ Hub Phase 3-5 · ALL DONE
 
-**Hub Phase 3 · GitHub push** (biggest missing piece)
-- `scripts/submit_contribution.py` · POST via GitHub API
-- App-level PAT in `.streamlit/secrets.toml` (users don't need GitHub account)
-- Auto-commit to `contributions/{type}/{date}_{slug}.json`
-- PR-based variant (optional): create PR instead of direct commit
+**Phase 3 · GitHub push** (`ac39c59`)
+- `components/github_sync.py` · PAT auth via Streamlit secrets
+- Per-entry 🚀 ส่งขึ้น GitHub button
+- Graceful 401/403/404/422 error handling with Thai messages
+- Path convention: `contributions/{type}/{date}_{slug}_{id}.json`
 
-**Hub Phase 4 · Admin moderation**
-- `?admin=TOKEN` + passphrase in secrets
-- Review queue · approve / reject / edit title+body before commit
-- Approve → `scripts/ingest_contribution.py` writes `.md` to wiki/ + regens KG
-- Reject → note reason · never delete (audit trail)
+**Phase 4 · Admin moderation** (`e321770`)
+- `?admin=<token>` constant-time auth
+- `components/admin.py` · review queue with status filter
+- 3 actions per entry: ✅ approve · ❌ reject (reason required) · ✏ edit+approve
+- GitHub API writes (PUT contents) with commit trail
 
-**Hub Phase 5 · Auto-rebuild pipeline**
-- GitHub Action: on push to `wiki/**` → run `build_kg.py` → commit refreshed `kg-compact.json`
-- Streamlit Cloud auto-redeploy
-- Closes the loop · wiki grows → app gets smarter
+**Phase 5 · Auto-rebuild pipeline** (`3ca80ea`)
+- `scripts/ingest_contributions.py` · local CLI or GH Actions
+- `.github/workflows/promote-approved.yml` · approved JSON → .md
+- `.github/workflows/rebuild-kg.yml` · wiki change → regen KG + commit
+- Flexible vault resolution (env var / sibling / mirror / legacy)
+- Daily 03:15 UTC cron as safety net
+
+**Full closed loop:**
+```
+User writes → 🚀 pushes to GitHub → Admin ✅ approves →
+GH Action promotes to wiki-mirror/ → GH Action rebuilds KG →
+Streamlit Cloud redeploys → AI sees new content
+```
 
 ### 🟢 Nice-to-have after Hub 3-5
 
@@ -441,29 +462,43 @@ E:/Narongsakb/NarongsakBIM/
 | 2026-04-20 | v3.14 | `812d13d` | Restore: Compare 2 analyses |
 | 2026-04-20 | v3.15 | `aa7db64` | Restore: Booking + mailto + .ics |
 | 2026-04-20 | v3.16 | `6e04db2` | Restore: Tier Free/Pro · feature parity ✨ |
+| 2026-04-20 | v3.16.1 | `581fcea` | Fix: sidebar toggle button hidden by header CSS |
+| 2026-04-20 | v3.17 | `ac39c59` | Hub Phase 3: GitHub push (PAT · contribute button) |
+| 2026-04-20 | v3.18 | `e321770` | Hub Phase 4: Admin moderation (review queue · approve/reject/edit) |
+| 2026-04-20 | v3.19 | `3ca80ea` | Hub Phase 5: Auto-rebuild pipeline (2 GH Actions · ADMIN.md) ✨ |
 | 2026-04-18 | v3.6.1 | `6e40cf2` | Fix: selectbox help must be str |
 
 ---
 
 ## 13. Next session kickoff checklist
 
-Backlog 10/10 เสร็จแล้ว · เมื่อกลับมาทำต่อ · เน้น **Hub Phase 3-5**:
+**All 22 features + Hub Phases 0-5 เสร็จสมบูรณ์** · เมื่อกลับมา focus ที่:
 
-1. [ ] `git pull` · ดู commit ล่าสุดบน main
-2. [ ] Test ที่ deployed URL · verify ว่า v3.16 ทำงานครบ 8 tabs + flow หลัก
-3. [ ] ตัดสินใจ auth strategy ก่อนเริ่ม Hub Phase 3 (ดู §9 Open Questions)
-4. [ ] เลือก phase:
-   - **Hub 3** (GitHub push) — highest value · แก้ TIER 2 storage
-   - **Hub 4** (Admin moderation) — needs Hub 3
-   - **Hub 5** (Auto-rebuild) — needs Hub 3+4
-5. [ ] ทำเป็น commits เล็กๆ · syntax check + behavioral test ทุกครั้ง
-6. [ ] Update Changelog ใน PRD นี้
+### 🧪 End-to-end testing first
+1. [ ] `git pull` · pull ADMIN.md + workflows ใหม่
+2. [ ] อ่าน **ADMIN.md** (setup walkthrough)
+3. [ ] Set Streamlit secrets (`[github]` + `[admin]`)
+4. [ ] Smoke test: ส่ง contribution จาก web → approve ที่ `?admin=<token>` →
+      ดู GH Actions ทำงาน → verify wiki-mirror/ commit + kg-compact.json refresh
+5. [ ] Test hostile paths: invalid PAT · expired token · mismatched admin token
 
-### Quick wins ถ้าอยากเติมเล็กๆ ก่อน
-- ship `fonts/Sarabun-Regular.ttf` → เปิด native PDF export สำหรับ Pro
-- เพิ่ม **"วิเคราะห์ใหม่"** button บน share view (ไม่ clear param แต่เปิด tab ใหม่)
-- เพิ่ม Pro badge เวลา export PDF (branding)
-- **Real payment:** Stripe / PromptPay QR webhook → auto-upgrade tier
+### 🟢 Business layer (next iteration)
+- **Real payment:** Stripe (inter'l) + PromptPay QR (TH) · webhook → auto-upgrade tier
+- **OAuth:** Google login → persistent history across devices (needs Supabase/Firestore)
+- **Team plan:** shared workspace · role-based contribute permissions
+
+### 🎨 Polish (optional small wins)
+- ship `fonts/Sarabun-Regular.ttf` → enable native PDF for Pro
+- Pro badge watermark on exported PDF (branding)
+- "วิเคราะห์ใหม่" button on share view → clean new tab
+- Landing/About microsite for first-time visitors
+- Usage analytics counter (total analyses · top categories)
+
+### 🚨 Known future-proof needs
+- Rotate PAT + admin token every 90 days
+- Monitor GH Actions quota (free tier: 2000 min/mo)
+- Clean up contributions/rejected/ folder periodically
+- Backup Obsidian vault (it's the source of truth)
 
 ### วิธีเพิ่ม feature ใหม่อย่างปลอดภัย
 
