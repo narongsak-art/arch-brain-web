@@ -1,12 +1,13 @@
-"""LLM API clients · Gemini (free) + Claude (paid)"""
+"""LLM clients · Gemini (free) + Claude (paid)"""
 
 import base64
 import requests
 
+
 GEMINI_MODELS = {
-    "gemini-2.5-flash": "🚀 Gemini 2.5 Flash (ล่าสุด)",
-    "gemini-2.0-flash": "⚡ Gemini 2.0 Flash (เสถียร)",
-    "gemini-1.5-flash": "📦 Gemini 1.5 Flash (backup)",
+    "gemini-2.5-flash": "🚀 Gemini 2.5 Flash",
+    "gemini-2.0-flash": "⚡ Gemini 2.0 Flash",
+    "gemini-1.5-flash": "📦 Gemini 1.5 Flash",
 }
 CLAUDE_MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 8000
@@ -62,3 +63,11 @@ def call_claude(api_key: str, system: str, user_prompt: str,
         messages=[{"role": "user", "content": content}],
     )
     return response.content[0].text
+
+
+def dispatch(provider: str, api_key: str, system: str, user_text: str,
+             image_bytes: bytes | None = None, model: str = "gemini-2.5-flash") -> str:
+    """Unified entry · pick client by provider"""
+    if provider == "gemini":
+        return call_gemini(api_key, system, user_text, image_bytes, model)
+    return call_claude(api_key, system, user_text, image_bytes)
