@@ -466,6 +466,12 @@ E:/Narongsakb/NarongsakBIM/
 | 2026-04-20 | v3.17 | `ac39c59` | Hub Phase 3: GitHub push (PAT · contribute button) |
 | 2026-04-20 | v3.18 | `e321770` | Hub Phase 4: Admin moderation (review queue · approve/reject/edit) |
 | 2026-04-20 | v3.19 | `3ca80ea` | Hub Phase 5: Auto-rebuild pipeline (2 GH Actions · ADMIN.md) ✨ |
+| 2026-04-20 | v3.19.1 | `4b9ea35` | PRD update · 22 features · Hub 3-5 done · closed loop |
+| 2026-04-20 | v3.19.2 | `e525730` | README refresh · v3.19 · 22 features |
+| 2026-04-20 | v3.20 | `af166b6` | Onboarding welcome panel (4 cards · 3 steps · privacy callout) |
+| 2026-04-20 | v3.21 | `a2085bc` | Selftest: 13 diagnostic checks + CI workflow (all green) |
+| 2026-04-20 | v3.21.1 | `54092a1` | Fix v2: sidebar toggle invisible (don't hide stToolbar parent) |
+| 2026-04-20 | v3.22 | current | USER_GUIDE.md + DEVELOPMENT.md · docs complete |
 | 2026-04-18 | v3.6.1 | `6e40cf2` | Fix: selectbox help must be str |
 
 ---

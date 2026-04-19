@@ -65,13 +65,15 @@ streamlit run app.py
 
 ## 📚 Documentation
 
-| Doc | Purpose |
-|-----|---------|
-| [`PRD.md`](PRD.md) | Product requirements · architecture · roadmap · changelog |
-| [`ADMIN.md`](ADMIN.md) | Admin workflow · setup secrets · moderation queue |
-| [`DEPLOY.md`](DEPLOY.md) | Deploy to Streamlit Cloud (free tier) |
-| [`contributions/README.md`](contributions/README.md) | Contribution schema · categories · GitHub push setup |
-| [`fonts/README.md`](fonts/README.md) | Optional Sarabun font for native PDF export |
+| Doc | Audience | Purpose |
+|-----|----------|---------|
+| [`USER_GUIDE.md`](USER_GUIDE.md) | 👤 end users | How to use each tab · FAQ · tips |
+| [`DEVELOPMENT.md`](DEVELOPMENT.md) | 🛠 devs | Recipes · testing · maintenance · emergencies |
+| [`ADMIN.md`](ADMIN.md) | 👮 admin | Moderation workflow · secrets setup |
+| [`PRD.md`](PRD.md) | 🎯 PM/future-you | Architecture · roadmap · changelog |
+| [`DEPLOY.md`](DEPLOY.md) | 🚀 devops | Deploy to Streamlit Cloud |
+| [`contributions/README.md`](contributions/README.md) | 📦 contributors | Contribution schema · GitHub push setup |
+| [`fonts/README.md`](fonts/README.md) | 🔤 Pro users | Enable native PDF via Sarabun font |
 
 ## 🧱 Tech stack
 
