@@ -387,6 +387,34 @@ def render_result():
         use_container_width=True,
         help="เปิดใน browser แล้วกด Ctrl+P → Save as PDF (รองรับฟอนต์ไทย)",
     )
+
+    # Portfolio export (Thai editorial style · all-in-one deliverable)
+    st.divider()
+    st.markdown("##### 📑 Portfolio export · สำหรับพรีเซนต์ลูกค้า")
+    palette_dict = _build_palette_for_export()
+    imgs = st.session_state.get("generated_images") or []
+    portfolio_html = export_pdf.build_portfolio_html(
+        pd, md_content, provider,
+        palette=palette_dict or None,
+        images=imgs or None,
+    )
+    portfolio_size_kb = len(portfolio_html.encode("utf-8")) / 1024
+    cpf1, cpf2 = st.columns([3, 1])
+    cpf1.caption(
+        f"รวม brief + 5-layer analysis"
+        + (f" + palette ({len(palette_dict)} กลุ่ม)" if palette_dict else "")
+        + (f" + {min(len(imgs), 6)} ภาพ" if imgs else "")
+        + f" · ขนาด ~{portfolio_size_kb:.0f} KB"
+    )
+    cpf2.download_button(
+        "📑 Download Portfolio",
+        data=portfolio_html,
+        file_name=f"portfolio-{pd['name']}-{ts}.html",
+        mime="text/html",
+        use_container_width=True,
+        type="primary",
+        help="Editorial Thai-styled portfolio · เปิด browser → Ctrl+P → PDF",
+    )
     if not tiers.can_use("pdf_export"):
         c5.button(
             "📄 PDF (🔒 Pro)", disabled=True, use_container_width=True,
@@ -406,6 +434,22 @@ def render_result():
                 "📄 PDF (ไม่พร้อม)", disabled=True, use_container_width=True,
                 help=pdf_err or "PDF export ยังไม่พร้อม · ใช้ HTML แทน",
             )
+
+
+def _build_palette_for_export() -> dict:
+    """Flatten current palette picks into a dict ready for build_portfolio_html"""
+    picks = materials.get_palette()
+    out = {}
+    for group_key, item_key in picks.items():
+        group = materials.MATERIALS.get(group_key, {})
+        items = group.get("items", {})
+        if item_key in items:
+            name, hex_color, note = items[item_key]
+            out[group_key] = {
+                "name": name, "hex": hex_color, "note": note,
+                "group_label": group.get("label", group_key),
+            }
+    return out
 
 
 def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):

@@ -1,6 +1,6 @@
 """PDF / HTML export · print-ready reports with Thai font support
 
-Two paths:
+Three paths:
 1. HTML export (PRIMARY, works everywhere):
    - Self-contained .html with Sarabun via Google Fonts <link>
    - User opens in browser → Ctrl+P → Save as PDF
@@ -9,8 +9,13 @@ Two paths:
 2. Native PDF via reportlab (BONUS, if Sarabun TTF shipped):
    - fonts/Sarabun-Regular.ttf (optional)
    - Falls back gracefully to HTML-only if reportlab or font missing
+
+3. Portfolio HTML (comprehensive client deliverable):
+   - Cover + brief + analysis + palette + images · all one file
+   - Thai editorial styling · ready to present/print
 """
 
+import base64
 import io
 import json
 import re
@@ -270,6 +275,394 @@ def build_print_html(project_data: dict, analysis_md: str, provider: str) -> str
 # ============================================================================
 # Native PDF via reportlab (bonus if font available)
 # ============================================================================
+
+PORTFOLIO_TEMPLATE = """<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Portfolio — {title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {{
+    --cream: #faf7f0; --sand: #f4efe3; --border: #e5dfcf;
+    --teak: #8b5a2b; --gold: #c9a961; --terra: #c97864;
+    --ink: #2d1f15; --muted: #6b5842;
+    --font-display: 'Bai Jamjuree', 'Playfair Display', 'Sarabun', serif;
+    --font-body: 'Sarabun', sans-serif;
+  }}
+  * {{ box-sizing: border-box; }}
+  body {{
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.6;
+  }}
+  .page {{
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }}
+
+  /* COVER PAGE */
+  .cover {{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 48px;
+    background: linear-gradient(135deg, var(--teak) 0%, var(--gold) 55%, var(--terra) 100%);
+    color: #fff;
+    margin-bottom: 0;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }}
+  .cover::after {{
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(255,255,255,0.08) 0%, transparent 45%);
+    pointer-events: none;
+  }}
+  .cover-eyebrow {{
+    font-family: var(--font-display);
+    font-size: 0.9em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    position: relative;
+  }}
+  .cover h1 {{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.5em;
+    line-height: 1.1;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.02em;
+    position: relative;
+  }}
+  .cover .subtitle {{
+    font-size: 1.3em;
+    opacity: 0.95;
+    max-width: 620px;
+    margin: 0 0 32px 0;
+    position: relative;
+  }}
+  .cover-meta {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    position: relative;
+    max-width: 720px;
+  }}
+  .cover-meta .m-label {{
+    font-size: 0.72em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }}
+  .cover-meta .m-value {{
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    font-weight: 600;
+  }}
+
+  /* SECTIONS */
+  .section {{
+    padding: 50px 48px;
+    border-bottom: 1px solid var(--border);
+  }}
+  .section:last-child {{ border-bottom: none; }}
+  .section .eyebrow {{
+    font-family: var(--font-display);
+    color: var(--teak);
+    font-size: 0.85em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }}
+  .section h2 {{
+    font-family: var(--font-display);
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }}
+  .section h3 {{
+    font-family: var(--font-display);
+    font-size: 1.35em;
+    font-weight: 600;
+    margin: 22px 0 10px 0;
+    color: var(--ink);
+  }}
+
+  /* brief box */
+  .brief {{
+    background: var(--sand);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 26px;
+    font-size: 0.98em;
+  }}
+  .brief-row {{ display: grid; grid-template-columns: 140px 1fr; gap: 8px 20px; margin: 4px 0; }}
+  .brief-row .label {{ color: var(--muted); font-weight: 600; }}
+
+  /* palette */
+  .palette-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }}
+  .palette-card {{
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }}
+  .palette-swatch {{ height: 74px; position: relative; }}
+  .palette-swatch .hex {{
+    position: absolute; bottom: 6px; right: 8px;
+    font-family: monospace; font-size: 0.78em; color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }}
+  .palette-card .body {{
+    padding: 10px 12px;
+  }}
+  .palette-card .group {{ font-size: 0.72em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teak); }}
+  .palette-card .name {{ font-family: var(--font-display); font-weight: 600; margin-top: 2px; }}
+  .palette-card .note {{ font-size: 0.82em; color: var(--muted); margin-top: 4px; line-height: 1.4; }}
+
+  /* images */
+  .gallery {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+  }}
+  .gallery img {{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }}
+  .gallery .caption {{
+    font-size: 0.78em;
+    color: var(--muted);
+    margin-top: 4px;
+  }}
+
+  /* analysis body · from markdown_to_html */
+  .analysis-body h2, .analysis-body h3, .analysis-body h4 {{ font-family: var(--font-display); color: var(--ink); }}
+  .analysis-body h2 {{ font-size: 1.6em; border-bottom: 2px solid var(--teak); padding-bottom: 4px; margin-top: 28px; }}
+  .analysis-body h3 {{ font-size: 1.2em; margin-top: 20px; }}
+  .analysis-body table {{ border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }}
+  .analysis-body th, .analysis-body td {{ border: 1px solid var(--border); padding: 6px 10px; text-align: left; }}
+  .analysis-body thead th {{ background: var(--sand); }}
+  .analysis-body code {{ background: var(--sand); padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }}
+  .analysis-body ul {{ padding-left: 1.4em; }}
+  .analysis-body li {{ margin: 4px 0; }}
+
+  /* disclaimer */
+  .disclaimer {{
+    background: #fff8e6;
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 0.88em;
+    color: #6b5b1e;
+    margin: 20px 0;
+  }}
+
+  /* footer */
+  .footer {{
+    padding: 30px 48px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border);
+  }}
+
+  /* print */
+  @media print {{
+    body {{ background: #fff; }}
+    .cover {{ page-break-after: always; min-height: 95vh; }}
+    .section {{ page-break-inside: avoid; }}
+    .no-print {{ display: none; }}
+  }}
+  .print-btn {{
+    position: fixed; top: 16px; right: 16px;
+    background: var(--teak); color: #fff; padding: 10px 20px;
+    border: none; border-radius: 8px; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    z-index: 99;
+  }}
+</style>
+</head>
+<body>
+  <button class="print-btn no-print" onclick="window.print()">🖨 พิมพ์ / Save PDF</button>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-eyebrow">THAI RESIDENTIAL PORTFOLIO</div>
+    <h1>{title}</h1>
+    <p class="subtitle">{subtitle}</p>
+    <div class="cover-meta">
+      <div><div class="m-label">ที่ดิน</div><div class="m-value">{land_dim}</div></div>
+      <div><div class="m-label">เขต</div><div class="m-value">{zone}</div></div>
+      <div><div class="m-label">งบ</div><div class="m-value">{budget}</div></div>
+      <div><div class="m-label">วันที่</div><div class="m-value">{date}</div></div>
+    </div>
+  </div>
+
+  <!-- BRIEF -->
+  <div class="section">
+    <div class="eyebrow">01 · Project Brief</div>
+    <h2>ข้อมูลโครงการ</h2>
+    <div class="brief">{brief_rows}</div>
+  </div>
+
+  <!-- PALETTE -->
+  {palette_section}
+
+  <!-- IMAGES -->
+  {images_section}
+
+  <!-- ANALYSIS -->
+  <div class="section">
+    <div class="eyebrow">04 · AI Analysis</div>
+    <h2>ผลวิเคราะห์ 5 ชั้นความรู้</h2>
+    <div class="analysis-body">{analysis_html}</div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="section">
+    <div class="disclaimer">
+      <strong>⚠ Disclaimer</strong><br>
+      ผลเป็นการวิเคราะห์เบื้องต้นโดย AI · <b>ไม่แทนที่</b>สถาปนิก/วิศวกรใบอนุญาต ·
+      การขออนุญาตก่อสร้างต้องมีลายเซ็นผู้ประกอบวิชาชีพ (พรบ.ควบคุมอาคาร 2522 ม. 49 ทวิ)
+    </div>
+  </div>
+
+  <div class="footer">
+    Generated by สมองจำลองของสถาปนิก · Thai Architect's Studio · {date}
+  </div>
+</body>
+</html>
+"""
+
+
+def build_portfolio_html(
+    project_data: dict,
+    analysis_md: str,
+    provider: str,
+    palette: dict | None = None,
+    images: list[dict] | None = None,
+) -> str:
+    """Build the full portfolio HTML · editorial Thai style
+
+    palette: {group_key: {name, hex, note, group_label}}
+    images: [{"bytes": b"...", "view_type": "...", "model": "..."}]
+    """
+    pd = project_data
+    title = _escape_html(pd.get("name", "Untitled"))
+    subtitle_parts = []
+    subtitle_parts.append(f"{pd.get('floors', '-')} ชั้น · {pd.get('bedrooms', '-')} ห้องนอน · ครอบครัว {pd.get('family_size', '-')} คน")
+    if pd.get("special"):
+        subtitle_parts.append(str(pd["special"])[:100])
+    subtitle = _escape_html(" · ".join(subtitle_parts))
+
+    land_dim = f"{pd.get('land_w', '-')}×{pd.get('land_d', '-')} ม. · {pd.get('land_area', 0):.0f} ตร.ม."
+    zone = _escape_html(pd.get("zone", "-"))
+    budget = f"{pd.get('budget', '-')} ลบ."
+    date = datetime.now().strftime("%Y-%m-%d")
+
+    # Brief rows
+    brief_items = [
+        ("จังหวัด", pd.get("province", "-")),
+        ("สีผังเมือง", pd.get("zone", "-")),
+        ("ถนนติด", f"{pd.get('street_w', '-')} ม."),
+        ("ครอบครัว", f"{pd.get('family_size', '-')} คน"),
+        ("ผู้สูงอายุ", pd.get("has_elderly", "-")),
+        ("ชั้น", pd.get("floors", "-")),
+        ("ห้องนอน", pd.get("bedrooms", "-")),
+        ("งบประมาณ", f"{pd.get('budget', '-')} ล้านบาท"),
+        ("ฮวงจุ้ย", pd.get("fengshui", "-")),
+        ("ข้อกำหนดพิเศษ", pd.get("special", "-")),
+    ]
+    brief_rows = "".join(
+        f'<div class="brief-row"><div class="label">{_escape_html(k)}</div><div>{_escape_html(str(v))}</div></div>'
+        for k, v in brief_items
+    )
+
+    # Palette section
+    if palette:
+        cards = []
+        for group_key, data in palette.items():
+            cards.append(
+                f'<div class="palette-card">'
+                f'<div class="palette-swatch" style="background: {data["hex"]};"><span class="hex">{data["hex"]}</span></div>'
+                f'<div class="body">'
+                f'<div class="group">{_escape_html(data.get("group_label", group_key))}</div>'
+                f'<div class="name">{_escape_html(data["name"])}</div>'
+                f'<div class="note">{_escape_html(data.get("note", ""))}</div>'
+                f'</div></div>'
+            )
+        palette_section = (
+            '<div class="section">'
+            '<div class="eyebrow">02 · Materials Palette</div>'
+            '<h2>วัสดุไทย · Tropical palette</h2>'
+            '<div class="palette-grid">'
+            + "".join(cards)
+            + '</div></div>'
+        )
+    else:
+        palette_section = ""
+
+    # Images gallery
+    if images:
+        img_cards = []
+        for img in images[:6]:
+            img_b64 = base64.b64encode(img["bytes"]).decode("ascii")
+            caption = f"{img.get('view_type', 'mockup')} · {img.get('model', 'ai')}"
+            img_cards.append(
+                f'<div><img src="data:image/png;base64,{img_b64}" alt="mockup"/>'
+                f'<div class="caption">{_escape_html(caption)}</div></div>'
+            )
+        images_section = (
+            '<div class="section">'
+            '<div class="eyebrow">03 · Visual Mockups</div>'
+            '<h2>ภาพ render</h2>'
+            '<div class="gallery">'
+            + "".join(img_cards)
+            + '</div></div>'
+        )
+    else:
+        images_section = ""
+
+    analysis_html = markdown_to_html(analysis_md)
+
+    return PORTFOLIO_TEMPLATE.format(
+        title=title,
+        subtitle=subtitle,
+        land_dim=land_dim,
+        zone=zone,
+        budget=budget,
+        date=date,
+        brief_rows=brief_rows,
+        palette_section=palette_section,
+        images_section=images_section,
+        analysis_html=analysis_html,
+    )
+
 
 def try_build_pdf_bytes(project_data: dict, analysis_md: str, provider: str) -> tuple[bytes | None, str | None]:
     """Returns (bytes, None) if success · (None, reason) if skipped/failed"""
