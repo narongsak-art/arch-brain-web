@@ -19,6 +19,12 @@
 
 ## 🛠 Features (22 · v3.19)
 
+### Studio experience (drafted.ai-inspired · Thai editorial)
+- 🎨 **Studio** · gallery of saved designs · pinnable · click-to-open
+- 🌐 **Explore** · community + 104 KG seed entries · click card → detail view with related pages graph
+- 🧵 **วัสดุ** · Thai materials palette (ไม้สัก · ดินเผา · ครีม · etc · 5 groups × 25+ items)
+  - palette auto-fed into AI analysis + mockup generation prompts
+
 ### วิเคราะห์
 - ฟอร์มแบบ structured + 5 preset templates (ทาวน์เฮาส์ → บ้านหรู)
 - Gemini 2.5 Flash (ฟรี) หรือ Claude Sonnet 4.6
@@ -27,6 +33,7 @@
 
 ### ผลลัพธ์
 - 📥 Download: .md · .json · .txt · .html · .pdf
+- 📑 **Portfolio export** · all-in-one Thai editorial HTML (cover + brief + palette + images + analysis) · client-ready
 - 🔗 Share link (URL ฝังผลไว้ · ไม่ต้อง backend)
 - 🖼 Image mockup (Gemini Flash Image · 4 มุมมอง)
 - 💬 Chat follow-up (ถามต่อได้ · grounded ใน 104-node KG)

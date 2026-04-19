@@ -124,12 +124,57 @@ def _test_imports():
         "theme", "llm", "analysis", "presets", "history", "contribute",
         "project_io", "export_pdf", "share", "image_gen", "chat", "compare",
         "booking", "tiers", "github_sync", "admin",
+        "studio", "materials", "explore",  # Thai studio pivot
     ]
     loaded = []
     for m in modules:
         mod = importlib.import_module(f"components.{m}")
         loaded.append(m)
     return f"{len(loaded)} components OK"
+
+
+@check("Materials library · 5 groups · 25+ items")
+def _test_materials():
+    sys.path.insert(0, str(REPO))
+    from components import materials
+    groups = materials.MATERIALS
+    assert len(groups) == 5, f"expected 5 groups, got {len(groups)}"
+    total = sum(len(g["items"]) for g in groups.values())
+    assert total >= 25, f"expected 25+ items, got {total}"
+    # Each item must be (name, hex, note) triple
+    for gk, g in groups.items():
+        for ik, v in g["items"].items():
+            assert len(v) == 3, f"{gk}/{ik}: malformed item"
+            name, hex_color, note = v
+            assert hex_color.startswith("#"), f"{gk}/{ik}: bad hex {hex_color}"
+    # palette_summary empty when no picks
+    import streamlit as st
+    st.session_state = {}
+    assert materials.palette_summary() == ""
+    materials.set_pick("roof", "tile-clay")
+    assert "กระเบื้องดินเผา" in materials.palette_summary()
+    return f"5 groups · {total} items · summary works"
+
+
+@check("Portfolio HTML export · includes all sections")
+def _test_portfolio():
+    sys.path.insert(0, str(REPO))
+    from components import export_pdf
+    pd = {"name": "บ้านทดสอบ", "land_w": 15, "land_d": 20, "land_area": 300,
+          "zone": "ย.3", "budget": 8, "province": "กทม.", "floors": "2",
+          "bedrooms": "3", "family_size": 4, "has_elderly": "ใช่",
+          "fengshui": "ปานกลาง", "special": "ห้องพระ"}
+    palette = {"roof": {"name": "กระเบื้องดินเผา", "hex": "#a0522d",
+                        "note": "classic Thai", "group_label": "หลังคา"}}
+    html = export_pdf.build_portfolio_html(pd, "## Test analysis\n\nบ้านนี้ดี", "gemini",
+                                            palette=palette, images=None)
+    assert "บ้านทดสอบ" in html
+    assert "THAI RESIDENTIAL PORTFOLIO" in html
+    assert "กระเบื้องดินเผา" in html
+    assert "#a0522d" in html
+    assert "@media print" in html  # print styles
+    assert "DOCTYPE html" in html
+    return f"portfolio HTML {len(html):,} chars · all sections present"
 
 
 @check("JSON parser · pure / fenced / embedded / invalid")

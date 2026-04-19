@@ -471,7 +471,14 @@ E:/Narongsakb/NarongsakBIM/
 | 2026-04-20 | v3.20 | `af166b6` | Onboarding welcome panel (4 cards · 3 steps · privacy callout) |
 | 2026-04-20 | v3.21 | `a2085bc` | Selftest: 13 diagnostic checks + CI workflow (all green) |
 | 2026-04-20 | v3.21.1 | `54092a1` | Fix v2: sidebar toggle invisible (don't hide stToolbar parent) |
-| 2026-04-20 | v3.22 | current | USER_GUIDE.md + DEVELOPMENT.md · docs complete |
+| 2026-04-20 | v3.22 | `ce0fc9d` | USER_GUIDE.md + DEVELOPMENT.md · docs complete |
+| 2026-04-20 | v4.0 | `93abcef` | **Thai editorial theme** · cream/teak/gold palette · Bai Jamjuree font |
+| 2026-04-20 | v4.1 | `a13eeda` | **Studio tab** · gallery-first landing (drafted.ai-inspired) · pinnable |
+| 2026-04-20 | v4.2 | `fd69ca4` | **Materials palette** · 5 groups × 25 Thai items · fed into AI |
+| 2026-04-20 | v4.3 | `9bfa4de` | **Explore tab** · community + KG seed gallery · tag filter |
+| 2026-04-20 | v4.4 | `4fe2d9e` | Explore detail view · related-pages graph navigation |
+| 2026-04-20 | v4.5 | `e260419` | **Portfolio export** · editorial Thai client deliverable HTML |
+| 2026-04-20 | v4.5.1 | current | Selftest 15/15 · docs sync to v4 |
 | 2026-04-18 | v3.6.1 | `6e40cf2` | Fix: selectbox help must be str |
 
 ---
