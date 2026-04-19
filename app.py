@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share
 
 
 # =============================================================================
@@ -275,6 +275,10 @@ def render_result():
     st.divider()
     _render_save_to_hub(pd, data, provider)
 
+    # Share link (read-only URL for clients)
+    st.divider()
+    share.render_share_panel(pd, data, raw, provider)
+
     # Downloads
     st.divider()
     st.subheader("📥 ดาวน์โหลด")
@@ -413,6 +417,12 @@ def render_tabs_section():
 
 def main():
     theme.inject()
+
+    # Share mode: if ?share=... is in URL, render read-only view instead
+    if share.is_share_mode():
+        share.render_view()
+        return
+
     provider, api_key, model = render_sidebar()
 
     render_hero()
