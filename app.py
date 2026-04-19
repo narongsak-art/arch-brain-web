@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers, admin, studio, materials
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare, booking, tiers, admin, studio, materials, explore
 
 
 # =============================================================================
@@ -456,8 +456,10 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     img_count = len(st.session_state.get("generated_images", []))
     bk_count = len(booking.get_all())
     palette_count = len(materials.get_palette())
-    tab_studio, tab_materials, tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price = st.tabs([
+    (tab_studio, tab_explore, tab_materials, tab_hist, tab_chat,
+     tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price) = st.tabs([
         f"🎨 Studio",
+        f"🌐 Explore",
         f"🧵 วัสดุ ({palette_count})",
         f"📚 ประวัติ ({hist_count})",
         f"💬 Chat",
@@ -470,6 +472,8 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     ])
     with tab_studio:
         studio.render_panel()
+    with tab_explore:
+        explore.render_panel()
     with tab_materials:
         materials.render_panel()
     with tab_hist:
