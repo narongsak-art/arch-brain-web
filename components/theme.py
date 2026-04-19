@@ -119,22 +119,39 @@ def _build_css(theme_name: str) -> str:
     padding-bottom: 2rem;
   }}
 
-  /* Hide Streamlit chrome — but KEEP header visible so the sidebar
-     collapse/expand control stays reachable */
+  /* Hide Streamlit chrome carefully · NEVER hide parents of the
+     sidebar toggle (e.g. stToolbar contains it in newer versions) */
   [data-testid="stHeader"] {{
     background: transparent !important;
     height: auto;
   }}
-  [data-testid="stDeployButton"] {{ display: none; }}
-  [data-testid="stToolbar"] {{ visibility: hidden; }}  /* deploy/menu bits only */
+  [data-testid="stDeployButton"] {{ display: none !important; }}
   footer {{ visibility: hidden; }}
 
-  /* Make the sidebar toggle always visible + above content */
+  /* Force sidebar toggle to always be visible + fixed-positioned so it
+     stays clickable even if Streamlit restructures the header.
+     Cover all known variant selectors across Streamlit versions. */
   [data-testid="stSidebarCollapsedControl"],
-  [data-testid="stSidebarCollapseButton"] {{
+  [data-testid="stSidebarCollapseButton"],
+  [data-testid="collapsedControl"],
+  button[kind="header"],
+  button[kind="headerNoPadding"] {{
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 999;
+    display: block !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+  }}
+  /* Fallback anchor: position the collapsed control fixed at top-left */
+  [data-testid="stSidebarCollapsedControl"] {{
+    position: fixed !important;
+    top: 8px !important;
+    left: 8px !important;
+    background: var(--surface) !important;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 2px;
+    box-shadow: var(--shadow-sm);
   }}
 
   /* ---- Typography ---- */
