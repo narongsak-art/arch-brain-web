@@ -141,6 +141,50 @@ def render_hero():
     )
 
 
+def render_welcome_onboarding():
+    """Shown above form when user has NO api_key yet · makes first impression useful"""
+    st.markdown("""
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 10px 0 18px 0;">
+  <div class="ab-card">
+    <div style="font-size: 1.8em;">📐</div>
+    <strong>Structured metrics</strong>
+    <div style="color: var(--text-muted); font-size: 0.9em;">FAR · OSR · setback · buildable area · cost estimate</div>
+  </div>
+  <div class="ab-card">
+    <div style="font-size: 1.8em;">🧩</div>
+    <strong>5-Layer scoring</strong>
+    <div style="color: var(--text-muted); font-size: 0.9em;">กฎหมาย · วิศวกรรม · ออกแบบ · วัฒนธรรมไทย · ฮวงจุ้ย</div>
+  </div>
+  <div class="ab-card">
+    <div style="font-size: 1.8em;">🚪</div>
+    <strong>Room-by-room</strong>
+    <div style="color: var(--text-muted); font-size: 0.9em;">ขนาดแนะนำ · ทิศที่ดี · ข้อควรระวัง · ฮวงจุ้ย</div>
+  </div>
+  <div class="ab-card">
+    <div style="font-size: 1.8em;">🎨</div>
+    <strong>Image mockup</strong>
+    <div style="color: var(--text-muted); font-size: 0.9em;">AI สร้างภาพ bird's-eye · perspective · floor plan</div>
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("### 1️⃣ รับ API key (ฟรี)")
+        st.markdown("ใช้ **[Gemini API](https://aistudio.google.com/apikey)** · ไม่ต้องใส่ credit card · ได้ 1,500 ครั้ง/วัน")
+    with c2:
+        st.markdown("### 2️⃣ ใส่ที่ sidebar")
+        st.markdown("👈 Sidebar ซ้าย · กรอก key แล้วเลือก model ได้เลย")
+    with c3:
+        st.markdown("### 3️⃣ กรอกข้อมูล → วิเคราะห์")
+        st.markdown("เลือก preset ได้เพื่อความเร็ว · หรือกรอกเองทั้งหมด · ผล 60 วินาที")
+
+    st.info(
+        "💡 **Privacy:** API key ของคุณ + ข้อมูลโปรเจค ไม่ถูกเก็บ · "
+        "ไม่ถูกใช้ train AI · ทุกอย่างอยู่ใน browser session · ปิด tab = หายหมด"
+    )
+
+
 def render_form() -> dict:
     """Project brief form. Returns project_data dict."""
     st.subheader("📝 ข้อมูลโครงการ")
@@ -464,6 +508,11 @@ def main():
     provider, api_key, model = render_sidebar()
 
     render_hero()
+
+    # Welcome/onboarding when no api_key yet
+    if not api_key:
+        render_welcome_onboarding()
+        st.divider()
 
     # Form + analyze
     project_data = render_form()
