@@ -498,6 +498,7 @@ def _render_browse():
                     st.caption("เกี่ยวข้อง: " + ", ".join(entry["related_pages"]))
 
                 _render_ai_panel(entry)
+                _render_github_push(entry)
 
                 cc1, cc2, cc3 = st.columns(3)
                 cc1.download_button(
@@ -581,6 +582,42 @@ def _render_ai_panel(entry: dict):
         btn_cols[0].caption("_ใส่ API Key ที่ sidebar ก่อนเพื่อเปิดใช้ AI organizer_")
 
 
+def _render_github_push(entry: dict):
+    """Push-to-GitHub button · only shown when secrets configured"""
+    from components import github_sync
+
+    if not github_sync.is_configured():
+        # Only mention it once (first expander opening) to avoid noise — here we just skip
+        return
+
+    pushed: dict = st.session_state.setdefault("_gh_pushed", {})
+    already = pushed.get(entry["id"])
+
+    if already:
+        st.success(f"✅ ส่งขึ้น GitHub แล้ว · [ดู commit]({already})")
+        return
+
+    c_info, c_btn = st.columns([3, 1])
+    c_info.caption(
+        "🚀 **ส่งขึ้น GitHub?** · ไฟล์จะถูก commit ใน `contributions/` เพื่อรอ admin ตรวจก่อนเข้า wiki"
+    )
+    if c_btn.button("🚀 ส่งขึ้น GitHub", use_container_width=True, key=f"gh_push_{entry['id']}"):
+        with st.spinner("🌐 กำลังสร้าง commit..."):
+            ok, msg = github_sync.push_contribution(entry)
+        if ok:
+            pushed[entry["id"]] = msg
+            # Also mark on the entry itself
+            for e in st.session_state.get("contributions", []):
+                if e["id"] == entry["id"]:
+                    e["status"] = "submitted"
+                    e["github_url"] = msg
+                    break
+            st.success(f"✅ ส่งสำเร็จ · [ดู commit]({msg})")
+            st.rerun()
+        else:
+            st.error(f"❌ {msg}")
+
+
 def _render_bulk_download():
     """Bulk-export all contributions as a single JSON"""
     entries = get_all()
@@ -608,9 +645,24 @@ def _render_bulk_download():
 
 def render_panel():
     """Main entry · call from a tab"""
+    _render_sync_status_banner()
     tab_new, tab_browse = st.tabs(["✍ เขียนเรื่องใหม่", "📦 เรื่องที่เขียนแล้ว"])
     with tab_new:
         _render_new_form()
     with tab_browse:
         _render_browse()
         _render_bulk_download()
+
+
+def _render_sync_status_banner():
+    """Small status line showing GitHub sync state"""
+    from components import github_sync
+    if github_sync.is_configured():
+        cfg = github_sync.get_config()
+        st.success(
+            f"🌐 GitHub sync **เปิด** · ส่งเข้า `{cfg['repo']}` (branch `{cfg['branch']}`) · "
+            "กดปุ่ม **🚀 ส่งขึ้น GitHub** บนแต่ละรายการเพื่อ submit"
+        )
+    else:
+        with st.expander("🔧 GitHub sync ยังไม่เปิด · วิธีเปิด (optional)", expanded=False):
+            github_sync.render_setup_hint()
