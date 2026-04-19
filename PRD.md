@@ -69,6 +69,14 @@
 | 9 | **Contribute Hub** (12 หมวด × 4 ประเภท · browse + filter) | contribute.py | `e8a201f` |
 | 10 | **Auto-save to Hub** (1-click case study · heuristic categorize) | contribute.py | `196ae61` |
 | 11 | **AI-assisted organizing** (layers · related · keywords · proposed pages) | contribute.py | `3f6e004` |
+| 12 | **Project Save/Load JSON** (schema-validated · form populate) | project_io.py | `8898cf6` |
+| 13 | **HTML + PDF export** (print-ready · Sarabun font optional) | export_pdf.py | `c1c466a` |
+| 14 | **Share link** (gzip+base64 URL · read-only view · demo mode) | share.py | `e25aec9` |
+| 15 | **Image generation** (Gemini Flash Image · 4 view types · gallery) | image_gen.py | `cf28e3b` |
+| 16 | **Chat follow-up** (per-analysis · 6 suggestions · KG-grounded) | chat.py | `24c72b4` |
+| 17 | **Compare 2 analyses** (diff table · layer bars · side-by-side) | compare.py | `812d13d` |
+| 18 | **Booking** (4 tiers · mailto + .ics · session history) | booking.py | `aa7db64` |
+| 19 | **Tier Free/Pro** (quota · feature gate · pricing tab) | tiers.py | `6e04db2` |
 
 ### 📊 Knowledge Graph
 
@@ -76,23 +84,49 @@
 - **291 KB** full-knowledge.md · bundled 32 curated pages
 - **4 new tracks:** Smart Home · Cost Estimation · BIM · Tropical Design (16 pages · +5,821 บรรทัด)
 
-### 🏗 Architecture (clean · 9 files)
+### 🏗 Architecture (v3 complete · 12 components · 1 entry · 3 config · 1 script)
 
 ```
 arch-brain-web/
-├── app.py                      # main (~450 lines)
+├── app.py                      # main · sidebar + form + result + tabs (~510 lines)
 ├── components/
-│   ├── theme.py                # CSS tokens + light/dark
+│   ├── theme.py                # CSS tokens + light/dark + hero helper
 │   ├── llm.py                  # Gemini + Claude clients
-│   ├── analysis.py             # structured JSON prompt/parser/renderer
-│   ├── presets.py              # 5 home-type templates
+│   ├── analysis.py             # structured JSON prompt / parser / renderer / md export
+│   ├── presets.py              # 5 home-type templates with on_click callback
 │   ├── history.py              # session history + per-item ops
-│   └── contribute.py           # hub + AI organizer
-├── scripts/build_kg.py         # wiki → kg-compact.json
-├── kg-compact.json             # 104 nodes
+│   ├── contribute.py           # 12-category hub + AI organizer + auto-save
+│   ├── project_io.py           # Save/Load JSON · schema-validated
+│   ├── export_pdf.py           # markdown → HTML (print) + reportlab PDF
+│   ├── share.py                # gzip+base64 URL encode/decode + view mode
+│   ├── image_gen.py            # Gemini Flash Image · 4 views · gallery
+│   ├── chat.py                 # per-analysis chat · 6 suggestions
+│   ├── compare.py              # 2-project side-by-side + diff + layer bars
+│   ├── booking.py              # 4-tier service · mailto + .ics
+│   └── tiers.py                # Free/Pro · quota · feature gate · pricing
+├── scripts/build_kg.py         # wiki → kg-compact.json + full-knowledge.md
+├── kg-compact.json             # 104 nodes · 425 edges
 ├── full-knowledge.md           # 291 KB curated bundle
 ├── system-prompt.md            # AI system prompt
-└── contributions/              # Tier 2 staging (future)
+├── fonts/README.md             # Sarabun TTF instructions (optional)
+├── contributions/              # Tier 2 staging (future GitHub push)
+│   └── README.md               # schema + 12 categories doc
+├── PRD.md                      # this file
+├── README.md · DEPLOY.md       # user-facing docs
+└── requirements.txt            # streamlit · requests · anthropic · Pillow · pandas · reportlab
+```
+
+### 🖥 UI surface (8 tabs)
+
+```
+📝 form (main flow)  →  🔍 analyze  →  📊 result
+                                        ├─ 📤 Save to Hub
+                                        ├─ 🔗 Share link
+                                        └─ 📥 Downloads (5 formats)
+
+secondary tabs:
+  📚 ประวัติ · 💬 Chat · 🔀 เปรียบเทียบ · 💡 ช่วยเติม
+  💾 Save/Load · 🎨 ภาพ mockup · 📅 จองปรึกษา · 💼 Pricing
 ```
 
 ### 🚫 ลบถาวรเพราะ lib ไม่เสถียร
@@ -185,49 +219,59 @@ arch-brain-web/
 ## 5. Roadmap (phased)
 
 ### ✅ Completed
-- **Phase v3.0** · lean rebuild · stable foundation
-- **Hub Phase 0** · contributions schema + UI (session-only)
-- **Hub Phase 1** · auto-save analysis as case (heuristic categorize)
-- **Hub Phase 2** · AI organizer (layers · related · keywords)
 
-### 🟡 In flight / Next
+**Foundation · v3 lean rebuild**
+- v3.0 core · presets · history · theme
 
-**Hub Phase 3 · GitHub push**
-- `scripts/submit_contribution.py` · POST ผ่าน GitHub API
-- User PAT ใน `.streamlit/secrets.toml` (shared token) หรือ per-user
-- สร้าง commit อัตโนมัติใน `contributions/{type}/{date}_{slug}.json`
-- PR-based workflow (optional): สร้าง PR แทน direct commit
+**Hub (community knowledge) · Phase 0-2**
+- 12-category contribution system (session-scoped)
+- Auto-save every analysis as case (heuristic categorize)
+- AI organizer (layers · related pages · keywords · proposed new)
+
+**Backlog · ALL 7 re-additions done** ✨
+- Project Save/Load JSON
+- HTML + PDF export (Sarabun)
+- Share link (gzip+base64 URL · view mode)
+- Image generation (Gemini Flash Image · 4 views)
+- Chat follow-up (per-analysis · 6 suggestions)
+- Compare 2 analyses (diff + layer bars)
+- Booking (4 services · mailto + .ics)
+- Tier Free/Pro (quota + feature gate + pricing)
+
+### 🟡 Next priorities
+
+**Hub Phase 3 · GitHub push** (biggest missing piece)
+- `scripts/submit_contribution.py` · POST via GitHub API
+- App-level PAT in `.streamlit/secrets.toml` (users don't need GitHub account)
+- Auto-commit to `contributions/{type}/{date}_{slug}.json`
+- PR-based variant (optional): create PR instead of direct commit
 
 **Hub Phase 4 · Admin moderation**
-- Admin mode `?admin=TOKEN` + passphrase ใน secrets
-- Review queue · approve/reject/edit
-- Approve → `scripts/ingest_contribution.py` เขียน `.md` ลง `wiki/` + regen KG
-- Reject → note reason · ไม่ลบ (audit)
+- `?admin=TOKEN` + passphrase in secrets
+- Review queue · approve / reject / edit title+body before commit
+- Approve → `scripts/ingest_contribution.py` writes `.md` to wiki/ + regens KG
+- Reject → note reason · never delete (audit trail)
 
 **Hub Phase 5 · Auto-rebuild pipeline**
-- GitHub Action: on push to `wiki/**` → run `build_kg.py` → commit `kg-compact.json`
-- Streamlit Cloud redeploy อัตโนมัติ
+- GitHub Action: on push to `wiki/**` → run `build_kg.py` → commit refreshed `kg-compact.json`
+- Streamlit Cloud auto-redeploy
+- Closes the loop · wiki grows → app gets smarter
 
-### 🔵 Backlog (feature re-additions)
+### 🟢 Nice-to-have after Hub 3-5
 
-แต่ละตัวคือ 1 commit · ค่อยๆ เติม · test ทุกครั้ง:
-
-| Feature | เก่า (legacy-v2) | Risk | Est. |
-|---------|-----------------|------|------|
-| **Project save/load JSON** | project_io.py | low | 1 คอมมิต |
-| **PDF export** (Sarabun font) | export_pdf.py | low (reportlab stable) | 1 คอมมิต |
-| **Share link** (gzip+base64 URL) | share.py + View page | low | 1-2 คอมมิต |
-| **Image generation** (Gemini Flash Image) | image_gen.py | medium (API stability) | 1 คอมมิต |
-| **Chat follow-up** | chat.py | medium | 1 คอมมิต |
-| **Compare 2 analyses** | compare.py | low | 1 คอมมิต |
-| **Booking system** | booking.py | low | 1 คอมมิต |
-| **Tier (Free/Pro)** | tiers.py | low (quota only) | 1 คอมมิต |
+- **Real payment integration** (Stripe international · PromptPay QR for TH)
+- **Auth:** optional Google OAuth for persistent history across devices
+- **Supabase / SQLite** for server-side storage (beyond session)
+- **PWA / offline mode** · service worker + offline cache of KG
+- **Team plan** · shared workspace · role-based contributions
+- **Analytics:** contribution rate · approval rate · popular categories
 
 ### 🔴 Permanent skip
 
-- `streamlit-drawable-canvas` (draw-plan / annotate)
-- `streamlit-agraph` (KG graph viz)
-- **ถ้าอยากได้:** รอ lib maintainers · หรือเขียน custom HTML canvas · หรือใช้ Gradio/Dash แทน
+- `streamlit-drawable-canvas` (draw-plan / annotate) — lib abandoned
+- `streamlit-agraph` (KG graph viz) — lib abandoned
+- **If needed later:** rewrite as pure HTML canvas or vis-network iframe
+- Multi-page `pages/` folder — caused brittle CSS injection
 
 ---
 
@@ -354,15 +398,18 @@ pandas>=2.0.0
 ```
 E:/Narongsakb/NarongsakBIM/
 ├── CLAUDE.md           # schema
-├── index.md            # catalog
+├── index.md            # catalog · 104/104 synced
 ├── log.md              # audit trail
-├── raw/                # immutable sources
-└── wiki/
-    ├── concepts/       # 88+ concept pages
-    ├── syntheses/      # 14+ templates/analyses
-    ├── entities/       # placeholders
-    └── summaries/      # ingest summaries
+├── raw/                # immutable sources (21 papers/articles)
+└── wiki/               # 104 pages total
+    ├── concepts/       # 69 concept pages across 5 layers + 8 subgroups
+    ├── syntheses/      # 13 templates/analyses
+    ├── entities/       # 8 legal/organizational
+    └── summaries/      # 14 raw-source summaries
 ```
+
+**Subgroup tally under `concepts/`:**
+ชั้น 1 กฎหมาย 8 · ชั้น 2 วิศวกรรม 6 + smart home 3 · ชั้น 3 ออกแบบ 15 + BIM 3 + cost 3 + tropical 4 · ชั้น 4 ไทย 2 · ชั้น 5 ฮวงจุ้ย 1 · Interior 4 · Building types 4 · Specialty 3 · Theory 3 · Landscape 4 · Sustainability 2 · Renovation 2 · Business 2
 
 ### External links
 - **Streamlit docs:** https://docs.streamlit.io
@@ -384,19 +431,39 @@ E:/Narongsakb/NarongsakBIM/
 | 2026-04-18 | v3.5 | `196ae61` | Hub Phase 1: auto-save case study |
 | 2026-04-18 | v3.6 | `3f6e004` | Hub Phase 2: AI organizer |
 | 2026-04-18 | v3.6.1 | `6e40cf2` | Fix: selectbox help must be str |
+| 2026-04-18 | v3.7 | `6f4be17` | Add PRD · pause dev · capture state |
+| 2026-04-18 | v3.8 | `a7bd136` | lint: sync index.md → KG (vault repo) |
+| 2026-04-19 | v3.9 | `8898cf6` | Restore: Project Save/Load JSON |
+| 2026-04-19 | v3.10 | `c1c466a` | Restore: HTML + PDF export (Sarabun) |
+| 2026-04-19 | v3.11 | `e25aec9` | Restore: Share link + view mode |
+| 2026-04-19 | v3.12 | `cf28e3b` | Restore: Image generation (4 views) |
+| 2026-04-19 | v3.13 | `24c72b4` | Restore: Chat follow-up |
+| 2026-04-20 | v3.14 | `812d13d` | Restore: Compare 2 analyses |
+| 2026-04-20 | v3.15 | `aa7db64` | Restore: Booking + mailto + .ics |
+| 2026-04-20 | v3.16 | `6e04db2` | Restore: Tier Free/Pro · feature parity ✨ |
+| 2026-04-18 | v3.6.1 | `6e40cf2` | Fix: selectbox help must be str |
 
 ---
 
 ## 13. Next session kickoff checklist
 
-เมื่อกลับมาทำต่อ · ทำตามลำดับนี้:
+Backlog 10/10 เสร็จแล้ว · เมื่อกลับมาทำต่อ · เน้น **Hub Phase 3-5**:
 
 1. [ ] `git pull` · ดู commit ล่าสุดบน main
-2. [ ] Test ที่ deployed URL · screenshot ถ้าเจอบัค
-3. [ ] อ่าน PRD นี้อีกครั้ง · update Roadmap section ถ้ามีการเปลี่ยน priority
-4. [ ] เลือก Feature ถัดไปจาก **Hub Phase 3-5** หรือ **Backlog**
-5. [ ] ทำ 1 feature · syntax check + behavioral test · commit + push
+2. [ ] Test ที่ deployed URL · verify ว่า v3.16 ทำงานครบ 8 tabs + flow หลัก
+3. [ ] ตัดสินใจ auth strategy ก่อนเริ่ม Hub Phase 3 (ดู §9 Open Questions)
+4. [ ] เลือก phase:
+   - **Hub 3** (GitHub push) — highest value · แก้ TIER 2 storage
+   - **Hub 4** (Admin moderation) — needs Hub 3
+   - **Hub 5** (Auto-rebuild) — needs Hub 3+4
+5. [ ] ทำเป็น commits เล็กๆ · syntax check + behavioral test ทุกครั้ง
 6. [ ] Update Changelog ใน PRD นี้
+
+### Quick wins ถ้าอยากเติมเล็กๆ ก่อน
+- ship `fonts/Sarabun-Regular.ttf` → เปิด native PDF export สำหรับ Pro
+- เพิ่ม **"วิเคราะห์ใหม่"** button บน share view (ไม่ clear param แต่เปิด tab ใหม่)
+- เพิ่ม Pro badge เวลา export PDF (branding)
+- **Real payment:** Stripe / PromptPay QR webhook → auto-upgrade tier
 
 ### วิธีเพิ่ม feature ใหม่อย่างปลอดภัย
 
