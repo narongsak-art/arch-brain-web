@@ -141,31 +141,39 @@ def _load_community_entries() -> list[dict]:
             continue
         entries.append({
             "source": "community",
+            "id": str(md_file.relative_to(WIKI_MIRROR).with_suffix("")).replace("\\", "/"),
             "title": meta.get("title", md_file.stem),
             "author": meta.get("author", "anonymous"),
             "tags": meta.get("tags", []),
-            "body": body.strip()[:400],
+            "body": body.strip(),  # keep full body for detail view
             "path": str(md_file.relative_to(REPO_ROOT)),
             "category": meta.get("tags", [""])[0] if meta.get("tags") else "",
+            "full_body": body.strip(),
         })
     return entries
 
 
 @st.cache_data(ttl=300, show_spinner=False)
+def _load_kg() -> dict:
+    if not KG_FILE.exists():
+        return {}
+    try:
+        return json.loads(KG_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+@st.cache_data(ttl=300, show_spinner=False)
 def _load_seed_entries() -> list[dict]:
     """Fallback: pull top-level KG pages as seed content when wiki-mirror is empty"""
-    if not KG_FILE.exists():
-        return []
-    try:
-        kg = json.loads(KG_FILE.read_text(encoding="utf-8"))
-    except Exception:
-        return []
+    kg = _load_kg()
     out = []
     for n in kg.get("nodes", [])[:60]:
         if not n.get("summary"):
             continue
         out.append({
             "source": "seed",
+            "id": n["id"],
             "title": n.get("title", n["id"]),
             "author": "curated",
             "tags": n.get("layers", []),
@@ -176,11 +184,36 @@ def _load_seed_entries() -> list[dict]:
     return out
 
 
+def _find_related(entry_id: str, limit: int = 8) -> list[dict]:
+    """Look up related nodes via KG edges + return list of {id, title}"""
+    kg = _load_kg()
+    if not kg:
+        return []
+    nodes_by_id = {n["id"]: n for n in kg.get("nodes", [])}
+    related_ids: set = set()
+    for e in kg.get("edges", []):
+        if e.get("from") == entry_id:
+            related_ids.add(e.get("to"))
+        elif e.get("to") == entry_id:
+            related_ids.add(e.get("from"))
+    related = []
+    for rid in list(related_ids)[:limit]:
+        if rid in nodes_by_id:
+            n = nodes_by_id[rid]
+            related.append({
+                "id": rid,
+                "title": n.get("title", rid),
+                "summary": (n.get("summary") or "")[:160],
+                "layers": n.get("layers", []),
+            })
+    return related
+
+
 # ============================================================================
 # Rendering
 # ============================================================================
 
-def _render_card(entry: dict):
+def _render_card(entry: dict, idx: int):
     type_label = entry.get("source", "seed").upper()
     st.markdown(
         f'<div class="explore-card">'
@@ -193,14 +226,96 @@ def _render_card(entry: dict):
         + '</div>',
         unsafe_allow_html=True,
     )
+    key_sig = f"{entry.get('source','x')}_{idx}_{entry.get('id') or entry.get('path', '')[-20:]}"
+    if st.button("📖 เปิดอ่าน", key=f"explore_open_{key_sig}", use_container_width=True):
+        st.session_state["_explore_open"] = entry.get("id") or entry.get("path")
+        st.rerun()
+
+
+def _render_detail_view(entry_id: str, all_entries: list[dict]):
+    """Show full content of one entry + related pages graph · with Back button"""
+    # Find the entry
+    entry = next((e for e in all_entries
+                  if e.get("id") == entry_id or e.get("path") == entry_id), None)
+    if not entry:
+        st.error(f"ไม่เจอ entry: {entry_id}")
+        if st.button("← กลับ gallery", key="explore_back_missing"):
+            del st.session_state["_explore_open"]
+            st.rerun()
+        return
+
+    # Back button first
+    c_back, c_meta = st.columns([1, 3])
+    if c_back.button("← กลับ Gallery", key="explore_back", use_container_width=True):
+        del st.session_state["_explore_open"]
+        st.rerun()
+    c_meta.caption(
+        f"📁 `{entry.get('path', entry_id)}` · by {entry.get('author', 'anonymous')}"
+    )
+
+    st.divider()
+
+    # Main content
+    st.markdown(
+        f'<div class="ab-eyebrow">{entry.get("source", "seed").upper()}</div>'
+        f'<h2 style="margin-top:4px;">{entry["title"]}</h2>',
+        unsafe_allow_html=True,
+    )
+
+    # Tags as pills
+    if entry.get("tags"):
+        tag_html = " ".join(
+            f'<span style="background:var(--primary-soft); color:var(--primary); '
+            f'padding:3px 10px; border-radius:999px; font-size:0.82em; font-weight:500;'
+            f'margin-right:6px; display:inline-block;">{t}</span>'
+            for t in entry["tags"][:10]
+        )
+        st.markdown(f'<div style="margin:8px 0 14px 0;">{tag_html}</div>',
+                    unsafe_allow_html=True)
+
+    st.markdown("---")
+    # Full body
+    body = entry.get("full_body") or entry.get("body") or ""
+    if body:
+        st.markdown(body)
+    else:
+        st.caption("(no body · seed entry)")
+
+    # Related pages from KG
+    related = _find_related(entry_id)
+    if related:
+        st.markdown("---")
+        st.markdown("#### 🕸 หน้าที่เกี่ยวข้อง (จาก Knowledge Graph)")
+        cols = st.columns(2)
+        for i, rel in enumerate(related):
+            with cols[i % 2]:
+                layers_str = " · ".join(rel.get("layers", []))
+                st.markdown(
+                    f'<div class="explore-card" style="padding:12px;">'
+                    f'<div class="explore-title" style="font-size:1em;">{rel["title"]}</div>'
+                    + (f'<div style="color:var(--text-subtle); font-size:0.75em;">{layers_str}</div>' if layers_str else '')
+                    + f'<div style="color:var(--text-muted); font-size:0.85em; margin-top:6px;">{rel["summary"]}</div>'
+                    + '</div>',
+                    unsafe_allow_html=True,
+                )
+                if st.button(f"→ เปิด {rel['title'][:30]}", key=f"related_{i}_{rel['id']}", use_container_width=True):
+                    st.session_state["_explore_open"] = rel["id"]
+                    st.rerun()
 
 
 def render_panel():
-    """Explore tab · community + seed gallery"""
+    """Explore tab · community + seed gallery · with detail view"""
     st.markdown(EXPLORE_CSS, unsafe_allow_html=True)
 
     community = _load_community_entries()
     seed = _load_seed_entries()
+    all_entries = community + seed
+
+    # Detail view mode · if user clicked a card
+    opened_id = st.session_state.get("_explore_open")
+    if opened_id:
+        _render_detail_view(opened_id, all_entries)
+        return
 
     if community:
         st.markdown(
@@ -256,7 +371,7 @@ def render_panel():
         cols = st.columns(3)
         for i, entry in enumerate(filtered[:30]):
             with cols[i % 3]:
-                _render_card(entry)
+                _render_card(entry, i)
 
         if len(filtered) > 30:
             st.caption(f"...และอีก {len(filtered) - 30} · narrow filter เพื่อหาเจอง่ายขึ้น")
