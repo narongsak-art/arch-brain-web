@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen
 
 
 # =============================================================================
@@ -390,15 +390,17 @@ def _render_save_to_hub(project_data: dict, result: dict | None, provider: str):
             st.rerun()
 
 
-def render_tabs_section():
-    """Secondary content below main flow · tabs for history + contribute + save/load"""
+def render_tabs_section(provider: str, api_key: str):
+    """Secondary content below main flow · tabs for history + contribute + save/load + mockup"""
     st.divider()
     hist_count = len(history.get_all())
     contrib_count = len(contribute.get_all())
-    tab_hist, tab_contrib, tab_io = st.tabs([
+    img_count = len(st.session_state.get("generated_images", []))
+    tab_hist, tab_contrib, tab_io, tab_mockup = st.tabs([
         f"📚 ประวัติ ({hist_count})",
         f"💡 ช่วยเติม ({contrib_count})",
         "💾 Save/Load",
+        f"🎨 ภาพ mockup ({img_count})",
     ])
     with tab_hist:
         if hist_count == 0:
@@ -409,6 +411,10 @@ def render_tabs_section():
         contribute.render_panel()
     with tab_io:
         project_io.render_panel()
+    with tab_mockup:
+        # Use project_data from current result, else from form widgets
+        pd = st.session_state.get("project_data") or project_io._build_pd_from_form()
+        image_gen.render_panel(pd, api_key, provider)
 
 
 # =============================================================================
@@ -451,8 +457,8 @@ def main():
     if st.session_state.get("result") or st.session_state.get("raw_text"):
         render_result()
 
-    # Secondary tools (history + contribute)
-    render_tabs_section()
+    # Secondary tools (history + contribute + save/load + mockup)
+    render_tabs_section(provider, api_key)
 
 
 if __name__ == "__main__":
