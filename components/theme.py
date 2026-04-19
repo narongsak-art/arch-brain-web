@@ -16,60 +16,67 @@ import streamlit as st
 # Design tokens
 # ============================================================================
 
+# Thai editorial palette · inspired by drafted.ai minimalism + Thai warmth
+# - Cream/sand bg (like old paper · editorial feel)
+# - Teak brown primary (ไม้สัก · warm, confident)
+# - Lotus pink accent (กลีบบัว · subtle Thai)
+# - Indigo info (คราม · traditional Thai dye)
+# - Gold highlight (ทอง · auspicious)
 TOKENS = {
     "light": {
-        # Surfaces
-        "bg":           "#f7f8fc",
+        # Surfaces — warm Thai cream tones
+        "bg":           "#faf7f0",   # ครีมอ่อน · paper white
         "surface":      "#ffffff",
-        "surface_alt":  "#f1f3f9",
-        "surface_hover":"#eef1f7",
-        "border":       "#e2e8f0",
-        "border_strong":"#cbd5e1",
-        # Text
-        "text":         "#0f172a",
-        "text_muted":   "#64748b",
-        "text_subtle":  "#94a3b8",
-        # Brand
-        "primary":      "#6366f1",
-        "primary_hover":"#4f46e5",
-        "primary_soft": "#eef2ff",
-        "accent":       "#ec4899",
+        "surface_alt":  "#f4efe3",   # sand
+        "surface_hover":"#ede6d4",   # warm beige
+        "border":       "#e5dfcf",   # faded parchment
+        "border_strong":"#c9bfa3",   # teak-ish border
+        # Text — warm dark (not pure black)
+        "text":         "#2d1f15",   # deep teak brown
+        "text_muted":   "#6b5842",   # brown 60%
+        "text_subtle":  "#9c8970",   # brown 40%
+        # Brand — teak + lotus + indigo Thai heritage palette
+        "primary":      "#8b5a2b",   # teak brown (ไม้สัก)
+        "primary_hover":"#6d4621",
+        "primary_soft": "#f0e6d8",
+        "accent":       "#c97864",   # terracotta (ดินเผา)
         # Feedback
-        "success":      "#10b981",
-        "warning":      "#f59e0b",
-        "danger":       "#ef4444",
-        "info":         "#06b6d4",
-        # Gradient for hero
-        "grad_1":       "#6366f1",
-        "grad_2":       "#8b5cf6",
-        "grad_3":       "#ec4899",
-        # Shadows
-        "shadow_sm":    "0 1px 2px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.06)",
-        "shadow_md":    "0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.06)",
+        "success":      "#5b7a5a",   # sage green (ใบข่า)
+        "warning":      "#c9a961",   # gold (ทอง)
+        "danger":       "#a8432e",   # brick red (อิฐ)
+        "info":         "#4a5d7e",   # indigo (คราม)
+        # Hero gradient — warm Thai sunset/evening
+        "grad_1":       "#8b5a2b",   # teak
+        "grad_2":       "#c9a961",   # gold
+        "grad_3":       "#c97864",   # terracotta
+        # Shadows — softer, warmer
+        "shadow_sm":    "0 1px 2px rgba(45,31,21,0.05), 0 1px 3px rgba(45,31,21,0.08)",
+        "shadow_md":    "0 4px 12px -2px rgba(45,31,21,0.10), 0 2px 4px -2px rgba(45,31,21,0.06)",
     },
     "dark": {
-        "bg":           "#0b0f19",
-        "surface":      "#161c2d",
-        "surface_alt":  "#1e2438",
-        "surface_hover":"#252c42",
-        "border":       "#2a3246",
-        "border_strong":"#3b4561",
-        "text":         "#f1f5f9",
-        "text_muted":   "#94a3b8",
-        "text_subtle":  "#64748b",
-        "primary":      "#818cf8",
-        "primary_hover":"#a5b4fc",
-        "primary_soft": "#1e1b4b",
-        "accent":       "#f472b6",
-        "success":      "#34d399",
-        "warning":      "#fbbf24",
-        "danger":       "#f87171",
-        "info":         "#22d3ee",
-        "grad_1":       "#818cf8",
-        "grad_2":       "#a78bfa",
-        "grad_3":       "#f472b6",
-        "shadow_sm":    "0 1px 2px rgba(0,0,0,0.3)",
-        "shadow_md":    "0 4px 6px -1px rgba(0,0,0,0.4)",
+        # Dark Thai · obsidian + teak accents
+        "bg":           "#1a1410",   # very dark brown
+        "surface":      "#2a1f17",   # dark teak
+        "surface_alt":  "#3a2c20",
+        "surface_hover":"#4a382a",
+        "border":       "#4a382a",
+        "border_strong":"#6b5842",
+        "text":         "#f5ecd9",   # cream on dark
+        "text_muted":   "#b8a589",
+        "text_subtle":  "#8a7860",
+        "primary":      "#c9a961",   # gold (ทอง) · glows on dark
+        "primary_hover":"#e5c77c",
+        "primary_soft": "#3d2f1e",
+        "accent":       "#e8a5b0",   # lotus pink (กลีบบัว) · soft glow
+        "success":      "#8cb088",
+        "warning":      "#e5c77c",
+        "danger":       "#d97060",
+        "info":         "#8ba3c4",
+        "grad_1":       "#c9a961",
+        "grad_2":       "#e8a5b0",
+        "grad_3":       "#8ba3c4",
+        "shadow_sm":    "0 1px 2px rgba(0,0,0,0.4)",
+        "shadow_md":    "0 4px 12px -2px rgba(0,0,0,0.5)",
     },
 }
 
@@ -101,12 +108,21 @@ def _build_css(theme_name: str) -> str:
 
     return f"""
 <style>
+  /* Thai editorial fonts · Bai Jamjuree (modern Thai serif-sans for display)
+     + Sarabun (body) + Playfair Display (Latin display fallback) */
+  @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap');
+
   :root {{
     {vars_block}
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 14px;
+    --font-display: 'Bai Jamjuree', 'Playfair Display', 'Sarabun', Georgia, serif;
+    --font-body: 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
   }}
+
+  html, body {{ font-family: var(--font-body); }}
+  .stApp, .stApp * {{ font-family: var(--font-body); }}
 
   /* ---- App shell ---- */
   .stApp {{
@@ -154,27 +170,58 @@ def _build_css(theme_name: str) -> str:
     box-shadow: var(--shadow-sm);
   }}
 
-  /* ---- Typography ---- */
+  /* ---- Typography · editorial Thai feel ---- */
   h1, h2, h3, h4, h5, h6 {{
     color: var(--text);
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
     font-weight: 700;
   }}
-  h1 {{ font-size: 2em; }}
-  h2 {{ font-size: 1.5em; margin-top: 1em; }}
-  h3 {{ font-size: 1.2em; }}
+  h1 {{ font-size: 2.4em; line-height: 1.15; }}
+  h2 {{ font-size: 1.75em; margin-top: 1em; font-weight: 600; }}
+  h3 {{ font-size: 1.3em; font-weight: 600; }}
+  h4 {{ font-weight: 600; }}
 
-  /* ---- Hero banner ---- */
+  /* ---- Hero banner · Thai editorial style ---- */
   .ab-hero {{
-    padding: 32px 28px;
+    padding: 48px 36px;
     border-radius: var(--radius-lg);
     color: #fff;
-    background: linear-gradient(135deg, var(--grad-1) 0%, var(--grad-2) 50%, var(--grad-3) 100%);
-    margin-bottom: 20px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,0.08) 0%, transparent 40%),
+      linear-gradient(135deg, var(--grad-1) 0%, var(--grad-2) 50%, var(--grad-3) 100%);
+    margin-bottom: 24px;
     box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
   }}
-  .ab-hero h1 {{ color: #fff !important; margin: 0 0 8px 0; font-size: 2.2em; }}
-  .ab-hero p {{ margin: 0; opacity: 0.95; font-size: 1.05em; }}
+  .ab-hero h1 {{
+    color: #fff !important;
+    margin: 0 0 10px 0;
+    font-size: 2.6em;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }}
+  .ab-hero p {{
+    margin: 0;
+    opacity: 0.96;
+    font-size: 1.1em;
+    font-family: var(--font-body);
+    max-width: 640px;
+  }}
+
+  /* Editorial small-caps lead (for use above a heading) */
+  .ab-eyebrow {{
+    font-family: var(--font-display);
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }}
 
   /* ---- Cards / surfaces ---- */
   .ab-card {{
@@ -311,10 +358,17 @@ def toggle_widget(container=None):
         st.rerun()
 
 
-def hero(title: str, subtitle: str = ""):
-    """Gradient hero banner · use at top of pages"""
-    sub_html = f'<p>{subtitle}</p>' if subtitle else ""
-    st.markdown(
-        f'<div class="ab-hero"><h1>{title}</h1>{sub_html}</div>',
-        unsafe_allow_html=True,
-    )
+def hero(title: str, subtitle: str = "", eyebrow: str = ""):
+    """Gradient hero banner · optional eyebrow small-caps line on top
+
+    Usage:
+        theme.hero("สมองจำลอง", "วิเคราะห์บ้านไทย", eyebrow="Architect's Studio")
+    """
+    parts = ['<div class="ab-hero">']
+    if eyebrow:
+        parts.append(f'<div class="ab-eyebrow">{eyebrow}</div>')
+    parts.append(f"<h1>{title}</h1>")
+    if subtitle:
+        parts.append(f"<p>{subtitle}</p>")
+    parts.append("</div>")
+    st.markdown("".join(parts), unsafe_allow_html=True)

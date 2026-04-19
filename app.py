@@ -136,8 +136,9 @@ def render_sidebar():
 
 def render_hero():
     theme.hero(
-        "🏠 สมองจำลองของสถาปนิก",
+        "สมองจำลองของสถาปนิก",
         "วิเคราะห์แปลนบ้านไทยด้วย AI + Knowledge Graph 5 ชั้น · ผลใน ~60 วินาที",
+        eyebrow="Thai Architect's Studio · since 2026",
     )
 
 
