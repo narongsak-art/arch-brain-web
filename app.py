@@ -323,15 +323,14 @@ def render_result():
         st.warning("⚠ AI ไม่ตอบเป็น JSON · แสดง markdown แทน")
         st.markdown(raw)
 
-    # Save to Hub (Phase 1 · auto-save as case study)
+    # Collapsible sub-panels · keep the result area focused
     st.divider()
-    _render_save_to_hub(pd, data, provider)
+    with st.expander("📤 ส่งเข้า Hub + 🔗 Share link", expanded=False):
+        _render_save_to_hub(pd, data, provider)
+        st.divider()
+        share.render_share_panel(pd, data, raw, provider)
 
-    # Share link (read-only URL for clients)
-    st.divider()
-    share.render_share_panel(pd, data, raw, provider)
-
-    # Downloads
+    # Downloads (always visible · primary action)
     st.divider()
     st.subheader("📥 ดาวน์โหลด")
 
@@ -500,50 +499,62 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     img_count = len(st.session_state.get("generated_images", []))
     bk_count = len(booking.get_all())
     palette_count = len(materials.get_palette())
-    (tab_studio, tab_explore, tab_materials, tab_hist, tab_chat,
-     tab_cmp, tab_contrib, tab_io, tab_mockup, tab_book, tab_price) = st.tabs([
-        f"🎨 Studio",
-        f"🌐 Explore",
-        f"🧵 วัสดุ ({palette_count})",
-        f"📚 ประวัติ ({hist_count})",
-        f"💬 Chat",
-        f"🔀 เปรียบเทียบ",
-        f"💡 ช่วยเติม ({contrib_count})",
-        "💾 Save/Load",
-        f"🖼 Mockup ({img_count})",
-        f"📅 จองปรึกษา ({bk_count})",
-        "💼 Pricing",
+
+    # Simplified: 4 top tabs (was 11). Secondary tools grouped into "More"
+    tab_studio, tab_explore, tab_more, tab_business = st.tabs([
+        "🎨 Studio",
+        "🌐 Explore",
+        "🧰 More tools",
+        "🏢 Business",
     ])
+
     with tab_studio:
         studio.render_panel()
+        # Studio sub-sections: history + compare (both work on past analyses)
+        with st.expander(f"📚 ดูประวัติเต็ม ({hist_count})", expanded=False):
+            if hist_count == 0:
+                st.info("🕐 ยังไม่มีประวัติ · วิเคราะห์โปรเจคแรกเพื่อเริ่มบันทึก")
+            else:
+                history.render_panel()
+        with st.expander("🔀 เปรียบเทียบ 2 โปรเจค", expanded=False):
+            compare.render_panel()
+
     with tab_explore:
         explore.render_panel()
-    with tab_materials:
-        materials.render_panel()
-    with tab_hist:
-        if hist_count == 0:
-            st.info("🕐 ยังไม่มีประวัติ · วิเคราะห์โปรเจคแรกเพื่อเริ่มบันทึก")
-        else:
-            history.render_panel()
-    with tab_chat:
-        chat.render_panel(api_key, provider, model)
-    with tab_cmp:
-        compare.render_panel()
-    with tab_contrib:
-        contribute.render_panel()
-    with tab_io:
-        # Save/Load is a Pro feature · gate it
-        if tiers.feature_gate("save_load", "Save/Load project JSON"):
-            project_io.render_panel()
-    with tab_mockup:
-        # Image generation is a Pro feature · gate it
-        if tiers.feature_gate("image_gen", "Image generation"):
-            pd = st.session_state.get("project_data") or project_io._build_pd_from_form()
-            image_gen.render_panel(pd, api_key, provider)
-    with tab_book:
-        booking.render_panel()
-    with tab_price:
-        tiers.render_pricing_panel()
+
+    with tab_more:
+        # Group: tools used DURING a project
+        sub_mat, sub_chat, sub_mock, sub_io = st.tabs([
+            f"🧵 วัสดุ ({palette_count})",
+            "💬 Chat",
+            f"🖼 Mockup ({img_count})",
+            "💾 Save/Load",
+        ])
+        with sub_mat:
+            materials.render_panel()
+        with sub_chat:
+            chat.render_panel(api_key, provider, model)
+        with sub_mock:
+            if tiers.feature_gate("image_gen", "Image generation"):
+                pd = st.session_state.get("project_data") or project_io._build_pd_from_form()
+                image_gen.render_panel(pd, api_key, provider)
+        with sub_io:
+            if tiers.feature_gate("save_load", "Save/Load project JSON"):
+                project_io.render_panel()
+
+    with tab_business:
+        # Group: external relationships
+        sub_contrib, sub_book, sub_price = st.tabs([
+            f"💡 ช่วยเติม ({contrib_count})",
+            f"📅 จองปรึกษา ({bk_count})",
+            "💼 Pricing",
+        ])
+        with sub_contrib:
+            contribute.render_panel()
+        with sub_book:
+            booking.render_panel()
+        with sub_price:
+            tiers.render_pricing_panel()
 
 
 # =============================================================================
