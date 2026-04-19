@@ -1,0 +1,65 @@
+name: Rebuild KG + bundle
+
+# Triggers:
+#   - Manual (workflow_dispatch button in Actions tab)
+#   - Push touching wiki content in this repo (only if wiki/ or wiki-mirror/ exists)
+#   - Daily schedule as a safety net (03:15 UTC = 10:15 ICT)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "wiki/**"
+      - "wiki-mirror/**"
+      - "scripts/build_kg.py"
+  schedule:
+    - cron: "15 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Detect vault
+        id: detect
+        run: |
+          if [ -d "wiki" ]; then
+            echo "vault=$PWD" >> $GITHUB_OUTPUT
+            echo "found repo-local wiki/ folder"
+          elif [ -d "wiki-mirror/wiki" ]; then
+            echo "vault=$PWD/wiki-mirror" >> $GITHUB_OUTPUT
+            echo "found wiki-mirror/wiki folder"
+          else
+            echo "vault=" >> $GITHUB_OUTPUT
+            echo "::notice::No wiki/ or wiki-mirror/ folder in repo · skipping rebuild"
+          fi
+
+      - name: Rebuild KG
+        if: steps.detect.outputs.vault != ''
+        env:
+          WIKI_VAULT: ${{ steps.detect.outputs.vault }}
+        run: |
+          python scripts/build_kg.py
+
+      - name: Commit changes
+        if: steps.detect.outputs.vault != ''
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          if git diff --quiet kg-compact.json full-knowledge.md 2>/dev/null; then
+            echo "no KG changes · nothing to commit"
+          else
+            git add kg-compact.json full-knowledge.md
+            git commit -m "ci: auto-rebuild KG [skip ci]"
+            git push
+          fi

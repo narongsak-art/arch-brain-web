@@ -1,33 +1,54 @@
 """Build kg-compact.json + full-knowledge.md from the Obsidian wiki vault.
 
-Reads: E:/Narongsakb/NarongsakBIM/wiki/**/*.md
-Writes:
-  - E:/Narongsakb/arch-brain-web/kg-compact.json
-  - E:/Narongsakb/arch-brain-web/full-knowledge.md
+Source priority:
+  1. ENV var `WIKI_VAULT` (if set)
+  2. Sibling folder `../NarongsakBIM` (local dev default)
+  3. Repo-local `wiki/` folder (for GitHub Actions · no vault present)
+  4. Hard-coded E:/Narongsakb/NarongsakBIM (legacy fallback)
 
-Node extraction:
-  - frontmatter YAML → type, layers, source_status, sources, jurisdiction
-  - id = "{subfolder}/{filename without .md}"
-  - title from frontmatter, fallback to filename
-  - summary = first meaningful paragraph (200-char truncate)
+Writes (always into this repo):
+  - kg-compact.json
+  - full-knowledge.md
 
-Edge extraction:
-  - `[[wikilinks]]` in body → from_id → to_id
-  - Resolves "[[path/name]]" and "[[name]]" forms
-  - De-dupes
-
-Usage: python scripts/build_kg.py
+Usage:
+  python scripts/build_kg.py                          # auto-detect
+  WIKI_VAULT=/path/to/vault python scripts/build_kg.py
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 
-VAULT = Path("E:/Narongsakb/NarongsakBIM")
-OUT_KG = Path(__file__).parent.parent / "kg-compact.json"
-OUT_FULL = Path(__file__).parent.parent / "full-knowledge.md"
+REPO_ROOT = Path(__file__).parent.parent
+
+
+def _resolve_vault() -> Path:
+    """Pick the first existing vault from the priority list"""
+    env_val = os.getenv("WIKI_VAULT")
+    if env_val:
+        p = Path(env_val)
+        if p.exists():
+            return p
+    candidates = [
+        REPO_ROOT.parent / "NarongsakBIM",           # sibling folder
+        REPO_ROOT / "wiki-mirror",                    # repo-local mirror
+        Path("E:/Narongsakb/NarongsakBIM"),           # legacy hardcoded
+    ]
+    for c in candidates:
+        if c.exists() and (c / "wiki").exists():
+            return c
+    # Last resort: maybe the repo itself IS the vault (has wiki/ directly)
+    if (REPO_ROOT / "wiki").exists():
+        return REPO_ROOT
+    return candidates[0]  # return first candidate even if missing (for error message)
+
+
+VAULT = _resolve_vault()
+OUT_KG = REPO_ROOT / "kg-compact.json"
+OUT_FULL = REPO_ROOT / "full-knowledge.md"
 
 SUBFOLDERS = ["concepts", "syntheses", "summaries", "entities"]
 SUBFOLDER_TO_TYPE = {

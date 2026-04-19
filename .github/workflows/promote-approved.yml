@@ -1,0 +1,59 @@
+name: Promote approved contributions
+
+# Triggers:
+#   - Push that touches contributions/ (e.g., admin approves via API)
+#   - Manual (workflow_dispatch)
+#
+# What it does:
+#   - Scan contributions/**/*.json for status=approved not yet promoted
+#   - Write .md files into wiki-mirror/wiki/ (subfolder based on type)
+#   - Commit back · which triggers rebuild-kg.yml for the KG regen
+#
+# Note: this requires contributions/ folder to contain at least one
+# approved entry · otherwise the script is a no-op.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "contributions/**/*.json"
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Ensure wiki-mirror exists
+        run: |
+          mkdir -p wiki-mirror/wiki/concepts
+          mkdir -p wiki-mirror/wiki/syntheses
+
+      - name: Promote approved entries
+        run: |
+          python scripts/ingest_contributions.py \
+            --vault "$PWD/wiki-mirror" \
+            --no-kg-regen
+
+      - name: Commit promotions
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          if git diff --quiet wiki-mirror/ 2>/dev/null; then
+            echo "no promotions · nothing to commit"
+          else
+            git add wiki-mirror/
+            git commit -m "ci: promote approved contributions to wiki-mirror"
+            git push
+          fi
