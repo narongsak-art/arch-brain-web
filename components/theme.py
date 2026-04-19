@@ -119,10 +119,23 @@ def _build_css(theme_name: str) -> str:
     padding-bottom: 2rem;
   }}
 
-  /* hide Streamlit chrome */
-  [data-testid="stHeader"] {{ visibility: hidden; height: 0; }}
+  /* Hide Streamlit chrome — but KEEP header visible so the sidebar
+     collapse/expand control stays reachable */
+  [data-testid="stHeader"] {{
+    background: transparent !important;
+    height: auto;
+  }}
   [data-testid="stDeployButton"] {{ display: none; }}
+  [data-testid="stToolbar"] {{ visibility: hidden; }}  /* deploy/menu bits only */
   footer {{ visibility: hidden; }}
+
+  /* Make the sidebar toggle always visible + above content */
+  [data-testid="stSidebarCollapsedControl"],
+  [data-testid="stSidebarCollapseButton"] {{
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 999;
+  }}
 
   /* ---- Typography ---- */
   h1, h2, h3, h4, h5, h6 {{
