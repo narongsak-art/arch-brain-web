@@ -12,7 +12,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat
+from components import theme, llm, analysis, presets, history, contribute, project_io, export_pdf, share, image_gen, chat, compare
 
 
 # =============================================================================
@@ -396,9 +396,10 @@ def render_tabs_section(provider: str, api_key: str, model: str):
     hist_count = len(history.get_all())
     contrib_count = len(contribute.get_all())
     img_count = len(st.session_state.get("generated_images", []))
-    tab_hist, tab_chat, tab_contrib, tab_io, tab_mockup = st.tabs([
+    tab_hist, tab_chat, tab_cmp, tab_contrib, tab_io, tab_mockup = st.tabs([
         f"📚 ประวัติ ({hist_count})",
         f"💬 Chat",
+        f"🔀 เปรียบเทียบ",
         f"💡 ช่วยเติม ({contrib_count})",
         "💾 Save/Load",
         f"🎨 ภาพ mockup ({img_count})",
@@ -410,6 +411,8 @@ def render_tabs_section(provider: str, api_key: str, model: str):
             history.render_panel()
     with tab_chat:
         chat.render_panel(api_key, provider, model)
+    with tab_cmp:
+        compare.render_panel()
     with tab_contrib:
         contribute.render_panel()
     with tab_io:
