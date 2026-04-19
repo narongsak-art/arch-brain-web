@@ -1,4 +1,10 @@
-"""Create view · the core flow · form → analyze → result + downloads"""
+"""Create view · sidebar = inputs · main = result only
+
+UX split:
+- All form fields + analyze button live in the Streamlit sidebar
+- Main area is dedicated to OUTPUT: welcome state OR analysis result
+- Keeps the work area uncluttered · mirrors drafted.ai pattern
+"""
 
 import json
 import time
@@ -10,7 +16,7 @@ from core import analysis, llm, theme
 
 
 # ============================================================================
-# Form presets (5 common Thai home types)
+# Presets
 # ============================================================================
 
 PRESETS = {
@@ -54,6 +60,11 @@ PRESETS = {
     },
 }
 
+PROVINCES = ["กรุงเทพมหานคร", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ",
+             "นครปฐม", "เชียงใหม่", "ภูเก็ต", "อื่นๆ"]
+ZONES = ["ย.1", "ย.2", "ย.3", "ย.4", "ย.5", "ย.6", "ย.7",
+         "ย.8", "ย.9", "ย.10", "พ.1", "พ.2", "ไม่ทราบ"]
+
 _FORM_MAP = {
     "name": "cf_name", "land_w": "cf_w", "land_d": "cf_d",
     "province": "cf_province", "zone": "cf_zone", "street_w": "cf_street",
@@ -63,7 +74,9 @@ _FORM_MAP = {
 }
 
 
-def _apply_preset(preset_key: str):
+def _apply_preset():
+    """Callback fired before re-rendering widgets · safe to mutate state"""
+    preset_key = st.session_state.get("cf_preset_key", "")
     p = PRESETS.get(preset_key)
     if not p:
         return
@@ -73,63 +86,100 @@ def _apply_preset(preset_key: str):
     st.session_state["cf_elderly"] = "มี" if p["data"].get("has_elderly") == "ใช่" else "ไม่มี"
 
 
+def _init_defaults():
+    defaults = {
+        "cf_name": "บ้าน-A", "cf_w": 15.0, "cf_d": 20.0,
+        "cf_province": "กรุงเทพมหานคร", "cf_zone": "ย.3",
+        "cf_street": 6.0, "cf_family": 4, "cf_elderly": "ไม่มี",
+        "cf_floors": "2", "cf_bedrooms": "3", "cf_budget": 8.0,
+        "cf_fs": "ปานกลาง", "cf_special": "",
+    }
+    for k, v in defaults.items():
+        st.session_state.setdefault(k, v)
+
+
 # ============================================================================
-# Form
+# Sidebar form (INPUTS live here)
 # ============================================================================
 
-PROVINCES = ["กรุงเทพมหานคร", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ",
-             "นครปฐม", "เชียงใหม่", "ภูเก็ต", "อื่นๆ"]
-ZONES = ["ย.1", "ย.2", "ย.3", "ย.4", "ย.5", "ย.6", "ย.7",
-         "ย.8", "ย.9", "ย.10", "พ.1", "พ.2", "ไม่ทราบ"]
+def render_sidebar_form(provider: str, api_key: str, model: str):
+    """Render form + analyze button inside sidebar"""
+    _init_defaults()
 
+    with st.sidebar:
+        st.markdown(
+            '<div class="eyebrow">PROJECT BRIEF</div>'
+            '<div style="font-family: var(--font-display); font-size: 1.05em; '
+            'font-weight: 700; margin-bottom: 8px;">กรอกข้อมูลโปรเจค</div>',
+            unsafe_allow_html=True,
+        )
 
-def _render_form() -> dict:
-    """Returns project_data dict"""
-    # Preset chips row
-    st.caption("⚡ เริ่มเร็ว · เลือก template")
-    cols = st.columns(len(PRESETS))
-    for i, (key, p) in enumerate(PRESETS.items()):
-        with cols[i]:
-            st.button(p["label"], key=f"preset_{key}", use_container_width=True,
-                      on_click=_apply_preset, args=(key,))
+        # Preset picker · select OR "custom"
+        st.selectbox(
+            "⚡ Quick preset (optional)",
+            options=["_custom"] + list(PRESETS.keys()),
+            format_func=lambda k: "— เลือก template —" if k == "_custom" else PRESETS[k]["label"],
+            key="cf_preset_key",
+            on_change=_apply_preset,
+        )
 
-    st.divider()
+        st.divider()
 
-    c1, c2 = st.columns(2)
-    with c1:
-        st.text_input("ชื่อโปรเจค", value=st.session_state.get("cf_name", "บ้าน-A"), key="cf_name")
-        st.number_input("กว้างที่ดิน (ม.)", 3.0, 100.0, step=0.5, key="cf_w")
-        st.number_input("ลึกที่ดิน (ม.)", 3.0, 100.0, step=0.5, key="cf_d")
+        st.text_input("ชื่อโปรเจค", key="cf_name")
+
+        c1, c2 = st.columns(2)
+        c1.number_input("กว้าง (ม.)", 3.0, 100.0, step=0.5, key="cf_w")
+        c2.number_input("ลึก (ม.)", 3.0, 100.0, step=0.5, key="cf_d")
+
         st.selectbox("จังหวัด", PROVINCES, key="cf_province")
         st.selectbox("สีผังเมือง", ZONES, key="cf_zone",
                      help="ย. = ที่อยู่อาศัย · พ. = พาณิชย์")
         st.number_input("ถนนติด (ม.)", 1.0, 50.0, step=0.5, key="cf_street")
 
-    with c2:
-        st.slider("สมาชิก", 1, 15, key="cf_family")
+        st.divider()
+        st.slider("สมาชิกครอบครัว", 1, 15, key="cf_family")
         st.radio("ผู้สูงอายุ", ["ไม่มี", "มี"], horizontal=True, key="cf_elderly")
-        st.selectbox("ชั้น", ["1", "2", "3", "4+"], key="cf_floors")
-        st.selectbox("ห้องนอน", ["1", "2", "3", "4", "5+"], key="cf_bedrooms")
+
+        c3, c4 = st.columns(2)
+        c3.selectbox("ชั้น", ["1", "2", "3", "4+"], key="cf_floors")
+        c4.selectbox("ห้องนอน", ["1", "2", "3", "4", "5+"], key="cf_bedrooms")
+
         st.number_input("งบ (ล้านบาท)", 0.5, 200.0, step=0.5, key="cf_budget")
         st.selectbox("ฮวงจุ้ย", ["มาก", "ปานกลาง", "น้อย", "ไม่สน"], key="cf_fs")
 
-    special = st.text_area(
-        "ความต้องการพิเศษ",
-        placeholder="เช่น · ห้องพระ · สระ · ผู้สูงอายุใช้ wheelchair · home office",
-        height=90,
-        key="cf_special",
-    )
+        st.text_area(
+            "ข้อพิเศษ (optional)",
+            placeholder="เช่น · ห้องพระ · สระ · home office",
+            height=80,
+            key="cf_special",
+        )
 
-    # Initialize session defaults for first-render
-    defaults = {"cf_name": "บ้าน-A", "cf_w": 15.0, "cf_d": 20.0,
-                "cf_province": "กรุงเทพมหานคร", "cf_zone": "ย.3",
-                "cf_street": 6.0, "cf_family": 4, "cf_elderly": "ไม่มี",
-                "cf_floors": "2", "cf_bedrooms": "3", "cf_budget": 8.0,
-                "cf_fs": "ปานกลาง", "cf_special": ""}
-    for k, v in defaults.items():
-        if k not in st.session_state:
-            st.session_state[k] = v
+        st.divider()
 
+        uploaded = st.file_uploader(
+            "📎 แปลน (optional · .jpg/.png)",
+            type=["jpg", "jpeg", "png"],
+        )
+        image_bytes = uploaded.getvalue() if uploaded else None
+        if image_bytes:
+            st.image(image_bytes, caption="แปลนที่จะส่ง",
+                     use_container_width=True)
+
+        st.divider()
+
+        # THE BIG CTA
+        if not api_key:
+            st.warning(
+                "👆 ใส่ **API Key** ที่ส่วน AI ด้านบนก่อน · "
+                "[รับ Gemini ฟรี](https://aistudio.google.com/apikey)"
+            )
+        else:
+            if st.button("🔍 วิเคราะห์โครงการ",
+                         type="primary", use_container_width=True,
+                         key="cf_run_btn"):
+                st.session_state["_cf_pending"] = True
+
+    # Return project_data for use in run
     land_w = st.session_state["cf_w"]
     land_d = st.session_state["cf_d"]
     return {
@@ -145,11 +195,11 @@ def _render_form() -> dict:
         "budget": st.session_state["cf_budget"],
         "fengshui": st.session_state["cf_fs"],
         "special": st.session_state["cf_special"],
-    }
+    }, image_bytes
 
 
 # ============================================================================
-# Analysis runner
+# Analysis runner (main area · shows progress · saves result)
 # ============================================================================
 
 def _run_analysis(provider: str, api_key: str, model: str,
@@ -161,33 +211,29 @@ def _run_analysis(provider: str, api_key: str, model: str,
     try:
         status.update(label="📚 โหลด Knowledge Graph · 104 nodes")
         time.sleep(0.1)
-        status.update(label=f"🧠 เรียก AI · ~30-60 วินาที")
+        status.update(label="🧠 เรียก AI · ~30-60 วินาที")
         t0 = time.time()
         raw = llm.dispatch(provider, api_key, system, user_text, image_bytes, model)
         elapsed = time.time() - t0
 
         status.update(label=f"📊 parse · {len(raw):,} chars")
         parsed = analysis.extract_json(raw)
-        state = "complete"
-        label = f"✅ เสร็จใน {elapsed:.1f} วิ"
-        if parsed:
-            label += " · JSON parsed"
-        else:
-            label += " · markdown fallback"
-        status.update(label=label, state=state, expanded=False)
 
-        _save_to_history(project_data, raw, parsed, provider)
+        label = f"✅ เสร็จใน {elapsed:.1f} วิ"
+        label += " · JSON" if parsed else " · markdown"
+        status.update(label=label, state="complete", expanded=False)
+
+        _save(project_data, raw, parsed, provider)
         st.session_state["cf_result"] = parsed
         st.session_state["cf_raw"] = raw
         st.session_state["cf_pd"] = project_data
         st.session_state["cf_provider"] = provider
-        st.rerun()
     except Exception as e:
         status.update(label=f"❌ ล้มเหลว: {e}", state="error", expanded=True)
         st.error(str(e))
 
 
-def _save_to_history(pd: dict, raw: str, result: dict | None, provider: str):
+def _save(pd: dict, raw: str, result: dict | None, provider: str):
     entry = {
         "id": datetime.now().strftime("%Y%m%d-%H%M%S-%f"),
         "ts": datetime.now().isoformat(),
@@ -206,8 +252,40 @@ def _save_to_history(pd: dict, raw: str, result: dict | None, provider: str):
 
 
 # ============================================================================
-# Result
+# Main area (OUTPUTS live here)
 # ============================================================================
+
+def _render_welcome():
+    """Empty state when no analysis yet"""
+    theme.hero(
+        "สมองจำลองของสถาปนิก",
+        "วิเคราะห์บ้านไทยด้วย AI + 5 ชั้นความรู้ · กรอกข้อมูลที่ sidebar ซ้าย · กด วิเคราะห์",
+        eyebrow="CREATE",
+    )
+    st.markdown(
+        '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));'
+        'gap: 14px; margin: 20px 0;">'
+        '<div class="card"><div style="font-size:1.6em;">📐</div>'
+        '<strong>Metrics</strong><div style="color:var(--muted); font-size:0.88em;">'
+        'FAR · OSR · setback · buildable area · cost</div></div>'
+        '<div class="card"><div style="font-size:1.6em;">🧩</div>'
+        '<strong>5-Layer</strong><div style="color:var(--muted); font-size:0.88em;">'
+        'กฎหมาย · วิศวกรรม · ออกแบบ · วัฒนธรรม · ฮวงจุ้ย</div></div>'
+        '<div class="card"><div style="font-size:1.6em;">🚪</div>'
+        '<strong>Rooms</strong><div style="color:var(--muted); font-size:0.88em;">'
+        'ขนาดแนะนำ · ทิศ · วัฒนธรรม · ฮวงจุ้ย</div></div>'
+        '<div class="card"><div style="font-size:1.6em;">🎯</div>'
+        '<strong>Next Actions</strong><div style="color:var(--muted); font-size:0.88em;">'
+        'ลำดับ step · โดย · เมื่อ</div></div>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+    st.info(
+        "💡 **เริ่มต้น:** เลือก **preset** ที่ sidebar ซ้าย (เช่น 🏠 บ้านเดี่ยวเล็ก) "
+        "→ ข้อมูลจะ fill อัตโนมัติ → กด **🔍 วิเคราะห์โครงการ** "
+        "→ รอ ~60 วินาที · ผลจะขึ้นในพื้นที่นี้"
+    )
+
 
 def _render_result():
     data = st.session_state.get("cf_result")
@@ -216,21 +294,28 @@ def _render_result():
     provider = st.session_state.get("cf_provider", "ai")
 
     if not pd:
+        _render_welcome()
         return
 
-    st.divider()
-    st.markdown(f'<div class="eyebrow">ANALYSIS · {provider.upper()}</div>'
-                f'<h2 style="margin-top:0;">{pd["name"]}</h2>',
-                unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="eyebrow">ANALYSIS · {provider.upper()}</div>'
+        f'<h1 style="margin-top:4px;">{pd["name"]}</h1>',
+        unsafe_allow_html=True,
+    )
 
     if data:
         analysis.render(data)
     else:
-        st.warning("⚠ AI ไม่ตอบเป็น JSON · แสดง markdown")
+        st.warning("⚠ AI ไม่ตอบเป็น JSON · markdown fallback")
         st.markdown(raw or "")
 
     # Downloads
     st.divider()
+    st.markdown(
+        '<div class="eyebrow">EXPORT</div>'
+        '<h3 style="margin-top:4px;">📥 ดาวน์โหลด</h3>',
+        unsafe_allow_html=True,
+    )
     ts = datetime.now().strftime("%Y%m%d-%H%M")
     md_content = analysis.to_markdown(data) if data else (raw or "")
     full_md = f"""# ผลวิเคราะห์ — {pd['name']}
@@ -248,7 +333,7 @@ Provider: {provider.title()}
 
 ---
 
-_Generated by สมองจำลองของสถาปนิก · Thai Architect's Studio_
+_สมองจำลองของสถาปนิก · Thai Architect's Studio_
 """
     c1, c2, c3 = st.columns(3)
     c1.download_button("📥 Markdown", full_md,
@@ -268,49 +353,11 @@ _Generated by สมองจำลองของสถาปนิก · Thai 
                        mime="text/plain", use_container_width=True)
 
 
-# ============================================================================
-# Main render
-# ============================================================================
-
-def render(provider: str, api_key: str, model: str):
-    """Create view · form + analyze + result (single focused flow)"""
-    theme.hero(
-        "สมองจำลองของสถาปนิก",
-        "วิเคราะห์บ้านไทยด้วย AI + 5 ชั้นความรู้ · ผล ~60 วินาที",
-        eyebrow="CREATE",
-    )
-
-    if not api_key:
-        st.info(
-            "👈 กรอก **Gemini API Key** ที่ sidebar ก่อน · "
-            "[รับฟรีที่นี่](https://aistudio.google.com/apikey) (1,500 ครั้ง/วัน · ไม่ต้องใส่บัตรเครดิต)"
-        )
-        # Still allow browsing form
-        st.caption("_เลือก preset หรือกรอกข้อมูลรอไว้ได้เลย_")
-        _render_form()
-        return
-
-    st.markdown(
-        '<div class="eyebrow">PROJECT BRIEF</div>'
-        '<h2 style="margin-top:0;">ข้อมูลโครงการ</h2>',
-        unsafe_allow_html=True,
-    )
-    project_data = _render_form()
-
-    st.divider()
-    uploaded = st.file_uploader(
-        "📎 แปลน (ไม่บังคับ · .jpg/.png)",
-        type=["jpg", "jpeg", "png"],
-        help="ถ้ามีแปลน · AI วิเคราะห์ layout ด้วย",
-    )
-    image_bytes = uploaded.getvalue() if uploaded else None
-    if image_bytes:
-        st.image(image_bytes, caption="แปลนที่จะส่ง", use_container_width=True)
-
-    st.divider()
-    if st.button("🔍 วิเคราะห์โครงการ", type="primary", use_container_width=True):
+def render_main(provider: str, api_key: str, model: str,
+                project_data: dict, image_bytes: bytes | None):
+    """Main area · only result (or welcome empty state)"""
+    # Check if we should run
+    if st.session_state.pop("_cf_pending", False):
         _run_analysis(provider, api_key, model, project_data, image_bytes)
 
-    # Show last result if any
-    if st.session_state.get("cf_result") or st.session_state.get("cf_raw"):
-        _render_result()
+    _render_result()
