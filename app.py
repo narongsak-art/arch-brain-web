@@ -44,23 +44,44 @@ CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --cream: #faf7f0; --sand: #f4efe3; --border: #e5dfcf; --border-strong: #c9bfa3;
-  --teak: #8b5a2b; --teak-hover: #6d4621; --teak-soft: #f0e6d8;
-  --gold: #c9a961; --terra: #c97864;
-  --ink: #2d1f15; --muted: #6b5842; --subtle: #9c8970;
+  /* Softer, more editorial palette */
+  --cream: #fbf9f3;
+  --sand: #f5f0e4;
+  --white: #ffffff;
+  --border: #ebe4d2;
+  --border-strong: #d8cfb9;
+  --teak: #7a4e24;
+  --teak-hover: #5d3a1a;
+  --teak-soft: #f2ead9;
+  --gold: #b89755;
+  --terra: #b16a57;
+  --sage: #6b7f64;
+  --ink: #241a11;
+  --muted: #6e5d48;
+  --subtle: #a89879;
   --font-display: 'Bai Jamjuree', 'Sarabun', serif;
   --font-body: 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
-  --radius: 10px;
-  --shadow-sm: 0 1px 2px rgba(45,31,21,0.05), 0 1px 3px rgba(45,31,21,0.08);
-  --shadow-md: 0 4px 12px -2px rgba(45,31,21,0.10);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-xs: 0 1px 2px rgba(36,26,17,0.04);
+  --shadow-sm: 0 1px 3px rgba(36,26,17,0.06), 0 1px 2px rgba(36,26,17,0.04);
+  --shadow-md: 0 4px 10px -2px rgba(36,26,17,0.08), 0 2px 6px -2px rgba(36,26,17,0.05);
+  --shadow-lg: 0 12px 32px -8px rgba(36,26,17,0.12), 0 6px 16px -4px rgba(36,26,17,0.06);
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Base */
 html, body { font-family: var(--font-body); }
 .stApp, .stApp * { font-family: var(--font-body); }
 .stApp { background: var(--cream); color: var(--ink); }
-.main .block-container { max-width: 1000px; padding-top: 1.5rem; padding-bottom: 3rem; }
+.main .block-container {
+  max-width: 1040px;
+  padding-top: 1.8rem;
+  padding-bottom: 4rem;
+}
 
-/* Keep sidebar toggle reachable (past bugs) */
+/* Streamlit chrome */
 [data-testid="stHeader"] { background: transparent !important; height: auto; }
 [data-testid="stDeployButton"] { display: none !important; }
 footer { visibility: hidden; }
@@ -70,68 +91,409 @@ button[kind="header"], button[kind="headerNoPadding"] {
   visibility: visible !important; display: block !important; z-index: 9999 !important;
 }
 
-h1, h2, h3, h4 {
+/* Typography · refined scale + more breathing room */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display); color: var(--ink);
-  letter-spacing: -0.015em; font-weight: 700;
+  letter-spacing: -0.02em; font-weight: 700;
 }
-h1 { font-size: 2.6em; line-height: 1.1; }
-h2 { font-size: 1.7em; margin-top: 1em; }
-h3 { font-size: 1.25em; }
+h1 { font-size: 2.4em; line-height: 1.12; margin: 0 0 0.5em 0; }
+h2 { font-size: 1.55em; line-height: 1.25; margin: 1.4em 0 0.6em 0; font-weight: 650; }
+h3 { font-size: 1.2em; line-height: 1.3; margin: 1em 0 0.4em 0; font-weight: 600; }
+p { line-height: 1.65; color: var(--ink); }
 
 .eyebrow {
-  font-family: var(--font-display); font-size: 0.82em; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--teak); margin-bottom: 6px;
+  font-family: var(--font-display);
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teak);
+  margin-bottom: 4px;
 }
 
+/* Hero · more refined, layered */
 .hero {
-  padding: 44px 32px; margin: 0 0 24px 0; color: #fff;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--teak) 0%, var(--gold) 50%, var(--terra) 100%);
-  box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  padding: 56px 40px 52px;
+  margin: 0 0 32px 0;
+  color: #fff;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, var(--teak) 0%, #a07240 55%, var(--terra) 100%);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; top: 0; right: 0;
+  width: 360px; height: 360px; opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 14px);
+  pointer-events: none;
 }
 .hero::after {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, transparent 45%);
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(255,255,255,0.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 75%, rgba(255,255,255,0.08) 0%, transparent 50%);
   pointer-events: none;
 }
-.hero .eyebrow { color: rgba(255,255,255,0.9); }
-.hero h1 { color: #fff !important; margin: 0 0 8px 0; font-size: 2.6em; }
-.hero p { margin: 0; opacity: 0.96; font-size: 1.05em; max-width: 640px; position: relative; }
+.hero .eyebrow { color: rgba(255,255,255,0.82); position: relative; }
+.hero h1 {
+  color: #fff !important;
+  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+.hero p {
+  margin: 0;
+  color: rgba(255,255,255,0.93);
+  font-size: 1.08em;
+  line-height: 1.55;
+  max-width: 620px;
+  position: relative;
+}
 
+/* Page header (cleaner · for Studio/Explore · no hero gradient) */
+.page-header {
+  margin: 6px 0 28px 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+  font-size: 2em;
+  margin: 2px 0 4px 0;
+}
+.page-header p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 1em;
+}
+
+/* Cards · gentler */
 .card {
-  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 18px 22px; box-shadow: var(--shadow-sm); transition: all 0.15s ease;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition);
+  height: 100%;
 }
 .card:hover {
-  border-color: var(--teak); box-shadow: var(--shadow-md); transform: translateY(-1px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
-/* Primary button · teak */
-[data-testid="stBaseButton-primary"] {
-  background: var(--teak) !important; border: none !important; color: #fff !important;
+/* Feature card (welcome state) */
+.feat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  height: 100%;
+  transition: all var(--transition);
+}
+.feat-card:hover {
+  border-color: var(--teak-soft);
+  box-shadow: var(--shadow-sm);
+}
+.feat-card .feat-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  background: var(--teak-soft);
+  color: var(--teak);
+  border-radius: var(--radius-sm);
+  font-size: 1.4em;
+  margin-bottom: 12px;
+}
+.feat-card h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.02em;
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 700;
+}
+.feat-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88em;
+  line-height: 1.5;
+}
+
+/* Design card (Studio gallery) */
+.design-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: all var(--transition);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.design-card:hover {
+  border-color: var(--teak-soft);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.design-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teak) 0%, var(--gold) 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.design-card:hover::before { opacity: 1; }
+
+.design-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.04em;
+  line-height: 1.3;
+  margin: 0 0 8px 0;
+  color: var(--ink);
+  padding-right: 60px; /* space for feasibility badge */
+}
+.design-score {
+  font-family: var(--font-display);
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--teak);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.design-score small {
+  font-family: var(--font-body);
+  font-size: 0.45em;
+  color: var(--subtle);
+  font-weight: 400;
+  margin-left: 2px;
+}
+.design-meta {
+  font-size: 0.82em;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.design-meta .sep { color: var(--subtle); }
+.design-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 0.72em;
+  background: var(--sand);
+  color: var(--muted);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+/* Explore card */
+.ex-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px 18px;
+  transition: all var(--transition);
+  height: 100%;
+}
+.ex-card:hover {
+  border-color: var(--teak-soft);
+  box-shadow: var(--shadow-sm);
+}
+.ex-type {
+  font-size: 0.7em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teak);
   font-weight: 600;
 }
-[data-testid="stBaseButton-primary"]:hover {
-  background: var(--teak-hover) !important; box-shadow: var(--shadow-md);
+.ex-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.3;
+  margin: 4px 0 8px 0;
+  color: var(--ink);
+}
+.ex-preview {
+  color: var(--muted);
+  font-size: 0.86em;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ex-layers {
+  font-size: 0.72em;
+  color: var(--subtle);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
 }
 
+/* Tag pill */
+.tag-pill {
+  display: inline-block;
+  background: var(--teak-soft);
+  color: var(--teak);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.76em;
+  font-weight: 500;
+  margin: 0 4px 4px 0;
+}
+
+/* Primary button · refined teak */
+[data-testid="stBaseButton-primary"] {
+  background: var(--teak) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  padding: 10px 20px !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all var(--transition) !important;
+  box-shadow: var(--shadow-xs);
+}
+[data-testid="stBaseButton-primary"]:hover {
+  background: var(--teak-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-1px);
+}
+[data-testid="stBaseButton-primary"]:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs) !important;
+}
+
+/* Secondary buttons · cleaner */
+[data-testid="stBaseButton-secondary"] {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--ink) !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all var(--transition) !important;
+}
+[data-testid="stBaseButton-secondary"]:hover {
+  border-color: var(--teak) !important;
+  color: var(--teak) !important;
+  background: var(--teak-soft) !important;
+}
+
+/* Metrics · cleaner */
 [data-testid="stMetric"] {
-  background: var(--sand); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-xs);
+}
+[data-testid="stMetricLabel"] {
+  font-size: 0.82em !important;
+  color: var(--muted) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em;
 }
 [data-testid="stMetricValue"] {
-  color: var(--teak) !important;
-  font-family: var(--font-display) !important; font-weight: 700 !important;
+  color: var(--ink) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: 1.4em !important;
 }
 
-[data-testid="stSidebar"] { background: #fff; border-right: 1px solid var(--border); }
+/* Inputs · softer */
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stSelectbox"] > div > div {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--ink) !important;
+  transition: border-color var(--transition);
+}
+[data-testid="stTextInput"] input:focus,
+[data-testid="stNumberInput"] input:focus,
+[data-testid="stTextArea"] textarea:focus {
+  border-color: var(--teak) !important;
+  box-shadow: 0 0 0 3px rgba(122,78,36,0.12) !important;
+}
 
-hr { border: none; height: 1px; background: var(--border); margin: 1em 0; }
+/* Sidebar · elegant */
+[data-testid="stSidebar"] {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+}
+[data-testid="stSidebar"] .stRadio label {
+  font-weight: 500;
+}
+[data-testid="stSidebar"] hr {
+  margin: 0.8em 0;
+}
 
-@media (max-width: 640px) {
-  .hero { padding: 28px 20px; }
-  .hero h1 { font-size: 1.7em; }
+/* Expanders · softer borders */
+[data-testid="stExpander"] {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--white);
+}
+[data-testid="stExpander"] summary {
+  font-weight: 600;
+  padding: 10px 14px !important;
+}
+
+/* Dividers */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 1.4em 0;
+}
+
+/* Alerts · warmer */
+[data-testid="stAlert"] {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  padding: 14px 18px !important;
+}
+
+/* Status widget · cleaner */
+[data-testid="stStatusWidget"] {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"] {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main .block-container { padding: 1rem 1.2rem 2rem; }
+  .hero { padding: 36px 24px 32px; }
+  .hero h1 { font-size: 1.8em; }
+  h1 { font-size: 1.7em; }
+  h2 { font-size: 1.35em; }
+}
+
+/* Subtle page-load fade-in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero, .page-header, .card, .feat-card, .design-card, .ex-card {
+  animation: fadeInUp 0.35s ease-out;
 }
 </style>
 """
@@ -449,30 +811,93 @@ def view_create():
 
     current = st.session_state.get("current")
     if not current:
-        # Welcome state
+        # Welcome state · refined
         hero("สมองจำลองของสถาปนิก",
-             "วิเคราะห์บ้านไทยด้วย AI + 5 ชั้นความรู้ · กรอกข้อมูลที่ sidebar · กด วิเคราะห์",
-             eyebrow="CREATE")
+             "วิเคราะห์บ้านไทยด้วย AI · 5 ชั้นความรู้ · กรอกข้อมูลที่ sidebar ซ้าย แล้วกด วิเคราะห์",
+             eyebrow="CREATE · THAI ARCHITECT'S STUDIO")
+
         st.markdown(
-            '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));'
-            'gap: 12px; margin: 16px 0;">'
-            '<div class="card"><div style="font-size:1.6em;">📐</div>'
-            '<strong>Metrics</strong><div style="color:var(--muted); font-size:0.88em;">'
-            'FAR · OSR · setback · cost</div></div>'
-            '<div class="card"><div style="font-size:1.6em;">🧩</div>'
-            '<strong>5-Layer</strong><div style="color:var(--muted); font-size:0.88em;">'
-            'กฎหมาย · eng · ออกแบบ · ไทย · ฮวงจุ้ย</div></div>'
-            '<div class="card"><div style="font-size:1.6em;">🚪</div>'
-            '<strong>Rooms</strong><div style="color:var(--muted); font-size:0.88em;">'
-            'ขนาด · ทิศ · ฮวงจุ้ย</div></div>'
-            '<div class="card"><div style="font-size:1.6em;">🎯</div>'
-            '<strong>Next Actions</strong><div style="color:var(--muted); font-size:0.88em;">'
-            'step · โดย · เมื่อ</div></div>'
+            '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));'
+            'gap: 14px; margin: 4px 0 24px 0;">'
+
+            '<div class="feat-card">'
+            '<div class="feat-icon">📐</div>'
+            '<h4>Metrics ครบ</h4>'
+            '<p>FAR · OSR · ระยะร่น · พื้นที่สร้างได้ · ประมาณค่าก่อสร้าง</p>'
+            '</div>'
+
+            '<div class="feat-card">'
+            '<div class="feat-icon">🧩</div>'
+            '<h4>5 ชั้นความรู้</h4>'
+            '<p>กฎหมาย · วิศวกรรม · ออกแบบ · วัฒนธรรมไทย · ฮวงจุ้ย</p>'
+            '</div>'
+
+            '<div class="feat-card">'
+            '<div class="feat-icon">🚪</div>'
+            '<h4>วิเคราะห์ห้อง</h4>'
+            '<p>ขนาดแนะนำ · ทิศที่ดี · ข้อควรระวัง ทีละห้อง</p>'
+            '</div>'
+
+            '<div class="feat-card">'
+            '<div class="feat-icon">🎯</div>'
+            '<h4>Action list</h4>'
+            '<p>ขั้นตอนทำต่อ · ใครทำ · เมื่อไหร่ · Top 3 ประเด็น</p>'
+            '</div>'
+
             '</div>',
             unsafe_allow_html=True,
         )
-        st.info(
-            "💡 **เริ่ม:** sidebar ซ้าย → ⚡ เลือก preset → 🔍 วิเคราะห์ · ผลขึ้นที่นี่ใน ~60 วิ"
+
+        # Quick-start strip (3 steps)
+        st.markdown(
+            '<div class="eyebrow">HOW TO START</div>'
+            '<h3 style="margin-top:0; margin-bottom:14px;">เริ่มใน 3 ขั้น</h3>',
+            unsafe_allow_html=True,
+        )
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.markdown(
+                '<div class="card" style="height:100%;">'
+                '<div style="color:var(--teak); font-family:var(--font-display); '
+                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">01</div>'
+                '<strong style="display:block; margin-bottom:4px;">ใส่ API Key</strong>'
+                '<div style="color:var(--muted); font-size:0.88em;">'
+                'Sidebar ซ้าย → ⚙ AI Settings → paste Gemini key '
+                '(<a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--teak);">ฟรี</a>)</div>'
+                '</div>',
+                unsafe_allow_html=True,
+            )
+        with c2:
+            st.markdown(
+                '<div class="card" style="height:100%;">'
+                '<div style="color:var(--teak); font-family:var(--font-display); '
+                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">02</div>'
+                '<strong style="display:block; margin-bottom:4px;">เลือก Preset หรือกรอก</strong>'
+                '<div style="color:var(--muted); font-size:0.88em;">'
+                '⚡ Quick preset 5 แบบ · หรือกรอกเอง: ที่ดิน · ครอบครัว · งบ · ฮวงจุ้ย</div>'
+                '</div>',
+                unsafe_allow_html=True,
+            )
+        with c3:
+            st.markdown(
+                '<div class="card" style="height:100%;">'
+                '<div style="color:var(--teak); font-family:var(--font-display); '
+                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">03</div>'
+                '<strong style="display:block; margin-bottom:4px;">กด 🔍 วิเคราะห์</strong>'
+                '<div style="color:var(--muted); font-size:0.88em;">'
+                'AI จะใช้เวลา ~60 วินาที · ผลขึ้นในพื้นที่นี้ · download ได้หลาย format</div>'
+                '</div>',
+                unsafe_allow_html=True,
+            )
+
+        st.markdown(
+            '<div style="margin-top:24px; padding:14px 18px; background:var(--sand); '
+            'border-left:3px solid var(--teak); border-radius:var(--radius-sm); '
+            'color:var(--muted); font-size:0.9em;">'
+            '🔒 <strong>Privacy:</strong> API key + ข้อมูลโปรเจค '
+            'ไม่ถูกเก็บ · ไม่ใช้ train AI · หายเมื่อปิด tab'
+            '</div>',
+            unsafe_allow_html=True,
         )
         return
 
@@ -541,13 +966,30 @@ _สมองจำลองของสถาปนิก · Thai Architect's S
 
 
 def view_studio():
-    hero("สตูดิโอของฉัน",
-         "งานวิเคราะห์ทั้งหมด · คลิก 🔄 เปิด เพื่อดูผลอีกครั้ง",
-         eyebrow="MY STUDIO")
-
     hist = st.session_state.get("history", [])
+
+    # Clean page header (no colorful hero)
+    st.markdown(
+        '<div class="page-header">'
+        '<div class="eyebrow">MY STUDIO</div>'
+        f'<h1>สตูดิโอของฉัน</h1>'
+        f'<p>งานวิเคราะห์ทั้งหมด · {len(hist)} ชิ้น · คลิก <b>เปิด</b> ดูผลอีกครั้ง</p>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
     if not hist:
-        st.info("✨ ยังไม่มีงาน · ไปที่ **🎨 Create** · วิเคราะห์โปรเจคแรก · ผลจะเก็บที่นี่")
+        st.markdown(
+            '<div style="text-align:center; padding:60px 20px; '
+            'background:var(--white); border:2px dashed var(--border-strong); '
+            'border-radius:var(--radius); margin-top:20px;">'
+            '<div style="font-size:2.4em; margin-bottom:10px;">✨</div>'
+            '<h3 style="margin:0 0 4px 0;">ยังไม่มีงาน</h3>'
+            '<p style="color:var(--muted); margin:0;">'
+            'ไปที่ <b>🎨 Create</b> · วิเคราะห์โปรเจคแรก · ผลจะเก็บที่นี่อัตโนมัติ</p>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
         return
 
     cols = st.columns(3)
@@ -566,32 +1008,34 @@ def view_studio():
 
         with cols[i % 3]:
             st.markdown(
-                f'<div class="card" style="height:100%;">'
-                f'<div style="font-family:var(--font-display); font-weight:700; '
-                f'font-size:1.05em; line-height:1.3; margin-bottom:6px;">'
-                f'{entry["name"]}</div>'
-                f'<div style="font-family:var(--font-display); font-size:1.7em; '
-                f'font-weight:700; color:var(--teak); line-height:1;">'
-                f'{score}<small style="font-size:0.55em; color:var(--subtle);"> /100</small>'
+                f'<div class="design-card">'
+                f'<div class="design-badge">{feas_emoji} {feas}</div>'
+                f'<div class="design-title">{entry["name"]}</div>'
+                f'<div class="design-score">{score}<small>/100</small></div>'
+                f'<div class="design-meta">'
+                f'<span>📍 {pd.get("province", "-")[:12]}</span>'
+                f'<span class="sep">·</span>'
+                f'<span>{pd.get("zone", "-")}</span>'
+                f'<span class="sep">·</span>'
+                f'<span>{area:.0f} ตร.ม.</span>'
                 f'</div>'
-                f'<div style="font-size:0.8em; color:var(--muted); margin-top:4px;">'
-                f'{feas_emoji} {feas} · {pd.get("province", "-")[:10]} · '
-                f'{pd.get("zone", "-")} · {area:.0f} ตร.ม.'
-                f'</div>'
-                f'<div style="font-size:0.75em; color:var(--subtle); margin-top:4px;">'
-                f'🕐 {ts} · {entry.get("provider", "ai")}'
+                f'<div class="design-meta" style="margin-top:4px;">'
+                f'<span>🕐 {ts}</span>'
+                f'<span class="sep">·</span>'
+                f'<span>{entry.get("provider", "ai")}</span>'
                 f'</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
-            c_open, c_del = st.columns(2)
-            if c_open.button("🔄 เปิด", key=f"st_open_{i}_{entry['id']}",
-                             use_container_width=True):
+            c_open, c_del = st.columns([3, 1])
+            if c_open.button("เปิดดูผล", key=f"st_open_{i}_{entry['id']}",
+                             use_container_width=True, type="primary"):
                 st.session_state["current"] = entry
                 st.session_state["_view"] = "create"
                 st.rerun()
             if c_del.button("🗑", key=f"st_del_{i}_{entry['id']}",
-                            use_container_width=True):
+                            use_container_width=True,
+                            help="ลบรายการนี้"):
                 st.session_state["history"] = [
                     e for e in hist if e["id"] != entry["id"]
                 ]
@@ -612,13 +1056,22 @@ def view_explore():
         if st.button("← กลับ Gallery", key="ex_back"):
             del st.session_state["_ex_open"]
             st.rerun()
-        st.divider()
-        layers = ", ".join(node.get("layers", [])) or "-"
+
+        layer_emoji = {"law": "🏛", "eng": "🔧", "design": "🎨",
+                       "thai": "🪷", "fengshui": "☯"}
+        layers_html = " ".join(
+            f'<span class="tag-pill">{layer_emoji.get(l, "")} {l}</span>'
+            for l in node.get("layers", [])
+        )
+
         st.markdown(
+            '<div class="page-header">'
             f'<div class="eyebrow">{node.get("type", "concept").upper()}</div>'
-            f'<h2 style="margin-top:4px;">{node.get("title", opened)}</h2>'
-            f'<div style="color:var(--muted); margin-bottom:12px;">'
-            f'layers: {layers} · id: <code>{opened}</code></div>',
+            f'<h1>{node.get("title", opened)}</h1>'
+            + (f'<div style="margin-top:8px;">{layers_html}</div>' if layers_html else '')
+            + f'<p style="margin-top:10px; font-size:0.82em; color:var(--subtle);">'
+              f'id <code style="font-size:0.9em;">{opened}</code></p>'
+            + '</div>',
             unsafe_allow_html=True,
         )
         st.markdown(node.get("summary", "(no summary)"))
@@ -657,10 +1110,16 @@ def view_explore():
                         st.rerun()
         return
 
-    # Gallery mode
-    hero("Explore ความรู้",
-         f"Knowledge Graph {len(nodes)} หน้า · คลิกอ่านแต่ละเรื่อง",
-         eyebrow="EXPLORE")
+    # Gallery mode · clean header (no hero gradient)
+    st.markdown(
+        '<div class="page-header">'
+        '<div class="eyebrow">EXPLORE</div>'
+        '<h1>สำรวจความรู้</h1>'
+        f'<p>Knowledge Graph {len(nodes)} หน้า · คลิกอ่านแต่ละเรื่อง · '
+        'ลิงก์หน้าที่เกี่ยวข้องให้ท่องต่อ</p>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
 
     # Filter
     all_layers = sorted({l for n in nodes for l in n.get("layers", [])})
@@ -691,25 +1150,24 @@ def view_explore():
         return
 
     cols = st.columns(3)
+    layer_emoji = {"law": "🏛", "eng": "🔧", "design": "🎨",
+                   "thai": "🪷", "fengshui": "☯"}
     for i, n in enumerate(filtered[:30]):
         with cols[i % 3]:
-            layers_str = " · ".join(n.get("layers", []))
+            layers_html = " ".join(
+                f'<span class="tag-pill">{layer_emoji.get(l, "")} {l}</span>'
+                for l in n.get("layers", [])[:3]
+            )
             st.markdown(
-                f'<div class="card">'
-                f'<div style="font-size:0.72em; letter-spacing:0.1em; '
-                f'text-transform:uppercase; color:var(--teak); font-weight:600;">'
-                f'{n.get("type", "concept")}</div>'
-                f'<div style="font-family:var(--font-display); font-weight:700; '
-                f'font-size:1.05em; line-height:1.3; margin:4px 0 6px 0;">'
-                f'{n.get("title", n["id"])}</div>'
-                f'<div style="color:var(--muted); font-size:0.86em; line-height:1.5; '
-                f'display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; '
-                f'overflow:hidden;">{(n.get("summary") or "")[:220]}</div>'
-                + (f'<div style="font-size:0.72em; color:var(--subtle); margin-top:6px;">{layers_str}</div>' if layers_str else '')
+                f'<div class="ex-card">'
+                f'<div class="ex-type">{n.get("type", "concept")}</div>'
+                f'<div class="ex-title">{n.get("title", n["id"])}</div>'
+                f'<div class="ex-preview">{(n.get("summary") or "")[:220]}</div>'
+                + (f'<div class="ex-layers">{layers_html}</div>' if layers_html else '')
                 + '</div>',
                 unsafe_allow_html=True,
             )
-            if st.button("📖 เปิดอ่าน", key=f"ex_{i}_{n['id']}",
+            if st.button("อ่านเพิ่มเติม", key=f"ex_{i}_{n['id']}",
                          use_container_width=True):
                 st.session_state["_ex_open"] = n["id"]
                 st.rerun()
