@@ -554,6 +554,82 @@ hr {
   line-height: 1.5;
 }
 
+/* Compass · visual orientation indicator */
+.compass {
+  position: relative;
+  width: 96px; height: 96px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+}
+.compass::before {
+  content: "N";
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.76em;
+  color: var(--teak);
+  background: var(--white);
+  padding: 0 4px;
+  line-height: 1;
+}
+.compass .needle {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 2px; height: 40%;
+  background: linear-gradient(to top, var(--terra) 0%, var(--teak) 100%);
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+.compass .needle::after {
+  content: "";
+  position: absolute;
+  top: -4px; left: -3px;
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid var(--teak);
+}
+.compass .center {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  background: var(--teak);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.compass-label {
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--muted);
+  margin-top: -4px;
+}
+
+/* Priority pills (mini chips) */
+.prio-pill {
+  display: inline-block;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75em;
+  font-weight: 500;
+  margin: 0 4px 4px 0;
+}
+.prio-pill.on {
+  background: var(--teak-soft);
+  border-color: var(--teak);
+  color: var(--teak);
+}
+
 /* Preset chosen ribbon · for when a preset is active */
 .preset-active-ribbon {
   background: var(--sand);
@@ -668,11 +744,34 @@ ZONES = ["ย.1", "ย.2", "ย.3", "ย.4", "ย.5", "ย.6", "ย.7", "ย.8",
          "พ.1", "พ.2", "ไม่ทราบ"]
 
 FORM_DEFAULTS = {
+    # Core
     "name": "บ้าน-A", "land_w": 15.0, "land_d": 20.0,
     "province": "กรุงเทพมหานคร", "zone": "ย.3", "street_w": 6.0,
     "family_size": 4, "has_elderly": "ไม่มี", "floors": "2",
     "bedrooms": "3", "budget": 8.0, "fengshui": "ปานกลาง", "special": "",
+    # Professional (new · for architects)
+    "orientation": "ใต้",      # plot's main facing: N/E/S/W
+    "topography": "ราบเรียบ",   # ราบ · ลาดเอียง · ลาดชัน
+    "adjacent": "",             # context: neighbors · road · canal
+    "priority": ["งบ", "คุณภาพ"],  # multiselect: cost/quality/time/sustain
+    "timeline": "1 ปี",         # project duration estimate
+    "grade": "มาตรฐาน",         # construction grade: eco/std/premium
 }
+
+ORIENTATIONS = ["เหนือ", "ตะวันออก", "ใต้", "ตะวันตก",
+                "ตะวันออกเฉียงเหนือ", "ตะวันออกเฉียงใต้",
+                "ตะวันตกเฉียงเหนือ", "ตะวันตกเฉียงใต้"]
+ORIENTATION_COMPASS = {
+    "เหนือ": ("N", 0), "ตะวันออกเฉียงเหนือ": ("NE", 45),
+    "ตะวันออก": ("E", 90), "ตะวันออกเฉียงใต้": ("SE", 135),
+    "ใต้": ("S", 180), "ตะวันตกเฉียงใต้": ("SW", 225),
+    "ตะวันตก": ("W", 270), "ตะวันตกเฉียงเหนือ": ("NW", 315),
+}
+
+TOPOGRAPHY = ["ราบเรียบ", "ลาดเอียงเล็กน้อย", "ลาดชัน", "ลุ่มต่ำ"]
+PRIORITIES = ["งบ", "คุณภาพ", "เวลา", "ความยั่งยืน", "ดีไซน์"]
+GRADES = ["ประหยัด", "มาตรฐาน", "ลักชัวรี"]
+TIMELINES = ["6 เดือน", "1 ปี", "1.5 ปี", "2 ปี", "> 2 ปี"]
 
 
 def _apply_preset():
@@ -831,6 +930,43 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                 height=80, key="form_special",
             )
 
+            # Professional expander · advanced architect fields
+            with st.expander("🧭 Architect detail", expanded=False):
+                st.selectbox(
+                    "ทิศที่ดิน (ด้านยาวหันไปทาง)",
+                    ORIENTATIONS, key="form_orientation",
+                    help="ทิศที่ด้านยาวของที่ดินหันไป · กำหนด sun path + ventilation",
+                )
+                # Visual compass
+                direction = st.session_state.get("form_orientation", "ใต้")
+                _, rot = ORIENTATION_COMPASS.get(direction, ("S", 180))
+                st.markdown(
+                    f'<div class="compass">'
+                    f'<div class="needle" style="transform: translate(-50%, -100%) rotate({rot}deg);"></div>'
+                    f'<div class="center"></div>'
+                    f'</div>'
+                    f'<div class="compass-label">ด้านยาวหัน <b>{direction}</b></div>',
+                    unsafe_allow_html=True,
+                )
+
+                st.selectbox("ภูมิประเทศ", TOPOGRAPHY, key="form_topography")
+                st.text_area(
+                    "บริบทรอบที่ดิน",
+                    placeholder="เช่น ทิศเหนือติดถนน · ใต้ติดคลอง · ตะวันตกมีบ้าน 2 ชั้น",
+                    height=68,
+                    key="form_adjacent",
+                )
+
+                st.multiselect(
+                    "ลำดับความสำคัญ",
+                    PRIORITIES, key="form_priority",
+                    help="เลือก 2-3 อันดับสำคัญสุด",
+                )
+                c5, c6 = st.columns(2)
+                c5.selectbox("Grade", GRADES, key="form_grade",
+                             help="ระดับงานก่อสร้าง")
+                c6.selectbox("Timeline", TIMELINES, key="form_timeline")
+
             st.divider()
             uploaded = st.file_uploader(
                 "📎 แปลน (optional)",
@@ -851,6 +987,7 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
 
             # Build project_data
             project_data = {
+                # Core
                 "name": st.session_state["form_name"],
                 "land_w": st.session_state["form_land_w"],
                 "land_d": st.session_state["form_land_d"],
@@ -865,6 +1002,13 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                 "budget": st.session_state["form_budget"],
                 "fengshui": st.session_state["form_fengshui"],
                 "special": st.session_state["form_special"],
+                # Professional
+                "orientation": st.session_state.get("form_orientation", "ใต้"),
+                "topography": st.session_state.get("form_topography", "ราบเรียบ"),
+                "adjacent": st.session_state.get("form_adjacent", ""),
+                "priority": st.session_state.get("form_priority", []),
+                "grade": st.session_state.get("form_grade", "มาตรฐาน"),
+                "timeline": st.session_state.get("form_timeline", "1 ปี"),
             }
 
         # Footer

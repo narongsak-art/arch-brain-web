@@ -162,6 +162,20 @@ OUTPUT_SCHEMA = """
   "issues":    [{"rank":1,"severity":"high|medium|low","title":"","detail":"","action":""}],
   "strengths": [{"rank":1,"title":"","detail":""}],
   "actions":   [{"step":1,"action":"","who":"สถาปนิก|วิศวกร|เจ้าของ","when":"ก่อนออกแบบ|ก่อนก่อสร้าง|หลัง"}],
+  "phases": {
+    "SD": {"label": "Schematic Design", "tasks": ["...", "..."], "deliverables": ["..."], "duration_weeks": 4},
+    "DD": {"label": "Design Development", "tasks": [...], "deliverables": [...], "duration_weeks": 6},
+    "CD": {"label": "Construction Documents", "tasks": [...], "deliverables": [...], "duration_weeks": 8},
+    "CA": {"label": "Construction Administration", "tasks": [...], "deliverables": [...], "duration_weeks": 26}
+  },
+  "compliance": {
+    "building_code":    {"status": "pass|warning|fail", "note": "..."},
+    "zoning":           {"status": "...", "note": "..."},
+    "parking":          {"status": "...", "note": "..."},
+    "fire_egress":      {"status": "...", "note": "..."},
+    "accessibility":    {"status": "...", "note": "..."},
+    "energy":           {"status": "...", "note": "..."}
+  },
   "confidence": "high|medium|low",
   "caveats":   ["..."]
 }
@@ -169,7 +183,10 @@ OUTPUT_SCHEMA = """
 กฎ:
 - rooms อย่างน้อย 6
 - issues + strengths อย่างน้อย 3 ต่ออัน
+- phases: 4 phases (SD · DD · CD · CA) · 3-5 tasks ต่อ phase · 2-3 deliverables · duration realistic
+- compliance: 6 หมวดหลัก · status + note 1 บรรทัด (cite มาตรา ถ้าทำได้)
 - ตัวเลขกฎหมาย: cite จาก FULL KNOWLEDGE · ถ้าไม่แน่ใจใส่ null
+- ใช้ข้อมูล orientation/topography/priority เพื่อปรับคำแนะนำให้ตรงโจทย์
 """
 
 
@@ -192,6 +209,22 @@ def build_system_prompt() -> str:
 
 
 def build_user_prompt(pd: dict) -> str:
+    priority_str = ", ".join(pd.get("priority") or []) or "-"
+    pro_lines = []
+    if pd.get("orientation"):
+        pro_lines.append(f"- ทิศที่ดิน (ด้านยาวหัน): {pd['orientation']}")
+    if pd.get("topography"):
+        pro_lines.append(f"- ภูมิประเทศ: {pd['topography']}")
+    if pd.get("adjacent"):
+        pro_lines.append(f"- บริบทรอบที่ดิน: {pd['adjacent']}")
+    if priority_str != "-":
+        pro_lines.append(f"- ลำดับความสำคัญ: {priority_str}")
+    if pd.get("grade"):
+        pro_lines.append(f"- Grade ก่อสร้าง: {pd['grade']}")
+    if pd.get("timeline"):
+        pro_lines.append(f"- Timeline: {pd['timeline']}")
+    pro_block = ("\n".join(pro_lines) + "\n") if pro_lines else ""
+
     return f"""ข้อมูลโครงการ:
 - ชื่อ: {pd.get('name', '-')}
 - ที่ดิน: {pd.get('land_w', '-')} × {pd.get('land_d', '-')} ม. ({pd.get('land_area', 0):.0f} ตร.ม.)
@@ -202,8 +235,8 @@ def build_user_prompt(pd: dict) -> str:
 - งบ: {pd.get('budget', '-')} ล้านบาท
 - ฮวงจุ้ย: {pd.get('fengshui', '-')}
 - ข้อพิเศษ: {pd.get('special', '-')}
-
-วิเคราะห์เป็น structured JSON ตาม schema
+{pro_block}
+วิเคราะห์เป็น structured JSON ตาม schema · อย่าลืมใช้ข้อมูลทิศ/ภูมิประเทศ/priority เพื่อ tailor advice
 """
 
 
@@ -262,10 +295,14 @@ LAYERS = [
 
 
 def render(data: dict):
-    """Full structured analysis display"""
+    """Full structured analysis display · architect-focused"""
     _summary(data.get("summary", {}))
     st.divider()
     _metrics(data.get("metrics", {}))
+    compliance = data.get("compliance") or {}
+    if compliance:
+        st.divider()
+        _compliance(compliance)
     st.divider()
     _layers(data.get("layers", {}))
     rooms = data.get("rooms", [])
@@ -277,6 +314,10 @@ def render(data: dict):
     if issues or strengths:
         st.divider()
         _issues_strengths(issues, strengths)
+    phases = data.get("phases") or {}
+    if phases:
+        st.divider()
+        _phases(phases)
     actions = data.get("actions", [])
     if actions:
         st.divider()
@@ -285,6 +326,99 @@ def render(data: dict):
     if caveats:
         st.divider()
         _caveats(caveats, data.get("confidence", "medium"))
+
+
+# ----- new sections for architect use -----
+
+def _compliance(comp: dict):
+    st.markdown(
+        '<div class="eyebrow">COMPLIANCE</div>'
+        '<h2 style="margin-top:0;">Compliance checklist</h2>',
+        unsafe_allow_html=True,
+    )
+    label_map = {
+        "building_code": ("🏛", "พรบ.ควบคุมอาคาร"),
+        "zoning": ("📋", "ผังเมือง · FAR/OSR"),
+        "parking": ("🚗", "ที่จอดรถ"),
+        "fire_egress": ("🔥", "บันไดหนีไฟ"),
+        "accessibility": ("♿", "ผู้สูงอายุ · ผู้พิการ"),
+        "energy": ("🌱", "ประหยัดพลังงาน"),
+    }
+    try:
+        import pandas as pd
+        rows = []
+        for key, (emoji, label) in label_map.items():
+            c = comp.get(key) or {}
+            status = c.get("status", "-")
+            note = c.get("note", "")
+            rows.append({
+                "หมวด": f"{emoji} {label}",
+                "สถานะ": f"{STATUS.get(status, '❔')} {status}",
+                "หมายเหตุ": note[:80] + ("…" if len(note) > 80 else ""),
+            })
+        st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+    except Exception:
+        for key, (emoji, label) in label_map.items():
+            c = comp.get(key) or {}
+            st.markdown(f"**{emoji} {label}** · {STATUS.get(c.get('status', 'warning'), '❔')} {c.get('status', '-')}")
+            if c.get("note"):
+                st.caption(c["note"])
+
+
+PHASE_ORDER = [
+    ("SD", "🧭", "Schematic Design"),
+    ("DD", "📐", "Design Development"),
+    ("CD", "📑", "Construction Documents"),
+    ("CA", "🔨", "Construction Administration"),
+]
+
+
+def _phases(phases: dict):
+    st.markdown(
+        '<div class="eyebrow">DESIGN PHASES</div>'
+        '<h2 style="margin-top:0;">Phases ของโครงการ</h2>',
+        unsafe_allow_html=True,
+    )
+    cols = st.columns(len(PHASE_ORDER))
+    total_weeks = 0
+    for i, (key, emoji, label) in enumerate(PHASE_ORDER):
+        p = phases.get(key) or {}
+        weeks = p.get("duration_weeks") or 0
+        total_weeks += weeks
+        with cols[i]:
+            st.markdown(
+                f'<div style="background: var(--white); border: 1px solid var(--border); '
+                f'border-radius: var(--radius); padding: 14px;">'
+                f'<div style="font-size:0.7em; letter-spacing:0.1em; '
+                f'color:var(--teak); font-weight:600; text-transform:uppercase;">{key}</div>'
+                f'<div style="font-family:var(--font-display); font-weight:700; '
+                f'font-size:1.05em; margin:4px 0 6px 0;">{emoji} {label}</div>'
+                f'<div style="color:var(--muted); font-size:0.8em;">'
+                f'⏱ <b>{weeks} สัปดาห์</b></div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+    if total_weeks:
+        months = total_weeks / 4.33
+        st.caption(f"รวมประมาณ **{total_weeks} สัปดาห์** (~{months:.1f} เดือน)")
+
+    # Detail expanders · 1 per phase
+    for key, emoji, label in PHASE_ORDER:
+        p = phases.get(key) or {}
+        tasks = p.get("tasks") or []
+        delivs = p.get("deliverables") or []
+        if not tasks and not delivs:
+            continue
+        weeks = p.get("duration_weeks") or 0
+        with st.expander(f"{emoji} **{key} · {label}** · {weeks} สัปดาห์"):
+            if tasks:
+                st.markdown("**📋 Tasks:**")
+                for t in tasks:
+                    st.markdown(f"- {t}")
+            if delivs:
+                st.markdown("**📦 Deliverables:**")
+                for d in delivs:
+                    st.markdown(f"- {d}")
 
 
 def _num(v, unit="", dec=1):
@@ -527,6 +661,39 @@ def to_markdown(data: dict) -> str:
                 if it.get("action"):
                     out.append(f"- 💡 {it['action']}")
                 out.append("")
+
+    comp = data.get("compliance") or {}
+    if comp:
+        out.append("## 📋 Compliance\n")
+        labels = {
+            "building_code": "พรบ.ควบคุมอาคาร",
+            "zoning": "ผังเมือง",
+            "parking": "ที่จอดรถ",
+            "fire_egress": "บันไดหนีไฟ",
+            "accessibility": "Universal design",
+            "energy": "ประหยัดพลังงาน",
+        }
+        for k, lab in labels.items():
+            c = comp.get(k) or {}
+            if c:
+                out.append(f"- **{lab}** · {c.get('status', '-')} · {c.get('note', '')}")
+        out.append("")
+
+    phases = data.get("phases") or {}
+    if phases:
+        out.append("## 🧭 Design Phases\n")
+        for key in ["SD", "DD", "CD", "CA"]:
+            p = phases.get(key) or {}
+            if not p:
+                continue
+            out.append(f"### {key} · {p.get('label', key)} · {p.get('duration_weeks', 0)} สัปดาห์\n")
+            for t in p.get("tasks", []):
+                out.append(f"- {t}")
+            if p.get("deliverables"):
+                out.append("\n**Deliverables:**")
+                for d in p["deliverables"]:
+                    out.append(f"- {d}")
+            out.append("")
 
     actions = data.get("actions", [])
     if actions:
