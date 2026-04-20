@@ -659,6 +659,48 @@ hr {
   margin-top: 2px;
 }
 
+/* Sidebar-specific · compact tabs */
+[data-testid="stSidebar"] [data-baseweb="tab-list"] {
+  gap: 2px;
+  padding: 3px;
+  background: var(--sand);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+[data-testid="stSidebar"] [data-baseweb="tab"] {
+  flex: 1;
+  font-size: 0.82em;
+  padding: 6px 4px;
+  min-width: 0;
+  border-radius: 6px;
+  font-weight: 600;
+}
+[data-testid="stSidebar"] [data-baseweb="tab"]:hover {
+  background: rgba(122, 78, 36, 0.08);
+}
+[data-testid="stSidebar"] [aria-selected="true"] {
+  background: #fff !important;
+  color: var(--teak) !important;
+  box-shadow: var(--shadow-xs);
+}
+[data-testid="stSidebar"] [data-baseweb="tab-panel"] {
+  padding: 10px 0 4px 0;
+}
+/* Tighter spacing inside sidebar form */
+[data-testid="stSidebar"] .stTextInput,
+[data-testid="stSidebar"] .stNumberInput,
+[data-testid="stSidebar"] .stSelectbox,
+[data-testid="stSidebar"] .stTextArea,
+[data-testid="stSidebar"] .stSlider,
+[data-testid="stSidebar"] .stRadio,
+[data-testid="stSidebar"] .stMultiSelect {
+  margin-bottom: 6px;
+}
+[data-testid="stSidebar"] label {
+  font-size: 0.82em !important;
+  margin-bottom: 2px !important;
+}
+
 /* Subtle page-load fade-in */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(6px); }
@@ -931,53 +973,63 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
             st.divider()
             st.markdown(
                 '<div class="eyebrow">PROJECT BRIEF</div>'
-                '<div style="font-family: var(--font-display); font-size: 1.1em; '
-                'font-weight: 700; margin-bottom: 6px;">ข้อมูลโปรเจค</div>',
+                '<div style="font-family: var(--font-display); font-size: 1.05em; '
+                'font-weight: 700; margin-bottom: 4px;">ข้อมูลโปรเจค</div>',
                 unsafe_allow_html=True,
             )
 
+            # Preset always visible above tabs (fastest path)
             st.selectbox(
-                "⚡ Quick preset (optional)",
+                "⚡ Quick preset",
                 options=["_custom"] + list(PRESETS.keys()),
-                format_func=lambda k: "— เลือก template —" if k == "_custom"
-                    else f"{PRESETS[k]['icon']} {PRESETS[k]['label']} · {PRESETS[k]['meta']}",
+                format_func=lambda k: "— เลือก —" if k == "_custom"
+                    else f"{PRESETS[k]['icon']} {PRESETS[k]['label']}",
                 key="form_preset",
                 on_change=_apply_preset,
+                label_visibility="collapsed",
             )
 
-            st.text_input("ชื่อ", key="form_name")
-            c1, c2 = st.columns(2)
-            c1.number_input("กว้าง (ม.)", 3.0, 100.0, step=0.5, key="form_land_w")
-            c2.number_input("ลึก (ม.)", 3.0, 100.0, step=0.5, key="form_land_d")
+            # 4 compact tabs · only active tab's content is visible
+            tab_basic, tab_arch, tab_meta, tab_plan = st.tabs([
+                "📝 Basic", "🧭 Pro", "🏷 Meta", "📎 Plan",
+            ])
 
-            st.selectbox("จังหวัด", PROVINCES, key="form_province")
-            st.selectbox("สีผังเมือง", ZONES, key="form_zone",
-                         help="ย. = ที่อยู่อาศัย · พ. = พาณิชย์")
-            st.number_input("ถนน (ม.)", 1.0, 50.0, step=0.5, key="form_street_w")
+            # ---- Tab 1 · BASIC ----
+            with tab_basic:
+                st.text_input("ชื่อ", key="form_name")
+                c1, c2 = st.columns(2)
+                c1.number_input("กว้าง (ม.)", 3.0, 100.0, step=0.5, key="form_land_w")
+                c2.number_input("ลึก (ม.)", 3.0, 100.0, step=0.5, key="form_land_d")
 
-            st.divider()
-            st.slider("สมาชิก", 1, 15, key="form_family_size")
-            st.radio("ผู้สูงอายุ", ["ไม่มี", "มี"], horizontal=True, key="form_has_elderly")
-            c3, c4 = st.columns(2)
-            c3.selectbox("ชั้น", ["1", "2", "3", "4+"], key="form_floors")
-            c4.selectbox("ห้องนอน", ["1", "2", "3", "4", "5+"], key="form_bedrooms")
-            st.number_input("งบ (ลบ.)", 0.5, 200.0, step=0.5, key="form_budget")
-            st.selectbox("ฮวงจุ้ย", ["มาก", "ปานกลาง", "น้อย", "ไม่สน"],
-                         key="form_fengshui")
-            st.text_area(
-                "ข้อพิเศษ",
-                placeholder="เช่น · ห้องพระ · สระ · home office",
-                height=80, key="form_special",
-            )
+                st.selectbox("จังหวัด", PROVINCES, key="form_province")
+                c3, c4 = st.columns(2)
+                c3.selectbox("เขต", ZONES, key="form_zone",
+                             help="ย. = ที่อยู่อาศัย · พ. = พาณิชย์")
+                c4.number_input("ถนน (ม.)", 1.0, 50.0, step=0.5, key="form_street_w")
 
-            # Professional expander · advanced architect fields
-            with st.expander("🧭 Architect detail", expanded=False):
-                st.selectbox(
-                    "ทิศที่ดิน (ด้านยาวหันไปทาง)",
-                    ORIENTATIONS, key="form_orientation",
-                    help="ทิศที่ด้านยาวของที่ดินหันไป · กำหนด sun path + ventilation",
+                st.slider("สมาชิก", 1, 15, key="form_family_size")
+                st.radio("ผู้สูงอายุ", ["ไม่มี", "มี"], horizontal=True,
+                         key="form_has_elderly")
+                c5, c6 = st.columns(2)
+                c5.selectbox("ชั้น", ["1", "2", "3", "4+"], key="form_floors")
+                c6.selectbox("ห้องนอน", ["1", "2", "3", "4", "5+"], key="form_bedrooms")
+                c7, c8 = st.columns(2)
+                c7.number_input("งบ (ลบ.)", 0.5, 200.0, step=0.5, key="form_budget")
+                c8.selectbox("ฮวงจุ้ย", ["มาก", "ปานกลาง", "น้อย", "ไม่สน"],
+                             key="form_fengshui")
+                st.text_area(
+                    "ข้อพิเศษ",
+                    placeholder="ห้องพระ · สระ · home office",
+                    height=70, key="form_special",
                 )
-                # Visual compass
+
+            # ---- Tab 2 · PRO (architect) ----
+            with tab_arch:
+                st.selectbox(
+                    "ทิศที่ดิน (ด้านยาวหัน)",
+                    ORIENTATIONS, key="form_orientation",
+                    help="sun path + ventilation",
+                )
                 direction = st.session_state.get("form_orientation", "ใต้")
                 _, rot = ORIENTATION_COMPASS.get(direction, ("S", 180))
                 st.markdown(
@@ -992,51 +1044,53 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                 st.selectbox("ภูมิประเทศ", TOPOGRAPHY, key="form_topography")
                 st.text_area(
                     "บริบทรอบที่ดิน",
-                    placeholder="เช่น ทิศเหนือติดถนน · ใต้ติดคลอง · ตะวันตกมีบ้าน 2 ชั้น",
-                    height=68,
-                    key="form_adjacent",
+                    placeholder="N ติดถนน · S ติดคลอง",
+                    height=60, key="form_adjacent",
                 )
-
                 st.multiselect(
                     "ลำดับความสำคัญ",
                     PRIORITIES, key="form_priority",
-                    help="เลือก 2-3 อันดับสำคัญสุด",
                 )
-                c5, c6 = st.columns(2)
-                c5.selectbox("Grade", GRADES, key="form_grade",
-                             help="ระดับงานก่อสร้าง")
-                c6.selectbox("Timeline", TIMELINES, key="form_timeline")
+                c_a, c_b = st.columns(2)
+                c_a.selectbox("Grade", GRADES, key="form_grade")
+                c_b.selectbox("Timeline", TIMELINES, key="form_timeline")
 
-            # Meta · optional · for organizing in Studio
-            with st.expander("🏷 Tags + Notes (optional)", expanded=False):
+            # ---- Tab 3 · META ----
+            with tab_meta:
                 st.text_input(
                     "ชื่อลูกค้า",
-                    placeholder="เช่น · คุณสมชาย",
+                    placeholder="เช่น คุณสมชาย",
                     key="form_client",
-                    help="ชื่อลูกค้า · ใช้ filter ใน Studio",
                 )
                 st.text_input(
-                    "Tags",
-                    placeholder="เช่น · ไทยโมเดิร์น, passive, grade-A",
+                    "Tags (คั่นด้วย comma)",
+                    placeholder="ไทยโมเดิร์น, passive",
                     key="form_tags",
-                    help="คั่นด้วย comma · ใช้ filter ใน Studio",
                 )
                 st.text_area(
                     "Project notes",
-                    placeholder="โน้ตจากสถาปนิก · เช่น รายการปรับแต่งเพิ่ม · ความเห็นลูกค้า",
-                    height=100,
-                    key="form_notes",
+                    placeholder="โน้ตจากสถาปนิก · ความเห็นลูกค้า",
+                    height=140, key="form_notes",
                 )
+                st.caption("💡 ใช้ tags/client filter ใน Studio")
 
-            st.divider()
-            uploaded = st.file_uploader(
-                "📎 แปลน (optional)",
-                type=["jpg", "jpeg", "png"], key="form_upload",
-            )
-            image_bytes = uploaded.getvalue() if uploaded else None
-            if image_bytes:
-                st.image(image_bytes, use_container_width=True)
+            # ---- Tab 4 · PLAN ----
+            with tab_plan:
+                uploaded = st.file_uploader(
+                    "แปลน (.jpg/.png)",
+                    type=["jpg", "jpeg", "png"], key="form_upload",
+                    label_visibility="collapsed",
+                )
+                image_bytes = uploaded.getvalue() if uploaded else None
+                if image_bytes:
+                    st.image(image_bytes, use_container_width=True)
+                else:
+                    st.caption(
+                        "ถ้ามีแปลน · AI จะวิเคราะห์ layout ด้วย · "
+                        "ไม่ใส่ก็ได้"
+                    )
 
+            # Analyze button · ALWAYS visible below tabs
             st.divider()
             if not api_key:
                 st.warning("👆 ใส่ API Key ด้านบนก่อน")
