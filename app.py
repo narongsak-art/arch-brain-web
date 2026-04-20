@@ -487,12 +487,108 @@ hr {
   h2 { font-size: 1.35em; }
 }
 
+/* Preset showcase card · visual · gallery-style */
+.preset-tile {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 260ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: block;
+}
+.preset-tile:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) scale(1.01);
+}
+.preset-tile::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.20) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(0,0,0,0.18) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+.preset-tile::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 16px);
+  pointer-events: none;
+  z-index: 1;
+}
+.preset-tile .preset-content {
+  position: relative; z-index: 2;
+  padding: 22px 22px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+.preset-tile .preset-icon {
+  font-size: 2.4em;
+  line-height: 1;
+  opacity: 0.92;
+}
+.preset-tile .preset-info h4 {
+  color: #fff !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3em;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+.preset-tile .preset-info .tagline {
+  font-size: 0.86em;
+  opacity: 0.88;
+  margin-bottom: 10px;
+}
+.preset-tile .preset-info .meta {
+  font-size: 0.78em;
+  opacity: 0.78;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding-top: 10px;
+  line-height: 1.5;
+}
+
+/* Preset chosen ribbon · for when a preset is active */
+.preset-active-ribbon {
+  background: var(--sand);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teak);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.preset-active-ribbon .icon {
+  font-size: 1.8em;
+}
+.preset-active-ribbon .text {
+  flex: 1;
+}
+.preset-active-ribbon .text strong {
+  font-family: var(--font-display);
+  font-size: 1.05em;
+  color: var(--ink);
+}
+.preset-active-ribbon .text div {
+  font-size: 0.86em;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
 /* Subtle page-load fade-in */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.hero, .page-header, .card, .feat-card, .design-card, .ex-card {
+.hero, .page-header, .card, .feat-card, .design-card, .ex-card, .preset-tile, .preset-active-ribbon {
   animation: fadeInUp 0.35s ease-out;
 }
 </style>
@@ -504,36 +600,66 @@ hr {
 # =============================================================================
 
 PRESETS = {
-    "townhome":   ("🏘 ทาวน์เฮาส์ 4×16 · 3 ลบ.",
-                   {"name": "ทาวน์เฮาส์", "land_w": 4.0, "land_d": 16.0,
-                    "province": "กรุงเทพมหานคร", "zone": "ย.4", "street_w": 6.0,
-                    "family_size": 4, "has_elderly": "ไม่", "floors": "2",
-                    "bedrooms": "3", "budget": 3.0, "fengshui": "น้อย",
-                    "special": ""}),
-    "small":      ("🏠 บ้านเดี่ยวเล็ก 15×20 · 5 ลบ.",
-                   {"name": "บ้านเดี่ยว-S", "land_w": 15.0, "land_d": 20.0,
-                    "province": "นนทบุรี", "zone": "ย.3", "street_w": 6.0,
-                    "family_size": 4, "has_elderly": "ไม่", "floors": "2",
-                    "bedrooms": "3", "budget": 5.0, "fengshui": "ปานกลาง",
-                    "special": ""}),
-    "large":      ("🏡 บ้านเดี่ยวใหญ่ 20×30 · 12 ลบ.",
-                   {"name": "บ้านเดี่ยว-L", "land_w": 20.0, "land_d": 30.0,
-                    "province": "กรุงเทพมหานคร", "zone": "ย.2", "street_w": 8.0,
-                    "family_size": 5, "has_elderly": "ใช่", "floors": "2",
-                    "bedrooms": "4", "budget": 12.0, "fengshui": "มาก",
-                    "special": "ห้องพระ · ผู้สูงอายุชั้นล่าง · home office"}),
-    "luxury":     ("🏛 บ้านหรู 25×40 · 25 ลบ.",
-                   {"name": "บ้านหรู", "land_w": 25.0, "land_d": 40.0,
-                    "province": "กรุงเทพมหานคร", "zone": "ย.1", "street_w": 10.0,
-                    "family_size": 6, "has_elderly": "ใช่", "floors": "3",
-                    "bedrooms": "5", "budget": 25.0, "fengshui": "มาก",
-                    "special": "สระว่ายน้ำ · ลิฟต์ · ห้องพระ · walk-in"}),
-    "compact":    ("🏙 บ้านเล็ก กทม. 8×12 · 4 ลบ.",
-                   {"name": "บ้านเล็ก", "land_w": 8.0, "land_d": 12.0,
-                    "province": "กรุงเทพมหานคร", "zone": "ย.5", "street_w": 6.0,
-                    "family_size": 2, "has_elderly": "ไม่", "floors": "3",
-                    "bedrooms": "2", "budget": 4.0, "fengshui": "น้อย",
-                    "special": "home office 2 คน"}),
+    "townhome": {
+        "label": "ทาวน์เฮาส์",
+        "tagline": "บ้านในเมือง · พื้นที่จำกัด",
+        "meta": "4×16 ม. · 2 ชั้น · 3 ห้องนอน · 3 ลบ.",
+        "icon": "🏘",
+        "gradient": "linear-gradient(135deg, #c9a961 0%, #b89755 100%)",
+        "data": {"name": "ทาวน์เฮาส์", "land_w": 4.0, "land_d": 16.0,
+                 "province": "กรุงเทพมหานคร", "zone": "ย.4", "street_w": 6.0,
+                 "family_size": 4, "has_elderly": "ไม่", "floors": "2",
+                 "bedrooms": "3", "budget": 3.0, "fengshui": "น้อย",
+                 "special": ""},
+    },
+    "small": {
+        "label": "บ้านเดี่ยวเล็ก",
+        "tagline": "คู่แต่งงาน · ครอบครัวเริ่มต้น",
+        "meta": "15×20 ม. · 2 ชั้น · 3 ห้องนอน · 5 ลบ.",
+        "icon": "🏠",
+        "gradient": "linear-gradient(135deg, #6b7f64 0%, #5a6e53 100%)",
+        "data": {"name": "บ้านเดี่ยว-S", "land_w": 15.0, "land_d": 20.0,
+                 "province": "นนทบุรี", "zone": "ย.3", "street_w": 6.0,
+                 "family_size": 4, "has_elderly": "ไม่", "floors": "2",
+                 "bedrooms": "3", "budget": 5.0, "fengshui": "ปานกลาง",
+                 "special": ""},
+    },
+    "large": {
+        "label": "บ้านเดี่ยวใหญ่",
+        "tagline": "ครอบครัวหลายรุ่น",
+        "meta": "20×30 ม. · 2 ชั้น · 4 ห้องนอน + ห้องพระ · 12 ลบ.",
+        "icon": "🏡",
+        "gradient": "linear-gradient(135deg, #7a4e24 0%, #5d3a1a 100%)",
+        "data": {"name": "บ้านเดี่ยว-L", "land_w": 20.0, "land_d": 30.0,
+                 "province": "กรุงเทพมหานคร", "zone": "ย.2", "street_w": 8.0,
+                 "family_size": 5, "has_elderly": "ใช่", "floors": "2",
+                 "bedrooms": "4", "budget": 12.0, "fengshui": "มาก",
+                 "special": "ห้องพระ · ผู้สูงอายุชั้นล่าง · home office"},
+    },
+    "luxury": {
+        "label": "บ้านหรู",
+        "tagline": "premium · สระส่วนตัว",
+        "meta": "25×40 ม. · 3 ชั้น · 5 ห้องนอน · 25 ลบ.",
+        "icon": "🏛",
+        "gradient": "linear-gradient(135deg, #241a11 0%, #4a3622 100%)",
+        "data": {"name": "บ้านหรู", "land_w": 25.0, "land_d": 40.0,
+                 "province": "กรุงเทพมหานคร", "zone": "ย.1", "street_w": 10.0,
+                 "family_size": 6, "has_elderly": "ใช่", "floors": "3",
+                 "bedrooms": "5", "budget": 25.0, "fengshui": "มาก",
+                 "special": "สระว่ายน้ำ · ลิฟต์ · ห้องพระ · walk-in"},
+    },
+    "compact": {
+        "label": "บ้านเล็ก กทม.",
+        "tagline": "ลอตแคบ · 3 ชั้น",
+        "meta": "8×12 ม. · 3 ชั้น · 2 ห้องนอน · 4 ลบ.",
+        "icon": "🏙",
+        "gradient": "linear-gradient(135deg, #b16a57 0%, #8e5143 100%)",
+        "data": {"name": "บ้านเล็ก", "land_w": 8.0, "land_d": 12.0,
+                 "province": "กรุงเทพมหานคร", "zone": "ย.5", "street_w": 6.0,
+                 "family_size": 2, "has_elderly": "ไม่", "floors": "3",
+                 "bedrooms": "2", "budget": 4.0, "fengshui": "น้อย",
+                 "special": "home office 2 คน"},
+    },
 }
 
 PROVINCES = ["กรุงเทพมหานคร", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ",
@@ -553,7 +679,7 @@ def _apply_preset():
     key = st.session_state.get("form_preset", "_custom")
     if key == "_custom" or key not in PRESETS:
         return
-    _, data = PRESETS[key]
+    data = PRESETS[key]["data"]
     for k, v in data.items():
         sk = f"form_{k}"
         # UI uses "มี/ไม่มี" but data uses "ใช่/ไม่"
@@ -561,6 +687,12 @@ def _apply_preset():
             st.session_state[sk] = "มี" if v == "ใช่" else "ไม่มี"
         else:
             st.session_state[sk] = v
+
+
+def apply_preset_direct(key: str):
+    """Called from welcome-state big card buttons · also flips preset dropdown"""
+    st.session_state["form_preset"] = key
+    _apply_preset()
 
 
 def _init_form_state():
@@ -669,7 +801,7 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                 "⚡ Quick preset (optional)",
                 options=["_custom"] + list(PRESETS.keys()),
                 format_func=lambda k: "— เลือก template —" if k == "_custom"
-                    else PRESETS[k][0],
+                    else f"{PRESETS[k]['icon']} {PRESETS[k]['label']} · {PRESETS[k]['meta']}",
                 key="form_preset",
                 on_change=_apply_preset,
             )
@@ -796,6 +928,149 @@ def run_analysis(provider: str, api_key: str, model: str,
 # Views
 # =============================================================================
 
+def _render_welcome_gallery():
+    """Gallery-first welcome: big visual preset tiles · click to start"""
+    selected = st.session_state.get("form_preset", "_custom")
+    has_preset = selected != "_custom" and selected in PRESETS
+    api_key_present = bool(
+        st.session_state.get("_gemini_key") or st.session_state.get("_claude_key")
+    )
+
+    # Compact hero
+    hero("สมองจำลองของสถาปนิก",
+         "เลือกแบบบ้านด้านล่าง → AI วิเคราะห์ 5 ชั้นความรู้ → ได้ผลใน ~60 วินาที",
+         eyebrow="THAI ARCHITECT'S STUDIO")
+
+    # If preset chosen, show a "ready" ribbon
+    if has_preset:
+        p = PRESETS[selected]
+        st.markdown(
+            f'<div class="preset-active-ribbon">'
+            f'<div class="icon">{p["icon"]}</div>'
+            f'<div class="text">'
+            f'<strong>{p["label"]}</strong> · <span style="color:var(--muted);">{p["tagline"]}</span>'
+            f'<div>{p["meta"]}</div>'
+            f'</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+        if api_key_present:
+            st.success("✅ พร้อมวิเคราะห์ · กด **🔍 วิเคราะห์โครงการ** ที่ sidebar ซ้าย")
+        else:
+            st.warning("⚠ ใส่ **Gemini API Key** ที่ sidebar ก่อนวิเคราะห์ · "
+                       "[รับฟรีที่นี่](https://aistudio.google.com/apikey)")
+
+        st.markdown(
+            '<p style="color:var(--muted); font-size:0.9em; margin-top:14px;">'
+            'หรือเลือกแบบอื่นด้านล่าง:</p>',
+            unsafe_allow_html=True,
+        )
+
+    # Section header
+    if not has_preset:
+        st.markdown(
+            '<div class="eyebrow" style="margin-top:8px;">START WITH A TEMPLATE</div>'
+            '<h2 style="margin:2px 0 6px 0;">เลือกแบบที่ใกล้เคียงโปรเจคคุณ</h2>'
+            '<p style="color:var(--muted); margin:0 0 20px 0;">'
+            'กรอกเองใน sidebar ซ้ายก็ได้ · หรือคลิกแบบด้านล่างเพื่อ fill form อัตโนมัติ</p>',
+            unsafe_allow_html=True,
+        )
+
+    # Big gallery tiles · 2 rows of up to 3 cards
+    preset_items = list(PRESETS.items())
+    # Row 1: 3 cards
+    cols1 = st.columns(3)
+    for i, (key, p) in enumerate(preset_items[:3]):
+        with cols1[i]:
+            _render_preset_tile(key, p, is_selected=(selected == key))
+
+    # Row 2: 2 cards (left-aligned)
+    if len(preset_items) > 3:
+        cols2 = st.columns(3)
+        for i, (key, p) in enumerate(preset_items[3:]):
+            with cols2[i]:
+                _render_preset_tile(key, p, is_selected=(selected == key))
+
+    # Below tiles: features strip · condensed
+    st.markdown('<div style="margin-top: 36px;"></div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="eyebrow">WHAT YOU GET</div>'
+        '<h3 style="margin:2px 0 14px 0;">ผลวิเคราะห์ที่ได้</h3>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));'
+        'gap: 14px; margin: 0 0 20px 0;">'
+
+        '<div class="feat-card">'
+        '<div class="feat-icon">📐</div>'
+        '<h4>Metrics ครบ</h4>'
+        '<p>FAR · OSR · ระยะร่น · พื้นที่สร้างได้ · ค่าก่อสร้าง</p>'
+        '</div>'
+
+        '<div class="feat-card">'
+        '<div class="feat-icon">🧩</div>'
+        '<h4>5 ชั้นความรู้</h4>'
+        '<p>กฎหมาย · วิศวกรรม · ออกแบบ · ไทย · ฮวงจุ้ย</p>'
+        '</div>'
+
+        '<div class="feat-card">'
+        '<div class="feat-icon">🚪</div>'
+        '<h4>วิเคราะห์ห้อง</h4>'
+        '<p>ขนาด · ทิศ · ข้อควรระวัง ทีละห้อง</p>'
+        '</div>'
+
+        '<div class="feat-card">'
+        '<div class="feat-icon">🎯</div>'
+        '<h4>Action list</h4>'
+        '<p>step · ใครทำ · เมื่อ · Top 3 ประเด็น</p>'
+        '</div>'
+
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        '<div style="margin-top:8px; padding:14px 18px; background:var(--sand); '
+        'border-left:3px solid var(--teak); border-radius:var(--radius-sm); '
+        'color:var(--muted); font-size:0.9em;">'
+        '🔒 <strong>Privacy:</strong> API key + ข้อมูลโปรเจค '
+        'ไม่ถูกเก็บ · ไม่ใช้ train AI · หายเมื่อปิด tab'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def _render_preset_tile(key: str, p: dict, is_selected: bool = False):
+    """Render one big preset tile with gradient background + click-to-select button"""
+    border = "3px solid var(--teak)" if is_selected else "1px solid var(--border)"
+    badge = (
+        '<div style="position:absolute; top:12px; right:12px; background:var(--teak); '
+        'color:#fff; padding:4px 10px; border-radius:999px; font-size:0.72em; '
+        'font-weight:600; z-index:3;">SELECTED</div>' if is_selected else ''
+    )
+    st.markdown(
+        f'<div class="preset-tile" style="background: {p["gradient"]}; border: {border};">'
+        f'{badge}'
+        f'<div class="preset-content">'
+        f'<div class="preset-icon">{p["icon"]}</div>'
+        f'<div class="preset-info">'
+        f'<h4>{p["label"]}</h4>'
+        f'<div class="tagline">{p["tagline"]}</div>'
+        f'<div class="meta">{p["meta"]}</div>'
+        f'</div>'
+        f'</div>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+    label = "✓ เลือกแล้ว" if is_selected else "เลือกแบบนี้"
+    if st.button(label, key=f"tile_{key}", use_container_width=True,
+                 type="primary" if is_selected else "secondary"):
+        apply_preset_direct(key)
+        st.rerun()
+
+
 def view_create():
     # Run analysis if pending
     if st.session_state.pop("_pending_run", False):
@@ -811,94 +1086,7 @@ def view_create():
 
     current = st.session_state.get("current")
     if not current:
-        # Welcome state · refined
-        hero("สมองจำลองของสถาปนิก",
-             "วิเคราะห์บ้านไทยด้วย AI · 5 ชั้นความรู้ · กรอกข้อมูลที่ sidebar ซ้าย แล้วกด วิเคราะห์",
-             eyebrow="CREATE · THAI ARCHITECT'S STUDIO")
-
-        st.markdown(
-            '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));'
-            'gap: 14px; margin: 4px 0 24px 0;">'
-
-            '<div class="feat-card">'
-            '<div class="feat-icon">📐</div>'
-            '<h4>Metrics ครบ</h4>'
-            '<p>FAR · OSR · ระยะร่น · พื้นที่สร้างได้ · ประมาณค่าก่อสร้าง</p>'
-            '</div>'
-
-            '<div class="feat-card">'
-            '<div class="feat-icon">🧩</div>'
-            '<h4>5 ชั้นความรู้</h4>'
-            '<p>กฎหมาย · วิศวกรรม · ออกแบบ · วัฒนธรรมไทย · ฮวงจุ้ย</p>'
-            '</div>'
-
-            '<div class="feat-card">'
-            '<div class="feat-icon">🚪</div>'
-            '<h4>วิเคราะห์ห้อง</h4>'
-            '<p>ขนาดแนะนำ · ทิศที่ดี · ข้อควรระวัง ทีละห้อง</p>'
-            '</div>'
-
-            '<div class="feat-card">'
-            '<div class="feat-icon">🎯</div>'
-            '<h4>Action list</h4>'
-            '<p>ขั้นตอนทำต่อ · ใครทำ · เมื่อไหร่ · Top 3 ประเด็น</p>'
-            '</div>'
-
-            '</div>',
-            unsafe_allow_html=True,
-        )
-
-        # Quick-start strip (3 steps)
-        st.markdown(
-            '<div class="eyebrow">HOW TO START</div>'
-            '<h3 style="margin-top:0; margin-bottom:14px;">เริ่มใน 3 ขั้น</h3>',
-            unsafe_allow_html=True,
-        )
-        c1, c2, c3 = st.columns(3)
-        with c1:
-            st.markdown(
-                '<div class="card" style="height:100%;">'
-                '<div style="color:var(--teak); font-family:var(--font-display); '
-                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">01</div>'
-                '<strong style="display:block; margin-bottom:4px;">ใส่ API Key</strong>'
-                '<div style="color:var(--muted); font-size:0.88em;">'
-                'Sidebar ซ้าย → ⚙ AI Settings → paste Gemini key '
-                '(<a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--teak);">ฟรี</a>)</div>'
-                '</div>',
-                unsafe_allow_html=True,
-            )
-        with c2:
-            st.markdown(
-                '<div class="card" style="height:100%;">'
-                '<div style="color:var(--teak); font-family:var(--font-display); '
-                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">02</div>'
-                '<strong style="display:block; margin-bottom:4px;">เลือก Preset หรือกรอก</strong>'
-                '<div style="color:var(--muted); font-size:0.88em;">'
-                '⚡ Quick preset 5 แบบ · หรือกรอกเอง: ที่ดิน · ครอบครัว · งบ · ฮวงจุ้ย</div>'
-                '</div>',
-                unsafe_allow_html=True,
-            )
-        with c3:
-            st.markdown(
-                '<div class="card" style="height:100%;">'
-                '<div style="color:var(--teak); font-family:var(--font-display); '
-                'font-size:1.8em; font-weight:700; line-height:1; margin-bottom:6px;">03</div>'
-                '<strong style="display:block; margin-bottom:4px;">กด 🔍 วิเคราะห์</strong>'
-                '<div style="color:var(--muted); font-size:0.88em;">'
-                'AI จะใช้เวลา ~60 วินาที · ผลขึ้นในพื้นที่นี้ · download ได้หลาย format</div>'
-                '</div>',
-                unsafe_allow_html=True,
-            )
-
-        st.markdown(
-            '<div style="margin-top:24px; padding:14px 18px; background:var(--sand); '
-            'border-left:3px solid var(--teak); border-radius:var(--radius-sm); '
-            'color:var(--muted); font-size:0.9em;">'
-            '🔒 <strong>Privacy:</strong> API key + ข้อมูลโปรเจค '
-            'ไม่ถูกเก็บ · ไม่ใช้ train AI · หายเมื่อปิด tab'
-            '</div>',
-            unsafe_allow_html=True,
-        )
+        _render_welcome_gallery()
         return
 
     # Show current result
