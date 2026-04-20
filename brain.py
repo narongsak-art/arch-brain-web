@@ -294,10 +294,14 @@ LAYERS = [
 ]
 
 
-def render(data: dict):
+def render(data: dict, project_data: dict | None = None):
     """Full structured analysis display · architect-focused"""
     _summary(data.get("summary", {}))
     st.divider()
+    # Visual diagrams · site plot + FAR/OSR usage bars
+    if project_data or data.get("metrics"):
+        _visual_overview(project_data or {}, data.get("metrics", {}))
+        st.divider()
     _metrics(data.get("metrics", {}))
     compliance = data.get("compliance") or {}
     if compliance:
@@ -326,6 +330,196 @@ def render(data: dict):
     if caveats:
         st.divider()
         _caveats(caveats, data.get("confidence", "medium"))
+
+
+# ----- visual overview (site plot + usage bars) -----
+
+_ORIENTATION_TO_ANGLE = {
+    "เหนือ": 0, "ตะวันออกเฉียงเหนือ": 45,
+    "ตะวันออก": 90, "ตะวันออกเฉียงใต้": 135,
+    "ใต้": 180, "ตะวันตกเฉียงใต้": 225,
+    "ตะวันตก": 270, "ตะวันตกเฉียงเหนือ": 315,
+}
+
+
+def _visual_overview(pd: dict, m: dict):
+    """Site plot SVG + FAR/OSR usage bars"""
+    st.markdown(
+        '<div class="eyebrow">SITE OVERVIEW</div>'
+        '<h2 style="margin-top:0;">ภาพรวมที่ดิน</h2>',
+        unsafe_allow_html=True,
+    )
+    c1, c2 = st.columns([1, 1])
+
+    with c1:
+        land_w = pd.get("land_w") or m.get("land_area_sqm", 300) ** 0.5
+        land_d = pd.get("land_d") or land_w
+        orientation = pd.get("orientation", "ใต้")
+        svg = _render_site_svg(land_w, land_d, orientation,
+                                m.get("buildable_area_sqm"),
+                                m.get("land_area_sqm") or (land_w * land_d))
+        st.markdown(svg, unsafe_allow_html=True)
+
+    with c2:
+        _render_usage_bars(m, pd)
+
+
+def _render_site_svg(land_w: float, land_d: float, orientation: str,
+                     buildable: float | None, land_area: float) -> str:
+    """Return inline SVG of the plot with orientation arrow + buildable overlay"""
+    angle = _ORIENTATION_TO_ANGLE.get(orientation, 180)
+    # Canvas
+    canvas_w = 280
+    canvas_h = 280
+    # Scale plot to fit · maintain aspect ratio
+    max_dim = max(land_w, land_d)
+    scale = 200 / max_dim  # leave 40px margin each side
+    plot_w = land_w * scale
+    plot_h = land_d * scale
+    cx = canvas_w / 2
+    cy = canvas_h / 2
+    x0 = cx - plot_w / 2
+    y0 = cy - plot_h / 2
+
+    # Buildable area (rough estimate · centered inside)
+    buildable_svg = ""
+    if buildable and land_area:
+        ratio = min(buildable / land_area, 1.0)
+        # Shrink rect by sqrt(ratio) uniformly
+        shrink = ratio ** 0.5
+        b_w = plot_w * shrink
+        b_h = plot_h * shrink
+        b_x = cx - b_w / 2
+        b_y = cy - b_h / 2
+        buildable_svg = (
+            f'<rect x="{b_x}" y="{b_y}" width="{b_w}" height="{b_h}" '
+            f'fill="#b89755" fill-opacity="0.28" stroke="#b89755" '
+            f'stroke-width="1" stroke-dasharray="4 3" rx="4"/>'
+        )
+
+    # North arrow · top-right corner
+    north_x = canvas_w - 34
+    north_y = 30
+
+    return f'''
+<div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px;">
+  <svg width="100%" height="{canvas_h}" viewBox="0 0 {canvas_w} {canvas_h}" style="display:block;">
+    <!-- background grid -->
+    <defs>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0ead9" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="{canvas_w}" height="{canvas_h}" fill="url(#grid)"/>
+
+    <!-- plot -->
+    <rect x="{x0}" y="{y0}" width="{plot_w}" height="{plot_h}"
+          fill="#f5f0e4" stroke="#7a4e24" stroke-width="2" rx="4"/>
+
+    <!-- buildable overlay -->
+    {buildable_svg}
+
+    <!-- center dot -->
+    <circle cx="{cx}" cy="{cy}" r="2" fill="#7a4e24"/>
+
+    <!-- dimensions -->
+    <text x="{cx}" y="{y0 - 8}" text-anchor="middle"
+          font-family="Sarabun" font-size="10" fill="#6e5d48">{land_w} ม.</text>
+    <text x="{x0 - 8}" y="{cy}" text-anchor="middle"
+          font-family="Sarabun" font-size="10" fill="#6e5d48"
+          transform="rotate(-90, {x0 - 8}, {cy})">{land_d} ม.</text>
+
+    <!-- north arrow · top-right corner -->
+    <g transform="translate({north_x}, {north_y})">
+      <circle r="16" fill="#fff" stroke="#c9bfa3" stroke-width="1"/>
+      <g transform="rotate({-angle})">
+        <polygon points="0,-10 4,4 0,1 -4,4" fill="#b16a57"/>
+        <polygon points="0,10 -3,0 0,2 3,0" fill="#6e5d48" opacity="0.5"/>
+      </g>
+      <text y="-19" text-anchor="middle" font-family="Bai Jamjuree, sans-serif"
+            font-size="11" font-weight="700" fill="#7a4e24">N</text>
+    </g>
+
+    <!-- orientation label -->
+    <text x="{cx}" y="{canvas_h - 14}" text-anchor="middle"
+          font-family="Bai Jamjuree, sans-serif" font-size="11" font-weight="600"
+          fill="#7a4e24">ด้านยาว → {orientation}</text>
+  </svg>
+  <div style="display:flex; gap:14px; font-size:0.8em; color:var(--muted); margin-top:10px;">
+    <span><span style="display:inline-block; width:10px; height:10px; background:#f5f0e4; border:1.5px solid #7a4e24; margin-right:4px; vertical-align:middle;"></span>ที่ดิน</span>
+    <span><span style="display:inline-block; width:10px; height:10px; background:#b89755; opacity:0.4; margin-right:4px; vertical-align:middle;"></span>พื้นที่สร้างได้</span>
+  </div>
+</div>
+'''
+
+
+def _render_usage_bars(m: dict, pd: dict):
+    """FAR usage + OSR usage + budget progress · all as visual bars"""
+    def bar(label: str, used: float | None, maxv: float | None,
+            unit: str = "", reverse: bool = False, zones: list = None):
+        """Render one usage bar · returns HTML"""
+        if used is None or maxv is None or maxv == 0:
+            return (
+                f'<div style="margin-bottom:12px;">'
+                f'<div style="display:flex; justify-content:space-between; '
+                f'font-size:0.82em; color:var(--muted); margin-bottom:4px;">'
+                f'<span>{label}</span><span>—</span></div>'
+                f'<div style="height:8px; background:var(--sand); border-radius:4px;"></div>'
+                f'</div>'
+            )
+        pct = min(100, (used / maxv) * 100) if not reverse else min(100, ((maxv - used) / maxv) * 100)
+        # Color by zone
+        color = "var(--sage)"  # OK
+        if pct > 85:
+            color = "var(--terra)"  # tight
+        elif pct > 65:
+            color = "var(--gold)"  # caution
+
+        used_str = f"{used:,.2f}" if isinstance(used, float) else f"{used}"
+        max_str = f"{maxv:,.2f}" if isinstance(maxv, float) else f"{maxv}"
+
+        return (
+            f'<div style="margin-bottom:14px;">'
+            f'<div style="display:flex; justify-content:space-between; '
+            f'font-size:0.82em; margin-bottom:4px;">'
+            f'<span style="color:var(--ink); font-weight:500;">{label}</span>'
+            f'<span style="color:var(--muted);">{used_str}{unit} / {max_str}{unit}</span>'
+            f'</div>'
+            f'<div style="height:10px; background:var(--sand); border-radius:5px; overflow:hidden;">'
+            f'<div style="height:100%; width:{pct:.0f}%; background:{color}; '
+            f'transition: width 400ms ease;"></div>'
+            f'</div>'
+            f'<div style="font-size:0.72em; color:var(--subtle); margin-top:2px;">'
+            f'{pct:.0f}% {"ใช้แล้ว" if not reverse else "ของที่ควร"}</div>'
+            f'</div>'
+        )
+
+    html = '<div style="padding-top: 6px;">'
+    html += '<div style="font-family:var(--font-display); font-weight:600; font-size:1em; color:var(--ink); margin-bottom:12px;">📊 การใช้พื้นที่</div>'
+
+    # FAR usage
+    html += bar("FAR · Floor Area Ratio",
+                m.get("far_estimated"), m.get("far_allowed"))
+
+    # OSR (area-based)
+    land_area = m.get("land_area_sqm", 0)
+    osr_required_pct = m.get("osr_required_pct")
+    buildable = m.get("buildable_area_sqm")
+    if land_area and osr_required_pct is not None:
+        green_area = land_area - (buildable or 0)
+        required_green = land_area * osr_required_pct / 100
+        if required_green > 0:
+            html += bar("OSR · พื้นที่สีเขียว",
+                        green_area, required_green, " ตร.ม.")
+
+    # Budget vs estimated cost
+    budget = (pd or {}).get("budget")  # in MB
+    cost_est = m.get("cost_mbaht")
+    if budget and cost_est:
+        html += bar("งบประมาณ", cost_est, budget, " ลบ.")
+
+    html += '</div>'
+    st.markdown(html, unsafe_allow_html=True)
 
 
 # ----- new sections for architect use -----

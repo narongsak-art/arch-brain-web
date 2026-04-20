@@ -1246,7 +1246,7 @@ def view_create():
     )
 
     if data:
-        brain.render(data)
+        brain.render(data, pd)
     else:
         st.warning("⚠ AI ไม่ตอบเป็น JSON · แสดง markdown")
         st.markdown(raw)
