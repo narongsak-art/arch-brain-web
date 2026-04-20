@@ -750,12 +750,16 @@ FORM_DEFAULTS = {
     "family_size": 4, "has_elderly": "ไม่มี", "floors": "2",
     "bedrooms": "3", "budget": 8.0, "fengshui": "ปานกลาง", "special": "",
     # Professional (new · for architects)
-    "orientation": "ใต้",      # plot's main facing: N/E/S/W
-    "topography": "ราบเรียบ",   # ราบ · ลาดเอียง · ลาดชัน
-    "adjacent": "",             # context: neighbors · road · canal
-    "priority": ["งบ", "คุณภาพ"],  # multiselect: cost/quality/time/sustain
-    "timeline": "1 ปี",         # project duration estimate
-    "grade": "มาตรฐาน",         # construction grade: eco/std/premium
+    "orientation": "ใต้",
+    "topography": "ราบเรียบ",
+    "adjacent": "",
+    "priority": ["งบ", "คุณภาพ"],
+    "timeline": "1 ปี",
+    "grade": "มาตรฐาน",
+    # Meta (round 3)
+    "tags": "",                 # comma-separated tags
+    "notes": "",                # architect's notes / scratch-pad
+    "client": "",               # client name (for filtering)
 }
 
 ORIENTATIONS = ["เหนือ", "ตะวันออก", "ใต้", "ตะวันตก",
@@ -967,6 +971,27 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                              help="ระดับงานก่อสร้าง")
                 c6.selectbox("Timeline", TIMELINES, key="form_timeline")
 
+            # Meta · optional · for organizing in Studio
+            with st.expander("🏷 Tags + Notes (optional)", expanded=False):
+                st.text_input(
+                    "ชื่อลูกค้า",
+                    placeholder="เช่น · คุณสมชาย",
+                    key="form_client",
+                    help="ชื่อลูกค้า · ใช้ filter ใน Studio",
+                )
+                st.text_input(
+                    "Tags",
+                    placeholder="เช่น · ไทยโมเดิร์น, passive, grade-A",
+                    key="form_tags",
+                    help="คั่นด้วย comma · ใช้ filter ใน Studio",
+                )
+                st.text_area(
+                    "Project notes",
+                    placeholder="โน้ตจากสถาปนิก · เช่น รายการปรับแต่งเพิ่ม · ความเห็นลูกค้า",
+                    height=100,
+                    key="form_notes",
+                )
+
             st.divider()
             uploaded = st.file_uploader(
                 "📎 แปลน (optional)",
@@ -1009,6 +1034,12 @@ def render_sidebar() -> tuple[str, str, str, str, dict, bytes | None]:
                 "priority": st.session_state.get("form_priority", []),
                 "grade": st.session_state.get("form_grade", "มาตรฐาน"),
                 "timeline": st.session_state.get("form_timeline", "1 ปี"),
+                # Meta
+                "client": st.session_state.get("form_client", ""),
+                "tags": [t.strip() for t in
+                         (st.session_state.get("form_tags", "") or "").split(",")
+                         if t.strip()],
+                "notes": st.session_state.get("form_notes", ""),
             }
 
         # Footer
@@ -1322,15 +1353,22 @@ _สมองจำลองของสถาปนิก · Thai Architect's S
         )
 
 
+def _pins() -> list:
+    return st.session_state.setdefault("pins", [])
+
+
 def view_studio():
     hist = st.session_state.get("history", [])
+    pins = _pins()
+    hist_by_id = {e["id"]: e for e in hist}
+    pinned = [hist_by_id[eid] for eid in pins if eid in hist_by_id]
 
-    # Clean page header (no colorful hero)
+    # Header
     st.markdown(
         '<div class="page-header">'
         '<div class="eyebrow">MY STUDIO</div>'
-        f'<h1>สตูดิโอของฉัน</h1>'
-        f'<p>งานวิเคราะห์ทั้งหมด · {len(hist)} ชิ้น · คลิก <b>เปิด</b> ดูผลอีกครั้ง</p>'
+        '<h1>สตูดิโอของฉัน</h1>'
+        f'<p>งานวิเคราะห์ · {len(hist)} · ปักหมุด · {len(pinned)} · filter/search เพื่อหาเจอง่ายขึ้น</p>'
         '</div>',
         unsafe_allow_html=True,
     )
@@ -1349,8 +1387,91 @@ def view_studio():
         )
         return
 
+    # Filter toolbar
+    all_tags = sorted({
+        t for e in hist
+        for t in (e.get("project_data", {}).get("tags") or [])
+    })
+    all_clients = sorted({
+        e.get("project_data", {}).get("client", "")
+        for e in hist
+        if e.get("project_data", {}).get("client")
+    })
+
+    fc1, fc2, fc3, fc4 = st.columns([2, 1.5, 1.5, 1.5])
+    search = fc1.text_input("🔎 ค้นหา (ชื่อ · notes)", key="studio_search",
+                             placeholder="เช่น · บ้านเดี่ยว · สมชาย")
+    feas_filter = fc2.selectbox(
+        "feasibility",
+        options=["all", "green", "yellow", "red"],
+        format_func=lambda x: {"all": "ทั้งหมด", "green": "🟢 green",
+                                "yellow": "🟡 yellow", "red": "🔴 red"}[x],
+        key="studio_feas",
+    )
+    selected_tag = fc3.selectbox(
+        "tag",
+        options=["all"] + all_tags,
+        format_func=lambda x: "ทั้งหมด" if x == "all" else f"🏷 {x}",
+        key="studio_tag",
+    ) if all_tags else "all"
+    selected_client = fc4.selectbox(
+        "ลูกค้า",
+        options=["all"] + all_clients,
+        format_func=lambda x: "ทั้งหมด" if x == "all" else f"👤 {x}",
+        key="studio_client",
+    ) if all_clients else "all"
+
+    # Filter logic
+    def passes(e):
+        pd = e.get("project_data", {})
+        if search:
+            s_lower = search.lower()
+            if (s_lower not in e.get("name", "").lower()
+                and s_lower not in (pd.get("notes") or "").lower()
+                and s_lower not in (pd.get("client") or "").lower()):
+                return False
+        if feas_filter != "all":
+            feas = (e.get("result") or {}).get("summary", {}).get("feasibility")
+            if feas != feas_filter:
+                return False
+        if selected_tag != "all":
+            if selected_tag not in (pd.get("tags") or []):
+                return False
+        if selected_client != "all":
+            if pd.get("client") != selected_client:
+                return False
+        return True
+
+    filtered = [e for e in hist if passes(e)]
+    filtered_pinned = [e for e in filtered if e["id"] in pins]
+    filtered_others = [e for e in filtered if e["id"] not in pins]
+
+    st.caption(f"แสดง {len(filtered)}/{len(hist)}")
+
+    # Render sections
+    if filtered_pinned:
+        st.markdown(
+            '<div class="eyebrow" style="margin-top:20px;">📌 PINNED</div>'
+            f'<h3 style="margin:2px 0 12px 0;">ที่ปักหมุด · {len(filtered_pinned)}</h3>',
+            unsafe_allow_html=True,
+        )
+        _render_studio_grid(filtered_pinned, "pin", pins)
+
+    if filtered_others:
+        st.markdown(
+            '<div class="eyebrow" style="margin-top:24px;">ALL DESIGNS</div>'
+            f'<h3 style="margin:2px 0 12px 0;">ผลงานทั้งหมด · {len(filtered_others)}</h3>',
+            unsafe_allow_html=True,
+        )
+        _render_studio_grid(filtered_others, "all", pins)
+
+    if not filtered:
+        st.info("ไม่เจอรายการตาม filter · ลอง clear filter")
+
+
+def _render_studio_grid(entries: list, section_key: str, pins: list):
     cols = st.columns(3)
-    for i, entry in enumerate(hist):
+    for i, entry in enumerate(entries):
         pd = entry["project_data"]
         r = entry.get("result") or {}
         s = r.get("summary") or {}
@@ -1362,12 +1483,29 @@ def view_studio():
         except Exception:
             ts = "-"
         area = pd.get("land_area", 0)
+        tags = pd.get("tags") or []
+        client = pd.get("client", "")
+        is_pinned = entry["id"] in pins
 
         with cols[i % 3]:
+            tags_html = ""
+            if tags:
+                tags_html = '<div style="margin-top:8px;">' + "".join(
+                    f'<span class="tag-pill" style="font-size:0.72em;">🏷 {t}</span>'
+                    for t in tags[:3]
+                ) + '</div>'
+            client_html = ""
+            if client:
+                client_html = (
+                    f'<div style="font-size:0.78em; color:var(--muted); margin-top:4px;">'
+                    f'👤 {client}</div>'
+                )
+            pin_icon = "📌" if is_pinned else ""
+
             st.markdown(
                 f'<div class="design-card">'
                 f'<div class="design-badge">{feas_emoji} {feas}</div>'
-                f'<div class="design-title">{entry["name"]}</div>'
+                f'<div class="design-title">{pin_icon} {entry["name"]}</div>'
                 f'<div class="design-score">{score}<small>/100</small></div>'
                 f'<div class="design-meta">'
                 f'<span>📍 {pd.get("province", "-")[:12]}</span>'
@@ -1376,26 +1514,40 @@ def view_studio():
                 f'<span class="sep">·</span>'
                 f'<span>{area:.0f} ตร.ม.</span>'
                 f'</div>'
+                f'{client_html}'
                 f'<div class="design-meta" style="margin-top:4px;">'
                 f'<span>🕐 {ts}</span>'
                 f'<span class="sep">·</span>'
                 f'<span>{entry.get("provider", "ai")}</span>'
                 f'</div>'
+                f'{tags_html}'
                 f'</div>',
                 unsafe_allow_html=True,
             )
-            c_open, c_del = st.columns([3, 1])
-            if c_open.button("เปิดดูผล", key=f"st_open_{i}_{entry['id']}",
+            c_open, c_pin, c_del = st.columns([3, 1, 1])
+            if c_open.button("เปิดดูผล", key=f"st_open_{section_key}_{i}_{entry['id']}",
                              use_container_width=True, type="primary"):
                 st.session_state["current"] = entry
                 st.session_state["_view"] = "create"
                 st.rerun()
-            if c_del.button("🗑", key=f"st_del_{i}_{entry['id']}",
+            pin_label = "✓" if is_pinned else "📍"
+            if c_pin.button(pin_label, key=f"st_pin_{section_key}_{i}_{entry['id']}",
+                            use_container_width=True,
+                            help="ปักหมุด / ยกเลิก"):
+                if is_pinned:
+                    pins.remove(entry["id"])
+                else:
+                    pins.insert(0, entry["id"])
+                st.rerun()
+            if c_del.button("🗑", key=f"st_del_{section_key}_{i}_{entry['id']}",
                             use_container_width=True,
                             help="ลบรายการนี้"):
                 st.session_state["history"] = [
-                    e for e in hist if e["id"] != entry["id"]
+                    e for e in st.session_state.get("history", [])
+                    if e["id"] != entry["id"]
                 ]
+                if entry["id"] in pins:
+                    pins.remove(entry["id"])
                 if st.session_state.get("current", {}).get("id") == entry["id"]:
                     st.session_state["current"] = None
                 st.rerun()
