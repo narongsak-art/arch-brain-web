@@ -736,6 +736,42 @@ PRESETS = {
                  "bedrooms": "2", "budget": 4.0, "fengshui": "น้อย",
                  "special": "home office 2 คน"},
     },
+    "shophouse": {
+        "label": "ห้องแถว (Shophouse)",
+        "tagline": "ค้าขายชั้นล่าง · อยู่อาศัยชั้นบน",
+        "meta": "4×16 ม. · 3-4 ชั้น · ร้านค้า + พักอาศัย · 6 ลบ.",
+        "icon": "🏪",
+        "gradient": "linear-gradient(135deg, #4a5d7e 0%, #344763 100%)",
+        "data": {"name": "ห้องแถว", "land_w": 4.0, "land_d": 16.0,
+                 "province": "กรุงเทพมหานคร", "zone": "พ.1", "street_w": 8.0,
+                 "family_size": 3, "has_elderly": "ไม่", "floors": "4+",
+                 "bedrooms": "2", "budget": 6.0, "fengshui": "ปานกลาง",
+                 "special": "ร้านค้าชั้นล่าง · โกดังเล็ก · ทางเข้าแยก · passive cool"},
+    },
+    "resort": {
+        "label": "รีสอร์ทวิลลา",
+        "tagline": "พักตากอากาศ · สระส่วนตัว",
+        "meta": "30×50 ม. · 1-2 ชั้น · 4 ห้อง + สระ · 18 ลบ.",
+        "icon": "🏝",
+        "gradient": "linear-gradient(135deg, #6b7f64 0%, #8a9b7a 100%)",
+        "data": {"name": "วิลลา", "land_w": 30.0, "land_d": 50.0,
+                 "province": "ภูเก็ต", "zone": "ย.1", "street_w": 6.0,
+                 "family_size": 4, "has_elderly": "ไม่", "floors": "1",
+                 "bedrooms": "4", "budget": 18.0, "fengshui": "น้อย",
+                 "special": "สระว่ายน้ำ · sala · open-plan · cross ventilation · garden view"},
+    },
+    "accessible": {
+        "label": "บ้านผู้สูงอายุ",
+        "tagline": "universal design · wheelchair-friendly",
+        "meta": "15×18 ม. · 1 ชั้น · 2 BR + ramp · 7 ลบ.",
+        "icon": "♿",
+        "gradient": "linear-gradient(135deg, #8a7860 0%, #6e5d48 100%)",
+        "data": {"name": "บ้านผู้สูงอายุ", "land_w": 15.0, "land_d": 18.0,
+                 "province": "นนทบุรี", "zone": "ย.3", "street_w": 6.0,
+                 "family_size": 3, "has_elderly": "ใช่", "floors": "1",
+                 "bedrooms": "2", "budget": 7.0, "fengshui": "ปานกลาง",
+                 "special": "wheelchair access ทุกห้อง · ราวจับห้องน้ำ · ramp แทนขั้น · พื้นต่างระดับ ≤ 2 ซม. · เปิดประตูใช้ knob · lever"},
+    },
 }
 
 PROVINCES = ["กรุงเทพมหานคร", "นนทบุรี", "ปทุมธานี", "สมุทรปราการ",
@@ -1152,18 +1188,16 @@ def _render_welcome_gallery():
             unsafe_allow_html=True,
         )
 
-    # Big gallery tiles · 2 rows of up to 3 cards
+    # Big gallery tiles · 2 rows of 4
     preset_items = list(PRESETS.items())
-    # Row 1: 3 cards
-    cols1 = st.columns(3)
-    for i, (key, p) in enumerate(preset_items[:3]):
+    cols1 = st.columns(4)
+    for i, (key, p) in enumerate(preset_items[:4]):
         with cols1[i]:
             _render_preset_tile(key, p, is_selected=(selected == key))
 
-    # Row 2: 2 cards (left-aligned)
-    if len(preset_items) > 3:
-        cols2 = st.columns(3)
-        for i, (key, p) in enumerate(preset_items[3:]):
+    if len(preset_items) > 4:
+        cols2 = st.columns(4)
+        for i, (key, p) in enumerate(preset_items[4:]):
             with cols2[i]:
                 _render_preset_tile(key, p, is_selected=(selected == key))
 
