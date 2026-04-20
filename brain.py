@@ -897,3 +897,621 @@ def to_markdown(data: dict) -> str:
         out.append("")
 
     return "\n".join(out)
+
+
+# ============================================================================
+# Portfolio HTML export · client-ready branded deliverable
+# ============================================================================
+
+def _html_escape(s) -> str:
+    if s is None:
+        return ""
+    s = str(s)
+    return (s.replace("&", "&amp;").replace("<", "&lt;")
+             .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def _md_inline(text: str) -> str:
+    """Simple inline MD · **bold** + `code`"""
+    import re as _re
+    text = _html_escape(text)
+    text = _re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+    text = _re.sub(r"`(.+?)`", r"<code>\1</code>", text)
+    return text
+
+
+def build_portfolio_html(pd: dict, data: dict, provider: str) -> str:
+    """Build a self-contained HTML portfolio for client presentation"""
+    import json as _json
+    from datetime import datetime as _dt
+
+    title = _html_escape(pd.get("name", "Untitled"))
+    ts = _dt.now().strftime("%d %B %Y · %H:%M")
+    provider_label = _html_escape(provider.title())
+
+    # Sections
+    s = data.get("summary") or {}
+    m = data.get("metrics") or {}
+    comp = data.get("compliance") or {}
+    layers = data.get("layers") or {}
+    rooms = data.get("rooms") or []
+    issues = data.get("issues") or []
+    strengths = data.get("strengths") or []
+    phases = data.get("phases") or {}
+    actions = data.get("actions") or []
+
+    # Site SVG
+    land_w = pd.get("land_w", 15)
+    land_d = pd.get("land_d", 20)
+    orientation = pd.get("orientation", "ใต้")
+    site_svg = _render_site_svg(
+        land_w, land_d, orientation,
+        m.get("buildable_area_sqm"),
+        m.get("land_area_sqm") or (land_w * land_d),
+    )
+
+    # Summary + key metrics hero
+    feas = s.get("feasibility", "-")
+    feas_color = {"green": "#5b7a5a", "yellow": "#c9a961", "red": "#a8432e"}.get(feas, "#c9a961")
+    feas_label_th = {"green": "ทำได้เลย", "yellow": "ระวัง", "red": "ต้องปรับ"}.get(feas, feas)
+
+    # Brief list
+    brief_items = [
+        ("ที่ดิน", f"{land_w} × {land_d} ม. ({m.get('land_area_sqm', pd.get('land_area', 0)):,.0f} ตร.ม.)"),
+        ("จังหวัด", pd.get("province", "-")),
+        ("เขต", pd.get("zone", "-")),
+        ("ทิศที่ดิน", orientation),
+        ("ภูมิประเทศ", pd.get("topography", "-")),
+        ("ครอบครัว", f"{pd.get('family_size', '-')} คน · ผู้สูงอายุ: {pd.get('has_elderly', '-')}"),
+        ("ชั้น · ห้องนอน", f"{pd.get('floors', '-')} ชั้น · {pd.get('bedrooms', '-')} ห้องนอน"),
+        ("งบประมาณ", f"{pd.get('budget', '-')} ล้านบาท"),
+        ("Grade", pd.get("grade", "-")),
+        ("Timeline", pd.get("timeline", "-")),
+        ("ลำดับความสำคัญ", ", ".join(pd.get("priority") or []) or "-"),
+        ("ฮวงจุ้ย", pd.get("fengshui", "-")),
+    ]
+    if pd.get("special"):
+        brief_items.append(("ข้อกำหนดพิเศษ", pd["special"]))
+    brief_html = "\n".join(
+        f'<div class="brief-row"><div class="k">{_html_escape(k)}</div>'
+        f'<div class="v">{_md_inline(str(v))}</div></div>'
+        for k, v in brief_items
+    )
+
+    # Metrics row
+    metric_defs = [
+        ("พื้นที่ดิน", m.get("land_area_sqm"), "ตร.ม."),
+        ("สร้างได้", m.get("buildable_area_sqm"), "ตร.ม."),
+        ("FAR allowed", m.get("far_allowed"), ""),
+        ("FAR ใช้", m.get("far_estimated"), ""),
+        ("OSR", m.get("osr_required_pct"), "%"),
+        ("ค่าก่อสร้าง", m.get("cost_mbaht"), "ลบ."),
+    ]
+    metrics_html = "".join(
+        f'<div class="metric"><div class="k">{_html_escape(k)}</div>'
+        f'<div class="v">{v if v is not None else "–"}{" " + u if u else ""}</div></div>'
+        for k, v, u in metric_defs
+    )
+
+    # Compliance
+    comp_rows = []
+    comp_labels = {
+        "building_code": "🏛 พรบ.ควบคุมอาคาร",
+        "zoning": "📋 ผังเมือง FAR/OSR",
+        "parking": "🚗 ที่จอดรถ",
+        "fire_egress": "🔥 บันไดหนีไฟ",
+        "accessibility": "♿ Universal design",
+        "energy": "🌱 ประหยัดพลังงาน",
+    }
+    for key, label in comp_labels.items():
+        c = comp.get(key) or {}
+        status = c.get("status", "-")
+        note = c.get("note", "")
+        badge_color = {"pass": "#5b7a5a", "warning": "#c9a961",
+                        "fail": "#a8432e"}.get(status, "#9c8970")
+        comp_rows.append(
+            f'<div class="comp-row">'
+            f'<div class="lab">{_html_escape(label)}</div>'
+            f'<div class="badge" style="background:{badge_color};">{_html_escape(status)}</div>'
+            f'<div class="note">{_md_inline(note)}</div>'
+            f'</div>'
+        )
+    comp_html = "\n".join(comp_rows) if comp else ""
+
+    # 5-layer
+    layer_label = {"law": "🏛 กฎหมาย", "eng": "🔧 วิศวกรรม",
+                   "design": "🎨 ออกแบบ", "thai": "🪷 วัฒนธรรมไทย",
+                   "fengshui": "☯ ฮวงจุ้ย"}
+    layers_html = ""
+    for k, lab in layer_label.items():
+        l = layers.get(k, {}) or {}
+        score = l.get("score", 0)
+        status = l.get("status", "-")
+        findings = l.get("findings", [])
+        findings_html = "\n".join(
+            f'<li><strong>{_html_escape(f.get("title", "-"))}</strong> · '
+            f'{_md_inline(f.get("detail", ""))}'
+            + (f' <em style="color:#9c8970;">[{_html_escape(f.get("citation"))}]</em>' if f.get("citation") else '')
+            + '</li>'
+            for f in findings
+        )
+        layers_html += f'''
+<div class="layer">
+  <div class="layer-head">
+    <span class="layer-name">{_html_escape(lab)}</span>
+    <span class="layer-status">{_html_escape(status)}</span>
+    <span class="layer-score">{score}/100</span>
+  </div>
+  <div class="layer-bar"><div class="layer-fill" style="width:{score}%;"></div></div>
+  <ul>{findings_html}</ul>
+</div>'''
+
+    # Rooms
+    rooms_html = ""
+    for r in rooms:
+        mn = r.get("size_min")
+        mx = r.get("size_max")
+        size = f"{mn}-{mx} ตร.ม." if (mn and mx) else "–"
+        points_html = "".join(f"<li>{_md_inline(p)}</li>"
+                                for p in r.get("points") or [])
+        notes_parts = []
+        if r.get("orientation"):
+            notes_parts.append(f'<span class="pill">🧭 {_html_escape(r["orientation"])}</span>')
+        if r.get("thai_note"):
+            notes_parts.append(f'<span class="pill">🪷 {_html_escape(r["thai_note"])}</span>')
+        if r.get("fengshui_note"):
+            notes_parts.append(f'<span class="pill">☯ {_html_escape(r["fengshui_note"])}</span>')
+        rooms_html += f'''
+<div class="room">
+  <div class="room-head">
+    <span class="room-name">{_html_escape(r.get("name", "-"))}</span>
+    <span class="room-type">{_html_escape(r.get("type", "-"))}</span>
+    <span class="room-size">{_html_escape(size)}</span>
+  </div>
+  <div class="room-pills">{"".join(notes_parts)}</div>
+  <ul>{points_html}</ul>
+</div>'''
+
+    # Issues + strengths · 2 columns
+    issues_html = "".join(
+        f'<div class="issue"><span class="rank">{i.get("rank", "-")}</span>'
+        f'<strong>{_html_escape(i.get("title", "-"))}</strong>'
+        f'<p>{_md_inline(i.get("detail", ""))}</p>'
+        + (f'<div class="action">💡 {_md_inline(i.get("action", ""))}</div>' if i.get("action") else '')
+        + '</div>'
+        for i in issues
+    )
+    strengths_html = "".join(
+        f'<div class="strength"><span class="rank">{s2.get("rank", "-")}</span>'
+        f'<strong>{_html_escape(s2.get("title", "-"))}</strong>'
+        f'<p>{_md_inline(s2.get("detail", ""))}</p>'
+        '</div>'
+        for s2 in strengths
+    )
+
+    # Phases
+    phase_order = [("SD", "🧭", "Schematic Design"),
+                   ("DD", "📐", "Design Development"),
+                   ("CD", "📑", "Construction Documents"),
+                   ("CA", "🔨", "Construction Administration")]
+    total_weeks = sum((phases.get(k, {}) or {}).get("duration_weeks", 0)
+                       for k, _, _ in phase_order)
+    phases_html = ""
+    if phases:
+        cards = []
+        for k, emoji, label in phase_order:
+            p = phases.get(k) or {}
+            weeks = p.get("duration_weeks") or 0
+            tasks_h = "".join(f"<li>{_md_inline(t)}</li>"
+                                for t in p.get("tasks") or [])
+            delivs_h = "".join(f"<li>{_md_inline(d)}</li>"
+                                 for d in p.get("deliverables") or [])
+            cards.append(f'''
+<div class="phase">
+  <div class="phase-head">
+    <span class="phase-key">{k}</span>
+    <span class="phase-label">{emoji} {_html_escape(label)}</span>
+    <span class="phase-weeks">⏱ {weeks} สัปดาห์</span>
+  </div>
+  {f"<strong>Tasks:</strong><ul>{tasks_h}</ul>" if tasks_h else ""}
+  {f"<strong>Deliverables:</strong><ul>{delivs_h}</ul>" if delivs_h else ""}
+</div>''')
+        phases_html = (
+            f'<p style="color:#6e5d48; font-size:0.95em;">'
+            f'รวมประมาณ <strong>{total_weeks} สัปดาห์</strong> '
+            f'(~{total_weeks/4.33:.1f} เดือน)</p>' + "".join(cards)
+        )
+
+    # Next actions
+    actions_rows = "".join(
+        f'<tr><td>{a.get("step", "-")}</td>'
+        f'<td>{_md_inline(a.get("action", "-"))}</td>'
+        f'<td>{_html_escape(a.get("who", "-"))}</td>'
+        f'<td>{_html_escape(a.get("when", "-"))}</td></tr>'
+        for a in actions
+    )
+
+    # ======================================================================
+    # The HTML (single self-contained file · Thai editorial · print-ready)
+    # ======================================================================
+    return f'''<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Portfolio — {title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {{
+    --cream: #fbf9f3; --sand: #f5f0e4; --border: #ebe4d2;
+    --teak: #7a4e24; --gold: #b89755; --terra: #b16a57; --sage: #6b7f64;
+    --ink: #241a11; --muted: #6e5d48; --subtle: #a89879;
+    --font-d: 'Bai Jamjuree', 'Sarabun', serif;
+    --font-b: 'Sarabun', sans-serif;
+  }}
+  * {{ box-sizing: border-box; }}
+  body {{
+    font-family: var(--font-b);
+    background: var(--cream);
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+  }}
+  .page {{ max-width: 880px; margin: 0 auto; padding: 48px 56px; }}
+
+  /* COVER PAGE */
+  .cover {{
+    min-height: 72vh;
+    padding: 64px 56px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 35%),
+      linear-gradient(135deg, var(--teak) 0%, #9a6538 55%, var(--terra) 100%);
+    color: #fff;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }}
+  .cover::before {{
+    content: ""; position: absolute; top: 0; right: 0;
+    width: 420px; height: 420px; opacity: 0.10;
+    background-image: repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 18px);
+    pointer-events: none;
+  }}
+  .cover::after {{
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 15% 25%, rgba(255,255,255,0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 85%, rgba(0,0,0,0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }}
+  .cover-eyebrow {{
+    font-family: var(--font-d); font-size: 0.92em;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    opacity: 0.82; margin-bottom: 16px; position: relative;
+  }}
+  .cover h1 {{
+    font-family: var(--font-d); font-weight: 700;
+    font-size: 3.6em; line-height: 1.08; margin: 0 0 18px 0;
+    letter-spacing: -0.025em; position: relative;
+  }}
+  .cover .subtitle {{
+    font-size: 1.2em; opacity: 0.93; max-width: 640px;
+    margin: 0 0 auto 0; position: relative; line-height: 1.5;
+  }}
+  .cover-meta {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    position: relative;
+  }}
+  .cover-meta .k {{
+    font-size: 0.72em; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.82; margin-bottom: 4px;
+  }}
+  .cover-meta .v {{
+    font-family: var(--font-d); font-weight: 600; font-size: 1.1em;
+  }}
+
+  /* SECTIONS */
+  .section {{
+    padding: 50px 56px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+  }}
+  .section:nth-child(even) {{ background: var(--cream); }}
+  .section .eyebrow {{
+    font-family: var(--font-d); color: var(--teak);
+    font-size: 0.8em; letter-spacing: 0.16em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }}
+  .section h2 {{
+    font-family: var(--font-d); font-size: 2em; font-weight: 700;
+    margin: 0 0 22px 0; color: var(--ink); letter-spacing: -0.02em;
+  }}
+  .section h3 {{
+    font-family: var(--font-d); font-size: 1.3em; font-weight: 600;
+    margin: 20px 0 10px 0;
+  }}
+
+  /* Summary hero */
+  .summary-hero {{
+    display: grid; grid-template-columns: 2fr 1fr; gap: 24px;
+    margin-top: 12px;
+  }}
+  .summary-status {{
+    background: var(--sand); border-radius: 12px; padding: 20px 24px;
+    border-left: 4px solid {feas_color};
+  }}
+  .summary-status .big-score {{
+    font-family: var(--font-d); font-size: 3.5em; font-weight: 700;
+    color: {feas_color}; line-height: 1; letter-spacing: -0.03em;
+  }}
+  .summary-status .big-score small {{
+    font-size: 0.35em; color: var(--subtle); font-weight: 400;
+    font-family: var(--font-b);
+  }}
+  .summary-status .feas-label {{
+    font-family: var(--font-d); font-size: 1.2em;
+    color: {feas_color}; font-weight: 600; margin-top: 4px;
+  }}
+
+  /* Brief */
+  .brief-grid {{
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0 28px;
+    background: var(--sand); border-radius: 12px;
+    padding: 20px 28px;
+    border: 1px solid var(--border);
+  }}
+  .brief-row {{
+    display: flex; gap: 12px; padding: 6px 0;
+    border-bottom: 1px dashed rgba(122,78,36,0.12);
+  }}
+  .brief-row:last-child {{ border-bottom: none; }}
+  .brief-row .k {{ color: var(--muted); font-weight: 600; min-width: 120px; }}
+  .brief-row .v {{ color: var(--ink); }}
+
+  /* Site plan · reuse SVG */
+  .site-container {{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }}
+
+  /* Metrics grid */
+  .metrics-grid {{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }}
+  .metric {{
+    background: var(--sand); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+  }}
+  .metric .k {{ font-size: 0.8em; color: var(--muted); margin-bottom: 4px; }}
+  .metric .v {{
+    font-family: var(--font-d); font-size: 1.3em; font-weight: 700;
+    color: var(--teak);
+  }}
+
+  /* Compliance */
+  .comp-row {{
+    display: grid; grid-template-columns: 200px 90px 1fr;
+    gap: 16px; padding: 12px 0; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }}
+  .comp-row .lab {{ font-weight: 600; }}
+  .comp-row .badge {{
+    color: #fff; padding: 3px 10px; border-radius: 6px;
+    font-size: 0.78em; text-transform: uppercase; text-align: center;
+    font-weight: 600;
+  }}
+  .comp-row .note {{ color: var(--muted); font-size: 0.92em; }}
+
+  /* 5-Layer */
+  .layer {{
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;
+  }}
+  .layer-head {{
+    display: flex; gap: 16px; align-items: center;
+    margin-bottom: 10px;
+  }}
+  .layer-name {{ font-family: var(--font-d); font-weight: 700; font-size: 1.1em; flex: 1; }}
+  .layer-status {{ color: var(--muted); font-size: 0.9em; }}
+  .layer-score {{
+    font-family: var(--font-d); color: var(--teak);
+    font-weight: 700; font-size: 1.1em;
+  }}
+  .layer-bar {{
+    height: 6px; background: var(--sand); border-radius: 3px;
+    overflow: hidden; margin-bottom: 10px;
+  }}
+  .layer-fill {{
+    height: 100%; background: linear-gradient(90deg, var(--teak), var(--gold));
+  }}
+  .layer ul {{ margin: 8px 0 0 0; padding-left: 20px; }}
+  .layer li {{ margin: 4px 0; line-height: 1.5; }}
+
+  /* Rooms */
+  .room {{
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+  }}
+  .room-head {{ display: flex; gap: 14px; align-items: baseline; margin-bottom: 6px; }}
+  .room-name {{ font-family: var(--font-d); font-weight: 700; font-size: 1.1em; }}
+  .room-type {{
+    color: var(--teak); font-size: 0.72em; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600;
+  }}
+  .room-size {{ margin-left: auto; color: var(--muted); font-weight: 500; }}
+  .room-pills {{ margin: 8px 0; }}
+  .pill {{
+    display: inline-block; background: var(--sand); color: var(--teak);
+    padding: 2px 10px; border-radius: 999px; font-size: 0.8em;
+    margin: 0 4px 4px 0; font-weight: 500;
+  }}
+  .room ul {{ margin: 6px 0 0 0; padding-left: 20px; }}
+
+  /* Issues + strengths */
+  .issues-strengths {{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }}
+  .issue, .strength {{
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px; margin-bottom: 10px;
+  }}
+  .issue {{ border-left: 3px solid var(--terra); }}
+  .strength {{ border-left: 3px solid var(--sage); }}
+  .rank {{
+    display: inline-block; background: var(--teak); color: #fff;
+    padding: 2px 8px; border-radius: 999px; font-size: 0.75em;
+    font-weight: 700; margin-right: 6px;
+  }}
+  .issue .action {{
+    background: var(--sand); border-radius: 6px; padding: 8px 12px;
+    font-size: 0.9em; color: var(--muted); margin-top: 6px;
+  }}
+
+  /* Phases */
+  .phase {{
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 10px;
+  }}
+  .phase-head {{
+    display: flex; gap: 14px; align-items: center; margin-bottom: 10px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }}
+  .phase-key {{
+    background: var(--teak); color: #fff; padding: 4px 12px;
+    border-radius: 8px; font-family: var(--font-d);
+    font-weight: 700; font-size: 0.9em; letter-spacing: 0.05em;
+  }}
+  .phase-label {{ font-family: var(--font-d); font-weight: 600; flex: 1; }}
+  .phase-weeks {{ color: var(--muted); font-size: 0.9em; }}
+  .phase ul {{ margin: 6px 0 0 0; padding-left: 20px; }}
+
+  /* Actions table */
+  table {{ width: 100%; border-collapse: collapse; margin-top: 12px; }}
+  th, td {{
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }}
+  thead th {{
+    background: var(--sand); font-family: var(--font-d);
+    font-weight: 600; font-size: 0.92em;
+  }}
+
+  /* Disclaimer */
+  .disclaimer {{
+    background: #fff8e6; border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 16px 20px; margin: 24px 0;
+    color: #6b5b1e; font-size: 0.9em; line-height: 1.55;
+  }}
+
+  /* Footer */
+  .footer {{
+    padding: 30px 56px; text-align: center; color: var(--muted);
+    font-size: 0.86em; border-top: 1px solid var(--border);
+    background: #fff;
+  }}
+
+  /* Print button · fixed top-right · hidden when printing */
+  .print-btn {{
+    position: fixed; top: 18px; right: 18px;
+    background: var(--teak); color: #fff;
+    padding: 11px 22px; border: none; border-radius: 8px;
+    font-family: var(--font-d); font-weight: 600; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 99;
+  }}
+  .print-btn:hover {{ background: #5d3a1a; }}
+
+  @media print {{
+    body {{ background: #fff; }}
+    .cover {{ page-break-after: always; }}
+    .section {{ page-break-inside: avoid; }}
+    .no-print {{ display: none !important; }}
+    .print-btn {{ display: none; }}
+  }}
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">🖨 พิมพ์ / Save PDF</button>
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cover-eyebrow">THAI RESIDENTIAL PORTFOLIO</div>
+    <h1>{title}</h1>
+    <div class="subtitle">{_html_escape(s.get("note", "วิเคราะห์โครงการโดยสมองจำลองของสถาปนิก · AI + Knowledge Graph 5 ชั้น"))}</div>
+  </div>
+  <div class="cover-meta">
+    <div><div class="k">ที่ดิน</div><div class="v">{land_w}×{land_d} ม.</div></div>
+    <div><div class="k">เขต</div><div class="v">{_html_escape(pd.get("zone", "-"))}</div></div>
+    <div><div class="k">งบ</div><div class="v">{pd.get("budget", "-")} ลบ.</div></div>
+    <div><div class="k">วันที่</div><div class="v">{ts}</div></div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <div class="eyebrow">01 · EXECUTIVE SUMMARY</div>
+  <h2>สรุปผลวิเคราะห์</h2>
+  <div class="summary-hero">
+    <div class="summary-status">
+      <div class="big-score">{s.get("score", "—")}<small>/100</small></div>
+      <div class="feas-label">{feas_label_th}</div>
+      <p style="color:var(--muted); margin:10px 0 0 0;">{_md_inline(s.get("note", ""))}</p>
+      {f'<div style="margin-top:12px; padding:10px 14px; background:#fff; border-left:3px solid var(--terra); border-radius:6px;"><strong style="color:var(--terra);">⚠ ประเด็น:</strong> {_md_inline(s.get("concern", ""))}</div>' if s.get("concern") else ""}
+      {f'<div style="margin-top:8px; padding:10px 14px; background:#fff; border-left:3px solid var(--sage); border-radius:6px;"><strong style="color:var(--sage);">⭐ จุดเด่น:</strong> {_md_inline(s.get("strength", ""))}</div>' if s.get("strength") else ""}
+    </div>
+  </div>
+</div>
+
+<!-- BRIEF + SITE -->
+<div class="section">
+  <div class="eyebrow">02 · PROJECT BRIEF</div>
+  <h2>ข้อมูลโครงการ</h2>
+  <div class="site-container">
+    <div>{site_svg}</div>
+    <div class="brief-grid">{brief_html}</div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="section">
+  <div class="eyebrow">03 · KEY METRICS</div>
+  <h2>ตัวเลขโครงการ</h2>
+  <div class="metrics-grid">{metrics_html}</div>
+</div>
+
+{"<!-- COMPLIANCE -->" + '<div class="section"><div class="eyebrow">04 · COMPLIANCE</div><h2>Compliance checklist</h2>' + comp_html + "</div>" if comp_html else ""}
+
+<!-- 5-LAYER -->
+<div class="section">
+  <div class="eyebrow">{"05" if comp_html else "04"} · 5-LAYER ANALYSIS</div>
+  <h2>วิเคราะห์ 5 ชั้นความรู้</h2>
+  {layers_html}
+</div>
+
+{"<!-- ROOMS -->" + '<div class="section"><div class="eyebrow">' + ("06" if comp_html else "05") + ' · ROOMS</div><h2>วิเคราะห์ห้อง</h2>' + rooms_html + "</div>" if rooms_html else ""}
+
+{"<!-- ISSUES + STRENGTHS -->" + '<div class="section"><div class="eyebrow">' + ("07" if comp_html else "06") + ' · FINDINGS</div><h2>ประเด็นและจุดเด่น</h2><div class="issues-strengths"><div><h3>🚨 ประเด็นที่ต้องแก้</h3>' + issues_html + '</div><div><h3>⭐ จุดเด่น</h3>' + strengths_html + '</div></div></div>' if (issues_html or strengths_html) else ""}
+
+{"<!-- PHASES -->" + '<div class="section"><div class="eyebrow">' + ("08" if comp_html else "07") + ' · DESIGN PHASES</div><h2>Phases ของโครงการ</h2>' + phases_html + "</div>" if phases_html else ""}
+
+{"<!-- NEXT ACTIONS -->" + '<div class="section"><div class="eyebrow">' + ("09" if comp_html else "08") + ' · NEXT ACTIONS</div><h2>ขั้นตอนต่อไป</h2><table><thead><tr><th>#</th><th>Action</th><th>โดย</th><th>เมื่อ</th></tr></thead><tbody>' + actions_rows + '</tbody></table></div>' if actions_rows else ""}
+
+<!-- DISCLAIMER -->
+<div class="section">
+  <div class="disclaimer">
+    <strong>⚠ Disclaimer</strong><br>
+    ผลวิเคราะห์นี้เป็นการประเมินเบื้องต้นโดย AI · <strong>ไม่แทนที่</strong>สถาปนิก/วิศวกรใบอนุญาต · การขออนุญาตก่อสร้างต้องมีลายเซ็นผู้ประกอบวิชาชีพ (พรบ.ควบคุมอาคาร 2522 ม. 49 ทวิ)
+  </div>
+</div>
+
+<div class="footer">
+  สร้างโดย สมองจำลองของสถาปนิก · Thai Architect's Studio · {ts} · Provider: {provider_label}
+</div>
+</body>
+</html>'''

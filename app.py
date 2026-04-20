@@ -1296,6 +1296,31 @@ _สมองจำลองของสถาปนิก · Thai Architect's S
         mime="text/plain", use_container_width=True,
     )
 
+    # Portfolio export · client-ready HTML (for print-to-PDF)
+    if data:
+        st.markdown(
+            '<div style="margin-top:20px; padding:16px 20px; '
+            'background:linear-gradient(135deg, var(--teak-soft), #fff); '
+            'border:1px solid var(--border-strong); border-radius:var(--radius); '
+            'display:flex; align-items:center; gap:16px;">'
+            '<div style="font-size:1.8em;">📑</div>'
+            '<div style="flex:1;">'
+            '<strong style="font-family:var(--font-display); font-size:1.05em;">Portfolio · สำหรับลูกค้า</strong>'
+            '<div style="color:var(--muted); font-size:0.88em;">'
+            'HTML deliverable ครบทุก section + cover · พิมพ์เป็น PDF ได้เลย</div>'
+            '</div></div>',
+            unsafe_allow_html=True,
+        )
+        portfolio_html = brain.build_portfolio_html(pd, data, provider)
+        st.download_button(
+            "📑 ดาวน์โหลด Portfolio (HTML)",
+            portfolio_html,
+            file_name=f"portfolio-{pd['name']}-{ts}.html",
+            mime="text/html",
+            use_container_width=True,
+            type="primary",
+        )
+
 
 def view_studio():
     hist = st.session_state.get("history", [])
